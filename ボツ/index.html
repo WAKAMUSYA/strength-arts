@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trainer Prep Hub</title>
+    <style>
+        :root {
+            color-scheme: light;
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            color: #111827;
+            background: #f7fafc;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            line-height: 1.7;
+        }
+        header {
+            background: linear-gradient(135deg, #0f172a 0%, #1d4ed8 100%);
+            color: white;
+            padding: 20px 24px;
+            position: sticky;
+            top: 0;
+            z-index: 20;
+        }
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 600;
+        }
+        nav a:hover {
+            color: #dbeafe;
+        }
+        .hero {
+            background: linear-gradient(180deg, rgba(15,23,42,0.92), rgba(15,23,42,0.92)), url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1400&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 24px 80px;
+            position: relative;
+        }
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.55);
+        }
+        .hero > * {
+            position: relative;
+            z-index: 1;
+        }
+        .hero h1 {
+            margin: 0;
+            font-size: clamp(2.6rem, 5vw, 4.4rem);
+            letter-spacing: 0.04em;
+        }
+        .hero p {
+            max-width: 760px;
+            margin: 26px auto 0;
+            font-size: 1.1rem;
+            color: #dbeafe;
+        }
+        .hero .cta {
+            display: inline-block;
+            margin-top: 32px;
+            background: #38bdf8;
+            color: #0f172a;
+            padding: 16px 32px;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 700;
+        }
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 48px 24px 80px;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+        .section-title h2 {
+            margin: 0;
+            font-size: 2.2rem;
+        }
+        .section-title p {
+            color: #475569;
+            max-width: 760px;
+            margin: 16px auto 0;
+        }
+        .grid {
+            display: grid;
+            gap: 22px;
+        }
+        .cards-3 {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+        .cards-2 {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .card {
+            background: white;
+            border-radius: 24px;
+            padding: 28px;
+            box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+        }
+        .card h3 {
+            margin-top: 0;
+            font-size: 1.35rem;
+        }
+        .card p,
+        .card li {
+            color: #475569;
+            margin: 14px 0 0;
+        }
+        .card ul {
+            padding-left: 18px;
+            margin: 14px 0 0;
+        }
+        .feature-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            gap: 16px;
+        }
+        .feature-list li {
+            background: #ffffff;
+            padding: 20px 22px;
+            border-radius: 18px;
+            border: 1px solid #e2e8f0;
+        }
+        .feature-list li strong {
+            display: block;
+            margin-bottom: 8px;
+        }
+        .quiz-card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 28px;
+            box-shadow: 0 22px 55px rgba(15, 23, 42, 0.08);
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .question h3 {
+            margin: 0 0 14px;
+            font-size: 1.15rem;
+        }
+        .answers label {
+            display: block;
+            margin-bottom: 10px;
+            cursor: pointer;
+            color: #334155;
+        }
+        .answers input {
+            margin-right: 10px;
+        }
+        .button {
+            border: none;
+            background: #2563eb;
+            color: white;
+            padding: 14px 26px;
+            border-radius: 999px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        .result {
+            margin-top: 22px;
+            padding: 18px 20px;
+            border-radius: 18px;
+            background: #e0f2fe;
+            color: #0f172a;
+        }
+        .info-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 26px;
+        }
+        footer {
+            background: #0f172a;
+            color: #cbd5e1;
+            text-align: center;
+            padding: 28px 24px;
+        }
+        footer p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+        @media (max-width: 960px) {
+            .cards-3,
+            .cards-2,
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 680px) {
+            nav a {
+                margin-left: 0;
+            }
+            .hero {
+                padding: 72px 18px 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="nav-inner">
+        <div class="logo">TRAINER PREP HUB</div>
+        <nav>
+            <a href="#about">ABOUT</a>
+            <a href="#exam">EXAM</a>
+            <a href="#quiz">QUIZ</a>
+            <a href="questions.html">QUESTIONS</a>
+            <a href="#resources">RESOURCES</a>
+            <a href="#contact">CONTACT</a>
+            <a href="about.html">ABOUT PAGE</a>
+        </nav>
+    </div>
+</header>
+<section class="hero">
+    <h1>トレーナーを目指す人のための学びの場所</h1>
+    <p>NSCA-CPT / CSCS などの資格試験対策を想定した知識と問題演習を提供します。現場で使える理解を深めながら、合格力を高めましょう。</p>
+    <a class="cta" href="#quiz">演習問題に挑戦</a>
+</section>
+<div class="container">
+    <section id="about" class="section-title">
+        <h2>ABOUT</h2>
+        <p>このサイトは、トレーナーを目指す人が学習の基礎を固め、試験対策として問題を解く習慣をつけるための学習ハブです。</p>
+    </section>
+
+    <div class="grid cards-3">
+        <div class="card">
+            <h3>NSCA-CPT 対策</h3>
+            <p>運動生理学、運動評価、トレーニングプログラム設計、栄養などの基礎をしっかり整理します。</p>
+        </div>
+        <div class="card">
+            <h3>CSCS 対策</h3>
+            <p>アスリート向けのパフォーマンス向上、バイオメカニクス、リカバリー戦略を学べる教材を用意します。</p>
+        </div>
+        <div class="card">
+            <h3>問題演習</h3>
+            <p>実際に問題を解いてフィードバックを確認。学んだ内容をすぐに確認できます。</p>
+        </div>
+    </div>
+
+    <section id="exam" class="section-title">
+        <h2>EXAM PREP</h2>
+        <p>試験対策のポイントは「知識の理解」と「演習の反復」。このサイトでは、その両方をバランスよくサポートします。</p>
+    </section>
+
+    <div class="grid info-grid">
+        <div class="card">
+            <h3>重要分野</h3>
+            <ul>
+                <li>運動生理学</li>
+                <li>解剖学・生体力学</li>
+                <li>トレーニングプログラム設計</li>
+                <li>栄養とリカバリー</li>
+                <li>安全管理と評価</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>学習の進め方</h3>
+            <ul>
+                <li>インプット：用語と原理を丁寧に整理する</li>
+                <li>アウトプット：問題を解いて解説を確認する</li>
+                <li>継続：毎日少しずつ復習して記憶を定着する</li>
+            </ul>
+        </div>
+    </div>
+
+    <section id="quiz" class="section-title">
+        <h2>QUIZ</h2>
+        <p>練習問題に挑戦して、今の理解度をチェックしましょう。正答と解説は回答後に確認できます。</p>
+    </section>
+
+    <div class="quiz-card">
+        <div class="question">
+            <h3>Q1. 筋力トレーニングで「超回復」が起こるのは、次のうちどれですか？</h3>
+            <div class="answers">
+                <label><input type="radio" name="q1" value="a"> トレーニング直後に最大筋力が上がる</label>
+                <label><input type="radio" name="q1" value="b"> 休息と栄養で筋力が回復し、前より強くなる</label>
+                <label><input type="radio" name="q1" value="c"> 筋肉痛がなくなる状態</label>
+            </div>
+        </div>
+        <div class="question">
+            <h3>Q2. CSCSのパフォーマンス評価で最も重要な項目はどれですか？</h3>
+            <div class="answers">
+                <label><input type="radio" name="q2" value="a"> 1RMテストのみ</label>
+                <label><input type="radio" name="q2" value="b"> 選手の競技特性と目的に沿った評価</label>
+                <label><input type="radio" name="q2" value="c"> 体脂肪率測定だけ</label>
+            </div>
+        </div>
+        <div class="question">
+            <h3>Q3. NSCA-CPTにおけるクライアントの健康リスク評価で確認するのはどれですか？</h3>
+            <div class="answers">
+                <label><input type="radio" name="q3" value="a"> 心疾患の既往歴や運動習慣</label>
+                <label><input type="radio" name="q3" value="b"> 好きな筋トレ種目</label>
+                <label><input type="radio" name="q3" value="c"> ジムの利用料金</label>
+            </div>
+        </div>
+        <button class="button" onclick="checkQuiz()">回答をチェック</button>
+        <div id="quizResult" class="result" style="display:none;"></div>
+    </div>
+
+    <section id="resources" class="section-title">
+        <h2>RESOURCES</h2>
+        <p>学習を進めるための参考資料や演習のヒントを掲載します。</p>
+    </section>
+
+    <div class="grid cards-2">
+        <div class="card">
+            <h3>書籍・ガイド</h3>
+            <p>NSCAの教科書、CSCS公式教材、運動生理学の定番テキストを紹介します。</p>
+        </div>
+        <div class="card">
+            <h3>学習のコツ</h3>
+            <ul>
+                <li>重要用語はフラッシュカードで暗記する</li>
+                <li>問題を解いた後に解説まで理解する</li>
+                <li>実務経験と学習を並行して進める</li>
+            </ul>
+        </div>
+    </div>
+
+    <section id="contact" class="section-title">
+        <h2>CONTACT</h2>
+        <p>ご質問や教材のリクエストがあればこちらからどうぞ。</p>
+    </section>
+
+    <div class="card">
+        <h3>お問い合わせ</h3>
+        <p>メールやSNSでの相談を受け付けています。試験対策に関するリクエストも歓迎です。</p>
+        <p>Email: trainerprephub@example.com</p>
+    </div>
+</div>
+<footer>
+    <p>© 2026 Trainer Prep Hub</p>
+</footer>
+<script>
+function checkQuiz() {
+    const answers = {
+        q1: 'b',
+        q2: 'b',
+        q3: 'a'
+    };
+    let score = 0;
+    let message = '';
+    for (const key in answers) {
+        const selected = document.querySelector(`input[name="${key}"]:checked`);
+        if (selected && selected.value === answers[key]) {
+            score += 1;
+        }
+    }
+    if (score === 3) {
+        message = '素晴らしい！全問正解です。試験対策の調子が良いですね。';
+    } else if (score === 2) {
+        message = 'あと一歩です。解説を読みながら知識を整理しましょう。';
+    } else if (score === 1) {
+        message = '基本知識はあるので、弱点分野をもう一度確認しましょう。';
+    } else {
+        message = 'よいスタートです。反復学習で理解を深めていきましょう。';
+    }
+    const explanations = [
+        'Q1 正解 b: 超回復とは、休息と栄養によって筋力や筋量がトレーニング前より向上するプロセスです。',
+        'Q2 正解 b: CSCS では、選手の競技特性と目的に合わせた評価が最も重要です。',
+        'Q3 正解 a: NSCA-CPT でのリスク評価には、心疾患の既往歴や運動習慣の確認が含まれます。'
+    ];
+    document.getElementById('quizResult').style.display = 'block';
+    document.getElementById('quizResult').innerHTML = `<strong>得点: ${score}/3</strong><p>${message}</p><p>${explanations.join('<br>')}</p>`;
+}
+</script>
+</body>
+</html>

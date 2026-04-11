@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trainer Prep Hub - Questions</title>
+    <style>
+        :root {
+            color-scheme: light;
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            color: #111827;
+            background: #f7fafc;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            line-height: 1.7;
+        }
+        header {
+            background: linear-gradient(135deg, #0f172a 0%, #1d4ed8 100%);
+            color: white;
+            padding: 20px 24px;
+            position: sticky;
+            top: 0;
+            z-index: 20;
+        }
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 600;
+        }
+        .hero {
+            background: linear-gradient(180deg, rgba(15,23,42,0.92), rgba(15,23,42,0.92)), url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=1400&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 88px 24px 70px;
+            position: relative;
+        }
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.55);
+        }
+        .hero > * {
+            position: relative;
+            z-index: 1;
+        }
+        .hero h1 {
+            margin: 0;
+            font-size: clamp(2.4rem, 5vw, 4rem);
+            letter-spacing: 0.04em;
+        }
+        .hero p {
+            max-width: 760px;
+            margin: 24px auto 0;
+            font-size: 1.05rem;
+            color: #dbeafe;
+        }
+        .container {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 44px 24px 80px;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+        .section-title h2 {
+            margin: 0;
+            font-size: 2.1rem;
+        }
+        .section-title p {
+            color: #475569;
+            max-width: 740px;
+            margin: 16px auto 0;
+        }
+        .question-card {
+            background: white;
+            border-radius: 24px;
+            padding: 28px;
+            box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+            margin-bottom: 24px;
+        }
+        .question-card h3 {
+            margin-top: 0;
+            font-size: 1.2rem;
+            color: #1e293b;
+        }
+        .options {
+            margin: 16px 0;
+        }
+        .options label {
+            display: block;
+            margin-bottom: 8px;
+            color: #475569;
+        }
+        .answer {
+            margin-top: 16px;
+            padding: 16px;
+            border-radius: 12px;
+            background: #e0f2fe;
+            color: #0f172a;
+            display: none;
+        }
+        .show-answer {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 999px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .show-answer:hover {
+            background: #1d4ed8;
+        }
+        footer {
+            background: #0f172a;
+            color: #cbd5e1;
+            text-align: center;
+            padding: 28px 24px;
+        }
+        footer p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+        @media (max-width: 680px) {
+            nav a {
+                margin-left: 0;
+            }
+            .hero {
+                padding: 72px 18px 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="nav-inner">
+        <div class="logo">TRAINER PREP HUB</div>
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="about.html">ABOUT</a>
+            <a href="index.html#exam">EXAM</a>
+            <a href="index.html#quiz">QUIZ</a>
+            <a href="questions.html">QUESTIONS</a>
+            <a href="index.html#resources">RESOURCES</a>
+            <a href="index.html#contact">CONTACT</a>
+        </nav>
+    </div>
+</header>
+<section class="hero">
+    <h1>無料問題集</h1>
+    <p>NSCA-CPT / CSCS 試験対策のためのオリジナル問題30問。解いて答えを確認しながら学習を進めましょう。</p>
+</section>
+<div class="container">
+    <section class="section-title">
+        <h2>試験対策問題集</h2>
+        <p>各問題の答えは「答えを表示」ボタンで確認できます。解説を読みながら理解を深めてください。</p>
+    </section>
+
+    <div class="question-card">
+        <h3>問題1: 肩関節の外転を主に行う筋はどれか。</h3>
+        <div class="options">
+            <label>A. 大胸筋</label>
+            <label>B. 三角筋中部</label>
+            <label>C. 広背筋</label>
+        </div>
+        <button class="show-answer" onclick="toggleAnswer(1)">答えを表示</button>
+        <div id="answer1" class="answer">答え: B. 三角筋中部</div>
+    </div>
+
+    <div class="question-card">
+        <h3>問題2: 股関節伸展の主働筋はどれか。</h3>
+        <div class="options">
+            <label>A. 大臀筋</label>
+            <label>B. 腸腰筋</label>
+            <label>C. 内転筋</label>
+        </div>
+        <button class="show-answer" onclick="toggleAnswer(2)">答えを表示</button>
+        <div id="answer2" class="answer">答え: A. 大臀筋</div>
+    </div>
+
+    <div class="question-card">
+        <h3>問題3: 上腕二頭筋の主な作用はどれか。</h3>
+        <div class="options">
+            <label>A. 肘伸展</label>
+            <label>B. 肘屈曲</label>
+            <label>C. 手関節屈曲</label>
+        </div>
+        <button class="show-answer" onclick="toggleAnswer(3)">答えを表示</button>
+        <div id="answer3" class="answer">答え: B. 肘屈曲</div>
+    </div>
+
+    <div class="question-card">
+        <h3>問題4: 速筋線維の特徴として正しいのはどれか。</h3>
+        <div class="options">
+            <label>A. 疲労しにくい</label>
+            <label>B. 収縮が速い</label>
+            <label>C. ミトコンドリアが多い</label>
+        </div>
+        <button class="show-answer" onclick="toggleAnswer(4)">答えを表示</button>
+        <div id="answer4" class="answer">答え: B. 収縮が速い</div>
+    </div>
+
+    <div class="question-card">
+        <h3>問題5: 遅筋線維が多い競技者の特徴はどれか。</h3>
+        <div class="options">
+            <label>A. 高い瞬発力</label>
+            <label>B. 高い持久力</label>
+            <label>C. 高い最大筋力</label>
+        </div>
+        <button class="show-answer" onclick="toggleAnswer(5)">答えを表示</button>
+        <div id="answer5" class="answer">答え: B. 高い持久力</div>
+    </div>
+
+    <div class="question-card">
+        <h3>問題6: 呼吸筋として最も重要なのはどれか。</h3>
+        <div class="options">
+            <label>A. 腹直筋</label>
+            <label>B. 横隔膜</label>
+            <label>C. 広背筋</label>
+        </div>
+        <button class="show-answer" onclick="toggleAnswer(6)">答えを表示</button>
+        <div id="answer6" class="answer">答え: B. 横隔膜</div>
+    </div>
+
+    <div class="question-card">
+        <h3>問題7: 乳酸が多く産生される状況はどれか。</h3>
+        <div class="options">
+            <label>A. 低強度運動</label>
+            <label>B. 高強度運動</label>
+            <label>C. 安静時</label>
+        </div>
+        <button class="show-answer" onclick="toggleAnswer(7)">答えを表示</button>
+        <div id="answer7" class="answer">答え: B. 高強度運動</div>
+    </div>
+
+    <div class="question-card">
+        <h3>問題8: 筋肥大に最適なレップ範囲はどれか。</h3>
+        <div class="options">
+            <label>A. 1〜3回</label>
+            <label>B. 8〜15回</label>
+            <label>C. 30〜50回</label>
+        </div>
+        <button class="show-answer" onclick="toggleAnswer(8)">答えを表示</button>
+        <div id="answer8" class="answer">答え: B. 8〜15回</div>
+    </div>
+
+    <div class="question-card">
+        <h3>問題9: 最大筋力向上に最適な休息時間はどれか。</h3>
+        <div class="options">
+            <label>A. 30秒</label>
+            <label>B. 60秒</label>
+            <label>C. 2〜5分</label>
+        </div>
+        <button class="show-answer" onclick="toggleAnswer(9)">答えを表示</button>
+        <div id="answer9" class="answer">答え: C. 2〜5分</div>
+    </div>
+
+    <div class="question-card">
+        <h3>問題10: 筋肥大に最も重要な刺激はどれか。</h3>
+        <div class="options">
+            <label>A. 速度</label>
+            <label>B. メカニカルテンション</label>
+            <label>C. 心拍数</label>
+        </div>
+        <button class="show-answer" onclick="toggleAnswer(10)">答えを表示</button>
+        <div id="answer10" class="answer">答え: B. メカニカルテンション</div>
+    </div>
+
+    <div class="question-card">
+        <h3>問題11: トレーニングの原則で「徐々に負荷を増やす」ことを何というか。</h3>
+        <div class="options">
+            <label>A. 特異性の原則</label>
+            <label>B. 漸進性の原則</label>
+            <label>C. 可逆性の原則</label>
+        </div>
+        <button class="show-answer" onclick="toggleAnswer(11)">答えを表示</button>
+        <div id="answer11" class="answer">答え: B. 漸進性の原則</div>
+    </div>
+
+    <div class="question-card">
+        <h3>問題12: トレーニングを休むと能力が低下することを何というか。</h3>
+        <div class="options">
+            <label>A. 可逆性</label>
+            <label>B. 超回復</label>
+            <label>C. 特異性</label>
+        </div>
+        <button class="show-answer" onclick="toggleAnswer(12)">答えを表示</button>
+        <div id="answer12" class="answer">答え: A. 可逆性</div>
+    </div>
+
+    <div class="question-card">
+        <h3>問題13: スクワットで膝が内側に入る原因として最も考えられるのはどれか。</h3>
+        <div class="options">
+            <label>A. 中殿筋の弱化</label>
+            <label>B. 大胸筋の弱化</label>
+            <label>C. 上腕三頭筋の弱化</label>
+        </div>
+        <button class="show-answer" onclick="toggleAnswer(13)">答えを表示</button>
+        <div id="answer13" class="answer">答え: A. 中殿筋の弱化</div>
+    </div>
+
+    <div class="question-card">
+        <h3>問題14: デッドリフトで最も重要なポイントはどれか。</h3>
+        <div class="options">
+            <label>A. 背中を丸める</label>
+            <label>B. 背中をまっすぐ保つ</label>
+            <label>C. つま先を浮かせる</label>
+        </div>
+        <button class="show-answer" onclick="toggleAnswer(14)">答えを表示</button>
+        <div id="answer14" class="answer">答え: B. 背中をまっすぐ保つ</div>
+    </div>
+
+    <div class="question-card">
+        <h3>問題15: ラットプルダウンで意識すべき筋はどれか。</h3>
+        <div class="options">
+            <label>A. 広背筋</label>
+            <label>B. 大腿四頭筋</label>
+            <label>C. 腹直筋</label>
+        </div>
+        <button class="show-answer" onclick="toggleAnswer(15)">答えを表示</button>
+        <div id="answer15" class="answer">答え: A. 広背筋</div>
+    </div>
+
+    <div class="question-card">
+        <h3>問題16: プランクで主に鍛えられるのはどれか。</h3>
+        <div class="options">
+            <label>A. 上腕三頭筋</label>
+            <label>B. 体幹</label>
+            <label>C. 大腿四頭筋</label>
+        </div>
+        <button class="show-answer" onclick="toggleAnswer(16)">答えを表示</button>
+        <div id="answer16" class="answer">答え: B. 体幹</div>
+    </div>
+
+    <div class="question-card">
+        <h3>問題17: ヒップヒンジ動作で重要なのはどれか。</h3>
+        <div class="options">
+            <label>A. 膝を深く曲げる</label>
+            <label>B. 股関節を折りたたむ</label>
+            <label>C. 背中を丸める</label>
+        </div>
+        <button class="show-answer" onclick="toggleAnswer(17)">答えを表示</button>
+        <div id="answer17" class="answer">答え: B. 股関節を折りたたむ</div>
+    </div>
+
+    <div class="question-card">
+        <h3>問題18: カーフレイズで鍛えられる筋はどれか。</h3>
+        <div class="options">
+            <label>A. 腓腹筋</label>
+            <label>B. 大胸筋</label>
+            <label>C. 三角筋</label>
+        </div>
+        <button class="show-answer" onclick="toggleAnswer(18)">答えを表示</button>
+        <div id="answer18" class="answer">答え: A. 腓腹筋</div>
+    </div>
+
+    <div class="question-card">
+        <h3>問題19: フロントスクワットの特徴はどれか。</h3>
+        <div class="options">
+            <label>A. 体幹の負荷が小さい</label>
+            <label>B. 大腿四頭筋の関与が大きい</label>
+            <label>C. 股関節主導の動作</label>
+        </div>
+        <button class="show-answer" onclick="toggleAnswer(19)">答えを表示</button>
+        <div id="answer19" class="answer">答え: B. 大腿四頭筋の関与が大きい</div>
+    </div>
+
+    <div class="question-card">
+        <h3>問題20: デッドリフトで最も使われる筋群はどれか。</h3>
+        <div class="options">
+            <label>A. 体幹</label>
+            <label>B. 下半身後面</label>
+            <label>C. 上腕</label>
+        </div>
+        <button class="show-answer" onclick="toggleAnswer(20)">答えを表示</button>
+        <div id="answer20" class="answer">答え: B. 下半身後面</div>
+    </div>
+
+    <div class="question-card">
+        <h3>問題21: 筋肥大に最も重要な栄養素はどれか。</h3>
+        <div class="options">
+            <label>A. 脂質</label>
+            <label>B. タンパク質</label>
+            <label>C. ビタミン</label>
+        </div>
+        <button class="show-answer" onclick="toggleAnswer(21)">答えを表示</button>
+        <div id="answer21" class="answer">答え: B. タンパク質</div>
+    </div>
+
+    <div class="question-card">
+        <h3>問題22: タンパク質の推奨摂取量（筋肥大目的）はどれか。</h3>
+        <div class="options">
+            <label>A. 0.8g/kg</label>
+            <label>B. 1.6〜2.2g/kg</label>
+            <label>C. 4g/kg</label>
+        </div>
+        <button class="show-answer" onclick="toggleAnswer(22)">答えを表示</button>
+        <div id="answer22" class="answer">答え: B. 1.6〜2.2g/kg</div>
+    </div>
+
+    <div class="question-card">
+        <h3>問題23: クレアチンの主な効果はどれか。</h3>
+        <div class="options">
+            <label>A. 持久力向上</label>
+            <label>B. 瞬発力向上</label>
+            <label>C. 脂肪燃焼</label>
+        </div>
+        <button class="show-answer" onclick="toggleAnswer(23)">答えを表示</button>
+        <div id="answer23" class="answer">答え: B. 瞬発力向上</div>
+    </div>
+
+    <div class="question-card">
+        <h3>問題24: 炭水化物の役割として正しいのはどれか。</h3>
+        <div class="options">
+            <label>A. 筋肉の材料</label>
+            <label>B. エネルギー源</label>
+            <label>C. ホルモンの材料</label>
+        </div>
+        <button class="show-answer" onclick="toggleAnswer(24)">答えを表示</button>
+        <div id="answer24" class="answer">答え: B. エネルギー源</div>
+    </div>
+
+    <div class="question-card">
+        <h3>問題25: 水分不足が引き起こすのはどれか。</h3>
+        <div class="options">
+            <label>A. パフォーマンス向上</label>
+            <label>B. パフォーマンス低下</label>
+            <label>C. 体温低下</label>
+        </div>
+        <button class="show-answer" onclick="toggleAnswer(25)">答えを表示</button>
+        <div id="answer25" class="answer">答え: B. パフォーマンス低下</div>
+    </div>
+
+    <div class="question-card">
+        <h3>問題26: ビタミンDの主な役割はどれか。</h3>
+        <div class="options">
+            <label>A. 筋肉の収縮</label>
+            <label>B. 骨の健康</label>
+            <label>C. 血液凝固</label>
+        </div>
+        <button class="show-answer" onclick="toggleAnswer(26)">答えを表示</button>
+        <div id="answer26" class="answer">答え: B. 骨の健康</div>
+    </div>
+
+    <div class="question-card">
+        <h3>問題27: カフェインの効果として正しいのはどれか。</h3>
+        <div class="options">
+            <label>A. 筋肥大</label>
+            <label>B. 覚醒作用</label>
+            <label>C. 血圧上昇</label>
+        </div>
+        <button class="show-answer" onclick="toggleAnswer(27)">答えを表示</button>
+        <div id="answer27" class="answer">答え: B. 覚醒作用</div>
+    </div>
+
+    <div class="question-card">
+        <h3>問題28: 食物繊維の役割はどれか。</h3>
+        <div class="options">
+            <label>A. 筋肥大</label>
+            <label>B. 消化の改善</label>
+            <label>C. 血圧上昇</label>
+        </div>
+        <button class="show-answer" onclick="toggleAnswer(28)">答えを表示</button>
+        <div id="answer28" class="answer">答え: B. 消化の改善</div>
+    </div>
+
+    <div class="question-card">
+        <h3>問題29: 脂質の役割として正しいのはどれか。</h3>
+        <div class="options">
+            <label>A. 筋肉の材料</label>
+            <label>B. 血液の材料</label>
+            <label>C. ホルモンの材料</label>
+        </div>
+        <button class="show-answer" onclick="toggleAnswer(29)">答えを表示</button>
+        <div id="answer29" class="answer">答え: C. ホルモンの材料</div>
+    </div>
+
+    <div class="question-card">
+        <h3>問題30: 糖質の摂取が不足すると起こるのはどれか。</h3>
+        <div class="options">
+            <label>A. パフォーマンス向上</label>
+            <label>B. パフォーマンス低下</label>
+            <label>C. 心拍数低下</label>
+        </div>
+        <button class="show-answer" onclick="toggleAnswer(30)">答えを表示</button>
+        <div id="answer30" class="answer">答え: B. パフォーマンス低下</div>
+    </div>
+</div>
+<footer>
+    <p>© 2026 Trainer Prep Hub</p>
+</footer>
+<script>
+function toggleAnswer(num) {
+    const answer = document.getElementById('answer' + num);
+    if (answer.style.display === 'none' || answer.style.display === '') {
+        answer.style.display = 'block';
+    } else {
+        answer.style.display = 'none';
+    }
+}
+</script>
+</body>
+</html>

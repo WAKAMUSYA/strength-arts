@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trainer Prep Hub - ABOUT</title>
+    <style>
+        :root {
+            color-scheme: light;
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            color: #111827;
+            background: #f7fafc;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            line-height: 1.7;
+        }
+        header {
+            background: linear-gradient(135deg, #0f172a 0%, #1d4ed8 100%);
+            color: white;
+            padding: 20px 24px;
+            position: sticky;
+            top: 0;
+            z-index: 20;
+        }
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 600;
+        }
+        .hero {
+            background: linear-gradient(180deg, rgba(15,23,42,0.92), rgba(15,23,42,0.92)), url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1400&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 88px 24px 70px;
+            position: relative;
+        }
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.55);
+        }
+        .hero > * {
+            position: relative;
+            z-index: 1;
+        }
+        .hero h1 {
+            margin: 0;
+            font-size: clamp(2.4rem, 5vw, 4rem);
+            letter-spacing: 0.04em;
+        }
+        .hero p {
+            max-width: 760px;
+            margin: 24px auto 0;
+            font-size: 1.05rem;
+            color: #dbeafe;
+        }
+        .hero .cta {
+            display: inline-block;
+            margin-top: 28px;
+            background: #38bdf8;
+            color: #0f172a;
+            padding: 16px 30px;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 700;
+        }
+        .container {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 44px 24px 80px;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+        .section-title h2 {
+            margin: 0;
+            font-size: 2.1rem;
+        }
+        .section-title p {
+            color: #475569;
+            max-width: 740px;
+            margin: 16px auto 0;
+        }
+        .grid {
+            display: grid;
+            gap: 22px;
+        }
+        .cards-2 {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .card {
+            background: white;
+            border-radius: 24px;
+            padding: 28px;
+            box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+        }
+        .card h3 {
+            margin-top: 0;
+            font-size: 1.35rem;
+        }
+        .card p,
+        .card li {
+            color: #475569;
+            margin: 14px 0 0;
+        }
+        .card ul {
+            padding-left: 18px;
+            margin: 14px 0 0;
+        }
+        .about-grid {
+            grid-template-columns: 1.6fr 1fr;
+            align-items: center;
+        }
+        .about-image {
+            width: 100%;
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12);
+        }
+        .about-image img {
+            width: 100%;
+            display: block;
+        }
+        .highlight {
+            color: #2563eb;
+        }
+        .cta-block {
+            background: #0f172a;
+            color: white;
+            padding: 36px 30px;
+            border-radius: 22px;
+            text-align: center;
+            margin-top: 38px;
+        }
+        .cta-block a {
+            display: inline-block;
+            margin-top: 20px;
+            background: #38bdf8;
+            color: #0f172a;
+            padding: 14px 28px;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 700;
+        }
+        footer {
+            background: #0f172a;
+            color: #cbd5e1;
+            text-align: center;
+            padding: 28px 24px;
+        }
+        footer p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+        @media (max-width: 900px) {
+            .about-grid,
+            .cards-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="nav-inner">
+        <div class="logo">TRAINER PREP HUB</div>
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="about.html">ABOUT</a>
+            <a href="index.html#exam">EXAM</a>
+            <a href="index.html#quiz">QUIZ</a>
+            <a href="index.html#resources">RESOURCES</a>
+            <a href="index.html#contact">CONTACT</a>
+        </nav>
+    </div>
+</header>
+<section class="hero">
+    <h1>試験合格を目指すトレーナーの学びの場</h1>
+    <p>NSCA-CPT / CSCS などの資格取得に役立つ知識と、理解を深める問題演習を提供します。実践に使える力を養うことを重視しています。</p>
+    <a class="cta" href="index.html#quiz">演習問題に挑戦</a>
+</section>
+<div class="container">
+    <section class="section-title">
+        <h2>サイトの目的</h2>
+        <p>このサイトはトレーナーを目指す人が、資格試験の学習を継続できるように設計されています。試験範囲に沿った知識と演習を同時に進めましょう。</p>
+    </section>
+
+    <div class="grid about-grid">
+        <div>
+            <p>資格取得には、暗記だけでなく「なぜそうなるのか」を理解することが大事です。本サイトでは、運動生理学や解剖学、トレーニング設計などの基礎知識を整理し、問題演習と連動させます。</p>
+            <ul class="feature-list">
+                <li><strong>合格を目指す学習設計</strong> NSCA-CPT / CSCS の出題傾向を意識したコンテンツ。</li>
+                <li><strong>問題演習で実践力を強化</strong> すぐに解答を確認できる演習形式で定着を促します。</li>
+                <li><strong>現場で使える理解</strong> アスリートと一般クライアントの両方に対応できる知識を提供します。</li>
+            </ul>
+        </div>
+        <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1526401485004-5b6ce2f0f3de?auto=format&fit=crop&w=900&q=80" alt="学習するトレーナー">
+        </div>
+    </div>
+
+    <section class="section-title">
+        <h2>NSCA-CPT / CSCS とは</h2>
+        <p>NSCA-CPT は一般向けのパーソナルトレーナー資格、CSCS は競技力向上を目的としたストレングス＆コンディショニングスペシャリスト資格です。</p>
+    </section>
+
+    <div class="grid cards-2">
+        <div class="card">
+            <h3>NSCA-CPT</h3>
+            <p>運動評価、プログラム設計、クライアントの健康リスク評価、栄養基礎など、一般向けトレーナーとして必要な基本知識を問います。</p>
+        </div>
+        <div class="card">
+            <h3>CSCS</h3>
+            <p>アスリートのパフォーマンス向上に特化した専門知識を問います。バイオメカニクス、スポーツ栄養、リカバリー、トレーニング理論が中心です。</p>
+        </div>
+    </div>
+
+    <div class="cta-block">
+        <h3>学習のポイント</h3>
+        <p>まずは基本知識を固め、次に問題を繰り返し解き、最後に実践例で理解を深める。この3ステップが合格への最短ルートです。</p>
+        <a href="index.html#quiz">問題演習へ戻る</a>
+    </div>
+</div>
+<footer>
+    <p>© 2026 Trainer Prep Hub</p>
+</footer>
+</body>
+</html>
