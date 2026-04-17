@@ -1,8 +1,8 @@
-import type { Metadata } from 'next'
 import './globals.css'
 import Navbar from '@/components/layout/Navbar'
 import BottomNav from '@/components/layout/BottomNav'
 import { createClient } from '@/utils/supabase/server'
+import NextTopLoader from 'nextjs-toploader'
 
 export const metadata: Metadata = {
   title: 'Strength Arts - 強さの構造を解き明かす',
@@ -20,6 +20,7 @@ export default async function RootLayout({
   return (
     <html lang="ja">
       <body className="bg-slate-50 text-gray-900 min-h-screen pb-16 md:pb-0 flex flex-col">
+        <NextTopLoader color="#2563eb" showSpinner={false} />
         <Navbar />
         <div className="flex-1">
           {children}

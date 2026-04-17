@@ -10,7 +10,7 @@ type Props = {
 
 export default function LectureCard({ lecture, baseHref, isRead = false }: Props) {
   return (
-    <Link href={`${baseHref}/${lecture.id}`} className={`group block border rounded-3xl p-6 md:p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden ${isRead ? 'bg-slate-50 border-slate-200 opacity-90' : 'bg-white border-slate-200'}`}>
+    <Link href={`${baseHref}/${lecture.id}`} className={`group block border rounded-3xl p-6 md:p-8 hover:shadow-xl hover:-translate-y-1 active:scale-[0.98] active:bg-slate-100 transition-all duration-300 relative overflow-hidden ${isRead ? 'bg-slate-50 border-slate-200 opacity-90' : 'bg-white border-slate-200'}`}>
       <div className="flex items-center space-x-3 mb-4">
         <span className="text-xs font-bold text-slate-500 bg-slate-100 px-3 py-1 rounded-full">
           {lecture.category}

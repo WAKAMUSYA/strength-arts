@@ -23,7 +23,7 @@ export default function LectureAccordion({ category, lectures, baseHref, readLec
     <div className="mb-6 bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm transition-all">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex items-center justify-between p-5 md:p-6 bg-white hover:bg-slate-50 transition-colors focus:outline-none"
+        className="w-full flex items-center justify-between p-5 md:p-6 bg-white hover:bg-slate-50 active:bg-slate-100 transition-colors focus:outline-none"
       >
         <div className="flex items-center space-x-4">
           <h3 className="text-lg md:text-xl font-bold text-slate-800 text-left">
