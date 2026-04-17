@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { BookOpen, ChevronRight, FileQuestion } from "lucide-react";
+import { lectures } from "@/data/lectures";
+import LectureAccordion from "@/components/LectureAccordion";
 
 export default function AcademyPage() {
   return (
@@ -46,10 +48,22 @@ export default function AcademyPage() {
         </section>
 
         <section>
-          <h2 className="text-lg font-bold border-b pb-2 mb-4">基礎理論・解剖学</h2>
-          <div className="bg-white border border-gray-100 p-8 rounded-2xl text-center">
-            <p className="text-gray-500 text-sm">現在、講義コンテンツを準備中です。</p>
+          <div className="flex items-center space-x-2 mb-6 border-b pb-2">
+            <h2 className="text-xl font-bold">基礎理論・解剖学</h2>
+            <span className="text-sm text-gray-500 font-medium">CSCS科目別</span>
           </div>
+          
+          {Array.from(new Set(lectures.map(l => l.category))).map((category) => {
+            const categoryLectures = lectures.filter((l) => l.category === category);
+            return (
+              <LectureAccordion 
+                key={category}
+                category={category}
+                lectures={categoryLectures}
+                baseHref="/academy/basics"
+              />
+            );
+          })}
         </section>
       </div>
     </div>

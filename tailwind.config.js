@@ -20,20 +20,10 @@ module.exports = {
           900: '#171717',
         },
       },
-      typography: {
-        DEFAULT: {
-          css: {
-            color: '#e5e5e5',
-            a: {
-              color: '#60a5fa',
-              '&:hover': {
-                color: '#93c5fd',
-              },
-            },
-          },
-        },
-      },
+
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 }

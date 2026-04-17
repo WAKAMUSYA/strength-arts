@@ -4,10 +4,15 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Home, BookOpen, Dumbbell, FlaskConical } from "lucide-react";
 
-export default function BottomNav() {
+export default function BottomNav({ isLoggedIn }: { isLoggedIn?: boolean }) {
   const pathname = usePathname();
 
-  const navItems = [
+  const navItems = isLoggedIn ? [
+    { href: "/dashboard", label: "Home", icon: Home, match: /^\/dashboard$/ },
+    { href: "/dashboard/academy", label: "Academy", icon: BookOpen, match: /^\/dashboard\/academy/ },
+    { href: "/dashboard/training", label: "Training", icon: Dumbbell, match: /^\/dashboard\/training/ },
+    { href: "/dashboard/lab", label: "Lab", icon: FlaskConical, match: /^\/dashboard\/lab/ },
+  ] : [
     { href: "/", label: "Home", icon: Home, match: /^\/$/ },
     { href: "/academy", label: "Academy", icon: BookOpen, match: /^\/academy/ },
     { href: "/training", label: "Training", icon: Dumbbell, match: /^\/training/ },
