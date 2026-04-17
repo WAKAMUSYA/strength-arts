@@ -19,6 +19,7 @@ function QuizContent() {
   
   const category = searchParams.get("category");
   const mode = searchParams.get("mode");
+  const blockParam = searchParams.get("block");
 
   const [filteredQuestions, setFilteredQuestions] = useState<Question[]>(questions);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -33,14 +34,19 @@ function QuizContent() {
 
   useEffect(() => {
     let qList = [...questions];
-    if (category) {
+    
+    // ブロックIDでフィルタリング
+    if (blockParam) {
+      qList = qList.filter((q) => q.blockId === parseInt(blockParam, 10));
+    } else if (category) {
       qList = qList.filter((q) => q.category === category);
     }
+    
     if (mode === "random") {
       qList = qList.sort(() => Math.random() - 0.5);
     }
     setFilteredQuestions(qList);
-  }, [category, mode]);
+  }, [category, mode, blockParam]);
 
   const currentQuestion = filteredQuestions[currentIndex];
 
