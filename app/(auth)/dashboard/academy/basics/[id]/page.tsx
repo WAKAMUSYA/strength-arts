@@ -6,11 +6,14 @@ import Link from 'next/link';
 import { ChevronLeft } from 'lucide-react';
 
 export default async function DashboardLecturePage({ params }: { params: { id: string } }) {
-  const lecture = lectures.find((l) => l.id === params.id);
+  const currentIndex = lectures.findIndex((l) => l.id === params.id);
+  const lecture = lectures[currentIndex];
 
   if (!lecture) {
     notFound();
   }
+
+  const nextLecture = currentIndex >= 0 && currentIndex < lectures.length - 1 ? lectures[currentIndex + 1] : null;
 
   const readLectures = await getReadLectures();
   const isRead = readLectures.includes(lecture.id);
@@ -22,7 +25,7 @@ export default async function DashboardLecturePage({ params }: { params: { id: s
         Academyトップに戻る
       </Link>
       
-      <LectureContent lecture={lecture} isMember={true} isRead={isRead} />
+      <LectureContent lecture={lecture} isMember={true} isRead={isRead} nextLectureId={nextLecture?.id} />
     </div>
   );
 }

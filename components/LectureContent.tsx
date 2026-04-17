@@ -1,15 +1,16 @@
 import Link from 'next/link';
 import { Lecture } from '@/data/lectures';
-import { Lock } from 'lucide-react';
+import { Lock, ChevronRight } from 'lucide-react';
 import LectureReadButton from './LectureReadButton';
 
 type Props = {
   lecture: Lecture;
   isMember: boolean;
   isRead?: boolean;
+  nextLectureId?: string;
 };
 
-export default function LectureContent({ lecture, isMember, isRead = false }: Props) {
+export default function LectureContent({ lecture, isMember, isRead = false, nextLectureId }: Props) {
   return (
     <div className="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm">
       <div className="p-6 md:p-10 border-b border-slate-100">
@@ -55,8 +56,24 @@ export default function LectureContent({ lecture, isMember, isRead = false }: Pr
         )}
 
         {/* 読了ボタン（会員のみ） */}
+        {/* 読了ボタン・次へ進むボタン（会員のみ） */}
         {isMember && (
-          <LectureReadButton lectureId={lecture.id} isInitiallyRead={isRead} />
+          <div className="flex flex-col sm:flex-row items-center gap-4 mt-12 pt-8 border-t border-slate-100">
+            <div className="flex-1 w-full">
+              <LectureReadButton lectureId={lecture.id} isInitiallyRead={isRead} />
+            </div>
+            {nextLectureId && (
+              <div className="flex-1 w-full">
+                <Link 
+                  href={`/dashboard/academy/basics/${nextLectureId}`} 
+                  className="w-full flex items-center justify-center space-x-2 px-8 py-4 rounded-xl font-bold bg-blue-600 text-white hover:bg-blue-700 transition-colors"
+                >
+                  <span>次を読む</span>
+                  <ChevronRight className="w-5 h-5" />
+                </Link>
+              </div>
+            )}
+          </div>
         )}
       </div>
     </div>
