@@ -1,7 +1,7 @@
 'use client';
 
 import { deleteTrainingLog } from "@/app/actions/training";
-import { Trash2 } from "lucide-react";
+import { Trash2, Loader2 } from "lucide-react";
 import { useState } from "react";
 
 // 推定1RMを計算する関数 (Epley式)
@@ -14,7 +14,7 @@ export default function DeleteLogButton({ id, weight, reps }: { id: string, weig
   const [isDeleting, setIsDeleting] = useState(false);
 
   const handleDelete = async () => {
-    if (!confirm('この記録を削除しますか？')) return;
+    if (!window.confirm('この記録を削除しますか？')) return;
     try {
       setIsDeleting(true);
       await deleteTrainingLog(id);
@@ -31,11 +31,17 @@ export default function DeleteLogButton({ id, weight, reps }: { id: string, weig
         <p className="font-bold text-slate-700">{calculate1RM(weight, reps)} kg</p>
       </div>
       <button 
+        type="button"
         onClick={handleDelete}
         disabled={isDeleting}
-        className="p-2 text-slate-400 hover:text-red-500 transition-colors disabled:opacity-50"
+        className="p-3 -m-3 mt-2 text-slate-400 hover:text-red-500 hover:bg-red-50 active:bg-red-100 rounded-full transition-all disabled:opacity-50 flex items-center justify-center"
+        aria-label="記録を削除"
       >
-        <Trash2 className="w-4 h-4" />
+        {isDeleting ? (
+          <Loader2 className="w-5 h-5 animate-spin text-red-500" />
+        ) : (
+          <Trash2 className="w-5 h-5" />
+        )}
       </button>
     </div>
   );
