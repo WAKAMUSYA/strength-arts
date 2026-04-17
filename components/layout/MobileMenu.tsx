@@ -41,7 +41,7 @@ export default function MobileMenu({ isLoggedIn, signOutAction }: Props) {
       </button>
 
       {isOpen && (
-        <div className="fixed inset-0 top-16 z-40 bg-white/95 backdrop-blur-md border-t border-gray-100 flex flex-col pt-8 px-8 overflow-y-auto pb-24">
+        <div className="fixed inset-0 top-16 z-40 bg-white border-t border-gray-100 flex flex-col pt-8 px-8 overflow-y-auto pb-24">
           <nav className="flex flex-col space-y-6 text-xl font-bold text-gray-800">
             <Link href={isLoggedIn ? "/dashboard/academy" : "/academy"} className="hover:text-blue-600 transition-colors">ACADEMY</Link>
             <Link href={isLoggedIn ? "/dashboard/training" : "/training"} className="hover:text-red-600 transition-colors">TRAINING</Link>

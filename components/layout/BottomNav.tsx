@@ -20,7 +20,7 @@ export default function BottomNav({ isLoggedIn }: { isLoggedIn?: boolean }) {
   ];
 
   return (
-    <nav className="md:hidden fixed bottom-0 left-0 z-50 w-full bg-white border-t border-gray-100 pb-safe">
+    <nav className="fixed bottom-0 w-full bg-white border-t border-slate-200 pb-safe md:hidden z-50">
       <div className="flex justify-around items-center h-16">
         {navItems.map((item) => {
           const isActive = item.match.test(pathname);

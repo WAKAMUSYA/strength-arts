@@ -1,14 +1,9 @@
 import Link from "next/link";
-import { Menu } from "lucide-react";
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 import MobileMenu from "./MobileMenu";
 
-export default async function Navbar() {
-  const supabase = createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+export default function Navbar({ isLoggedIn }: { isLoggedIn: boolean }) {
 
   const signOut = async () => {
     "use server";
@@ -18,19 +13,19 @@ export default async function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-md border-b border-gray-100">
+    <header className="sticky top-0 z-50 w-full bg-white border-b border-gray-100">
       <div className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
-        <Link href={user ? "/dashboard" : "/"} className="font-bold text-xl tracking-tighter text-gray-900">
+        <Link href={isLoggedIn ? "/dashboard" : "/"} className="font-bold text-xl tracking-tighter text-gray-900">
           STRENGTH <span className="text-gray-400">ARTS</span>
         </Link>
         <div className="flex items-center space-x-4">
           <nav className="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-600">
-            <Link href={user ? "/dashboard/academy" : "/academy"} className="hover:text-blue-600 transition-colors">ACADEMY</Link>
-            <Link href={user ? "/dashboard/training" : "/training"} className="hover:text-red-600 transition-colors">TRAINING</Link>
-            <Link href={user ? "/dashboard/lab" : "/lab"} className="hover:text-purple-600 transition-colors">LAB</Link>
+            <Link href={isLoggedIn ? "/dashboard/academy" : "/academy"} className="hover:text-blue-600 transition-colors">ACADEMY</Link>
+            <Link href={isLoggedIn ? "/dashboard/training" : "/training"} className="hover:text-red-600 transition-colors">TRAINING</Link>
+            <Link href={isLoggedIn ? "/dashboard/lab" : "/lab"} className="hover:text-purple-600 transition-colors">LAB</Link>
           </nav>
 
-          {user ? (
+          {isLoggedIn ? (
             <div className="hidden md:flex items-center space-x-4">
               <Link
                 href="/dashboard"
@@ -57,7 +52,7 @@ export default async function Navbar() {
               </Link>
             </div>
           )}
-          <MobileMenu isLoggedIn={!!user} signOutAction={signOut} />
+          <MobileMenu isLoggedIn={isLoggedIn} signOutAction={signOut} />
         </div>
       </div>
     </header>

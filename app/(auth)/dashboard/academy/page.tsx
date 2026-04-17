@@ -1,10 +1,8 @@
 import Link from 'next/link';
-import { lectures } from '@/data/lectures';
-import LectureAccordion from '@/components/LectureAccordion';
-import { getReadLectures } from '@/app/actions/academy';
+import { Suspense } from 'react';
+import DashboardLectureList from '@/components/DashboardLectureList';
 
-export default async function DashboardAcademyPage() {
-  const readLectures = await getReadLectures();
+export default function DashboardAcademyPage() {
   return (
     <div className="max-w-6xl mx-auto px-6 py-12">
       <div className="flex items-center gap-4 mb-10">
@@ -51,18 +49,15 @@ export default async function DashboardAcademyPage() {
           <span className="text-sm font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">CSCS科目別</span>
         </div>
 
-        {Array.from(new Set(lectures.map(l => l.category))).map((category) => {
-          const categoryLectures = lectures.filter((l) => l.category === category);
-          return (
-            <LectureAccordion 
-              key={category}
-              category={category}
-              lectures={categoryLectures}
-              baseHref="/dashboard/academy/basics"
-              readLectures={readLectures}
-            />
-          );
-        })}
+        <Suspense fallback={
+          <div className="space-y-6">
+            {[1, 2, 3].map((i) => (
+              <div key={i} className="h-16 bg-slate-100 rounded-2xl animate-pulse"></div>
+            ))}
+          </div>
+        }>
+          <DashboardLectureList />
+        </Suspense>
       </div>
     </div>
   );
