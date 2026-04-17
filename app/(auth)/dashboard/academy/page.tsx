@@ -16,7 +16,7 @@ export default function DashboardAcademyPage() {
           </p>
         </div>
       </div>
-      <details className="mb-12 bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm group" open>
+      <details className="mb-12 bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm group">
         <summary className="w-full flex items-center justify-between p-5 md:p-6 bg-white hover:bg-slate-50 active:bg-slate-100 transition-colors cursor-pointer list-none [&::-webkit-details-marker]:hidden focus:outline-none">
           <div className="flex items-center space-x-4">
             <div className="w-10 h-10 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center">
