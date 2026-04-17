@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Menu } from "lucide-react";
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
+import MobileMenu from "./MobileMenu";
 
 export default async function Navbar() {
   const supabase = createClient();
@@ -56,10 +57,7 @@ export default async function Navbar() {
               </Link>
             </div>
           )}
-          
-          <button className="p-2 text-gray-500 hover:text-gray-900 transition-colors md:hidden">
-            <Menu className="w-6 h-6" />
-          </button>
+          <MobileMenu isLoggedIn={!!user} signOutAction={signOut} />
         </div>
       </div>
     </header>
