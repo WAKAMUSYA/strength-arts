@@ -2,6 +2,13 @@ import Link from 'next/link';
 import { Suspense } from 'react';
 import DashboardLectureList from '@/components/DashboardLectureList';
 
+const BLOCK_DESCRIPTIONS: Record<number, string> = {
+  1: "全30問。解剖学・生理学・バイオメカニクスなど、スポーツ科学の基礎領域から出題されます。",
+  2: "全30問。栄養学やスポーツ心理学を中心に、アスリートをサポートする知識を問います。",
+  3: "全30問。エクササイズテクニックやテスト・評価など、現場での実践的な指導スキルに焦点を当てています。",
+  4: "全30問。プログラムデザインに特化し、目的に応じたトレーニング計画の立案能力を試します。",
+  5: "全30問。施設運営から全セクションの複合問題まで、本試験の傾向を踏まえた実践的な総仕上げです。"
+};
 export default function DashboardAcademyPage() {
   return (
     <div className="max-w-6xl mx-auto px-6 py-12">
@@ -50,7 +57,7 @@ export default function DashboardAcademyPage() {
             <h2 className="text-xl md:text-2xl font-bold text-slate-900 mb-2">第{blockNum}回 ブロックテスト</h2>
             <p className="text-slate-500 mb-6 text-sm md:text-base max-w-[85%]">
               {blockNum <= 5
-                ? "全30問。解剖生理学からプログラムデザインまでバランスよく出題されます。" 
+                ? BLOCK_DESCRIPTIONS[blockNum] || "全30問。" 
                 : "【準備中】今後のアップデートで問題が追加されます。"}
             </p>
             <div className="inline-flex items-center space-x-2 text-sm font-medium text-slate-700 bg-slate-50 border border-slate-200 px-4 py-2 rounded-full group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600 transition-colors">
@@ -65,7 +72,7 @@ export default function DashboardAcademyPage() {
       {/* 基礎理論セクション */}
       <div className="mt-16">
         <div className="flex items-center space-x-3 mb-8">
-          <h2 className="text-2xl font-bold text-slate-900">基礎理論・解剖学</h2>
+          <h2 className="text-2xl font-bold text-slate-900">CSCS基礎理論</h2>
           <span className="text-sm font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">CSCS科目別</span>
         </div>
 

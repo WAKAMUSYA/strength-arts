@@ -11,7 +11,7 @@ export default function AcademyPage() {
           <BookOpen className="w-6 h-6" />
         </div>
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">SA ACADEMY</h1>
+          <h1 className="text-2xl font-bold text-gray-900">ACADEMY</h1>
           <p className="text-gray-500 text-sm">知識を構造化し、専門性を高める</p>
         </div>
       </div>
@@ -32,7 +32,7 @@ export default function AcademyPage() {
                 <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-blue-600 transition-colors" />
               </div>
             </Link>
-            
+
             <div className="block bg-gray-50 border border-gray-100 p-6 rounded-2xl">
               <div className="flex justify-between items-start opacity-60">
                 <div>
@@ -49,14 +49,14 @@ export default function AcademyPage() {
 
         <section>
           <div className="flex items-center space-x-2 mb-6 border-b pb-2">
-            <h2 className="text-xl font-bold">基礎理論・解剖学</h2>
+            <h2 className="text-xl font-bold">CSCS基礎理論</h2>
             <span className="text-sm text-gray-500 font-medium">CSCS科目別</span>
           </div>
-          
+
           {Array.from(new Set(lectures.map(l => l.category))).map((category) => {
             const categoryLectures = lectures.filter((l) => l.category === category);
             return (
-              <LectureAccordion 
+              <LectureAccordion
                 key={category}
                 category={category}
                 lectures={categoryLectures}

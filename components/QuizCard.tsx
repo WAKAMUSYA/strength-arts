@@ -1,5 +1,6 @@
 import { Question } from "@/data/questions";
 import { CheckCircle2, XCircle } from "lucide-react";
+import { useMemo } from "react";
 
 type QuizCardProps = {
   question: Question;
@@ -9,6 +10,10 @@ type QuizCardProps = {
 
 export default function QuizCard({ question, selectedAnswer, onAnswer }: QuizCardProps) {
   const isAnswered = selectedAnswer !== null;
+
+  const shuffledChoices = useMemo(() => {
+    return [...question.choices].sort(() => Math.random() - 0.5);
+  }, [question.id]);
 
   return (
     <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden mb-6">
@@ -23,7 +28,7 @@ export default function QuizCard({ question, selectedAnswer, onAnswer }: QuizCar
         </h2>
 
         <div className="space-y-3">
-          {question.choices.map((choice) => {
+          {shuffledChoices.map((choice) => {
             const isSelected = selectedAnswer === choice;
             const isCorrect = choice === question.correct_answer;
             

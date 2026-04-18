@@ -1,3 +1,13 @@
+import { anatomyMockQuestions } from "./anatomyMock";
+import { physiologyMockQuestions } from "./physiologyMock";
+import { biomechanicsMockQuestions } from "./biomechanicsMock";
+import { nutritionMockQuestions } from "./nutritionMock";
+import { psychologyMockQuestions } from "./psychologyMock";
+import { testingMockQuestions } from "./testingMock";
+import { techniqueMockQuestions } from "./techniqueMock";
+import { programMockQuestions } from "./programMock";
+import { facilityMockQuestions } from "./facilityMock";
+
 export type Question = {
   id: string;
   category: string;
@@ -1830,5 +1840,14 @@ export const questions: Question[] = [
     why_wrong: "あらかじめ決められたコーンを回るだけのドリルは、認知の要素がないため厳密には「方向転換スピード」の訓練であり、真のアジリティ訓練ではありません。",
     field_application: "試合で使えるアジリティを鍛えるには、コーチが指差した方向に走る、ディフェンスの動きに合わせて切り返すなど、「リアクション（反応）」の要素をドリルに組み込む必要があります。",
     keywords: ["アジリティ", "SAQ", "反応能力", "プログラムデザイン"]
-  }
+  },
+  ...anatomyMockQuestions,
+  ...physiologyMockQuestions,
+  ...biomechanicsMockQuestions,
+  ...nutritionMockQuestions,
+  ...psychologyMockQuestions,
+  ...testingMockQuestions,
+  ...techniqueMockQuestions,
+  ...programMockQuestions,
+  ...facilityMockQuestions
 ];

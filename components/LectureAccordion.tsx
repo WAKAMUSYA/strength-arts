@@ -1,4 +1,5 @@
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Trophy } from 'lucide-react';
+import Link from 'next/link';
 import { Lecture } from '@/data/lectures';
 import LectureCard from './LectureCard';
 
@@ -13,6 +14,19 @@ export default function LectureAccordion({ category, lectures, baseHref, readLec
   const completedCount = readLectures ? lectures.filter(l => readLectures.includes(l.id)).length : 0;
   const totalCount = lectures.length;
   const isAllCompleted = readLectures ? completedCount === totalCount : false;
+
+  const mockTestMap: Record<string, number> = {
+    "解剖学": 101,
+    "運動生理学": 102,
+    "バイオメカニクス": 103,
+    "栄養学": 104,
+    "スポーツ心理学": 105,
+    "テストと評価": 106,
+    "エクササイズテクニック": 107,
+    "プログラムデザイン": 108,
+    "施設と管理": 109,
+  };
+  const mockTestBlockId = mockTestMap[category];
 
   return (
     <details className="mb-6 bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm group">
@@ -50,6 +64,19 @@ export default function LectureAccordion({ category, lectures, baseHref, readLec
             />
           ))}
         </div>
+        {mockTestBlockId && (
+          <div className="mt-8 p-6 bg-white border border-blue-200 rounded-2xl shadow-sm text-center">
+            <h4 className="text-xl font-bold text-slate-900 mb-2">{category} 模擬テスト (全30問)</h4>
+            <p className="text-slate-600 mb-6 text-sm">{category}のセクションで学んだ知識を定着させるための専用テストです。</p>
+            <Link 
+              href={`/dashboard/academy/cscs?block=${mockTestBlockId}&mode=random`}
+              className="inline-flex items-center justify-center space-x-2 bg-blue-600 text-white font-bold py-3 px-8 rounded-xl hover:bg-blue-700 transition-colors shadow-sm"
+            >
+              <Trophy className="w-5 h-5 text-yellow-300" />
+              <span>テストに挑戦する</span>
+            </Link>
+          </div>
+        )}
       </div>
     </details>
   );
