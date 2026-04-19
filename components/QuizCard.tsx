@@ -1,4 +1,4 @@
-import { Question } from "@/data/questions";
+import type { Question } from "@/data/questions";
 import { CheckCircle2, XCircle } from "lucide-react";
 import { useMemo } from "react";
 

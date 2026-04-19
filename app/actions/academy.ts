@@ -73,7 +73,7 @@ export async function saveQuizResult(
 /**
  * ダッシュボード用の学習進捗を取得するアクション
  */
-export async function getLearningProgress() {
+export async function getLearningProgress(quizType: string = 'cscs') {
   const supabase = createClient();
   const { data: { user } } = await supabase.auth.getUser();
   
@@ -86,7 +86,7 @@ export async function getLearningProgress() {
     .from('quiz_attempts')
     .select('score, total_questions, created_at')
     .eq('user_id', user.id)
-    .eq('quiz_type', 'cscs')
+    .eq('quiz_type', quizType)
     .order('created_at', { ascending: false });
 
   if (!attempts || attempts.length === 0) {
@@ -174,6 +174,7 @@ export async function toggleLectureRead(lectureId: string, isCurrentlyRead: bool
     // Update UI paths
     revalidatePath('/dashboard/academy');
     revalidatePath(`/dashboard/academy/basics/${lectureId}`);
+    revalidatePath(`/dashboard/academy/cpt/basics/${lectureId}`);
     
     return { success: true };
   } catch (error) {

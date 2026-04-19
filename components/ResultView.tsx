@@ -1,4 +1,4 @@
-import { Question } from "@/data/questions";
+import type { Question } from "@/data/questions";
 import { BookOpen, AlertCircle, Lightbulb, Hash } from "lucide-react";
 
 type ResultViewProps = {

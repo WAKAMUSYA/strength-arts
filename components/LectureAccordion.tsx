@@ -1,6 +1,6 @@
-import { ChevronDown, Trophy } from 'lucide-react';
+﻿import { ChevronDown, Trophy } from 'lucide-react';
 import Link from 'next/link';
-import { Lecture } from '@/data/lectures';
+import type { Lecture } from '@/data/lectures';
 import LectureCard from './LectureCard';
 
 type Props = {
@@ -8,25 +8,42 @@ type Props = {
   lectures: Lecture[];
   baseHref: string;
   readLectures?: string[];
+  // Optional: if provided, enables a "mock test" link at the end of the block.
+  // If `mockTestMap[category]` exists we link by `block=...`, otherwise we fall back to `category=...`.
+  mockTestMap?: Record<string, number>;
+  // e.g. "/dashboard/academy/cscs" or "/dashboard/academy/cpt"
+  mockTestBaseHref?: string;
 };
 
-export default function LectureAccordion({ category, lectures, baseHref, readLectures }: Props) {
+export default function LectureAccordion({
+  category,
+  lectures,
+  baseHref,
+  readLectures,
+  mockTestMap: mockTestMapOverride,
+  mockTestBaseHref,
+}: Props) {
   const completedCount = readLectures ? lectures.filter(l => readLectures.includes(l.id)).length : 0;
   const totalCount = lectures.length;
   const isAllCompleted = readLectures ? completedCount === totalCount : false;
 
   const mockTestMap: Record<string, number> = {
-    "解剖学": 101,
-    "運動生理学": 102,
-    "バイオメカニクス": 103,
-    "栄養学": 104,
-    "スポーツ心理学": 105,
-    "テストと評価": 106,
-    "エクササイズテクニック": 107,
-    "プログラムデザイン": 108,
-    "施設と管理": 109,
+    "隗｣蜑門ｭｦ": 101,
+    "驕句虚逕溽炊蟄ｦ": 102,
+    "繝舌う繧ｪ繝｡繧ｫ繝九け繧ｹ": 103,
+    "譬・､雁ｭｦ": 104,
+    "繧ｹ繝昴・繝・ｿ・炊蟄ｦ": 105,
+    "繝・せ繝医→隧穂ｾ｡": 106,
+    "繧ｨ繧ｯ繧ｵ繧ｵ繧､繧ｺ繝・け繝九ャ繧ｯ": 107,
+    "繝励Ο繧ｰ繝ｩ繝繝・じ繧､繝ｳ": 108,
+    "譁ｽ險ｭ縺ｨ邂｡逅・": 109,
   };
-  const mockTestBlockId = mockTestMap[category];
+  const effectiveMockTestMap = mockTestMapOverride ?? mockTestMap;
+  const effectiveMockTestBaseHref = mockTestBaseHref ?? "/dashboard/academy/cscs";
+  const mockTestBlockId = effectiveMockTestMap?.[category];
+  const mockTestHref = mockTestBlockId
+    ? `${effectiveMockTestBaseHref}?block=${mockTestBlockId}&mode=random`
+    : `${effectiveMockTestBaseHref}?category=${encodeURIComponent(category)}&mode=random`;
 
   return (
     <details className="mb-6 bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm group">
@@ -42,7 +59,7 @@ export default function LectureAccordion({ category, lectures, baseHref, readLec
               </span>
               {isAllCompleted && (
                 <span className="text-xs font-bold text-green-600 bg-green-50 px-2 py-1 rounded-full border border-green-200">
-                  コンプリート
+                  読了
                 </span>
               )}
             </div>
@@ -64,16 +81,16 @@ export default function LectureAccordion({ category, lectures, baseHref, readLec
             />
           ))}
         </div>
-        {mockTestBlockId && (
+        {lectures.length > 0 && (
           <div className="mt-8 p-6 bg-white border border-blue-200 rounded-2xl shadow-sm text-center">
-            <h4 className="text-xl font-bold text-slate-900 mb-2">{category} 模擬テスト (全30問)</h4>
-            <p className="text-slate-600 mb-6 text-sm">{category}のセクションで学んだ知識を定着させるための専用テストです。</p>
+            <h4 className="text-xl font-bold text-slate-900 mb-2">{category} 模擬テスト（30問）</h4>
+            <p className="text-slate-600 mb-6 text-sm">このブロックの要点を、ランダム30問で確認します。</p>
             <Link 
-              href={`/dashboard/academy/cscs?block=${mockTestBlockId}&mode=random`}
+              href={mockTestHref}
               className="inline-flex items-center justify-center space-x-2 bg-blue-600 text-white font-bold py-3 px-8 rounded-xl hover:bg-blue-700 transition-colors shadow-sm"
             >
               <Trophy className="w-5 h-5 text-yellow-300" />
-              <span>テストに挑戦する</span>
+              <span>模擬テストを解く</span>
             </Link>
           </div>
         )}
@@ -81,3 +98,4 @@ export default function LectureAccordion({ category, lectures, baseHref, readLec
     </details>
   );
 }
+
