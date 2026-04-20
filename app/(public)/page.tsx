@@ -1,8 +1,297 @@
 import Link from 'next/link';
 
 export default function Home() {
+  const containerClass = 'mx-auto w-full max-w-6xl px-6';
+  const buttonBaseClass =
+    'inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2';
+
   return (
     <div className="flex flex-col min-h-screen">
+      {/* New Lead-in Sections (keep existing content below) */}
+      <section className="relative overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white">
+        <div className="absolute inset-0 opacity-20 [background:radial-gradient(900px_circle_at_20%_20%,rgba(56,189,248,0.35),transparent_55%),radial-gradient(900px_circle_at_80%_30%,rgba(168,85,247,0.28),transparent_55%),radial-gradient(900px_circle_at_50%_80%,rgba(34,197,94,0.18),transparent_60%)]" />
+        <div className={`${containerClass} relative py-20 md:py-28`}>
+          <div className="max-w-3xl">
+            <p className="text-xs font-semibold tracking-[0.25em] text-white/70">
+              STRENGTH / TRAINING / LEARNING / LAB
+            </p>
+            <h1 className="mt-4 text-4xl md:text-6xl font-extrabold tracking-tight">
+              Strength Arts
+            </h1>
+            <p className="mt-6 text-xl md:text-2xl font-semibold text-white/90">
+              やり方ではなく、見方を変える
+            </p>
+            <p className="mt-6 text-base md:text-lg leading-relaxed text-white/80">
+              頑張っているのに変わらない人へ。
+              <br />
+              強くなるための知識と実践をつなぐ場所。
+            </p>
+
+            <div className="mt-10 flex flex-col sm:flex-row gap-3">
+              <Link
+                href="#entrances"
+                className={`${buttonBaseClass} bg-white text-slate-950 hover:bg-white/90 focus-visible:ring-white focus-visible:ring-offset-slate-950`}
+              >
+                自分に合う入口を見る
+              </Link>
+              <Link
+                href="#academy"
+                className={`${buttonBaseClass} bg-white/10 text-white hover:bg-white/15 ring-1 ring-white/20 focus-visible:ring-white focus-visible:ring-offset-slate-950`}
+              >
+                アカデミーを見る
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="entrances" className="bg-white text-slate-900">
+        <div className={`${containerClass} py-16 md:py-20 space-y-10`}>
+          <div className="max-w-2xl">
+            <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
+              入口は3つ。目的から選ぶ。
+            </h2>
+            <p className="mt-4 text-slate-600 leading-relaxed">
+              「何をやるか」より先に、「何を変えたいか」から。
+              今のあなたに合う導線を用意します。
+            </p>
+          </div>
+
+          <div className="space-y-6">
+            <section
+              id="athlete"
+              className="relative overflow-hidden rounded-3xl border border-slate-200 bg-gradient-to-br from-sky-50 via-white to-white"
+            >
+              <div className="grid md:grid-cols-12 gap-8 p-8 md:p-12 items-center">
+                <div className="md:col-span-6">
+                  <p className="text-xs font-semibold tracking-[0.2em] text-sky-700">
+                    ATHLETE
+                  </p>
+                  <h3 className="mt-3 text-2xl md:text-3xl font-bold tracking-tight">
+                    強くなりたい人へ
+                  </h3>
+                  <p className="mt-4 text-slate-700 leading-relaxed">
+                    部活で何をすればいいかわからない。
+                    <br />
+                    競技力を高めたい。
+                    <br />
+                    そんな人のための実践型プログラム。
+                  </p>
+                  <div className="mt-8">
+                    <Link
+                      href="/athlete"
+                      className={`${buttonBaseClass} bg-slate-900 text-white hover:bg-slate-800 focus-visible:ring-slate-900 focus-visible:ring-offset-white`}
+                    >
+                      アスリート向けを見る
+                    </Link>
+                  </div>
+                </div>
+                <div className="md:col-span-6">
+                  <div className="h-48 md:h-64 rounded-2xl bg-gradient-to-br from-sky-200 via-sky-100 to-white ring-1 ring-sky-200/70" />
+                </div>
+              </div>
+            </section>
+
+            <section
+              id="bodymake"
+              className="relative overflow-hidden rounded-3xl border border-slate-200 bg-gradient-to-br from-rose-50 via-white to-white"
+            >
+              <div className="grid md:grid-cols-12 gap-8 p-8 md:p-12 items-center">
+                <div className="md:col-span-6">
+                  <p className="text-xs font-semibold tracking-[0.2em] text-rose-700">
+                    BODYMAKE
+                  </p>
+                  <h3 className="mt-3 text-2xl md:text-3xl font-bold tracking-tight">
+                    伸び悩んでいる人へ
+                  </h3>
+                  <p className="mt-4 text-slate-700 leading-relaxed">
+                    頑張っているのに変わらない。
+                    <br />
+                    効いている気がしない。
+                    <br />
+                    その原因を、構造から見直す。
+                  </p>
+                  <div className="mt-8">
+                    <Link
+                      href="/bodymake"
+                      className={`${buttonBaseClass} bg-slate-900 text-white hover:bg-slate-800 focus-visible:ring-slate-900 focus-visible:ring-offset-white`}
+                    >
+                      ボディメイクを見る
+                    </Link>
+                  </div>
+                </div>
+                <div className="md:col-span-6">
+                  <div className="h-48 md:h-64 rounded-2xl bg-gradient-to-br from-rose-200 via-rose-100 to-white ring-1 ring-rose-200/70" />
+                </div>
+              </div>
+            </section>
+
+            <section
+              id="beginner"
+              className="relative overflow-hidden rounded-3xl border border-slate-200 bg-gradient-to-br from-emerald-50 via-white to-white"
+            >
+              <div className="grid md:grid-cols-12 gap-8 p-8 md:p-12 items-center">
+                <div className="md:col-span-6">
+                  <p className="text-xs font-semibold tracking-[0.2em] text-emerald-700">
+                    BEGINNER
+                  </p>
+                  <h3 className="mt-3 text-2xl md:text-3xl font-bold tracking-tight">
+                    初めての人へ
+                  </h3>
+                  <p className="mt-4 text-slate-700 leading-relaxed">
+                    何から始めればいいかわからない。
+                    <br />
+                    まずは基本から、安心してスタート。
+                  </p>
+                  <div className="mt-8">
+                    <Link
+                      href="/training#beginner"
+                      className={`${buttonBaseClass} bg-slate-900 text-white hover:bg-slate-800 focus-visible:ring-slate-900 focus-visible:ring-offset-white`}
+                    >
+                      基本から始める
+                    </Link>
+                  </div>
+                </div>
+                <div className="md:col-span-6">
+                  <div className="h-48 md:h-64 rounded-2xl bg-gradient-to-br from-emerald-200 via-emerald-100 to-white ring-1 ring-emerald-200/70" />
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white text-slate-900">
+        <div className={`${containerClass} py-16 md:py-20`}>
+          <div className="max-w-3xl">
+            <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
+              Strength Artsとは
+            </h2>
+            <p className="mt-6 text-slate-700 leading-relaxed">
+              ストレングスアーツは、単にトレーニング方法を学ぶ場所ではありません。
+              <br />
+              知識、動作、評価、そして探究をつなぎ、
+              <br />
+              自分で理解し、修正し、積み上げていくための土台をつくる場所です。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-slate-950 text-white">
+        <div className={`${containerClass} py-14 md:py-16`}>
+          <div className="max-w-3xl">
+            <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
+              ここから先は、より深く学びたい方へ
+            </h2>
+            <p className="mt-4 text-white/75 leading-relaxed">
+              指導者、学習者、探究者のためのコンテンツです。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white text-slate-900">
+        <div className={`${containerClass} py-16 md:py-20 space-y-6`}>
+          <section
+            id="academy"
+            className="relative overflow-hidden rounded-3xl border border-slate-200 bg-gradient-to-br from-slate-50 via-white to-white"
+          >
+            <div className="grid md:grid-cols-12 gap-8 p-8 md:p-12 items-center">
+              <div className="md:col-span-6">
+                <p className="text-xs font-semibold tracking-[0.2em] text-slate-700">
+                  ACADEMY
+                </p>
+                <h3 className="mt-3 text-2xl md:text-3xl font-bold tracking-tight">
+                  アカデミー
+                </h3>
+                <p className="mt-4 text-slate-700 leading-relaxed">
+                  解剖学、生理学、バイオメカニクス、栄養学。
+                  <br />
+                  CSCS / CPTにも対応した基礎知識を学ぶ。
+                </p>
+                <div className="mt-8">
+                  <Link
+                    href="/academy"
+                    className={`${buttonBaseClass} bg-slate-900 text-white hover:bg-slate-800 focus-visible:ring-slate-900 focus-visible:ring-offset-white`}
+                  >
+                    アカデミーを見る
+                  </Link>
+                </div>
+              </div>
+              <div className="md:col-span-6">
+                <div className="h-48 md:h-64 rounded-2xl bg-gradient-to-br from-slate-200 via-slate-100 to-white ring-1 ring-slate-200/70" />
+              </div>
+            </div>
+          </section>
+
+          <section
+            id="lab"
+            className="relative overflow-hidden rounded-3xl border border-slate-200 bg-gradient-to-br from-violet-50 via-white to-white"
+          >
+            <div className="grid md:grid-cols-12 gap-8 p-8 md:p-12 items-center">
+              <div className="md:col-span-6">
+                <p className="text-xs font-semibold tracking-[0.2em] text-violet-700">
+                  LAB
+                </p>
+                <h3 className="mt-3 text-2xl md:text-3xl font-bold tracking-tight">
+                  LAB
+                </h3>
+                <p className="mt-4 text-slate-700 leading-relaxed">
+                  身体の使い方を探究する場所。
+                  <br />
+                  仮説と検証、まだ言い切れないものを扱う。
+                </p>
+                <div className="mt-8">
+                  <Link
+                    href="/lab"
+                    className={`${buttonBaseClass} bg-slate-900 text-white hover:bg-slate-800 focus-visible:ring-slate-900 focus-visible:ring-offset-white`}
+                  >
+                    LABを見る
+                  </Link>
+                </div>
+              </div>
+              <div className="md:col-span-6">
+                <div className="h-48 md:h-64 rounded-2xl bg-gradient-to-br from-violet-200 via-violet-100 to-white ring-1 ring-violet-200/70" />
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section className="bg-white text-slate-900">
+        <div className={`${containerClass} py-16 md:py-20`}>
+          <div className="rounded-3xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white p-8 md:p-12">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+              <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
+                まずは自分に合う入口から
+              </h2>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <Link
+                  href="#athlete"
+                  className={`${buttonBaseClass} bg-slate-900 text-white hover:bg-slate-800 focus-visible:ring-slate-900 focus-visible:ring-offset-white`}
+                >
+                  アスリート
+                </Link>
+                <Link
+                  href="#bodymake"
+                  className={`${buttonBaseClass} bg-slate-900 text-white hover:bg-slate-800 focus-visible:ring-slate-900 focus-visible:ring-offset-white`}
+                >
+                  ボディメイク
+                </Link>
+                <Link
+                  href="#beginner"
+                  className={`${buttonBaseClass} bg-slate-900 text-white hover:bg-slate-800 focus-visible:ring-slate-900 focus-visible:ring-offset-white`}
+                >
+                  初心者
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Existing top page content (kept as-is) */}
       {/* Hero Section */}
       <section className="relative px-6 py-24 md:py-32 lg:py-40 bg-gradient-to-b from-slate-50 to-white overflow-hidden flex flex-col items-center text-center">
         <div className="absolute inset-0 bg-grid-slate-100/[0.04] bg-[bottom_1px_center] [mask-image:linear-gradient(to_bottom,transparent,black)]"></div>

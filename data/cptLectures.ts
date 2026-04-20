@@ -2668,12 +2668,539 @@ const CPT_LECTURE_SEEDS: Record<CptBasicsCategory, CptLectureSeed[]> = {
     },
   ],
   "エクササイズテクニック": [
-    { title: "主要パターン: スクワット/ヒンジ/プッシュ/プル" },
-    { title: "よくある崩れ: ニーイン/腰の反り/肩のすくみ" },
-    { title: "介入の順番: キュー→回帰→段階的進行" },
-    { title: "補助種目の選び方: 弱点に合わせて組む" },
-    { title: "呼吸と腹圧: 体幹安定の作り方" },
-    { title: "安全な負荷の上げ方: フォームを守って進める" },
+    {
+      title: "主要パターン: スクワット/ヒンジ/プッシュ/プル",
+      excerpt:
+        "動作パターンで種目を整理し、観察と指導を一貫させるための基本枠組みをまとめます。",
+      readTime: 12,
+      content: `
+        <h2>エクササイズテクニック</h2>
+        <h3>主要パターン: スクワット/ヒンジ/プッシュ/プル</h3>
+
+        <h4>1. なぜ動作パターンで整理するか</h4>
+        <p>
+          エクササイズの指導では、筋名の暗記よりも「どの動作パターンを練習しているか」を明確にするほうが実務的です。
+          動作パターンで整理すると、種目選択、回帰・進行、フォーム観察の基準が揃い、プログラム全体が作りやすくなります。
+        </p>
+
+        <h4>2. 主要4パターンの定義</h4>
+        <ul>
+          <li><strong>スクワット</strong>: 股関節と膝関節の屈曲・伸展を協調させ、下肢と体幹で荷重を扱う。</li>
+          <li><strong>ヒンジ</strong>: 股関節主導で屈曲・伸展し、脊柱の安定を保ちながら荷重を扱う。</li>
+          <li><strong>プッシュ</strong>: 上肢で押す動作（水平/垂直）。肩甲帯と体幹の安定が前提。</li>
+          <li><strong>プル</strong>: 上肢で引く動作（水平/垂直）。肩甲骨の制御と体幹の固定が重要。</li>
+        </ul>
+
+        <h4>3. スクワットの観察ポイント</h4>
+        <ul>
+          <li><strong>足部</strong>: つま先と踵の荷重バランス、アーチの潰れ、踵の浮き。</li>
+          <li><strong>膝</strong>: つま先方向との整合（ニーイン/アウト）、左右差。</li>
+          <li><strong>骨盤/体幹</strong>: 過度の前傾、腰の丸まり、肋骨の開き。</li>
+        </ul>
+
+        <h4>4. ヒンジの観察ポイント</h4>
+        <ul>
+          <li><strong>股関節主導</strong>: 膝主導になり過ぎていないか。</li>
+          <li><strong>脊柱の安定</strong>: 反り・丸まりが増えないか（腹圧・呼吸も確認）。</li>
+          <li><strong>荷重</strong>: 足裏の支持、重心が前に逃げないか。</li>
+        </ul>
+
+        <h4>5. プッシュ/プルの観察ポイント</h4>
+        <ul>
+          <li><strong>肩甲帯</strong>: 肩がすくむ、過度に寄せ続ける、左右差。</li>
+          <li><strong>胸郭</strong>: 肋骨の開き、反り腰、首の前突。</li>
+          <li><strong>可動域</strong>: 痛みが出る角度を避け、回帰種目で成立させる。</li>
+        </ul>
+
+        <h4>6. 実務への落とし込み（回帰と進行の考え方）</h4>
+        <p>
+          パターンが崩れる場合は、重量を落とすだけでなく、可動域・姿勢・テンポ・支持面を調整して回帰します。
+          再現性が安定したら、回数→重量→セットの順で漸進します。パターンの質が保てることが前提です。
+        </p>
+
+        <div class="mt-8 p-6 bg-slate-50 rounded-xl not-prose">
+          <h4 class="text-lg font-bold text-slate-900 mb-4">例題</h4>
+          <p class="font-medium text-slate-800 mb-4">
+            Q. ヒンジ動作の定義として最も適切なのはどれか。
+          </p>
+          <details class="group">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">解答・解説</summary>
+            <div class="mt-4 p-4 bg-white border border-slate-200 rounded-lg text-sm text-slate-700">
+              <p class="font-bold text-slate-900 mb-2">A. 股関節主導で屈曲・伸展し、脊柱の安定を保ちながら荷重を扱う</p>
+              <p>
+                ヒンジは股関節主導が核です。膝主導になり過ぎる場合は回帰とキューで修正します。
+              </p>
+            </div>
+          </details>
+        </div>
+
+        <div class="mt-6 p-6 bg-white border border-slate-200 rounded-xl not-prose">
+          <h4 class="text-lg font-bold text-slate-900 mb-4">確認テスト（3問）</h4>
+          <details class="group">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">Q1: 動作パターンで整理する利点は何か。</summary>
+            <div class="mt-3 text-sm text-slate-700">A: 種目選択・観察・回帰/進行を一貫させやすい。</div>
+          </details>
+          <details class="group mt-3">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">Q2: スクワット観察で重要な部位の一例は何か。</summary>
+            <div class="mt-3 text-sm text-slate-700">A: 足部、膝、骨盤/体幹。</div>
+          </details>
+          <details class="group mt-3">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">Q3: 進行の基本順序はどれか。</summary>
+            <div class="mt-3 text-sm text-slate-700">A: 回数→重量→セット（再現性が前提）。</div>
+          </details>
+        </div>
+
+        <h4>要点まとめ（箇条書き5つ）</h4>
+        <ul>
+          <li>整理: スクワット/ヒンジ/プッシュ/プルで指導を標準化</li>
+          <li>観察: 足部・膝・骨盤/体幹・肩甲帯・胸郭を優先</li>
+          <li>回帰: 重量だけでなくROM・テンポ・支持面も調整</li>
+          <li>進行: 再現性が安定してから段階的に漸進</li>
+          <li>実務: パターン単位で課題→介入→再観察</li>
+        </ul>
+      `,
+    },
+    {
+      title: "よくある崩れ: ニーイン/腰の反り/肩のすくみ",
+      excerpt:
+        "現場で頻出するフォーム崩れを、原因の仮説と介入レバー（負荷・ROM・キュー）で整理します。",
+      readTime: 12,
+      content: `
+        <h2>エクササイズテクニック</h2>
+        <h3>よくある崩れ: ニーイン/腰の反り/肩のすくみ</h3>
+
+        <h4>1. フォーム崩れの捉え方</h4>
+        <p>
+          フォームの崩れは、単一原因ではなく「負荷に対して制御が追いついていないサイン」として捉えると整理しやすいです。
+          その場でできる介入（ROM・テンポ・負荷・回帰・キュー）を順序立てて使います。
+        </p>
+
+        <h4>2. ニーイン（膝の内側への崩れ）</h4>
+        <p>
+          ニーインは、足部の支持、股関節の制御、体幹の安定、可動域制限など複数の要因で起こります。
+          「膝を外へ」だけで直らない場合は、原因を分解して介入します。
+        </p>
+        <ul>
+          <li><strong>仮説</strong>: 足部の崩れ、股関節外転/外旋の制御不足、可動域不足、疲労。</li>
+          <li><strong>介入</strong>: ROMを浅くする→テンポを遅くする→負荷を下げる→回帰種目→キュー。</li>
+        </ul>
+
+        <h4>3. 腰の反り（過伸展・肋骨の開き）</h4>
+        <p>
+          腰の反りは、体幹のコントロール不足や呼吸・腹圧の破綻と関連します。
+          プッシュ動作やオーバーヘッド動作で出やすく、肩の代償や腰痛リスクにつながることがあります。
+        </p>
+        <ul>
+          <li><strong>仮説</strong>: 腹圧不足、胸郭の過伸展、肩関節可動域不足の代償、負荷過多。</li>
+          <li><strong>介入</strong>: 肋骨を下げるキュー→可動域を制限→支持面を安定→重量を下げる。</li>
+        </ul>
+
+        <h4>4. 肩のすくみ（僧帽筋上部の優位）</h4>
+        <p>
+          肩のすくみは、肩甲帯の制御が不十分な場合に起こりやすいです。
+          「肩を下げる」だけでなく、種目難度と可動域、胸郭姿勢を合わせて調整すると改善しやすいです。
+        </p>
+        <ul>
+          <li><strong>仮説</strong>: 肩甲骨の下制・後傾の制御不足、重量過多、首の前突、呼吸の乱れ。</li>
+          <li><strong>介入</strong>: 重量を下げる→可動域を短く→回帰（マシン/ケーブル）→キューを1つに絞る。</li>
+        </ul>
+
+        <h4>5. 介入の優先順位（実務の手順）</h4>
+        <p>
+          実務では、まず危険度を下げ、次に再現性を上げます。キューを増やし過ぎると混乱するため、1回に1つだけ伝えます。
+        </p>
+        <ol>
+          <li><strong>安全</strong>: 痛みや危険な代償があれば中止/回帰。</li>
+          <li><strong>負荷要因</strong>: 重量・可動域・速度を下げる。</li>
+          <li><strong>回帰</strong>: 難度の低いバリエーションに変更。</li>
+          <li><strong>キュー</strong>: 1つだけ、短く具体的に。</li>
+        </ol>
+
+        <div class="mt-8 p-6 bg-slate-50 rounded-xl not-prose">
+          <h4 class="text-lg font-bold text-slate-900 mb-4">例題</h4>
+          <p class="font-medium text-slate-800 mb-4">
+            Q. スクワットでニーインが出現した。最初の対応として適切なのはどれか。
+          </p>
+          <details class="group">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">解答・解説</summary>
+            <div class="mt-4 p-4 bg-white border border-slate-200 rounded-lg text-sm text-slate-700">
+              <p class="font-bold text-slate-900 mb-2">A. 可動域と負荷を下げ、テンポを安定させて再評価する</p>
+              <p>
+                まず負荷要因を下げて安全性と再現性を確保します。その上で足部や股関節制御の課題を仮説化します。
+              </p>
+            </div>
+          </details>
+        </div>
+
+        <div class="mt-6 p-6 bg-white border border-slate-200 rounded-xl not-prose">
+          <h4 class="text-lg font-bold text-slate-900 mb-4">確認テスト（3問）</h4>
+          <details class="group">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">Q1: ニーインの原因の例を1つ挙げよ。</summary>
+            <div class="mt-3 text-sm text-slate-700">A: 足部の支持崩れ、股関節制御不足、可動域不足、疲労など。</div>
+          </details>
+          <details class="group mt-3">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">Q2: 腰の反りが出やすい場面の一例は何か。</summary>
+            <div class="mt-3 text-sm text-slate-700">A: プッシュやオーバーヘッド動作（肋骨の開きが増える場面）。</div>
+          </details>
+          <details class="group mt-3">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">Q3: キューの原則はどれか。</summary>
+            <div class="mt-3 text-sm text-slate-700">A: 1回に1つ、短く具体的に。</div>
+          </details>
+        </div>
+
+        <h4>要点まとめ（箇条書き5つ）</h4>
+        <ul>
+          <li>崩れの解釈: 負荷に対して制御が追いつかないサイン</li>
+          <li>ニーイン: 足部・股関節・体幹・ROM・疲労を切り分け</li>
+          <li>腰の反り: 呼吸/腹圧・胸郭姿勢・可動域の代償を確認</li>
+          <li>肩のすくみ: 肩甲帯制御と種目難度・ROM・負荷を調整</li>
+          <li>介入順序: 安全→負荷要因→回帰→キュー</li>
+        </ul>
+      `,
+    },
+    {
+      title: "介入の順番: キュー→回帰→段階的進行",
+      excerpt:
+        "フォーム修正を場当たりにせず、キュー・回帰・進行の順序で再現性のある介入手順を作ります。",
+      readTime: 12,
+      content: `
+        <h2>エクササイズテクニック</h2>
+        <h3>介入の順番: キュー→回帰→段階的進行</h3>
+
+        <h4>1. 介入は「順番」で成功率が変わる</h4>
+        <p>
+          フォーム修正では、思いついたキューを増やすほど混乱しやすいです。実務では、介入を順番で整理し、
+          最小の変更で安全性と再現性を作ります。
+        </p>
+
+        <h4>2. キュー（短く、1つだけ）</h4>
+        <p>
+          キューは「注意を向ける場所」を指定します。情報量が多いと実行できないため、1回に1つに絞ります。
+          まずは外部キュー（例: 床を押す、バーをまっすぐ上げる）から試すと反応が良いことがあります。
+        </p>
+        <ul>
+          <li><strong>良いキュー</strong>: 短い、具体的、すぐ試せる。</li>
+          <li><strong>避けたい</strong>: 体の部位を多数並べる、抽象的。</li>
+        </ul>
+
+        <h4>3. 回帰（動作を成立させる）</h4>
+        <p>
+          キューで成立しない場合は、回帰が必要です。回帰は「弱い人用」ではなく、再現性と安全性を作るための手段です。
+          回帰レバーは、支持面、可動域、負荷、テンポ、器具（マシン/ケーブル）などです。
+        </p>
+        <ul>
+          <li><strong>支持面</strong>: 両脚→片脚、またはベンチ/壁で補助。</li>
+          <li><strong>ROM</strong>: 痛みが出ない範囲に限定。</li>
+          <li><strong>負荷</strong>: 重量を下げ、余力を残す。</li>
+          <li><strong>テンポ</strong>: 反動を減らし、制御を作る。</li>
+        </ul>
+
+        <h4>4. 段階的進行（Progression）</h4>
+        <p>
+          回帰で再現性ができたら、段階的に進行します。進行は急ぎません。回数→重量→セット、またはROMの拡大など、
+          1つずつ変数を動かします。
+        </p>
+
+        <h4>5. 実務テンプレ（観察→介入→再観察）</h4>
+        <ol>
+          <li><strong>観察</strong>: どこで崩れるか（開始/切り返し/終末）。</li>
+          <li><strong>介入</strong>: キュー1つ→回帰→進行。</li>
+          <li><strong>再観察</strong>: 改善が再現するか、疼痛がないか。</li>
+        </ol>
+
+        <div class="mt-8 p-6 bg-slate-50 rounded-xl not-prose">
+          <h4 class="text-lg font-bold text-slate-900 mb-4">例題</h4>
+          <p class="font-medium text-slate-800 mb-4">
+            Q. フォーム修正でキューだけでは改善しない。次の対応として適切なのはどれか。
+          </p>
+          <details class="group">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">解答・解説</summary>
+            <div class="mt-4 p-4 bg-white border border-slate-200 rounded-lg text-sm text-slate-700">
+              <p class="font-bold text-slate-900 mb-2">A. 回帰で動作を成立させ、再現性ができたら段階的に進行する</p>
+              <p>
+                その場のキュー追加より、回帰で負荷要因を下げて動作を成立させるほうが再現性が高いです。
+              </p>
+            </div>
+          </details>
+        </div>
+
+        <div class="mt-6 p-6 bg-white border border-slate-200 rounded-xl not-prose">
+          <h4 class="text-lg font-bold text-slate-900 mb-4">確認テスト（3問）</h4>
+          <details class="group">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">Q1: キューの基本原則はどれか。</summary>
+            <div class="mt-3 text-sm text-slate-700">A: 1回に1つ、短く具体的に。</div>
+          </details>
+          <details class="group mt-3">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">Q2: 回帰の目的は何か。</summary>
+            <div class="mt-3 text-sm text-slate-700">A: 安全性と再現性を作って動作を成立させる。</div>
+          </details>
+          <details class="group mt-3">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">Q3: 進行の基本はどれか。</summary>
+            <div class="mt-3 text-sm text-slate-700">A: 変数を1つずつ段階的に動かす。</div>
+          </details>
+        </div>
+
+        <h4>要点まとめ（箇条書き5つ）</h4>
+        <ul>
+          <li>介入設計: 順番を固定すると再現性が上がる</li>
+          <li>キュー: 短く、具体的に、1回に1つ</li>
+          <li>回帰: 支持面・ROM・負荷・テンポ・器具で成立させる</li>
+          <li>進行: 回数/重量/ROMなどを1つずつ増やす</li>
+          <li>運用: 観察→介入→再観察で判断</li>
+        </ul>
+      `,
+    },
+    {
+      title: "補助種目の選び方: 弱点に合わせて組む",
+      excerpt:
+        "補助種目を「何となく」入れず、目的と弱点に合わせて選び、主動作の改善につなげます。",
+      readTime: 12,
+      content: `
+        <h2>エクササイズテクニック</h2>
+        <h3>補助種目の選び方: 弱点に合わせて組む</h3>
+
+        <h4>1. 補助種目の役割</h4>
+        <p>
+          補助種目の目的は、主動作（メイン種目）の質と成果を上げることです。
+          目的が曖昧だと種目が増え、疲労だけが増えることがあります。実務では「主動作の何を改善するか」を先に決めます。
+        </p>
+
+        <h4>2. 弱点の分類（どこが弱いのか）</h4>
+        <ul>
+          <li><strong>技術</strong>: フォーム再現性が低い、タイミングがずれる。</li>
+          <li><strong>可動域</strong>: 必要なROMが出ず、代償が出る。</li>
+          <li><strong>筋力</strong>: 特定局面で失速する（ボトム/中間/ロックアウト）。</li>
+          <li><strong>筋持久力</strong>: 反復で崩れ、終盤で代償が増える。</li>
+        </ul>
+
+        <h4>3. 選び方の基本（主動作→局面→要因）</h4>
+        <p>
+          まず主動作を決め、次に崩れる局面（開始/切り返し/終末）を特定し、最後に要因（技術/ROM/筋力/持久力）を仮説化します。
+          補助種目は、その要因に最短で当たるものを少数選びます。
+        </p>
+
+        <h4>4. 具体例（目的別）</h4>
+        <ul>
+          <li><strong>スクワットのボトムで崩れる</strong>: 可動域制限スクワット、テンポスクワット、ゴブレットなど。</li>
+          <li><strong>ヒンジで腰が丸まる</strong>: ヒップヒンジドリル、RDLの軽負荷反復、可動域制限。</li>
+          <li><strong>プッシュで肩がすくむ</strong>: インクライン、マシン、肩甲帯制御のドリル。</li>
+        </ul>
+
+        <h4>5. 注意点（入れ過ぎ・目的逸脱）</h4>
+        <ul>
+          <li><strong>数を増やし過ぎない</strong>: 補助が増えるほど回復が崩れやすい。</li>
+          <li><strong>主動作の質を優先</strong>: 補助で疲れて主動作が崩れる設計は避ける。</li>
+          <li><strong>評価で入れ替える</strong>: 2〜4週で効果を見て、必要なら入れ替える。</li>
+        </ul>
+
+        <div class="mt-8 p-6 bg-slate-50 rounded-xl not-prose">
+          <h4 class="text-lg font-bold text-slate-900 mb-4">例題</h4>
+          <p class="font-medium text-slate-800 mb-4">
+            Q. 補助種目を選ぶ手順として最も適切なのはどれか。
+          </p>
+          <details class="group">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">解答・解説</summary>
+            <div class="mt-4 p-4 bg-white border border-slate-200 rounded-lg text-sm text-slate-700">
+              <p class="font-bold text-slate-900 mb-2">A. 主動作の崩れる局面を特定し、要因に当たる種目を少数選ぶ</p>
+              <p>
+                補助は目的が命です。局面と要因を明確にし、少数で効果を出す設計が安定します。
+              </p>
+            </div>
+          </details>
+        </div>
+
+        <div class="mt-6 p-6 bg-white border border-slate-200 rounded-xl not-prose">
+          <h4 class="text-lg font-bold text-slate-900 mb-4">確認テスト（3問）</h4>
+          <details class="group">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">Q1: 補助種目の目的は何か。</summary>
+            <div class="mt-3 text-sm text-slate-700">A: 主動作の改善（質と成果の向上）。</div>
+          </details>
+          <details class="group mt-3">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">Q2: 弱点の分類の一例は何か。</summary>
+            <div class="mt-3 text-sm text-slate-700">A: 技術、ROM、筋力、筋持久力。</div>
+          </details>
+          <details class="group mt-3">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">Q3: 補助を増やし過ぎるリスクは何か。</summary>
+            <div class="mt-3 text-sm text-slate-700">A: 回復不足により主動作の質が落ちる。</div>
+          </details>
+        </div>
+
+        <h4>要点まとめ（箇条書き5つ）</h4>
+        <ul>
+          <li>役割: 主動作の弱点を狙って改善につなげる</li>
+          <li>分類: 技術・ROM・筋力・筋持久力で切り分け</li>
+          <li>手順: 主動作→局面→要因→補助を少数選択</li>
+          <li>運用: 2〜4週で効果を見て入れ替え</li>
+          <li>注意: 入れ過ぎは回復を崩し主動作を悪化させる</li>
+        </ul>
+      `,
+    },
+    {
+      title: "呼吸と腹圧: 体幹安定の作り方",
+      excerpt:
+        "呼吸と腹圧を体幹安定の技術として整理し、フォーム崩れと腰部ストレスを減らす手順をまとめます。",
+      readTime: 12,
+      content: `
+        <h2>エクササイズテクニック</h2>
+        <h3>呼吸と腹圧: 体幹安定の作り方</h3>
+
+        <h4>1. 腹圧は「力の土台」</h4>
+        <p>
+          体幹の安定は、四肢の出力とフォーム再現性に直結します。腹圧は、脊柱を安定させて力を伝える土台です。
+          実務では、腰の反りや丸まり、ヒンジの崩れ、プッシュの反り腰などの改善に関与します。
+        </p>
+
+        <h4>2. 呼吸と姿勢の関係</h4>
+        <p>
+          呼吸が浅くなる、息を止める、肋骨が開き続けるなどがあると、体幹の位置が崩れやすくなります。
+          まずは「肋骨と骨盤の位置」を整え、腹圧を作りやすい姿勢にします。
+        </p>
+
+        <h4>3. 腹圧の作り方（実務キュー）</h4>
+        <ul>
+          <li><strong>360度</strong>: お腹を前だけでなく、横・背中にも膨らませる。</li>
+          <li><strong>肋骨</strong>: 肋骨を過度に開き続けない（反り腰の予防）。</li>
+          <li><strong>圧の維持</strong>: 動作中に圧が抜けないようにする。</li>
+        </ul>
+
+        <h4>4. 種目での使い分け（簡易）</h4>
+        <p>
+          高負荷のスクワットやデッドリフトでは腹圧の維持が重要です。一方で、低負荷や初心者では、過度に複雑な呼吸指導は混乱します。
+          実務では、まず姿勢と簡単なキューで成立させ、必要に応じて精度を上げます。
+        </p>
+
+        <h4>5. 注意点（息止め・血圧反応）</h4>
+        <p>
+          息止めは腹圧を作りやすい一方、血圧反応が増える場合があります。既往歴や症状がある場合は、安全性を優先し、
+          息を吐きながら圧を維持する形など、状況に合わせて調整します。
+        </p>
+
+        <div class="mt-8 p-6 bg-slate-50 rounded-xl not-prose">
+          <h4 class="text-lg font-bold text-slate-900 mb-4">例題</h4>
+          <p class="font-medium text-slate-800 mb-4">
+            Q. 腹圧の説明として適切なのはどれか。
+          </p>
+          <details class="group">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">解答・解説</summary>
+            <div class="mt-4 p-4 bg-white border border-slate-200 rounded-lg text-sm text-slate-700">
+              <p class="font-bold text-slate-900 mb-2">A. 脊柱を安定させ、力を伝えるための体幹内圧の維持</p>
+              <p>
+                腹圧は体幹を固める技術です。姿勢と呼吸を整えると作りやすくなります。
+              </p>
+            </div>
+          </details>
+        </div>
+
+        <div class="mt-6 p-6 bg-white border border-slate-200 rounded-xl not-prose">
+          <h4 class="text-lg font-bold text-slate-900 mb-4">確認テスト（3問）</h4>
+          <details class="group">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">Q1: 腹圧の主な目的は何か。</summary>
+            <div class="mt-3 text-sm text-slate-700">A: 脊柱の安定と力の伝達。</div>
+          </details>
+          <details class="group mt-3">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">Q2: 実務キューの例はどれか。</summary>
+            <div class="mt-3 text-sm text-slate-700">A: お腹を360度に膨らませる、肋骨を開き過ぎない。</div>
+          </details>
+          <details class="group mt-3">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">Q3: 息止めに関する注意点の一例は何か。</summary>
+            <div class="mt-3 text-sm text-slate-700">A: 血圧反応が増える場合があるため、既往歴があれば調整。</div>
+          </details>
+        </div>
+
+        <h4>要点まとめ（箇条書き5つ）</h4>
+        <ul>
+          <li>腹圧: 体幹安定と力伝達の土台</li>
+          <li>姿勢: 肋骨と骨盤の位置が崩れると圧が作りにくい</li>
+          <li>キュー: 360度の膨らみ、肋骨の過開きを抑制</li>
+          <li>運用: 初心者はシンプルに成立→必要に応じて精度を上げる</li>
+          <li>安全: 息止めの血圧反応に注意し、状況に応じて調整</li>
+        </ul>
+      `,
+    },
+    {
+      title: "安全な負荷の上げ方: フォームを守って進める",
+      excerpt:
+        "重量だけを追わず、フォームと回復を守りながら漸進するための実務ルールを整理します。",
+      readTime: 12,
+      content: `
+        <h2>エクササイズテクニック</h2>
+        <h3>安全な負荷の上げ方: フォームを守って進める</h3>
+
+        <h4>1. 漸進の目的は「継続して積む」こと</h4>
+        <p>
+          負荷を上げる目的は、1回の成功体験ではなく、長期で適応を積み上げることです。
+          実務では、重量だけでなくフォームの再現性、疼痛の有無、回復状況を含めて漸進を判断します。
+        </p>
+
+        <h4>2. 漸進の基本ルール（1つずつ動かす）</h4>
+        <ul>
+          <li><strong>回数→重量</strong>: 目標反復を達成したら重量を少し増やす。</li>
+          <li><strong>重量→セット</strong>: 回復が十分な場合のみ、セットを段階的に追加。</li>
+          <li><strong>ROM</strong>: 再現性が安定したら可動域を広げる。</li>
+        </ul>
+
+        <h4>3. 安全のチェックポイント</h4>
+        <ul>
+          <li><strong>疼痛</strong>: 0〜10で増悪がないか。痛みがある場合は回帰。</li>
+          <li><strong>代償</strong>: ニーイン、反り腰、肩すくみなどが増えていないか。</li>
+          <li><strong>速度</strong>: 同一重量で著しい速度低下がないか（疲労のサイン）。</li>
+          <li><strong>回復</strong>: 睡眠、主観疲労、次回のパフォーマンス。</li>
+        </ul>
+
+        <h4>4. 漸進を止める（または戻す）判断</h4>
+        <p>
+          すべての週に前進は必要ありません。フォームが崩れる、痛みが増える、疲労が抜けない場合は、
+          量/強度/ROMを一時的に下げ、再現性を取り戻してから進めます。
+        </p>
+
+        <h4>5. 実務の説明（クライアントに伝える）</h4>
+        <p>
+          クライアントには「重量が上がること」だけを成果としない説明が必要です。
+          反復の品質、フォームの安定、痛みがないこと、継続できた週を成果として評価すると、無理な追い込みが減ります。
+        </p>
+
+        <div class="mt-8 p-6 bg-slate-50 rounded-xl not-prose">
+          <h4 class="text-lg font-bold text-slate-900 mb-4">例題</h4>
+          <p class="font-medium text-slate-800 mb-4">
+            Q. 安全な負荷の上げ方として最も適切なのはどれか。
+          </p>
+          <details class="group">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">解答・解説</summary>
+            <div class="mt-4 p-4 bg-white border border-slate-200 rounded-lg text-sm text-slate-700">
+              <p class="font-bold text-slate-900 mb-2">A. フォームと回復を確認し、変数を1つずつ段階的に操作する</p>
+              <p>
+                漸進は継続して積むための手段です。痛みや代償が増える場合は回帰し、再現性を優先します。
+              </p>
+            </div>
+          </details>
+        </div>
+
+        <div class="mt-6 p-6 bg-white border border-slate-200 rounded-xl not-prose">
+          <h4 class="text-lg font-bold text-slate-900 mb-4">確認テスト（3問）</h4>
+          <details class="group">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">Q1: 漸進を判断する要素の一例は何か。</summary>
+            <div class="mt-3 text-sm text-slate-700">A: フォーム再現性、疼痛、回復状況。</div>
+          </details>
+          <details class="group mt-3">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">Q2: 変数を1つずつ動かす利点は何か。</summary>
+            <div class="mt-3 text-sm text-slate-700">A: 疲労管理がしやすく、崩れの原因を特定しやすい。</div>
+          </details>
+          <details class="group mt-3">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">Q3: 漸進を一時停止すべき兆候の例は何か。</summary>
+            <div class="mt-3 text-sm text-slate-700">A: 痛み増悪、代償増加、回復不足。</div>
+          </details>
+        </div>
+
+        <h4>要点まとめ（箇条書き5つ）</h4>
+        <ul>
+          <li>目的: 1回の成功ではなく長期で適応を積む</li>
+          <li>操作: 変数は1つずつ（回数→重量→セット/ROM）</li>
+          <li>確認: 疼痛・代償・速度低下・回復で判断</li>
+          <li>回帰: 崩れが出たら一時的に戻して再現性を作る</li>
+          <li>説明: 品質と継続を成果として評価する</li>
+        </ul>
+      `,
+    },
   ],
   "安全管理": [
     { title: "最優先は安全: スクリーニングと運動可否判断" },
