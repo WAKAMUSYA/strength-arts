@@ -1,4 +1,8 @@
 import type { Question } from "./questions";
+import { cptBasicScienceQuestions } from "./cptBasicScienceQuestions";
+import { cptNutritionQuestions } from "./cptNutritionQuestions";
+import { cptBehaviorPsychQuestions } from "./cptBehaviorPsychQuestions";
+import { cptAssessmentQuestions } from "./cptAssessmentQuestions";
 
 // CPT question bank (small starter set).
 // `blockId` aligns with `CPT_MOCK_TEST_MAP` in `data/cptLectures.ts`.
@@ -153,5 +157,8 @@ export const cptQuestions: Question[] = [
       "運動可否や制限が不明な場合は、医師の許可や注意事項を確認してから進めます。",
     keywords: ["特殊集団", "医療連携", "禁忌", "安全"],
   },
+  ...cptBasicScienceQuestions,
+  ...cptNutritionQuestions,
+  ...cptBehaviorPsychQuestions,
+  ...cptAssessmentQuestions,
 ];
-

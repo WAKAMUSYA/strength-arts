@@ -3203,22 +3203,930 @@ const CPT_LECTURE_SEEDS: Record<CptBasicsCategory, CptLectureSeed[]> = {
     },
   ],
   "安全管理": [
-    { title: "最優先は安全: スクリーニングと運動可否判断" },
-    { title: "レッドフラッグ: 紹介（医療連携）の目安" },
-    { title: "緊急時対応: 現場での初動と連絡手順" },
-    { title: "事故予防: セッション前チェックリスト" },
+    {
+      title: "最優先は安全: スクリーニングと運動可否判断",
+      excerpt:
+        "CPTの安全管理は「正しいフォーム」より前にあります。問診→リスク判断→必要なら医療連携→安全に開始、という流れを整理します。",
+      readTime: 12,
+      content: `
+        <h2>安全管理</h2>
+        <h3>最優先は安全: スクリーニングと運動可否判断</h3>
+
+        <p>
+          NSCA-CPTの現場では、「何をやるか」より先に「やって良い状態か」を確認します。
+          安全管理は、トレーニングの質を上げるための前提条件です。
+        </p>
+
+        <h4>1. スクリーニングの目的（なぜ必要か）</h4>
+        <ul>
+          <li><strong>事故予防</strong>: 失神、心血管イベント、急性増悪のリスクを下げる</li>
+          <li><strong>適切な開始点を決める</strong>: 強度・種目・可動域・頻度を安全側に設計</li>
+          <li><strong>医療連携の判断材料</strong>: どこまでがCPTの範囲かを明確にする</li>
+        </ul>
+
+        <h4>2. 実務の流れ（最小セット）</h4>
+        <ol>
+          <li><strong>問診</strong>: 既往歴、服薬、症状、痛み、生活習慣、運動歴、目標</li>
+          <li><strong>リスク判断</strong>: 受けて良いか/医療連携が必要か/強度を落として開始か</li>
+          <li><strong>初回プラン</strong>: 低リスクでも「慣らし」を前提に設計（RPE・休息・可動域）</li>
+          <li><strong>継続判断</strong>: セッション中の反応（息切れ・めまい・痛み・血圧）を観察</li>
+        </ol>
+
+        <h4>3. “運動可否判断”の考え方（結論を急がない）</h4>
+        <p>
+          迷ったら「できる/できない」の二択ではなく、<strong>安全側に条件をつけて開始</strong>します。
+          例: 負荷を落とす、可動域を制限する、休息を長くする、種目を変更する、頻度を下げる。
+        </p>
+        <ul>
+          <li><strong>OK</strong>: 明らかな危険サインなし → 低〜中強度で開始</li>
+          <li><strong>要注意</strong>: 痛み/既往歴/不安定なコンディション → 条件つきで開始、経過観察</li>
+          <li><strong>中止/紹介</strong>: レッドフラッグや急性症状 → 運動は行わず医療連携</li>
+        </ul>
+
+        <h4>4. 初回の安全設計（失敗しにくいルール）</h4>
+        <ul>
+          <li><strong>強度</strong>: RPE 5〜7を上限にする（余裕を残す）</li>
+          <li><strong>量</strong>: セット数は少なく、反復の品質を優先する</li>
+          <li><strong>可動域</strong>: 痛みのない範囲で、安定して再現できるROMを採用</li>
+          <li><strong>休息</strong>: 息が整って会話できる程度まで確保</li>
+          <li><strong>観察</strong>: 息切れ、顔色、めまい、痛み、フォーム崩れをチェック</li>
+        </ul>
+
+        <div class="mt-8 p-6 bg-slate-50 rounded-xl not-prose">
+          <h4 class="text-lg font-bold text-slate-900 mb-4">実務メモ：問診でまず聞く5項目</h4>
+          <ul class="text-sm text-slate-700 space-y-2">
+            <li>・最近の症状（胸痛、息切れ、めまい、失神、動悸）</li>
+            <li>・持病/既往歴（心血管、呼吸器、代謝、整形外科）</li>
+            <li>・服薬（血圧・血糖・抗凝固など）</li>
+            <li>・痛み（部位、誘因、増悪/軽減、夜間痛）</li>
+            <li>・運動歴（頻度、強度、ケガ歴、苦手種目）</li>
+          </ul>
+        </div>
+
+        <div class="mt-6 p-6 bg-white border border-slate-200 rounded-xl not-prose">
+          <h4 class="text-lg font-bold text-slate-900 mb-4">確認テスト（3問）</h4>
+          <details class="group">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">Q1: スクリーニングの目的を1つ挙げると？</summary>
+            <div class="mt-3 text-sm text-slate-700">A: 事故予防、開始点の設定、医療連携判断など。</div>
+          </details>
+          <details class="group mt-3">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">Q2: 迷った時に優先する判断は？</summary>
+            <div class="mt-3 text-sm text-slate-700">A: 安全側に条件をつけて開始、または紹介する。</div>
+          </details>
+          <details class="group mt-3">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">Q3: 初回の設計で「失敗しにくい」工夫は？</summary>
+            <div class="mt-3 text-sm text-slate-700">A: 強度/量/ROMを控えめにして観察を重視する。</div>
+          </details>
+        </div>
+
+        <h4>要点まとめ（箇条書き5つ）</h4>
+        <ul>
+          <li>安全管理はフォーム以前の前提条件</li>
+          <li>問診→リスク判断→条件つき開始/紹介の流れで考える</li>
+          <li>迷ったら安全側（強度/量/ROM/頻度を落とす）</li>
+          <li>初回はRPEと観察を優先して「慣らす」</li>
+          <li>レッドフラッグがあれば運動を行わず医療連携</li>
+        </ul>
+      `,
+    },
+    {
+      title: "レッドフラッグ: 紹介（医療連携）の目安",
+      excerpt:
+        "CPTが“判断してはいけない領域”を明確にします。危険サイン、運動中止の基準、紹介の伝え方を整理します。",
+      readTime: 12,
+      content: `
+        <h2>安全管理</h2>
+        <h3>レッドフラッグ: 紹介（医療連携）の目安</h3>
+
+        <p>
+          CPTは医療行為や診断を行いません。重要なのは、危険サインを見逃さず、
+          <strong>「中止してつなぐ」</strong>判断をできるようにしておくことです。
+        </p>
+
+        <h4>1. 紹介が必要になりやすい症状（例）</h4>
+        <ul>
+          <li><strong>胸痛/圧迫感</strong>、呼吸困難（いつもと違う息苦しさ）</li>
+          <li><strong>失神</strong>、強いめまい、意識が遠のく</li>
+          <li><strong>動悸</strong>、不整脈が疑われる症状</li>
+          <li><strong>安静時でも続く強い痛み</strong>、夜間痛、原因不明の悪化</li>
+          <li><strong>発熱</strong>や全身症状（強い倦怠感、急な体重減少など）がある</li>
+          <li><strong>神経症状</strong>（しびれの悪化、麻痺、排尿排便異常など）</li>
+        </ul>
+
+        <h4>2. 運動中に“中止”を判断する目安</h4>
+        <ul>
+          <li>胸痛、強い息苦しさ、冷汗、顔面蒼白</li>
+          <li>めまい、ふらつき、意識が遠のく</li>
+          <li>急激な頭痛、視覚異常</li>
+          <li>フォーム以前に姿勢保持ができない、会話が困難な呼吸困難</li>
+          <li>痛みが増悪し、代償が強く出る（安全に継続できない）</li>
+        </ul>
+
+        <h4>3. “紹介（医療連携）”の伝え方（短く、断定しない）</h4>
+        <p>
+          伝える目的は不安を煽ることではなく、<strong>安全を確保すること</strong>です。
+          病名や原因を断定せず、観察された事実と安全判断を伝えます。
+        </p>
+        <ul>
+          <li>「今日は◯◯の症状が出ています（事実）」</li>
+          <li>「安全のため運動は中止します（判断）」</li>
+          <li>「医療機関で確認できると安心です（提案）」</li>
+        </ul>
+
+        <div class="mt-8 p-6 bg-slate-50 rounded-xl not-prose">
+          <h4 class="text-lg font-bold text-slate-900 mb-4">現場の一言テンプレ（例）</h4>
+          <p class="text-sm text-slate-700 leading-relaxed">
+            「いま、いつもと違う息苦しさ（/胸の違和感/めまい）が出ています。
+            今日は安全のためトレーニングは中止にしましょう。
+            まず医療機関で確認できると安心です。必要なら経過を聞かせてください。」
+          </p>
+        </div>
+
+        <div class="mt-6 p-6 bg-white border border-slate-200 rounded-xl not-prose">
+          <h4 class="text-lg font-bold text-slate-900 mb-4">確認テスト（3問）</h4>
+          <details class="group">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">Q1: CPTが避けるべき行為は？</summary>
+            <div class="mt-3 text-sm text-slate-700">A: 病名の診断、医療的な判断の断定。</div>
+          </details>
+          <details class="group mt-3">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">Q2: 中止判断の例を1つ挙げると？</summary>
+            <div class="mt-3 text-sm text-slate-700">A: 胸痛、失神、強い呼吸困難、急激な頭痛など。</div>
+          </details>
+          <details class="group mt-3">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">Q3: 伝え方のポイントは？</summary>
+            <div class="mt-3 text-sm text-slate-700">A: 事実→安全判断→受診提案の順で、断定しない。</div>
+          </details>
+        </div>
+
+        <h4>要点まとめ（箇条書き5つ）</h4>
+        <ul>
+          <li>CPTは診断しない。危険サインを見つけたら中止してつなぐ</li>
+          <li>胸痛・失神・強い呼吸困難などは即中止の代表例</li>
+          <li>整形外科的な痛みでも夜間痛や神経症状は要注意</li>
+          <li>伝える時は断定せず、観察事実と安全判断を共有</li>
+          <li>安全は信頼の土台。早めの医療連携が結果的に継続につながる</li>
+        </ul>
+      `,
+    },
+    {
+      title: "緊急時対応: 現場での初動と連絡手順",
+      excerpt:
+        "“起きないようにする”だけでなく、“起きた時に迷わない”準備が安全管理です。初動、連絡、記録の流れを整理します。",
+      readTime: 12,
+      content: `
+        <h2>安全管理</h2>
+        <h3>緊急時対応: 現場での初動と連絡手順</h3>
+
+        <p>
+          緊急時は、知識よりも<strong>手順</strong>がものを言います。
+          その場で考え込まないよう、事前に「役割」「連絡先」「道具」を揃えておきます。
+        </p>
+
+        <h4>1. 初動の基本（最優先は安全確保）</h4>
+        <ol>
+          <li><strong>安全確保</strong>: 周囲の危険（器具、落下物、混雑）を除く</li>
+          <li><strong>反応確認</strong>: 声かけ、意識、呼吸</li>
+          <li><strong>救助要請</strong>: 近くのスタッフに役割を割り振る（通報、AED、誘導）</li>
+          <li><strong>通報</strong>: 状況・場所・人数・意識/呼吸の有無を短く伝える</li>
+        </ol>
+
+        <h4>2. 連絡手順を「固定」する</h4>
+        <ul>
+          <li><strong>119</strong>: 住所/目印/入口/エレベーター有無</li>
+          <li><strong>施設内連絡</strong>: 受付/責任者/近隣スタッフ</li>
+          <li><strong>緊急連絡先</strong>: 家族・同伴者（事前に取得しておく）</li>
+        </ul>
+
+        <h4>3. 事故後にやること（記録と再発予防）</h4>
+        <ul>
+          <li><strong>記録</strong>: いつ/どこで/何をして/何が起きたか（客観的に）</li>
+          <li><strong>報告</strong>: 施設の手順に沿って報告（個人で抱えない）</li>
+          <li><strong>振り返り</strong>: 予防できた点、手順の改善点を更新</li>
+        </ul>
+
+        <div class="mt-8 p-6 bg-slate-50 rounded-xl not-prose">
+          <h4 class="text-lg font-bold text-slate-900 mb-4">現場チェック：事前に用意するもの</h4>
+          <ul class="text-sm text-slate-700 space-y-2">
+            <li>・AEDの場所（最短ルート）</li>
+            <li>・緊急時の連絡手順（紙で掲示）</li>
+            <li>・住所/目印/入口の説明文（通報用テンプレ）</li>
+            <li>・緊急連絡先（同意の範囲で取得）</li>
+            <li>・スタッフ間の役割分担（通報、誘導、記録）</li>
+          </ul>
+        </div>
+
+        <div class="mt-6 p-6 bg-white border border-slate-200 rounded-xl not-prose">
+          <h4 class="text-lg font-bold text-slate-900 mb-4">確認テスト（3問）</h4>
+          <details class="group">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">Q1: 緊急時の初動で最優先は？</summary>
+            <div class="mt-3 text-sm text-slate-700">A: 周囲の安全確保と反応（意識/呼吸）の確認。</div>
+          </details>
+          <details class="group mt-3">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">Q2: 通報時に短く伝えるべき要素は？</summary>
+            <div class="mt-3 text-sm text-slate-700">A: 場所、状況、人数、意識/呼吸の有無。</div>
+          </details>
+          <details class="group mt-3">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">Q3: 事故後の対応で重要なことは？</summary>
+            <div class="mt-3 text-sm text-slate-700">A: 客観的な記録と手順の改善（再発予防）。</div>
+          </details>
+        </div>
+
+        <h4>要点まとめ（箇条書き5つ）</h4>
+        <ul>
+          <li>緊急時は「考える」より「手順」で動く</li>
+          <li>安全確保→反応確認→救助要請→通報の順を固定</li>
+          <li>連絡先/場所/AEDルートは事前に準備する</li>
+          <li>事故後は客観記録と報告、再発予防の更新</li>
+          <li>準備があるほど、現場での迷いが減る</li>
+        </ul>
+      `,
+    },
+    {
+      title: "事故予防: セッション前チェックリスト",
+      excerpt:
+        "事故は「種目」より「準備不足」で起きやすいです。環境・器具・クライアント・当日の計画を短時間でチェックする型を作ります。",
+      readTime: 12,
+      content: `
+        <h2>安全管理</h2>
+        <h3>事故予防: セッション前チェックリスト</h3>
+
+        <p>
+          セッション前の5分で、事故の多くは防げます。
+          「チェック項目を固定」すると、忙しい日でも抜け漏れが減ります。
+        </p>
+
+        <h4>1. 環境チェック（場所）</h4>
+        <ul>
+          <li>床が滑らない/障害物がない/動線が確保されている</li>
+          <li>換気・温度・水分補給の導線</li>
+          <li>混雑状況（安全なスペースを確保できるか）</li>
+        </ul>
+
+        <h4>2. 器具チェック（道具）</h4>
+        <ul>
+          <li>カラー/ピン/ベルト/ベンチの固定</li>
+          <li>プレートの欠けや破損、ケーブルの摩耗</li>
+          <li>重量表示の誤差（ダンベルの取り違え）</li>
+        </ul>
+
+        <h4>3. クライアントチェック（人）</h4>
+        <ul>
+          <li>睡眠/疲労/痛み/体調（いつもと違う点）</li>
+          <li>服装・シューズ（滑り、支持性）</li>
+          <li>当日の目標（追い込み目的になっていないか）</li>
+        </ul>
+
+        <h4>4. 計画チェック（内容）</h4>
+        <ul>
+          <li>ウォームアップの時間確保（呼吸・可動域・軽負荷）</li>
+          <li>難易度の順番（易→難、低疲労→高疲労）</li>
+          <li>スポッティング/代替種目/中止基準を事前に決める</li>
+        </ul>
+
+        <div class="mt-8 p-6 bg-slate-50 rounded-xl not-prose">
+          <h4 class="text-lg font-bold text-slate-900 mb-4">セッション前チェックリスト（コピペ用）</h4>
+          <ul class="text-sm text-slate-700 space-y-2">
+            <li>□ 床・動線・スペースは安全か</li>
+            <li>□ 器具の固定（カラー/ピン/ベンチ）はOKか</li>
+            <li>□ 今日の体調（疲労/痛み/睡眠）は確認したか</li>
+            <li>□ 強度はRPE上限を決めているか</li>
+            <li>□ 中止基準（痛み/めまい/息苦しさ）は共有したか</li>
+            <li>□ 代替種目/負荷調整のプランはあるか</li>
+          </ul>
+        </div>
+
+        <div class="mt-6 p-6 bg-white border border-slate-200 rounded-xl not-prose">
+          <h4 class="text-lg font-bold text-slate-900 mb-4">確認テスト（3問）</h4>
+          <details class="group">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">Q1: チェックリストを固定する利点は？</summary>
+            <div class="mt-3 text-sm text-slate-700">A: 忙しい日でも抜け漏れが減り、判断が速くなる。</div>
+          </details>
+          <details class="group mt-3">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">Q2: 器具チェックの代表例は？</summary>
+            <div class="mt-3 text-sm text-slate-700">A: カラー/ピン固定、破損、摩耗の確認。</div>
+          </details>
+          <details class="group mt-3">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">Q3: 計画チェックで大事なことは？</summary>
+            <div class="mt-3 text-sm text-slate-700">A: ウォームアップ、順番、代替案と中止基準の準備。</div>
+          </details>
+        </div>
+
+        <h4>要点まとめ（箇条書き5つ）</h4>
+        <ul>
+          <li>事故は「準備不足」で起きやすい</li>
+          <li>環境・器具・人・計画の4点を短時間で確認</li>
+          <li>強度上限（RPE）と中止基準を先に共有する</li>
+          <li>代替案（種目/負荷/ROM）を用意して迷いを減らす</li>
+          <li>チェック項目を固定すると品質が安定する</li>
+        </ul>
+      `,
+    },
   ],
   "ビジネス・コミュニケーション": [
-    { title: "信頼を作る: 説明力・提案力・ヒアリング" },
-    { title: "キューイングの原則: 1回に1つ、短く具体的に" },
-    { title: "継続支援: 期待値調整と振り返り" },
-    { title: "記録と報告: “できた”を可視化して伸ばす" },
+    {
+      title: "信頼を作る: 説明力・提案力・ヒアリング",
+      excerpt:
+        "CPTは「何を教えるか」より「どう伝えるか」で成果が変わります。ヒアリング→提案→合意形成の型を整理します。",
+      readTime: 12,
+      content: `
+        <h2>ビジネス・コミュニケーション</h2>
+        <h3>信頼を作る: 説明力・提案力・ヒアリング</h3>
+
+        <p>
+          トレーナーの知識が正しくても、伝わらなければ継続しません。
+          CPTの現場では、<strong>「相手の言葉を整理して、次の一歩を合意する」</strong>力が重要です。
+        </p>
+
+        <h4>1. ヒアリングの目的（情報収集ではなく“判断材料”を揃える）</h4>
+        <ul>
+          <li><strong>目標</strong>: 何ができるようになりたいか（期限/優先順位）</li>
+          <li><strong>制約</strong>: 時間、体力、痛み、環境、家族/仕事の事情</li>
+          <li><strong>過去</strong>: 成功/失敗の経験（何が続かなかったか）</li>
+          <li><strong>価値観</strong>: 何を大事にしているか（見た目/健康/競技/習慣）</li>
+        </ul>
+
+        <h4>2. “提案”は3点セットで伝える</h4>
+        <ul>
+          <li><strong>結論</strong>: 今日やること（何を、どれくらい）</li>
+          <li><strong>理由</strong>: なぜそれが今必要か（目的に直結する）</li>
+          <li><strong>判断基準</strong>: どうなったら次へ進むか（チェック項目）</li>
+        </ul>
+        <p>
+          これにより、「納得して進める」状態が作れます。説明が長くなるより、<strong>短く構造化</strong>する方が伝わります。
+        </p>
+
+        <h4>3. 合意形成（やらせない、選んでもらう）</h4>
+        <p>
+          継続は、本人が選んだ時に起こりやすくなります。提案は一択にせず、
+          <strong>安全な範囲で2案</strong>を出すと合意が取りやすいです。
+        </p>
+        <ul>
+          <li><strong>案A</strong>: 週2回・短時間（継続優先）</li>
+          <li><strong>案B</strong>: 週1回＋自宅ドリル（時間制約が強い人向け）</li>
+        </ul>
+
+        <div class="mt-8 p-6 bg-slate-50 rounded-xl not-prose">
+          <h4 class="text-lg font-bold text-slate-900 mb-4">会話テンプレ（そのまま使える）</h4>
+          <div class="text-sm text-slate-700 space-y-2 leading-relaxed">
+            <p>1) 「いま困っているのは、どの場面ですか？」</p>
+            <p>2) 「理想はどうなれば“OK”ですか？」</p>
+            <p>3) 「それを作るために、今日はこれをやりましょう（結論）。理由は◯◯です（理由）。」</p>
+            <p>4) 「次回、◯◯ができていれば前に進めます（判断基準）。」</p>
+          </div>
+        </div>
+
+        <div class="mt-6 p-6 bg-white border border-slate-200 rounded-xl not-prose">
+          <h4 class="text-lg font-bold text-slate-900 mb-4">確認テスト（3問）</h4>
+          <details class="group">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">Q1: ヒアリングで最初に整理したいのは？</summary>
+            <div class="mt-3 text-sm text-slate-700">A: 目標と制約（現実的な開始点の判断材料）。</div>
+          </details>
+          <details class="group mt-3">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">Q2: 提案を伝える3点セットは？</summary>
+            <div class="mt-3 text-sm text-slate-700">A: 結論・理由・判断基準。</div>
+          </details>
+          <details class="group mt-3">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">Q3: 合意形成で有効な工夫は？</summary>
+            <div class="mt-3 text-sm text-slate-700">A: 安全な範囲で2案を提示して選んでもらう。</div>
+          </details>
+        </div>
+
+        <h4>要点まとめ（箇条書き5つ）</h4>
+        <ul>
+          <li>目的は「納得して進める」状態を作ること</li>
+          <li>ヒアリングは目標/制約/過去/価値観を整理する</li>
+          <li>提案は結論・理由・判断基準の3点セット</li>
+          <li>合意形成は選択肢（2案）で進める</li>
+          <li>説明は長さより構造（短く、分かる）</li>
+        </ul>
+      `,
+    },
+    {
+      title: "キューイングの原則: 1回に1つ、短く具体的に",
+      excerpt:
+        "フォーム修正は“情報量”ではなく“狙いの明確さ”で決まります。内的/外的キュー、優先順位、言い換えの型を整理します。",
+      readTime: 12,
+      content: `
+        <h2>ビジネス・コミュニケーション</h2>
+        <h3>キューイングの原則: 1回に1つ、短く具体的に</h3>
+
+        <p>
+          キュー（声かけ）は、フォームの“正しさ”を押し付けるためではなく、
+          <strong>「狙った動きを一つだけ起こす」</strong>ために使います。
+        </p>
+
+        <h4>1. まず“何を変えるか”を1つに絞る</h4>
+        <ul>
+          <li>修正点が3つある場合でも、<strong>最優先を1つ</strong>決める</li>
+          <li>最初は<strong>安全に直結する点</strong>（疼痛・不安定・危険）を優先</li>
+          <li>次に<strong>出力に直結する点</strong>（床反力、呼吸、姿勢保持）</li>
+        </ul>
+
+        <h4>2. キューの種類（内的→外的へ）</h4>
+        <ul>
+          <li><strong>内的キュー</strong>: 「腹圧を入れる」「胸を張る」など身体意識</li>
+          <li><strong>外的キュー</strong>: 「床を押す」「バーを天井に押す」など結果・対象</li>
+        </ul>
+        <p>
+          迷ったら、外的キューの方が伝わりやすいことが多いです（人によって合う言葉が違うため、言い換えを準備します）。
+        </p>
+
+        <h4>3. “良いキュー”の条件</h4>
+        <ul>
+          <li><strong>短い</strong>: 3〜6語くらい</li>
+          <li><strong>具体</strong>: どこを、どの方向に、どうするか</li>
+          <li><strong>確認できる</strong>: コーチ側が「できた/できない」を判断できる</li>
+        </ul>
+
+        <h4>4. 言い換えの例（同じ狙いで3案）</h4>
+        <ul>
+          <li><strong>狙い: 体幹を安定</strong> → 「息を吸って固める」「お腹を風船に」「ベルトを押す」</li>
+          <li><strong>狙い: 押し動作</strong> → 「床を押す」「地面に力を返す」「足で押して上に送る」</li>
+          <li><strong>狙い: 肩すくみを減らす</strong> → 「首を長く」「肩を下げる」「鎖骨を広げる」</li>
+        </ul>
+
+        <div class="mt-8 p-6 bg-slate-50 rounded-xl not-prose">
+          <h4 class="text-lg font-bold text-slate-900 mb-4">現場の手順（30秒で回す）</h4>
+          <ol class="text-sm text-slate-700 space-y-2 leading-relaxed">
+            <li>1) 1つだけ修正点を決める（最優先）</li>
+            <li>2) キューを一言で伝える（短く）</li>
+            <li>3) 1〜2回で変化を見る（観察）</li>
+            <li>4) 変わらなければ言い換える（同じ狙いで別の言葉）</li>
+          </ol>
+        </div>
+
+        <div class="mt-6 p-6 bg-white border border-slate-200 rounded-xl not-prose">
+          <h4 class="text-lg font-bold text-slate-900 mb-4">確認テスト（3問）</h4>
+          <details class="group">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">Q1: キューは一度に何個が基本？</summary>
+            <div class="mt-3 text-sm text-slate-700">A: 1回に1つ（最優先の修正点）。</div>
+          </details>
+          <details class="group mt-3">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">Q2: 良いキューの条件を1つ挙げると？</summary>
+            <div class="mt-3 text-sm text-slate-700">A: 短い/具体/確認できる、のいずれか。</div>
+          </details>
+          <details class="group mt-3">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">Q3: 伝わらない時にまずすることは？</summary>
+            <div class="mt-3 text-sm text-slate-700">A: 同じ狙いで言い換える（外的キューに寄せる）。</div>
+          </details>
+        </div>
+
+        <h4>要点まとめ（箇条書き5つ）</h4>
+        <ul>
+          <li>キューは“狙った動きを1つ起こす”ための道具</li>
+          <li>修正点は最優先を1つに絞る</li>
+          <li>内的→外的キューを使い分ける</li>
+          <li>短く具体、観察できる言葉にする</li>
+          <li>言い換えを3案用意しておく</li>
+        </ul>
+      `,
+    },
+    {
+      title: "継続支援: 期待値調整と振り返り",
+      excerpt:
+        "継続できる人は“期待値”が現実的です。成果の定義、停滞期の説明、振り返りの型で継続を支えます。",
+      readTime: 12,
+      content: `
+        <h2>ビジネス・コミュニケーション</h2>
+        <h3>継続支援: 期待値調整と振り返り</h3>
+
+        <p>
+          CPTの成果は、1回のセッションで決まりません。
+          継続の鍵は、<strong>「現実的な期待値」と「小さな成功の積み上げ」</strong>です。
+        </p>
+
+        <h4>1. 期待値調整（成果の定義をズラさない）</h4>
+        <ul>
+          <li><strong>短期</strong>: 痛みなくできる、フォームが安定、疲労が残らない</li>
+          <li><strong>中期</strong>: 回数・重量・可動域・スピードの改善（どれか1つ）</li>
+          <li><strong>長期</strong>: 体組成やパフォーマンス、習慣の定着</li>
+        </ul>
+        <p>
+          体重や見た目だけを成果にすると、無理な追い込みや離脱につながりやすいです。
+          「今日の成果」を言語化して残すと継続率が上がります。
+        </p>
+
+        <h4>2. 停滞期の説明（“普通に起こる”と伝える）</h4>
+        <ul>
+          <li>睡眠・ストレス・仕事の負荷でパフォーマンスは揺れる</li>
+          <li>適応には波がある（伸びる週・整える週がある）</li>
+          <li>停滞は失敗ではなく、<strong>調整のサイン</strong></li>
+        </ul>
+
+        <h4>3. 振り返りの型（毎回、同じ質問で整える）</h4>
+        <ol>
+          <li><strong>うまくいった点</strong>: 何ができたか（1つでOK）</li>
+          <li><strong>つまずき</strong>: どこで崩れたか（条件/疲労/痛み）</li>
+          <li><strong>次の一手</strong>: 変数を1つだけ動かす（重量/回数/ROM/休息）</li>
+        </ol>
+
+        <div class="mt-8 p-6 bg-slate-50 rounded-xl not-prose">
+          <h4 class="text-lg font-bold text-slate-900 mb-4">振り返りテンプレ（3つだけ）</h4>
+          <div class="text-sm text-slate-700 space-y-2 leading-relaxed">
+            <p>1) 今日できたことは何ですか？</p>
+            <p>2) どこで崩れましたか？（条件は？）</p>
+            <p>3) 次は何を1つだけ変えますか？</p>
+          </div>
+        </div>
+
+        <div class="mt-6 p-6 bg-white border border-slate-200 rounded-xl not-prose">
+          <h4 class="text-lg font-bold text-slate-900 mb-4">確認テスト（3問）</h4>
+          <details class="group">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">Q1: 継続に必要な土台は？</summary>
+            <div class="mt-3 text-sm text-slate-700">A: 現実的な期待値と小さな成功の積み上げ。</div>
+          </details>
+          <details class="group mt-3">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">Q2: 停滞期は何のサイン？</summary>
+            <div class="mt-3 text-sm text-slate-700">A: 調整（回復/量/強度）のサイン。</div>
+          </details>
+          <details class="group mt-3">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">Q3: 振り返りで毎回固定すると良い質問は？</summary>
+            <div class="mt-3 text-sm text-slate-700">A: できた点・つまずき・次の一手。</div>
+          </details>
+        </div>
+
+        <h4>要点まとめ（箇条書き5つ）</h4>
+        <ul>
+          <li>成果は1回ではなく継続で作る</li>
+          <li>短期/中期/長期で成果の定義を分ける</li>
+          <li>停滞は普通に起こる（調整のサイン）</li>
+          <li>振り返りは型で回す（質問を固定）</li>
+          <li>次の一手は変数を1つだけ動かす</li>
+        </ul>
+      `,
+    },
+    {
+      title: "記録と報告: “できた”を可視化して伸ばす",
+      excerpt:
+        "記録は管理のためではなく“成長の証拠”です。最低限の記録項目、報告の型、次回への接続を整理します。",
+      readTime: 12,
+      content: `
+        <h2>ビジネス・コミュニケーション</h2>
+        <h3>記録と報告: “できた”を可視化して伸ばす</h3>
+
+        <p>
+          記録は、トレーナーのためだけにあるものではありません。
+          クライアントにとっての価値は、<strong>「できた」を見える化</strong>して前向きに続けられることです。
+        </p>
+
+        <h4>1. 最低限の記録項目（これだけで回る）</h4>
+        <ul>
+          <li><strong>種目</strong>: 何をしたか</li>
+          <li><strong>量と強度</strong>: 回数・重量・セット（またはRPE）</li>
+          <li><strong>品質</strong>: フォーム再現性、痛み、代償の有無</li>
+          <li><strong>体調</strong>: 睡眠/疲労/主観（次回の判断材料）</li>
+        </ul>
+
+        <h4>2. “報告”は短く構造化する（3行でOK）</h4>
+        <ol>
+          <li><strong>今日の成果</strong>: できた点（1つ）</li>
+          <li><strong>課題</strong>: 次に整える点（1つ）</li>
+          <li><strong>次回</strong>: 何をどう進めるか（変数を1つ動かす）</li>
+        </ol>
+
+        <h4>3. 記録が“安全管理”にもなる</h4>
+        <ul>
+          <li>痛みの推移（0〜10）が追える</li>
+          <li>疲労とパフォーマンスの関係が見える</li>
+          <li>無理な漸進を防ぎ、説明の根拠になる</li>
+        </ul>
+
+        <div class="mt-8 p-6 bg-slate-50 rounded-xl not-prose">
+          <h4 class="text-lg font-bold text-slate-900 mb-4">報告テンプレ（コピペ用）</h4>
+          <div class="text-sm text-slate-700 space-y-2 leading-relaxed">
+            <p>・今日の成果：◯◯が安定（例：フォーム再現性）</p>
+            <p>・次の課題：△△を整える（例：代償）</p>
+            <p>・次回の一手：変数を1つだけ上げる/下げる（例：回数→重量）</p>
+          </div>
+        </div>
+
+        <div class="mt-6 p-6 bg-white border border-slate-200 rounded-xl not-prose">
+          <h4 class="text-lg font-bold text-slate-900 mb-4">確認テスト（3問）</h4>
+          <details class="group">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">Q1: 最低限の記録項目を1つ挙げると？</summary>
+            <div class="mt-3 text-sm text-slate-700">A: 種目、回数/重量、RPE、痛み、体調など。</div>
+          </details>
+          <details class="group mt-3">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">Q2: 報告を短くするコツは？</summary>
+            <div class="mt-3 text-sm text-slate-700">A: 成果・課題・次回の一手の3行にする。</div>
+          </details>
+          <details class="group mt-3">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">Q3: 記録が安全管理に役立つ理由は？</summary>
+            <div class="mt-3 text-sm text-slate-700">A: 痛み/疲労/崩れの推移が追えて無理を防げる。</div>
+          </details>
+        </div>
+
+        <h4>要点まとめ（箇条書き5つ）</h4>
+        <ul>
+          <li>記録は“成長の証拠”を作るためにある</li>
+          <li>最低限は種目・量/強度・品質・体調</li>
+          <li>報告は成果・課題・次回の一手の3行でOK</li>
+          <li>記録は安全管理（痛み/疲労）の根拠になる</li>
+          <li>次回は変数を1つだけ動かして進める</li>
+        </ul>
+      `,
+    },
   ],
   "特殊集団対応": [
-    { title: "状況別の配慮: 高齢者・妊娠・慢性疾患の基本" },
-    { title: "禁忌/注意事項: まず確認する3点" },
-    { title: "強度の目安: 会話できる強度から始める" },
-    { title: "迷った時: 無理に進めず医療連携する" },
+    {
+      title: "状況別の配慮: 高齢者・妊娠・慢性疾患の基本",
+      excerpt:
+        "特殊集団対応は“別メニュー”ではなく、リスクを見立てて安全に調整する作業です。高齢者・妊娠・慢性疾患の基本的な考え方を整理します。",
+      readTime: 12,
+      content: `
+        <h2>特殊集団対応</h2>
+        <h3>状況別の配慮: 高齢者・妊娠・慢性疾患の基本</h3>
+
+        <p>
+          特殊集団対応は「特別なトレーニング」を増やすことではありません。
+          重要なのは、<strong>リスクを下げながら、継続できる形に調整</strong>することです。
+        </p>
+
+        <h4>1. 共通原則（まず押さえる）</h4>
+        <ul>
+          <li><strong>安全側に設計</strong>: 強度・量・可動域・スピードを控えめに開始</li>
+          <li><strong>反応を観察</strong>: 息切れ、めまい、痛み、回復（翌日）で調整</li>
+          <li><strong>継続優先</strong>: 1回の頑張りより、週単位で続く設計</li>
+        </ul>
+
+        <h4>2. 高齢者（例：転倒リスクと筋力低下）</h4>
+        <ul>
+          <li><strong>優先</strong>: 下肢筋力、バランス、立ち上がり動作、歩行の安定</li>
+          <li><strong>注意</strong>: 立ちくらみ、関節痛、過度な息こらえ</li>
+          <li><strong>工夫</strong>: 支持物（ラック/ベンチ）を使い、安全な範囲で反復</li>
+        </ul>
+
+        <h4>3. 妊娠・産後（例：体調変動と負担管理）</h4>
+        <ul>
+          <li><strong>優先</strong>: 体調と疲労を最優先に、呼吸・姿勢・軽負荷の反復</li>
+          <li><strong>注意</strong>: めまい、出血、強い痛みなどは中止して医療連携</li>
+          <li><strong>工夫</strong>: ポジション調整（苦しくない姿勢）、休息を長めに確保</li>
+        </ul>
+
+        <h4>4. 慢性疾患（例：高血圧・糖代謝・整形外科）</h4>
+        <ul>
+          <li><strong>優先</strong>: 低〜中強度での継続、日常活動量の増加</li>
+          <li><strong>注意</strong>: 既往歴・服薬・当日の体調変化（息切れ/胸部症状/低血糖）</li>
+          <li><strong>工夫</strong>: RPEと会話テストで強度を管理、変数は1つずつ動かす</li>
+        </ul>
+
+        <div class="mt-8 p-6 bg-slate-50 rounded-xl not-prose">
+          <h4 class="text-lg font-bold text-slate-900 mb-4">実務メモ：最初に決める3つ</h4>
+          <ul class="text-sm text-slate-700 space-y-2">
+            <li>・強度の上限（RPE/会話テスト）</li>
+            <li>・中止基準（症状、痛み、めまい、息苦しさ）</li>
+            <li>・次回へ進む条件（フォーム再現性、回復、痛みなし）</li>
+          </ul>
+        </div>
+
+        <div class="mt-6 p-6 bg-white border border-slate-200 rounded-xl not-prose">
+          <h4 class="text-lg font-bold text-slate-900 mb-4">確認テスト（3問）</h4>
+          <details class="group">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">Q1: 特殊集団対応の目的は？</summary>
+            <div class="mt-3 text-sm text-slate-700">A: リスクを下げつつ継続できる形に調整すること。</div>
+          </details>
+          <details class="group mt-3">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">Q2: 強度管理に使える指標は？</summary>
+            <div class="mt-3 text-sm text-slate-700">A: RPE、会話テスト、呼吸の余裕など。</div>
+          </details>
+          <details class="group mt-3">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">Q3: まず決めると良いことは？</summary>
+            <div class="mt-3 text-sm text-slate-700">A: 強度上限・中止基準・次回へ進む条件。</div>
+          </details>
+        </div>
+
+        <h4>要点まとめ（箇条書き5つ）</h4>
+        <ul>
+          <li>特殊集団対応は“安全に調整する”作業</li>
+          <li>強度/量/ROM/スピードは控えめに開始</li>
+          <li>反応（症状/痛み/回復）で調整する</li>
+          <li>継続優先で設計する</li>
+          <li>迷ったら安全側に寄せ、医療連携も選択肢</li>
+        </ul>
+      `,
+    },
+    {
+      title: "禁忌/注意事項: まず確認する3点",
+      excerpt:
+        "特殊集団対応で最初に確認すべき3点（症状/痛み、既往歴・服薬、当日の体調）を整理し、事故を防ぐための“抜け漏れ防止”を作ります。",
+      readTime: 12,
+      content: `
+        <h2>特殊集団対応</h2>
+        <h3>禁忌/注意事項: まず確認する3点</h3>
+
+        <p>
+          特殊集団対応の事故は、「知らなかった」より「聞けていなかった」で起きやすいです。
+          まずは<strong>確認項目を固定</strong>して抜け漏れを減らします。
+        </p>
+
+        <h4>1. まず確認する3点（固定）</h4>
+        <ol>
+          <li><strong>症状/痛み</strong>: いつ・どこで・何で増えるか（夜間痛/しびれ/めまい等）</li>
+          <li><strong>既往歴・服薬</strong>: 心血管/呼吸/代謝/整形、薬（血圧/血糖/抗凝固など）</li>
+          <li><strong>当日の体調</strong>: 睡眠、疲労、食事、水分、ストレス、直近の活動量</li>
+        </ol>
+
+        <h4>2. 注意のサイン（例：安全側に寄せる）</h4>
+        <ul>
+          <li>いつもと違う強い息切れ、動悸、めまい</li>
+          <li>痛みが増悪し、代償が増える</li>
+          <li>回復が明らかに悪い（翌日以降に増悪）</li>
+        </ul>
+
+        <h4>3. その場での調整（断定せず、条件をつける）</h4>
+        <ul>
+          <li><strong>強度</strong>: RPE上限を下げる</li>
+          <li><strong>量</strong>: セット数・総反復を減らす</li>
+          <li><strong>ROM</strong>: 痛みのない範囲に制限</li>
+          <li><strong>種目</strong>: 代替（支持物あり、マシン、可動域短縮）</li>
+          <li><strong>休息</strong>: 呼吸が整うまで長めに</li>
+        </ul>
+
+        <div class="mt-8 p-6 bg-slate-50 rounded-xl not-prose">
+          <h4 class="text-lg font-bold text-slate-900 mb-4">確認チェック（コピペ用）</h4>
+          <ul class="text-sm text-slate-700 space-y-2">
+            <li>□ いつもと違う症状（胸/呼吸/めまい/失神）はないか</li>
+            <li>□ 痛み（部位/誘因/夜間痛/しびれ）はないか</li>
+            <li>□ 既往歴・服薬・医師からの指示はあるか</li>
+            <li>□ 当日の睡眠/疲労/食事/水分はどうか</li>
+            <li>□ 中止基準を共有したか</li>
+          </ul>
+        </div>
+
+        <div class="mt-6 p-6 bg-white border border-slate-200 rounded-xl not-prose">
+          <h4 class="text-lg font-bold text-slate-900 mb-4">確認テスト（3問）</h4>
+          <details class="group">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">Q1: 最初に確認する3点は？</summary>
+            <div class="mt-3 text-sm text-slate-700">A: 症状/痛み、既往歴・服薬、当日の体調。</div>
+          </details>
+          <details class="group mt-3">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">Q2: 注意のサインの例は？</summary>
+            <div class="mt-3 text-sm text-slate-700">A: 強い息切れ、めまい、痛み増悪、回復不良など。</div>
+          </details>
+          <details class="group mt-3">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">Q3: 迷った時の対応は？</summary>
+            <div class="mt-3 text-sm text-slate-700">A: 条件つきで安全側に調整、必要なら医療連携。</div>
+          </details>
+        </div>
+
+        <h4>要点まとめ（箇条書き5つ）</h4>
+        <ul>
+          <li>事故は「聞けていなかった」で起きやすい</li>
+          <li>確認項目を固定して抜け漏れを減らす</li>
+          <li>注意サインがあれば安全側に調整する</li>
+          <li>調整は強度/量/ROM/種目/休息の順で考える</li>
+          <li>断定せず、条件をつけて判断する</li>
+        </ul>
+      `,
+    },
+    {
+      title: "強度の目安: 会話できる強度から始める",
+      excerpt:
+        "特殊集団は“頑張らせる”より“続けられる強度”が重要です。会話テストとRPEを使った強度設定の型を作ります。",
+      readTime: 12,
+      content: `
+        <h2>特殊集団対応</h2>
+        <h3>強度の目安: 会話できる強度から始める</h3>
+
+        <p>
+          特殊集団対応では、強度を上げる前に「安全に反復できる形」を作ります。
+          そのための現場ツールが、<strong>会話テスト</strong>と<strong>RPE</strong>です。
+        </p>
+
+        <h4>1. 会話テスト（Talk Test）</h4>
+        <ul>
+          <li><strong>会話できる</strong>: 低〜中強度（安全に継続しやすい）</li>
+          <li><strong>短い言葉だけ</strong>: 強度が高い（特殊集団では慎重に）</li>
+          <li><strong>会話できない</strong>: 強度過多の可能性（中止/調整）</li>
+        </ul>
+
+        <h4>2. RPE（主観的運動強度）で上限を決める</h4>
+        <ul>
+          <li>開始は<strong>RPE 5〜7</strong>を上限にする（余裕を残す）</li>
+          <li>「追い込まない」を明確にする（フォーム再現性と安全優先）</li>
+        </ul>
+
+        <h4>3. 強度を上げる前に確認すること</h4>
+        <ul>
+          <li>痛みがない（増悪しない）</li>
+          <li>フォーム再現性が安定している</li>
+          <li>翌日に疲労が残りすぎない</li>
+          <li>会話テストが保てている</li>
+        </ul>
+
+        <h4>4. 進め方（変数は1つずつ）</h4>
+        <ul>
+          <li><strong>回数→重量</strong>、または<strong>回数→セット</strong>の順で調整</li>
+          <li>一度に複数を上げない（原因が分からなくなる）</li>
+        </ul>
+
+        <div class="mt-8 p-6 bg-slate-50 rounded-xl not-prose">
+          <h4 class="text-lg font-bold text-slate-900 mb-4">現場メモ：強度説明の一言</h4>
+          <p class="text-sm text-slate-700 leading-relaxed">
+            「今日は“会話できる強度”でやります。フォームが安定して、翌日に疲労が残りすぎない範囲が正解です。」
+          </p>
+        </div>
+
+        <div class="mt-6 p-6 bg-white border border-slate-200 rounded-xl not-prose">
+          <h4 class="text-lg font-bold text-slate-900 mb-4">確認テスト（3問）</h4>
+          <details class="group">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">Q1: 会話テストで「強度が高い」サインは？</summary>
+            <div class="mt-3 text-sm text-slate-700">A: 会話ができない、短い言葉しか出ない。</div>
+          </details>
+          <details class="group mt-3">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">Q2: 開始時のRPE上限の目安は？</summary>
+            <div class="mt-3 text-sm text-slate-700">A: RPE 5〜7（余裕を残す）。</div>
+          </details>
+          <details class="group mt-3">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">Q3: 強度を上げる前に確認することは？</summary>
+            <div class="mt-3 text-sm text-slate-700">A: 痛みなし、フォーム再現性、回復、会話テストなど。</div>
+          </details>
+        </div>
+
+        <h4>要点まとめ（箇条書き5つ）</h4>
+        <ul>
+          <li>特殊集団は“続けられる強度”が重要</li>
+          <li>会話テストとRPEで強度上限を決める</li>
+          <li>開始は余裕を残す（RPE 5〜7）</li>
+          <li>強度UP前に痛み/再現性/回復を確認する</li>
+          <li>変数は1つずつ動かして進める</li>
+        </ul>
+      `,
+    },
+    {
+      title: "迷った時: 無理に進めず医療連携する",
+      excerpt:
+        "“判断が難しいケース”ほど無理に進めない。中止・紹介・再開の考え方と、現場での伝え方を整理します。",
+      readTime: 12,
+      content: `
+        <h2>特殊集団対応</h2>
+        <h3>迷った時: 無理に進めず医療連携する</h3>
+
+        <p>
+          迷う時点で、リスクが見えている可能性があります。
+          その場合は「やる/やらない」ではなく、<strong>安全を確保して“つなぐ”</strong>ことが最優先です。
+        </p>
+
+        <h4>1. 迷いやすいケース（例）</h4>
+        <ul>
+          <li>痛みが強い/増悪するが、原因がはっきりしない</li>
+          <li>めまい、息切れ、動悸などが出る</li>
+          <li>既往歴や服薬の影響が大きそうだが、情報が不足している</li>
+          <li>本人の不安が強く、継続できる状態ではない</li>
+        </ul>
+
+        <h4>2. 判断の型（安全側に寄せる）</h4>
+        <ul>
+          <li><strong>中止</strong>: その日の運動は行わない（危険サインがある）</li>
+          <li><strong>紹介</strong>: 医療機関で確認してもらう（断定しない）</li>
+          <li><strong>再開</strong>: 受診後の情報をもとに、条件つきで開始</li>
+        </ul>
+
+        <h4>3. 伝え方（断定せず、安心につなげる）</h4>
+        <p>
+          「危ない」ではなく「安全のため確認する」という言い方にすると、信頼を損なわずに医療連携できます。
+        </p>
+        <ul>
+          <li>「今日は◯◯が出ています（事実）」</li>
+          <li>「安全のため運動は中止します（判断）」</li>
+          <li>「確認できると安心です（提案）」</li>
+        </ul>
+
+        <div class="mt-8 p-6 bg-slate-50 rounded-xl not-prose">
+          <h4 class="text-lg font-bold text-slate-900 mb-4">現場の一言テンプレ</h4>
+          <p class="text-sm text-slate-700 leading-relaxed">
+            「いま、いつもと違う反応（痛み/めまい/息苦しさ）が出ています。
+            今日は安全のため運動は中止にしましょう。
+            医療機関で確認できると安心です。確認できたら、そこから安全に再開できます。」
+          </p>
+        </div>
+
+        <div class="mt-6 p-6 bg-white border border-slate-200 rounded-xl not-prose">
+          <h4 class="text-lg font-bold text-slate-900 mb-4">確認テスト（3問）</h4>
+          <details class="group">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">Q1: 迷った時に最優先するのは？</summary>
+            <div class="mt-3 text-sm text-slate-700">A: 安全確保（中止・調整・紹介）。</div>
+          </details>
+          <details class="group mt-3">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">Q2: 紹介時に避けるべきことは？</summary>
+            <div class="mt-3 text-sm text-slate-700">A: 病名や原因を断定すること。</div>
+          </details>
+          <details class="group mt-3">
+            <summary class="text-sm font-bold text-blue-600 cursor-pointer list-none">Q3: 伝え方の基本順は？</summary>
+            <div class="mt-3 text-sm text-slate-700">A: 事実→安全判断→受診提案。</div>
+          </details>
+        </div>
+
+        <h4>要点まとめ（箇条書き5つ）</h4>
+        <ul>
+          <li>迷った時点で安全側に寄せる</li>
+          <li>中止・紹介・再開の型で整理する</li>
+          <li>診断はしない。断定せずに医療連携する</li>
+          <li>伝え方は事実→判断→提案</li>
+          <li>安全が確保されるほど継続につながる</li>
+        </ul>
+      `,
+    },
   ],
 };
 

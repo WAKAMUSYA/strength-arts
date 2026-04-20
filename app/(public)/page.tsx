@@ -16,15 +16,15 @@ export default function Home() {
               STRENGTH / TRAINING / LEARNING / LAB
             </p>
             <h1 className="mt-4 text-4xl md:text-6xl font-extrabold tracking-tight">
-              Strength Arts
+              やり方ではなく、見方を変える
             </h1>
             <p className="mt-6 text-xl md:text-2xl font-semibold text-white/90">
-              やり方ではなく、見方を変える
+              現場と理論を、パフォーマンスにつなげる
             </p>
             <p className="mt-6 text-base md:text-lg leading-relaxed text-white/80">
-              頑張っているのに変わらない人へ。
+              トレーニング、競技、身体の使い方。
               <br />
-              強くなるための知識と実践をつなぐ場所。
+              分かっているのに使えないを、少しずつ減らしていくためのサイトです。
             </p>
 
             <div className="mt-10 flex flex-col sm:flex-row gap-3">
@@ -35,10 +35,10 @@ export default function Home() {
                 自分に合う入口を見る
               </Link>
               <Link
-                href="#academy"
+                href="/bodymake"
                 className={`${buttonBaseClass} bg-white/10 text-white hover:bg-white/15 ring-1 ring-white/20 focus-visible:ring-white focus-visible:ring-offset-slate-950`}
               >
-                アカデミーを見る
+                まず試す
               </Link>
             </div>
           </div>
@@ -68,21 +68,21 @@ export default function Home() {
                     ATHLETE
                   </p>
                   <h3 className="mt-3 text-2xl md:text-3xl font-bold tracking-tight">
-                    強くなりたい人へ
+                    アスリート
                   </h3>
                   <p className="mt-4 text-slate-700 leading-relaxed">
-                    部活で何をすればいいかわからない。
+                    筋トレしているのに競技で変化を感じない。
                     <br />
-                    競技力を高めたい。
+                    力が出ない、動きが重い、身体がつながらない。
                     <br />
-                    そんな人のための実践型プログラム。
+                    そんな人のための入口です。
                   </p>
                   <div className="mt-8">
                     <Link
                       href="/athlete"
                       className={`${buttonBaseClass} bg-slate-900 text-white hover:bg-slate-800 focus-visible:ring-slate-900 focus-visible:ring-offset-white`}
                     >
-                      アスリート向けを見る
+                      アスリートを見る
                     </Link>
                   </div>
                 </div>
@@ -102,14 +102,14 @@ export default function Home() {
                     BODYMAKE
                   </p>
                   <h3 className="mt-3 text-2xl md:text-3xl font-bold tracking-tight">
-                    伸び悩んでいる人へ
+                    ボディメイク
                   </h3>
                   <p className="mt-4 text-slate-700 leading-relaxed">
-                    頑張っているのに変わらない。
+                    頑張っているのに効いている実感がない。
                     <br />
-                    効いている気がしない。
+                    肩や腕ばかり疲れる、狙った部位に入らない。
                     <br />
-                    その原因を、構造から見直す。
+                    そんな人のための入口です。
                   </p>
                   <div className="mt-8">
                     <Link
@@ -136,19 +136,19 @@ export default function Home() {
                     BEGINNER
                   </p>
                   <h3 className="mt-3 text-2xl md:text-3xl font-bold tracking-tight">
-                    初めての人へ
+                    初心者
                   </h3>
                   <p className="mt-4 text-slate-700 leading-relaxed">
-                    何から始めればいいかわからない。
+                    何から始めればいいか分からない。
                     <br />
-                    まずは基本から、安心してスタート。
+                    まずは基本から、安心して始めたい人のための入口です。
                   </p>
                   <div className="mt-8">
                     <Link
-                      href="/training#beginner"
+                      href="/beginner"
                       className={`${buttonBaseClass} bg-slate-900 text-white hover:bg-slate-800 focus-visible:ring-slate-900 focus-visible:ring-offset-white`}
                     >
-                      基本から始める
+                      初心者向けを見る
                     </Link>
                   </div>
                 </div>
@@ -162,17 +162,38 @@ export default function Home() {
       </section>
 
       <section className="bg-white text-slate-900">
+        <div className={`${containerClass} py-12 md:py-14`}>
+          <div className="rounded-3xl border border-slate-200 bg-slate-50 px-6 py-8 md:px-10 md:py-10">
+            <h2 className="text-xl md:text-2xl font-bold tracking-tight">
+              こんな感覚ありませんか？
+            </h2>
+            <div className="mt-6 flex flex-wrap gap-3">
+              {['効いている気がしない', '力が出ている感じがしない', 'なんか違う', '分かっているのに使えない'].map(
+                (item) => (
+                  <span
+                    key={item}
+                    className="inline-flex items-center rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700"
+                  >
+                    {item}
+                  </span>
+                ),
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white text-slate-900">
         <div className={`${containerClass} py-16 md:py-20`}>
           <div className="max-w-3xl">
             <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
               Strength Artsとは
             </h2>
             <p className="mt-6 text-slate-700 leading-relaxed">
-              ストレングスアーツは、単にトレーニング方法を学ぶ場所ではありません。
-              <br />
-              知識、動作、評価、そして探究をつなぎ、
-              <br />
-              自分で理解し、修正し、積み上げていくための土台をつくる場所です。
+              理論を、使える形にするための場所です。
+            </p>
+            <p className="mt-4 text-sm text-slate-500">
+              S&amp;Cコーチとしての現場経験をもとに構築しています。
             </p>
           </div>
         </div>
@@ -206,9 +227,9 @@ export default function Home() {
                   アカデミー
                 </h3>
                 <p className="mt-4 text-slate-700 leading-relaxed">
-                  解剖学、生理学、バイオメカニクス、栄養学。
+                  解剖学、生理学、バイオメカニクス、栄養学など、
                   <br />
-                  CSCS / CPTにも対応した基礎知識を学ぶ。
+                  基礎から学びたい人のための学習コンテンツ。
                 </p>
                 <div className="mt-8">
                   <Link
@@ -238,9 +259,9 @@ export default function Home() {
                   LAB
                 </h3>
                 <p className="mt-4 text-slate-700 leading-relaxed">
-                  身体の使い方を探究する場所。
+                  身体の使い方、感覚、技術を探究する場所。
                   <br />
-                  仮説と検証、まだ言い切れないものを扱う。
+                  仮説と検証、まだ言い切れないものも扱います。
                 </p>
                 <div className="mt-8">
                   <Link
@@ -261,29 +282,124 @@ export default function Home() {
 
       <section className="bg-white text-slate-900">
         <div className={`${containerClass} py-16 md:py-20`}>
+          <div className="max-w-3xl">
+            <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
+              使い方とプログラム
+            </h2>
+            <p className="mt-4 text-slate-600 leading-relaxed">
+              情報を読むだけではなく、試して、気づいて、進めていくための仕組みです。
+            </p>
+          </div>
+
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
+            <div className="rounded-3xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white p-8 md:p-10">
+              <p className="text-xs font-semibold tracking-[0.2em] text-slate-600">
+                FREE
+              </p>
+              <h3 className="mt-3 text-2xl font-bold tracking-tight">
+                無料で試す
+              </h3>
+              <p className="mt-2 text-slate-700 font-semibold">
+                まずは違いに気づく
+              </p>
+              <ul className="mt-6 space-y-2 text-slate-700">
+                <li>・1つの悩みの入口を体験できる</li>
+                <li>・簡単なドリルを試せる</li>
+                <li>・自分のズレに気づける</li>
+              </ul>
+              <div className="mt-8">
+                <Link
+                  href="/bodymake"
+                  className={`${buttonBaseClass} bg-slate-900 text-white hover:bg-slate-800 focus-visible:ring-slate-900 focus-visible:ring-offset-white`}
+                >
+                  無料で始める
+                </Link>
+              </div>
+            </div>
+
+            <div className="rounded-3xl border border-slate-200 bg-white p-8 md:p-10">
+              <p className="text-xs font-semibold tracking-[0.2em] text-slate-600">
+                PROGRAM
+              </p>
+              <h3 className="mt-3 text-2xl font-bold tracking-tight">
+                プログラムを進める
+              </h3>
+              <p className="mt-2 text-slate-700 font-semibold">
+                変化を定着させる
+              </p>
+              <ul className="mt-6 space-y-2 text-slate-700">
+                <li>・DAY形式で段階的に進める</li>
+                <li>・動画、ドリル、チェックで確認できる</li>
+                <li>・問題ごとの改善プログラムに進める</li>
+              </ul>
+              <div className="mt-8 flex flex-col sm:flex-row gap-3">
+                <Link
+                  href="#"
+                  className={`${buttonBaseClass} bg-slate-900 text-white hover:bg-slate-800 focus-visible:ring-slate-900 focus-visible:ring-offset-white`}
+                >
+                  改善プログラムを見る
+                </Link>
+                <span className="text-xs text-slate-500 self-center">
+                  ※準備中でもOK
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white text-slate-900">
+        <div className={`${containerClass} py-16 md:py-20`}>
+          <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
+            使い方はシンプルです
+          </h2>
+          <div className="mt-10 grid gap-4 md:grid-cols-3">
+            {[
+              { step: '1', title: '悩みを選ぶ', body: '今の課題に近い入口を選びます。' },
+              { step: '2', title: '少し試す', body: '短いドリルで手応えを確認します。' },
+              { step: '3', title: 'プログラムを進める', body: '段階的に整えて、変化を定着させます。' },
+            ].map((item) => (
+              <div
+                key={item.step}
+                className="rounded-2xl border border-slate-200 bg-slate-50 px-6 py-6"
+              >
+                <p className="text-xs font-semibold tracking-[0.2em] text-slate-600">
+                  STEP {item.step}
+                </p>
+                <h3 className="mt-3 text-lg font-semibold text-slate-900">
+                  {item.title}
+                </h3>
+                <p className="mt-3 leading-relaxed text-slate-700">
+                  {item.body}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white text-slate-900">
+        <div className={`${containerClass} py-16 md:py-20`}>
           <div className="rounded-3xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white p-8 md:p-12">
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+            <div className="max-w-3xl">
               <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
-                まずは自分に合う入口から
+                まずは違和感から確認してみる
               </h2>
-              <div className="flex flex-col sm:flex-row gap-3">
+              <p className="mt-4 text-slate-700 leading-relaxed">
+                自分の課題を選び、少し試すところから始められます。
+              </p>
+              <div className="mt-8 flex flex-col sm:flex-row gap-3">
                 <Link
-                  href="#athlete"
+                  href="/bodymake"
                   className={`${buttonBaseClass} bg-slate-900 text-white hover:bg-slate-800 focus-visible:ring-slate-900 focus-visible:ring-offset-white`}
                 >
-                  アスリート
+                  無料で試す
                 </Link>
                 <Link
-                  href="#bodymake"
-                  className={`${buttonBaseClass} bg-slate-900 text-white hover:bg-slate-800 focus-visible:ring-slate-900 focus-visible:ring-offset-white`}
+                  href="/bodymake"
+                  className={`${buttonBaseClass} bg-white text-slate-900 ring-1 ring-slate-200 hover:bg-slate-50 focus-visible:ring-slate-900 focus-visible:ring-offset-white`}
                 >
-                  ボディメイク
-                </Link>
-                <Link
-                  href="#beginner"
-                  className={`${buttonBaseClass} bg-slate-900 text-white hover:bg-slate-800 focus-visible:ring-slate-900 focus-visible:ring-offset-white`}
-                >
-                  初心者
+                  ボディメイクを見る
                 </Link>
               </div>
             </div>

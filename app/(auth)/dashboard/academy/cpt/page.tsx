@@ -149,7 +149,7 @@ function QuizContent() {
               className="w-full flex items-center justify-center space-x-2 bg-gray-100 hover:bg-gray-200 text-gray-700 p-4 rounded-xl font-medium transition-colors"
             >
               <Home className="w-5 h-5" />
-              <span>Academyへ戻る</span>
+              <span>ダッシュボードへ戻る</span>
             </button>
           </div>
         </div>
@@ -165,7 +165,7 @@ function QuizContent() {
           className="text-gray-500 hover:text-gray-800 flex items-center text-sm font-medium transition-colors"
         >
           <Home className="w-4 h-4 mr-1" />
-          Dashboard
+          ダッシュボードへ
         </button>
         <div className="text-sm font-bold text-gray-400 bg-white px-4 py-1.5 rounded-full shadow-sm flex items-center">
           <span className="w-2 h-2 rounded-full bg-blue-500 mr-2 animate-pulse"></span>
@@ -200,4 +200,3 @@ export default function DashboardCptQuizPage() {
     </main>
   );
 }
-

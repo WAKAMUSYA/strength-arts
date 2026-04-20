@@ -29,7 +29,7 @@ export default function AcademyPage() {
                 <div>
                   <div className="flex items-center space-x-2 mb-2">
                     <FileQuestion className="w-5 h-5 text-blue-600" />
-                    <h3 className="font-bold text-gray-900">CSCS 蟇ｾ遲門撫鬘碁寔</h3>
+                    <h3 className="font-bold text-gray-900">CSCS 資格対策問題集</h3>
                   </div>
                   <p className="text-sm text-gray-600">CSCS向けの問題演習（カテゴリ別/ランダム）です。</p>
                 </div>
@@ -45,7 +45,7 @@ export default function AcademyPage() {
                 <div>
                   <div className="flex items-center space-x-2 mb-2">
                     <FileQuestion className="w-5 h-5 text-blue-600" />
-                    <h3 className="font-bold text-gray-900">CPT 蟇ｾ遲門撫鬘碁寔</h3>
+                    <h3 className="font-bold text-gray-900">CPT 資格対策問題集</h3>
                   </div>
                   <p className="text-sm text-gray-600">CPT向けの問題演習（ブロック別/ランダム）です。</p>
                 </div>
