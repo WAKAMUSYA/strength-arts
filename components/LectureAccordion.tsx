@@ -8,6 +8,7 @@ type Props = {
   lectures: Lecture[];
   baseHref: string;
   readLectures?: string[];
+  publicFullyOpenCount?: number;
   // Optional: if provided, enables a "mock test" link at the end of the block.
   // If `mockTestMap[category]` exists we link by `block=...`, otherwise we fall back to `category=...`.
   mockTestMap?: Record<string, number>;
@@ -20,12 +21,14 @@ export default function LectureAccordion({
   lectures,
   baseHref,
   readLectures,
+  publicFullyOpenCount = 0,
   mockTestMap: mockTestMapOverride,
   mockTestBaseHref,
 }: Props) {
   const completedCount = readLectures ? lectures.filter(l => readLectures.includes(l.id)).length : 0;
   const totalCount = lectures.length;
   const isAllCompleted = readLectures ? completedCount === totalCount : false;
+  const shouldShowLockedOverlay = !readLectures && publicFullyOpenCount > 0;
 
   const mockTestMap: Record<string, number> = {
     "隗｣蜑門ｭｦ": 101,
@@ -72,12 +75,13 @@ export default function LectureAccordion({
 
       <div className="p-5 md:p-6 border-t border-slate-100 bg-slate-50">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-          {lectures.map((lecture) => (
+          {lectures.map((lecture, index) => (
             <LectureCard 
               key={lecture.id} 
               lecture={lecture} 
               baseHref={baseHref} 
               isRead={readLectures ? readLectures.includes(lecture.id) : false}
+              isLocked={shouldShowLockedOverlay && index >= publicFullyOpenCount}
             />
           ))}
         </div>

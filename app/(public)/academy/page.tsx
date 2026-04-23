@@ -69,6 +69,7 @@ export default function AcademyPage() {
                 category={category}
                 lectures={categoryLectures}
                 baseHref="/academy/cpt/basics"
+                publicFullyOpenCount={2}
                 mockTestMap={cptMockTestMap}
                 mockTestBaseHref="/dashboard/academy/cpt"
               />
@@ -90,6 +91,7 @@ export default function AcademyPage() {
                 category={category}
                 lectures={categoryLectures}
                 baseHref="/academy/basics"
+                publicFullyOpenCount={2}
               />
             );
           })}

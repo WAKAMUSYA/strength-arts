@@ -13,6 +13,7 @@ function QuizContent() {
   
   const category = searchParams.get("category");
   const mode = searchParams.get("mode");
+  const MAX_PUBLIC_QUESTIONS = 30;
 
   const [filteredQuestions, setFilteredQuestions] = useState<Question[]>(questions);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -28,7 +29,12 @@ function QuizContent() {
     if (mode === "random") {
       qList = qList.sort(() => Math.random() - 0.5);
     }
+    qList = qList.slice(0, MAX_PUBLIC_QUESTIONS);
     setFilteredQuestions(qList);
+    setCurrentIndex(0);
+    setSelectedAnswer(null);
+    setScore(0);
+    setIsFinished(false);
   }, [category, mode]);
 
   const currentQuestion = filteredQuestions[currentIndex];

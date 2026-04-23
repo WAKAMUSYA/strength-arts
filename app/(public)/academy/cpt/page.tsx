@@ -14,6 +14,7 @@ function QuizContent() {
 
   const category = searchParams.get("category");
   const mode = searchParams.get("mode");
+  const MAX_PUBLIC_QUESTIONS = 30;
 
   const [filteredQuestions, setFilteredQuestions] = useState<Question[]>(cptQuestions);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -29,6 +30,7 @@ function QuizContent() {
     if (mode === "random") {
       qList = qList.sort(() => Math.random() - 0.5);
     }
+    qList = qList.slice(0, MAX_PUBLIC_QUESTIONS);
     setFilteredQuestions(qList);
     setCurrentIndex(0);
     setSelectedAnswer(null);
@@ -145,4 +147,3 @@ export default function CptQuizPage() {
     </main>
   );
 }
-
