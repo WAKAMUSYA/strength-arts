@@ -46,6 +46,7 @@ export default function MobileMenu({ isLoggedIn, signOutAction }: Props) {
             <Link href={isLoggedIn ? "/dashboard/academy" : "/academy"} className="hover:text-blue-600 transition-colors">ACADEMY</Link>
             <Link href={isLoggedIn ? "/dashboard/training" : "/training"} className="hover:text-red-600 transition-colors">TRAINING</Link>
             <Link href={isLoggedIn ? "/dashboard/lab" : "/lab"} className="hover:text-purple-600 transition-colors">LAB</Link>
+            <Link href="/free" className="hover:text-emerald-600 transition-colors">無料コンテンツ</Link>
             
             <div className="h-px bg-gray-200 w-full my-4"></div>
             
