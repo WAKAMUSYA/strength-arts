@@ -11,7 +11,7 @@ export default function Home() {
         
         <div className="relative z-10 flex flex-col items-center text-center space-y-12 max-w-5xl w-full">
           <h1 className="text-6xl md:text-8xl lg:text-9xl font-extrabold tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white via-blue-50 to-blue-900/50">
-            STRENGHT ARTS
+            STRENGTH ARTS
           </h1>
           <p className="text-lg md:text-2xl font-light tracking-[0.25em] md:tracking-[0.4em] text-zinc-300 leading-relaxed ml-2 md:ml-4">
             身体を、もっと上手く使う。
