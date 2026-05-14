@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Image from "next/image";
 
 const getPublicFreeHref = (fileName: string) =>
@@ -13,26 +13,36 @@ type FreeItem = {
 };
 
 const FREE_ITEMS: FreeItem[] = [
-
   {
     title: "筋肥大の基本",
-    description: "筋肥大の原理・全体設計を、最初に押さえるためのまとめ。",
+    description:
+      "筋肥大を狙うための考え方（種目選び・回数/強度・ボリュームなど）をまとめたPDFです。",
     href: getPublicFreeHref("筋肥大の基本.pdf"),
     coverSrc: getPublicFreeHref("筋肥大表紙.png"),
-    cta: "PDFを開く",
+    cta: "PDFを見る",
   },
   {
     title: "腰痛の基本（ジム編）",
-    description: "トレーニング現場で多い腰痛の原因と、考え方・対応の整理。",
+    description:
+      "トレーニング時に起こりやすい腰痛の原因と、基本的な対処の方向性を整理したPDFです。",
     href: getPublicFreeHref("腰痛の基本ジム編.pdf"),
     coverSrc: getPublicFreeHref("腰痛の基本ジム編表紙.png"),
-    cta: "PDFを開く",
+    cta: "PDFを見る",
+  },
+  {
+    title: "女性のトレーニング基本",
+    description:
+      "女性向けのトレーニングの基本（目標設定・頻度・強度・種目選びなど）をまとめたPDFです。",
+    href: getPublicFreeHref("女性のトレーニング基本.pdf"),
+    coverSrc: getPublicFreeHref("女性のトレーニング基本表紙.png"),
+    cta: "PDFを見る",
   },
 ];
 
 export const metadata: Metadata = {
   title: "無料コンテンツ | Strength Arts",
-  description: "無料で読めるPDFなどをまとめています。",
+  description:
+    "無料で読めるPDFコンテンツ（筋肥大、腰痛、女性向けトレーニングなど）をまとめています。",
 };
 
 export default function FreeContentPage() {
@@ -45,9 +55,6 @@ export default function FreeContentPage() {
         <h1 className="text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
           無料コンテンツ
         </h1>
-        <p className="max-w-2xl text-sm leading-relaxed text-slate-600">
-          無料で読めるPDFなどをまとめています。気になるものからどうぞ。
-        </p>
       </header>
 
       <section className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -64,7 +71,6 @@ export default function FreeContentPage() {
                   fill
                   className="object-cover"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  priority
                 />
               </div>
             )}
