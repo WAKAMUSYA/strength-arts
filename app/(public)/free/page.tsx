@@ -22,14 +22,6 @@ const FREE_ITEMS: FreeItem[] = [
     cta: "PDFを見る",
   },
   {
-    title: "高校ハンドボール選手のトレーニング",
-    description:
-      "高校ハンドボール選手向けに、強化の考え方やトレーニングの組み立て方をまとめたPDFです。",
-    href: getPublicFreeHref("高校ハンドボール選手のトレーニング.pdf"),
-    coverSrc: getPublicFreeHref("高校ハンドボール選手のトレーニング表紙.png"),
-    cta: "PDFを見る",
-  },
-  {
     title: "腰痛の基本（ジム編）",
     description:
       "トレーニング時に起こりやすい腰痛の原因と、基本的な対処の方向性を整理したPDFです。",
@@ -43,6 +35,14 @@ const FREE_ITEMS: FreeItem[] = [
       "女性向けのトレーニングの基本（目標設定・頻度・強度・種目選びなど）をまとめたPDFです。",
     href: getPublicFreeHref("女性のトレーニング基本.pdf"),
     coverSrc: getPublicFreeHref("女性のトレーニング基本表紙.png"),
+    cta: "PDFを見る",
+  },
+  {
+    title: "高校ハンドボール選手のトレーニング",
+    description:
+      "高校ハンドボール選手向けに、強化の考え方やトレーニングの組み立て方をまとめたPDFです。",
+    href: getPublicFreeHref("高校ハンドボール選手のトレーニング.pdf"),
+    coverSrc: getPublicFreeHref("高校ハンドボール選手のトレーニング表紙.png"),
     cta: "PDFを見る",
   },
 ];
