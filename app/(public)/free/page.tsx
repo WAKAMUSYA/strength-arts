@@ -22,6 +22,14 @@ const FREE_ITEMS: FreeItem[] = [
     cta: "PDFを見る",
   },
   {
+    title: "高校ハンドボール選手のトレーニング",
+    description:
+      "高校ハンドボール選手向けに、強化の考え方やトレーニングの組み立て方をまとめたPDFです。",
+    href: getPublicFreeHref("高校ハンドボール選手のトレーニング.pdf"),
+    coverSrc: getPublicFreeHref("高校ハンドボール選手のトレーニング表紙.png"),
+    cta: "PDFを見る",
+  },
+  {
     title: "腰痛の基本（ジム編）",
     description:
       "トレーニング時に起こりやすい腰痛の原因と、基本的な対処の方向性を整理したPDFです。",
@@ -42,7 +50,7 @@ const FREE_ITEMS: FreeItem[] = [
 export const metadata: Metadata = {
   title: "無料コンテンツ | Strength Arts",
   description:
-    "無料で読めるPDFコンテンツ（筋肥大、腰痛、女性向けトレーニングなど）をまとめています。",
+    "無料で読めるPDFコンテンツ（筋肥大、腰痛、女性向けトレーニング、ハンドボールなど）をまとめています。",
 };
 
 export default function FreeContentPage() {
