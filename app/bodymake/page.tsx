@@ -1,266 +1,258 @@
 'use client'
 
+import { useState } from 'react'
 import Link from 'next/link'
-import { useMemo, useState } from 'react'
+import { 
+  ArrowUpRight,
+  Compass,
+  Lock,
+  Sparkles,
+  X,
+  Info
+} from 'lucide-react'
 
-type Concern = {
-  key: string
-  title: string
-  state: string[]
-  causes: string[]
-  advice: string[]
-  ctaHref: string
-  ctaLabel: string
-}
+// Defined items for each category
+const regions = [
+  { id: 'chest', title: '胸 (Chest)', isLab: false },
+  { id: 'back', title: '背中 (Back)', isLab: false },
+  { id: 'shoulder', title: '肩 (Shoulder)', isLab: false },
+  { id: 'arms', title: '腕 (Arms)', isLab: false },
+  { id: 'legs', title: '脚 (Legs)', isLab: false },
+  { id: 'abs', title: '腹 (Abs)', isLab: false },
+]
 
-export default function BodymakeLPPage() {
-  const [openKey, setOpenKey] = useState<string | null>(null)
+const exercises = [
+  { id: 'benchpress', title: 'ベンチプレス', href: '/lab/benchpress', isLab: true },
+  { id: 'dumbbellpress', title: 'ダンベルプレス', isLab: false },
+  { id: 'dumbbellfly', title: 'ダンベルフライ', isLab: false },
+  { id: 'sideraise', title: 'サイドレイズ', isLab: false },
+  { id: 'shoulderpress', title: 'ショルダープレス', isLab: false },
+  { id: 'pullup', title: '懸垂', isLab: false },
+  { id: 'bentoverrow', title: 'ベントオーバーロー', isLab: false },
+  { id: 'squat', title: 'スクワット系', isLab: false },
+  { id: 'deadlift', title: 'デッドリフト', isLab: false },
+  { id: 'hipthrust', title: 'ヒップスラスト', isLab: false },
+]
 
-  const concerns = useMemo<Concern[]>(
-    () => [
-      {
-        key: 'pullup-arms',
-        title: '懸垂で腕ばかり疲れる',
-        state: ['懸垂はできるが背中に入らない', '腕だけで頑張ってしまう', '揺れてしまう'],
-        causes: ['一部だけで動いている', '持ち上げる動作になっている'],
-        advice: ['下半身も「バーを引き下げる」意識を作る', '肩が上がるのではなく、背骨が上がる'],
-        ctaHref: '/training#bodymake',
-        ctaLabel: '改善プログラムを見る',
-      },
-      {
-        key: 'chest-shoulder',
-        title: 'ベンチプレスが伸び悩む',
-        state: ['胸より肩や腕が先に疲れる', '調子のブレが多い', 'よくフォームが崩れる'],
-        causes: ['姿勢を保とうとし過ぎている', '身体のバランスが崩れている', '力がぶつかって止まっている'],
-        advice: ['バーベルやベンチが、身体から生えていると考えてみる', '地面に重さを”預ける”'],
-        ctaHref: '/training#bodymake',
-        ctaLabel: '改善プログラムを見る',
-      },
-      {
-        key: 'squat-lowback',
-        title: 'スクワットで腰がつらい',
-        state: ['脚より先に腰がつらくなる', '腰が曲がってしまう', '下げるときに崩れてしまう'],
-        causes: ['力がぶつかって止まっている', '腰で受けてしまっている'],
-        advice: ['”重さを地面に流す”イメージ', '上半身も使ってバーベルを押し上げてみる'],
-        ctaHref: '/training#bodymake',
-        ctaLabel: '改善プログラムを見る',
-      },
-    ],
-    [],
-  )
+const goals = [
+  { id: 'hypertrophy', title: '筋肥大', isLab: false },
+  { id: 'diet', title: 'ダイエット', isLab: false },
+  { id: 'glutes', title: 'ヒップアップ', isLab: false },
+  { id: 'posture', title: '姿勢改善', isLab: false },
+  { id: 'backpain', title: '腰痛予防', isLab: false },
+  { id: 'painfree', title: '痛みなく鍛える', isLab: false },
+]
 
-  const containerClass = 'mx-auto w-full max-w-5xl px-6'
+export default function BodymakeDirectoryPage() {
+  const [activePortal, setActivePortal] = useState<string | null>(null)
+
+  const handlePortalClick = (item: { title: string; isLab: boolean; href?: string }) => {
+    if (!item.isLab) {
+      setActivePortal(item.title)
+    }
+  }
 
   return (
-    <main id="top" className="bg-white text-slate-900">
-      {/* ① Hero */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white">
-        <div className="absolute inset-0 opacity-20 [background:radial-gradient(900px_circle_at_20%_20%,rgba(56,189,248,0.35),transparent_55%),radial-gradient(900px_circle_at_80%_30%,rgba(168,85,247,0.28),transparent_55%)]" />
-        <div className={`${containerClass} relative py-20 md:py-28`}>
-          <div className="max-w-3xl">
-            <p className="text-xs font-semibold tracking-[0.25em] text-white/70">
-              BODYMAKE LP
-            </p>
-            <h1 className="mt-4 text-3xl md:text-5xl font-extrabold tracking-tight">
-              頑張っているのに変わらない人へ
-            </h1>
-            <p className="mt-6 text-base md:text-lg leading-relaxed text-white/80">
-              トレーニングはしているのに、効いている実感がない。
-              <br />
-              その原因を、構造から見直す。
-            </p>
+    <main className="min-h-screen bg-black text-white selection:bg-blue-900 selection:text-white pb-28">
+      
+      {/* 1. Ultra-Minimalist Hero Header */}
+      <section className="relative pt-28 pb-16 text-center">
+        <div className="max-w-3xl mx-auto px-6 space-y-4">
+          <div className="inline-flex items-center gap-2 text-[10px] font-mono tracking-widest text-zinc-500 uppercase bg-zinc-950 border border-zinc-900 px-3 py-1 rounded-full">
+            <Compass className="w-3.5 h-3.5 text-blue-500" /> Biomechanics Hub
+          </div>
+          <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white">
+            ボディメイク解説
+          </h1>
+          <p className="max-w-lg mx-auto text-xs md:text-sm text-zinc-400 leading-relaxed font-light">
+            解剖学と力学に基づくアプローチ。部位・種目・目的のテーマを選択してください。
+          </p>
+        </div>
+      </section>
 
-            <div className="mt-10 flex flex-col sm:flex-row gap-3">
-              <Link
-                href="#concerns"
-                className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-950 transition-colors hover:bg-white/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+      {/* 2. Simplified Minimal Directory Lists */}
+      <section className="max-w-5xl mx-auto px-6 mt-12 space-y-20">
+
+        {/* --- Category A: 部位別 --- */}
+        <div className="space-y-6">
+          <div className="flex items-center justify-between border-b border-zinc-900 pb-2.5">
+            <h2 className="text-sm font-bold tracking-wider text-zinc-400 uppercase">
+              部位別
+            </h2>
+            <span className="text-[10px] font-mono text-zinc-650">Select Target Region</span>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {regions.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => handlePortalClick(item)}
+                className="group relative text-left w-full bg-zinc-950 hover:bg-zinc-900/30 border border-zinc-900 hover:border-zinc-800 rounded-lg p-5 transition-all duration-300 shadow-md flex items-center justify-between"
               >
-                悩みから見る
-              </Link>
-              <Link
-                href="#accordion"
-                className="inline-flex items-center justify-center rounded-full bg-white/10 px-6 py-3 text-sm font-semibold text-white ring-1 ring-white/20 transition-colors hover:bg-white/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
-              >
-                無料アドバイスを見る
-              </Link>
-            </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-sm md:text-base font-bold text-zinc-300 group-hover:text-white transition-colors duration-300">
+                    {item.title}
+                  </span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-[8px] font-mono text-zinc-600 bg-zinc-900 border border-zinc-850 px-2 py-0.5 rounded uppercase tracking-wider">
+                    Coming Soon
+                  </span>
+                  <Lock className="w-3.5 h-3.5 text-zinc-700" />
+                </div>
+              </button>
+            ))}
           </div>
         </div>
-      </section>
 
-      {/* ② 共感 */}
-      <section id="concerns" className="bg-white">
-        <div className={`${containerClass} py-16 md:py-20`}>
-          <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
-            こんな悩みはありませんか？
-          </h2>
-          <ul className="mt-8 grid gap-4 md:grid-cols-2">
-            {[
-              '胸トレなのに肩や腕ばかり疲れる',
-              '懸垂で背中に入らず腕が先に終わる',
-              'スクワットで脚より腰がつらい',
-              'トレーニングしているのに効いている実感がない',
-            ].map((item) => (
-              <li
-                key={item}
-                className="rounded-2xl border border-slate-200 bg-slate-50 px-6 py-5 text-slate-800"
-              >
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* ③ 原因 */}
-      <section className="bg-white">
-        <div className={`${containerClass} py-16 md:py-20`}>
-          <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
-            うまくいかない原因
-          </h2>
-          <ul className="mt-8 grid gap-4 md:grid-cols-2">
-            {[
-              '一部だけで動いている',
-              '力がぶつかって止まっている',
-              '身体が動きを邪魔している',
-              '姿勢を保つことに力を使っている',
-            ].map((item) => (
-              <li
-                key={item}
-                className="rounded-2xl border border-slate-200 bg-white px-6 py-5"
-              >
-                <p className="text-lg font-semibold text-slate-900">{item}</p>
-              </li>
-            ))}
-          </ul>
-          <p className="mt-10 max-w-3xl leading-relaxed text-slate-700">
-            本来は「上げる」「押す」ために力を使うはずが、
-            <br />
-            ”こうしなければいけない”に力を使ってしまい、
-            <br />
-            本来の動作に力が使えていない状態です。
-          </p>
-        </div>
-      </section>
-
-      {/* ④ 悩み選択（展開式） */}
-      <section id="accordion" className="bg-slate-950 text-white">
-        <div className={`${containerClass} py-16 md:py-20`}>
-          <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
-            悩みを選ぶ（クリックで展開）
-          </h2>
-          <p className="mt-4 max-w-3xl leading-relaxed text-white/75">
-            診断ではなく、よくある「つまずき」から順番にほどいていきます。
-            まずは当てはまるものを開いてください。
-          </p>
-
-          <div className="mt-10 space-y-4">
-            {concerns.map((item, index) => {
-              const isOpen = openKey === item.key
-              const contentId = `concern-panel-${index}`
-              return (
-                <div
-                  key={item.key}
-                  className="overflow-hidden rounded-2xl border border-white/10 bg-white/5"
-                >
-                  <button
-                    type="button"
-                    className="flex w-full items-center justify-between gap-6 px-6 py-5 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
-                    aria-expanded={isOpen}
-                    aria-controls={contentId}
-                    onClick={() => setOpenKey(isOpen ? null : item.key)}
+        {/* --- Category B: 種目別 --- */}
+        <div className="space-y-6">
+          <div className="flex items-center justify-between border-b border-zinc-900 pb-2.5">
+            <h2 className="text-sm font-bold tracking-wider text-zinc-400 uppercase">
+              種目別
+            </h2>
+            <span className="text-[10px] font-mono text-zinc-650">Select Target Exercise</span>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {exercises.map((item) => {
+              if (item.isLab && item.href) {
+                return (
+                  <Link
+                    key={item.id}
+                    href={item.href}
+                    className="group relative block bg-zinc-950 hover:bg-zinc-900/30 border border-blue-950/60 hover:border-blue-900 rounded-lg p-5 transition-all duration-300 shadow-md"
                   >
-                    <span className="text-lg md:text-xl font-semibold">
-                      {item.title}
-                    </span>
-                    <span className="shrink-0 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white/80">
-                      {isOpen ? '閉じる' : '開く'}
-                    </span>
-                  </button>
-
-                  {isOpen ? (
-                    <div id={contentId} className="px-6 pb-6">
-                      <div className="grid gap-6 md:grid-cols-3">
-                        <div className="rounded-xl bg-white/5 p-5">
-                          <p className="text-xs font-semibold tracking-[0.2em] text-white/70">
-                            状態
-                          </p>
-                          <ul className="mt-3 space-y-2 text-white/85">
-                            {item.state.map((line) => (
-                              <li key={line}>・{line}</li>
-                            ))}
-                          </ul>
-                        </div>
-
-                        <div className="rounded-xl bg-white/5 p-5">
-                          <p className="text-xs font-semibold tracking-[0.2em] text-white/70">
-                            原因
-                          </p>
-                          <ul className="mt-3 space-y-2 text-white/85">
-                            {item.causes.map((line) => (
-                              <li key={line}>・{line}</li>
-                            ))}
-                          </ul>
-                        </div>
-
-                        <div className="rounded-xl bg-white/5 p-5">
-                          <p className="text-xs font-semibold tracking-[0.2em] text-white/70">
-                            アドバイス
-                          </p>
-                          <ul className="mt-3 space-y-2 text-white/85">
-                            {item.advice.map((line) => (
-                              <li key={line}>・{line}</li>
-                            ))}
-                          </ul>
-                        </div>
+                    <div className="flex justify-between items-center">
+                      <div className="flex items-center gap-2">
+                        <span className="text-sm md:text-base font-bold text-white group-hover:text-blue-400 transition-colors duration-300">
+                          {item.title}
+                        </span>
+                        <span className="text-[8px] font-mono text-blue-400 bg-blue-950/50 border border-blue-900/50 px-2 py-0.5 rounded uppercase tracking-wider font-extrabold flex items-center gap-0.5">
+                          <Sparkles className="w-2.5 h-2.5" /> Active Lab
+                        </span>
                       </div>
-
-                      <div className="mt-8 flex flex-col sm:flex-row gap-3">
-                        <Link
-                          href={item.ctaHref}
-                          className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-950 transition-colors hover:bg-white/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
-                        >
-                          {item.ctaLabel}
-                        </Link>
-
-                      </div>
+                      <ArrowUpRight className="w-4 h-4 text-zinc-700 group-hover:text-blue-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
                     </div>
-                  ) : null}
-                </div>
+                  </Link>
+                )
+              }
+
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => handlePortalClick(item)}
+                  className="group relative text-left w-full bg-zinc-950 hover:bg-zinc-900/30 border border-zinc-900 hover:border-zinc-800 rounded-lg p-5 transition-all duration-300 shadow-md flex items-center justify-between"
+                >
+                  <span className="text-sm md:text-base font-bold text-zinc-300 group-hover:text-white transition-colors duration-300">
+                    {item.title}
+                  </span>
+                  <div className="flex items-center gap-2">
+                    <span className="text-[8px] font-mono text-zinc-600 bg-zinc-900 border border-zinc-850 px-2 py-0.5 rounded uppercase tracking-wider">
+                      Coming Soon
+                    </span>
+                    <Lock className="w-3.5 h-3.5 text-zinc-700" />
+                  </div>
+                </button>
               )
             })}
           </div>
         </div>
-      </section>
 
-      {/* ⑤ 最下部CTA */}
-      <section id="cta" className="bg-white text-slate-900">
-        <div className={`${containerClass} py-16 md:py-20`}>
-          <div className="rounded-3xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white p-8 md:p-12">
-            <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
-              まずはここから始めてみる
+        {/* --- Category C: 目的別 --- */}
+        <div className="space-y-6">
+          <div className="flex items-center justify-between border-b border-zinc-900 pb-2.5">
+            <h2 className="text-sm font-bold tracking-wider text-zinc-400 uppercase">
+              目的別
             </h2>
-            <p className="mt-4 max-w-2xl leading-relaxed text-slate-700">
-              「効かせ方」を増やす前に、動きの構造を整える。
-              小さく試して、手応えが出る形に寄せていきましょう。
-            </p>
-            <div className="mt-8 flex flex-col sm:flex-row gap-3">
-              <Link
-                href="/training#bodymake"
-                className="inline-flex items-center justify-center rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-slate-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-900 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+            <span className="text-[10px] font-mono text-zinc-650">Select Target Goal</span>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {goals.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => handlePortalClick(item)}
+                className="group relative text-left w-full bg-zinc-950 hover:bg-zinc-900/30 border border-zinc-900 hover:border-zinc-800 rounded-lg p-5 transition-all duration-300 shadow-md flex items-center justify-between"
               >
-                ボディメイクを続ける
-              </Link>
-              <Link
-                href="#top"
-                className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 ring-1 ring-slate-200 transition-colors hover:bg-slate-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-900 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
-              >
-                トップに戻る
-              </Link>
-            </div>
+                <span className="text-sm md:text-base font-bold text-zinc-300 group-hover:text-white transition-colors duration-300">
+                  {item.title}
+                </span>
+                <div className="flex items-center gap-2">
+                  <span className="text-[8px] font-mono text-zinc-600 bg-zinc-900 border border-zinc-850 px-2 py-0.5 rounded uppercase tracking-wider">
+                    Coming Soon
+                  </span>
+                  <Lock className="w-3.5 h-3.5 text-zinc-700" />
+                </div>
+              </button>
+            ))}
           </div>
         </div>
+
       </section>
+
+      {/* 3. Bottom Return Button */}
+      <section className="max-w-5xl mx-auto px-6 mt-20 text-center">
+        <Link 
+          href="/" 
+          className="inline-flex items-center justify-center text-xs text-zinc-500 hover:text-zinc-350 transition-colors font-medium border-b border-zinc-900 hover:border-zinc-850 pb-1"
+        >
+          トップページへ戻る
+        </Link>
+      </section>
+
+      {/* --- Elegant Coming Soon Portal Dialog --- */}
+      {activePortal && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-sm animate-fadeIn"
+          onClick={() => setActivePortal(null)}
+        >
+          <div 
+            className="w-full max-w-md bg-zinc-950 border border-zinc-900 rounded-2xl p-6 md:p-8 space-y-6 shadow-2xl relative animate-scaleUp"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Header info bar */}
+            <div className="flex items-center gap-2 text-blue-400 text-xs font-mono">
+              <Info className="w-4 h-4" />
+              <span>UNDER CONSTRUCTION</span>
+            </div>
+
+            <div className="space-y-2">
+              <h3 className="text-xl font-black text-white leading-tight">
+                「{activePortal}研究所」構築中
+              </h3>
+              <p className="text-xs text-zinc-400 leading-relaxed font-light">
+                現在、Strength Arts研究チームが最新のスポーツバイオメカニクス論文と解剖データモデルを解析し、この種目の特化研究ページ（ベンチプレス研究所と同様のインタラクティブ構成）を全力で編纂しております。
+              </p>
+            </div>
+
+            <div className="bg-zinc-900/50 border border-zinc-850/60 rounded-xl p-4 space-y-2.5">
+              <span className="text-[9px] font-extrabold uppercase tracking-widest text-zinc-500 block">
+                公開予定の専門コンテンツ例
+              </span>
+              <ul className="text-[11px] text-zinc-400 space-y-1.5 list-disc pl-4 font-light">
+                <li>骨格比率に応じたフォームのパーソナライズ測定</li>
+                <li>関節モーメントアームの最適化とエラー軌道分析</li>
+                <li>対象筋の筋電図（EMG）に基づく収縮誘導テクニック</li>
+              </ul>
+            </div>
+
+            <div className="flex gap-3 pt-2">
+              <button
+                onClick={() => setActivePortal(null)}
+                className="w-full py-3 bg-zinc-900 hover:bg-zinc-800 text-zinc-200 hover:text-white font-bold text-xs rounded-xl transition-all border border-zinc-850"
+              >
+                ライブラリに戻る
+              </button>
+            </div>
+
+            {/* Absolute close button */}
+            <button
+              onClick={() => setActivePortal(null)}
+              className="absolute top-4 right-4 p-1.5 rounded-full bg-zinc-900 hover:bg-zinc-800 text-zinc-400 hover:text-white transition-colors"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          </div>
+        </div>
+      )}
     </main>
   )
 }

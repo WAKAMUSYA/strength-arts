@@ -1,324 +1,136 @@
 'use client'
 
 import Link from 'next/link'
-import { useMemo, useState } from 'react'
+import { 
+  ArrowUpRight,
+  Compass
+} from 'lucide-react'
 
-type Concern = {
-  key: string
-  title: string
-  state: string[]
-  causes: string[]
-  advice: string[]
-  ctaHref: string
-  ctaLabel: string
-}
+// Defined items for each Athlete category
+const sports = [
+  { id: 'baseball', title: '野球 (Baseball)', href: '/athlete/sport/baseball' },
+  { id: 'handball', title: 'ハンドボール (Handball)', href: '/athlete/sport/handball' },
+  { id: 'soccer', title: 'サッカー (Soccer)', href: '/athlete/sport/soccer' },
+  { id: 'basketball', title: 'バスケット (Basketball)', href: '/athlete/sport/basketball' },
+  { id: 'athletics', title: '陸上 (Track & Field)', href: '/athlete/sport/athletics' },
+]
 
-export default function AthleteLPPage() {
-  const [openKey, setOpenKey] = useState<string | null>(null)
+const goals = [
+  { id: 'speedup', title: '足を速くしたい', href: '/athlete/goal/speedup' },
+  { id: 'jumppower', title: 'ジャンプ力を上げたい', href: '/athlete/goal/jumppower' },
+  { id: 'contactpower', title: '当たりを強くしたい', href: '/athlete/goal/contactpower' },
+  { id: 'ballspeed', title: '球速を上げたい', href: '/athlete/goal/ballspeed' },
+  { id: 'rotation', title: '回旋を強くしたい', href: '/athlete/goal/rotation' },
+  { id: 'injuryfree', title: 'ケガを予防したい', href: '/athlete/goal/injuryfree' },
+]
 
-  const concerns = useMemo<Concern[]>(
-    () => [
-      {
-        key: 'contact-power',
-        title: '当たり負ける・力が出せない',
-        state: ['筋トレしているのに競り合いで負ける', '力はあるはずなのに出せない'],
-        causes: ['力がぶつかって止まっている', '身体全体で使えていない'],
-        advice: ['力を出す前に身体が崩れていないか確認する', '一部で踏ん張っていないか意識する'],
-        ctaHref: '/training#athlete',
-        ctaLabel: '改善プログラムを見る',
-      },
-      {
-        key: 'heavy-slow',
-        title: '動きが重い・遅い',
-        state: ['走る、切り返す、動き出しが遅い', '力はあるのにスピードに変わらない'],
-        causes: ['身体が動きを邪魔している', '力の方向がズレている'],
-        advice: ['速く動こうとする前に無駄な力を抜く', '動き出しで引っかかる感覚がないか確認する'],
-        ctaHref: '/training#athlete',
-        ctaLabel: '改善プログラムを見る',
-      },
-      {
-        key: 'disconnected',
-        title: '身体がバラバラで力がつながらない',
-        state: ['上半身と下半身が別々に動いている', '力が分散してしまう'],
-        causes: ['一部だけで動いている', '全身の連動が取れていない'],
-        advice: ['全身で動いているかを意識する', '一箇所だけ頑張っていないか確認する'],
-        ctaHref: '/training#athlete',
-        ctaLabel: '改善プログラムを見る',
-      },
-    ],
-    [],
-  )
+const practices = [
+  { id: 'pitching150', title: '150km投げるための考え方', href: '/athlete/practice/pitching150' },
+  { id: 'jumpstretch', title: 'ジャンプ力が高い選手の特徴', href: '/athlete/practice/jumpstretch' },
+  { id: 'prosenshu', title: 'プロ選手の自主練', href: '/athlete/practice/prosenshu' },
+]
 
-  const containerClass = 'mx-auto w-full max-w-5xl px-6'
-
+export default function AthleteDirectoryPage() {
   return (
-    <main id="top" className="bg-white text-slate-900">
-      {/* ① Hero */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white">
-        <div className="absolute inset-0 opacity-20 [background:radial-gradient(900px_circle_at_20%_20%,rgba(56,189,248,0.35),transparent_55%),radial-gradient(900px_circle_at_80%_30%,rgba(168,85,247,0.28),transparent_55%)]" />
-        <div className={`${containerClass} relative py-20 md:py-28`}>
-          <div className="max-w-3xl">
-            <p className="text-xs font-semibold tracking-[0.25em] text-white/70">
-              ATHLETE LP
-            </p>
-            <h1 className="mt-4 text-3xl md:text-5xl font-extrabold tracking-tight">
-              トレーニングしているのに変わらない人へ
-            </h1>
-            <p className="mt-6 text-base md:text-lg leading-relaxed text-white/80">
-              筋トレはしているのに、競技で変化を感じない。
-              <br />
-              その原因を、身体の使い方から見直す。
-            </p>
+    <main className="min-h-screen bg-black text-white selection:bg-purple-900 selection:text-white pb-28">
+      
+      {/* 1. Ultra-Minimalist Hero Header */}
+      <section className="relative pt-28 pb-16 text-center bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-purple-950/20 via-black to-black">
+        <div className="max-w-3xl mx-auto px-6 space-y-4">
+          <div className="inline-flex items-center gap-2 text-[10px] font-mono tracking-widest text-zinc-550 uppercase">
+            <Compass className="w-3.5 h-3.5 text-purple-500" /> Athlete Explorer
+          </div>
+          <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white">
+            アスリート個別強化探究
+          </h1>
+          <p className="max-w-lg mx-auto text-xs md:text-sm text-zinc-400 leading-relaxed font-light">
+            競技特性と力学のアプローチ。競技別・目的別・自主練のテーマを選択してください。
+          </p>
+        </div>
+      </section>
 
-            <div className="mt-10 flex flex-col sm:flex-row gap-3">
+      {/* 2. Simplified Minimal Directory Lists */}
+      <section className="max-w-5xl mx-auto px-6 mt-12 space-y-20">
+
+        {/* --- Category A: 競技別 --- */}
+        <div className="space-y-6">
+          <h2 className="text-sm font-bold tracking-wider text-zinc-450 border-b border-zinc-905 pb-2.5 uppercase">
+            競技別
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {sports.map((item) => (
               <Link
-                href="#empathy"
-                className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-950 transition-colors hover:bg-white/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+                key={item.id}
+                href={item.href}
+                className="group relative block bg-zinc-950 hover:bg-zinc-900/30 border border-zinc-900 hover:border-zinc-800 rounded-lg p-5 transition-all duration-300 shadow-md"
               >
-                悩みから見る
-              </Link>
-              <Link
-                href="#accordion"
-                className="inline-flex items-center justify-center rounded-full bg-white/10 px-6 py-3 text-sm font-semibold text-white ring-1 ring-white/20 transition-colors hover:bg-white/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
-              >
-                無料アドバイスを見る
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ② 共感 */}
-      <section id="empathy" className="bg-white">
-        <div className={`${containerClass} py-16 md:py-20`}>
-          <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
-            こんな悩みはありませんか？
-          </h2>
-          <ul className="mt-8 grid gap-4 md:grid-cols-2">
-            {[
-              '筋トレしているのに競技で変化を感じない',
-              '当たり負けする、力が出せない',
-              '動きが重い、スピードが上がらない',
-              '身体がバラバラで力がつながらない',
-              'ケガを繰り返してしまう',
-            ].map((item) => (
-              <li
-                key={item}
-                className="rounded-2xl border border-slate-200 bg-slate-50 px-6 py-5 text-slate-800"
-              >
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* ③ 原因 */}
-      <section className="bg-white">
-        <div className={`${containerClass} py-16 md:py-20`}>
-          <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
-            うまくいかない原因は、この4つです
-          </h2>
-          <ul className="mt-8 grid gap-4 md:grid-cols-2">
-            {[
-              '一部だけで動いている',
-              '力がぶつかって止まっている',
-              '身体が動きを邪魔している',
-              '姿勢を保つために力を使ってしまっている',
-            ].map((item) => (
-              <li
-                key={item}
-                className="rounded-2xl border border-slate-200 bg-white px-6 py-5"
-              >
-                <p className="text-lg font-semibold text-slate-900">{item}</p>
-              </li>
-            ))}
-          </ul>
-          <p className="mt-10 max-w-3xl leading-relaxed text-slate-700">
-            本来は「動く」「出力する」ために力を使うはずが、
-            <br />
-            姿勢や見た目を保つことに力を使ってしまい、
-            <br />
-            競技動作に力が使えていない状態です。
-          </p>
-        </div>
-      </section>
-
-      {/* Future / Outcome */}
-      <section className="bg-white">
-        <div className={`${containerClass} py-16 md:py-20`}>
-          <div className="max-w-3xl">
-            <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
-              この状態が変わると、動きはこう変わります
-            </h2>
-            <p className="mt-6 leading-relaxed text-slate-700">
-              大きく何かを変えるというより、
-              <br />
-              まずは「力がそのまま使える感覚」を取り戻していきます。
-              <br />
-              その結果、競技中の動きにも次のような変化が出てきます。
-            </p>
-          </div>
-
-          <div className="mt-10 grid gap-4 md:grid-cols-3">
-            {[
-              {
-                title: '当たり負けしにくくなる',
-                body: '無駄に力まずに、出した力がそのまま相手や地面に伝わりやすくなります。',
-              },
-              {
-                title: '動き出しが軽くなる',
-                body: '速く動こうとしなくても、引っかかりが減り、最初の一歩が出しやすくなります。',
-              },
-              {
-                title: '上半身と下半身がつながってくる',
-                body: 'バラバラに頑張るのではなく、全身で動ける感覚が出てきます。',
-              },
-            ].map((item) => (
-              <div
-                key={item.title}
-                className="rounded-2xl border border-slate-200 bg-slate-50 px-6 py-6"
-              >
-                <h3 className="text-lg font-semibold text-slate-900">
-                  {item.title}
-                </h3>
-                <p className="mt-3 leading-relaxed text-slate-700">
-                  {item.body}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <p className="mt-10 max-w-3xl leading-relaxed text-slate-700">
-            これはフォームを真似することではなく、
-            <br />
-            身体の中で力が通る状態を作っていく作業です。
-          </p>
-        </div>
-      </section>
-
-      {/* ④ 悩み選択（展開式） */}
-      <section id="accordion" className="bg-slate-950 text-white">
-        <div className={`${containerClass} py-16 md:py-20`}>
-          <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
-            悩みを選ぶ（クリックで展開）
-          </h2>
-          <p className="mt-4 max-w-3xl leading-relaxed text-white/75">
-            診断ではなく、よくある「つまずき」から順番にほどいていきます。
-            まずは当てはまるものを開いてください。
-          </p>
-
-          <div className="mt-10 space-y-4">
-            {concerns.map((item, index) => {
-              const isOpen = openKey === item.key
-              const contentId = `concern-panel-${index}`
-              return (
-                <div
-                  key={item.key}
-                  className="overflow-hidden rounded-2xl border border-white/10 bg-white/5"
-                >
-                  <button
-                    type="button"
-                    className="flex w-full items-center justify-between gap-6 px-6 py-5 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
-                    aria-expanded={isOpen}
-                    aria-controls={contentId}
-                    onClick={() => setOpenKey(isOpen ? null : item.key)}
-                  >
-                    <span className="text-lg md:text-xl font-semibold">
-                      {item.title}
-                    </span>
-                    <span className="shrink-0 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white/80">
-                      {isOpen ? '閉じる' : '開く'}
-                    </span>
-                  </button>
-
-                  {isOpen ? (
-                    <div id={contentId} className="px-6 pb-6">
-                      <div className="grid gap-6 md:grid-cols-3">
-                        <div className="rounded-xl bg-white/5 p-5">
-                          <p className="text-xs font-semibold tracking-[0.2em] text-white/70">
-                            状態
-                          </p>
-                          <ul className="mt-3 space-y-2 text-white/85">
-                            {item.state.map((line) => (
-                              <li key={line}>・{line}</li>
-                            ))}
-                          </ul>
-                        </div>
-
-                        <div className="rounded-xl bg-white/5 p-5">
-                          <p className="text-xs font-semibold tracking-[0.2em] text-white/70">
-                            原因
-                          </p>
-                          <ul className="mt-3 space-y-2 text-white/85">
-                            {item.causes.map((line) => (
-                              <li key={line}>・{line}</li>
-                            ))}
-                          </ul>
-                        </div>
-
-                        <div className="rounded-xl bg-white/5 p-5">
-                          <p className="text-xs font-semibold tracking-[0.2em] text-white/70">
-                            無料アドバイス
-                          </p>
-                          <ul className="mt-3 space-y-2 text-white/85">
-                            {item.advice.map((line) => (
-                              <li key={line}>・{line}</li>
-                            ))}
-                          </ul>
-                        </div>
-                      </div>
-
-                      <div className="mt-8 flex flex-col sm:flex-row gap-3">
-                        <Link
-                          href={item.ctaHref}
-                          className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-950 transition-colors hover:bg-white/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
-                        >
-                          {item.ctaLabel}
-                        </Link>
-                        <Link
-                          href="#cta"
-                          className="inline-flex items-center justify-center rounded-full bg-white/10 px-6 py-3 text-sm font-semibold text-white ring-1 ring-white/20 transition-colors hover:bg-white/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
-                        >
-                          次に進む
-                        </Link>
-                      </div>
-                    </div>
-                  ) : null}
+                <div className="flex justify-between items-center">
+                  <span className="text-sm md:text-base font-bold text-white group-hover:text-purple-400 transition-colors duration-300">
+                    {item.title}
+                  </span>
+                  <ArrowUpRight className="w-4 h-4 text-zinc-700 group-hover:text-purple-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
                 </div>
-              )
-            })}
+              </Link>
+            ))}
           </div>
         </div>
+
+        {/* --- Category B: 目的別 --- */}
+        <div className="space-y-6">
+          <h2 className="text-sm font-bold tracking-wider text-zinc-450 border-b border-zinc-905 pb-2.5 uppercase">
+            目的別
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {goals.map((item) => (
+              <Link
+                key={item.id}
+                href={item.href}
+                className="group relative block bg-zinc-950 hover:bg-zinc-900/30 border border-zinc-900 hover:border-zinc-800 rounded-lg p-5 transition-all duration-300 shadow-md"
+              >
+                <div className="flex justify-between items-center">
+                  <span className="text-sm md:text-base font-bold text-white group-hover:text-purple-400 transition-colors duration-300">
+                    {item.title}
+                  </span>
+                  <ArrowUpRight className="w-4 h-4 text-zinc-700 group-hover:text-purple-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/* --- Category C: 一流の自主練 --- */}
+        <div className="space-y-6">
+          <h2 className="text-sm font-bold tracking-wider text-zinc-450 border-b border-zinc-905 pb-2.5 uppercase">
+            一流の自主練
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {practices.map((item) => (
+              <Link
+                key={item.id}
+                href={item.href}
+                className="group relative block bg-zinc-950 hover:bg-zinc-900/30 border border-zinc-900 hover:border-zinc-800 rounded-lg p-5 transition-all duration-300 shadow-md"
+              >
+                <div className="flex justify-between items-center">
+                  <span className="text-sm md:text-base font-bold text-white group-hover:text-purple-400 transition-colors duration-300">
+                    {item.title}
+                  </span>
+                  <ArrowUpRight className="w-4 h-4 text-zinc-700 group-hover:text-purple-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+
       </section>
 
-      {/* ⑤ 最下部CTA */}
-      <section id="cta" className="bg-white text-slate-900">
-        <div className={`${containerClass} py-16 md:py-20`}>
-          <div className="rounded-3xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white p-8 md:p-12">
-            <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
-              まずはここから始めてみる
-            </h2>
-            <p className="mt-4 max-w-2xl leading-relaxed text-slate-700">
-              「筋力」を増やす前に、「競技で出る形」に整える。
-              小さく試して、出力が出る方向に寄せていきましょう。
-            </p>
-            <div className="mt-8 flex flex-col sm:flex-row gap-3">
-              <Link
-                href="/training#athlete"
-                className="inline-flex items-center justify-center rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-slate-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-900 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
-              >
-                アスリート向けプログラムを見る
-              </Link>
-              <Link
-                href="#top"
-                className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 ring-1 ring-slate-200 transition-colors hover:bg-slate-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-900 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
-              >
-                トップに戻る
-              </Link>
-            </div>
-          </div>
-        </div>
+      {/* 3. Bottom Return Button */}
+      <section className="max-w-5xl mx-auto px-6 mt-20 text-center">
+        <Link 
+          href="/" 
+          className="inline-flex items-center justify-center text-xs text-zinc-500 hover:text-zinc-350 transition-colors font-medium border-b border-zinc-900 hover:border-zinc-800 pb-1"
+        >
+          トップページへ戻る
+        </Link>
       </section>
     </main>
   )
