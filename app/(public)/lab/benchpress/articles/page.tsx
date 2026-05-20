@@ -64,7 +64,7 @@ function ArticlesContent() {
 
       {/* 📖 ARTICLE LIST GRID */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {filteredArticles.map((art, idx) => (
+        {filteredArticles.map((art) => (
           <Link
             key={art.id}
             href={`/lab/benchpress/${art.slug}`}
