@@ -8,7 +8,6 @@ import {
   BookOpen, 
   Layers, 
   Clock, 
-  Activity, 
   Bookmark, 
   ChevronRight,
   Compass,
