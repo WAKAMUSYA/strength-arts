@@ -14,31 +14,12 @@ import {
   Activity,
   Lock,
   X,
-  Info
+  Info,
+  BookOpen
 } from 'lucide-react'
+import { BENCHPRESS_ARTICLES } from '@/data/benchpressArticles'
 
 // --- DATA TYPES ---
-interface Article {
-  id: string
-  title: string
-  category: 'basic' | 'form' | 'pain' | 'program' | 'anatomy' | 'science'
-  readTime: string
-  desc: string
-  image: string
-  tags: string[]
-  level: '初級' | '中級' | '上級'
-  slug: string
-  obstacleTag?: string
-}
-
-interface Step {
-  num: number
-  title: string
-  subtitle: string
-  desc: string
-  slug: string
-}
-
 interface ResearchPaper {
   id: string
   title: string
@@ -50,132 +31,11 @@ interface ResearchPaper {
   tag: string
 }
 
-// --- DYNAMIC DATA ---
-const MUST_READ_ARTICLES: Article[] = [
-  {
-    id: 'mr-1',
-    title: 'ベンチプレスの基本と最適アライメント',
-    category: 'basic',
-    readTime: '5 min',
-    desc: '重量を競う前に知るべき、骨格アライメントと力学的支点の最適解。',
-    image: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=600&auto=format&fit=crop',
-    tags: ['基本アライメント', '胸椎伸展', '肩甲骨の真実'],
-    level: '初級',
-    slug: 'alignment',
-    obstacleTag: '胸に入らない'
-  },
-  {
-    id: 'mr-2',
-    title: '肩が痛い理由：インピンジメントの力学',
-    category: 'pain',
-    readTime: '6 min',
-    desc: 'なぜ挙上時に肩関節前面が痛むのか？その答えは脇の角度と肩甲骨の後傾制限にある。',
-    image: 'https://images.unsplash.com/photo-1574680096145-d05b474e2155?q=80&w=600&auto=format&fit=crop',
-    tags: ['肩関節痛', '怪我予防', 'インピンジメント'],
-    level: '中級',
-    slug: 'shoulder-pain',
-    obstacleTag: '肩が痛い'
-  },
-  {
-    id: 'mr-3',
-    title: '胸に効かない人へ：上腕骨の水平内転と意識の分離',
-    category: 'form',
-    readTime: '4 min',
-    desc: '三頭筋や肩ばかりに疲労が溜まるエラーを解決する「バーを押さない」胸の収縮技術。',
-    image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=600&auto=format&fit=crop',
-    tags: ['大胸筋狙い', 'マインドマッスルコネクション', 'モーメントアーム'],
-    level: '初級',
-    slug: 'chest-activation',
-    obstacleTag: '胸に入らない'
-  },
-  {
-    id: 'mr-4',
-    title: '脚の使い方（レッグドライブ）：床反力を挙上に伝えるバネの創出',
-    category: 'form',
-    readTime: '5 min',
-    desc: '下半身のエネルギーを胸に連動させる、正しい足圧の位置と臀部スライドの防止策。',
-    image: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=600&auto=format&fit=crop',
-    tags: ['レッグドライブ', '運動連鎖', 'アーチ構築'],
-    level: '上級',
-    slug: 'leg-drive',
-    obstacleTag: '腰が反る'
-  },
-  {
-    id: 'mr-5',
-    title: '重量が伸びない理由：神経系の動員と漸進的過負荷の壁',
-    category: 'program',
-    readTime: '7 min',
-    desc: '同じトレーニングボリュームを繰り返す停滞期を打破するための、ピリオダイゼーション。',
-    image: 'https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=600&auto=format&fit=crop',
-    tags: ['停滞打破', '神経系発達', 'プログラム設計'],
-    level: '上級',
-    slug: 'plateau',
-    obstacleTag: '停滞した'
-  }
-]
-
-// Roadmap steps linked directly to specialized textbooks
-const STEPS: Step[] = [
-  { num: 1, title: 'アライメントの基本', subtitle: 'Biomechanics Base', desc: '物理と解剖学の基礎骨格スタック', slug: 'alignment' },
-  { num: 2, title: '肩インピンジメント予防', subtitle: 'Shoulder Protection', desc: '怪我を防ぐラックアップと脇の角度', slug: 'shoulder-pain' },
-  { num: 3, title: '肩甲骨コントロールの真実', subtitle: 'Scapula Mechanics', desc: '「寄せて下げる」固定と動的調和', slug: 'scapula-lock' },
-  { num: 4, title: '脚（レッグドライブ）', subtitle: 'Kinetic Chain', desc: '床からの運動連鎖の獲得', slug: 'leg-drive' },
-  { num: 5, title: '筋肥大の最適可動域', subtitle: 'Hypertrophy Range', desc: 'ストレッチ張力とハーフの有効性', slug: 'hypertrophy-range' },
-  { num: 6, title: '重量停滞打破', subtitle: 'Progressive Overload', desc: '限界を超える計画的負荷設計', slug: 'plateau' }
-]
-
 const OBSTACLES = [
   { label: '胸に入らない', desc: '大胸筋に刺激を集中させたい' },
   { label: '肩が痛い', desc: '挙上時に肩前面に違和感がある' },
   { label: '停滞した', desc: 'MAX重量が数ヶ月更新されていない' },
   { label: '腰が反る', desc: 'アーチ形成で腰が痛む・浮いてしまう' }
-]
-
-const COLUMN_ARTICLES: Article[] = [
-  {
-    id: 'col-1',
-    title: '筋肥大と可動域のトレードオフ：ハーフ vs フルレンジ',
-    category: 'science',
-    readTime: '4 min',
-    desc: 'ボトムでの大胸筋ストレッチがもたらす機械的張力と、パーシャル可動域の有効性を検証する。',
-    image: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=600&auto=format&fit=crop',
-    tags: ['筋肥大', '可動域', 'ストレッチ張力'],
-    level: '中級',
-    slug: 'hypertrophy-range'
-  },
-  {
-    id: 'col-2',
-    title: '肩甲骨は本当に「限界まで寄せて下げる」べきなのか？',
-    category: 'anatomy',
-    readTime: '5 min',
-    desc: 'インピンジメントを防ぎつつ、肩甲上腕リズムを損なわないための動的な肩甲骨アライメント。',
-    image: 'https://images.unsplash.com/photo-1544033527-b192daee1f5b?q=80&w=600&auto=format&fit=crop',
-    tags: ['肩甲骨コントロール', '解剖学の真実', '肩甲上腕リズム'],
-    level: '上級',
-    slug: 'scapula-lock'
-  },
-  {
-    id: 'col-3',
-    title: 'パワーリフティング仕様アーチの功罪：安全性と挙上距離の力学',
-    category: 'form',
-    readTime: '6 min',
-    desc: 'ブリッジによる挙上距離短縮の効果と、腰椎へのせん断力リスク、胸骨アングルの変化。',
-    image: 'https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?q=80&w=600&auto=format&fit=crop',
-    tags: ['ブリッジ形成', '力学分析', '安全性評価'],
-    level: '中級',
-    slug: 'arch-mechanics'
-  },
-  {
-    id: 'col-4',
-    title: 'なぜ胸トレが肩（三角筋前部）に入るのか？骨盤と上腕の角度測定',
-    category: 'pain',
-    readTime: '4 min',
-    desc: 'プレス時の肘のアウトアングルが三角筋に逃げる要因。理想のプレスプレーンを視覚化する。',
-    image: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=600&auto=format&fit=crop',
-    tags: ['三角筋前部', '肘の角度', 'フォーム改善'],
-    level: '初級',
-    slug: 'shoulder-drift'
-  }
 ]
 
 const RESEARCH_PAPERS: ResearchPaper[] = [
@@ -231,115 +91,69 @@ export default function BenchPressLab() {
   const [selectedObstacle, setSelectedObstacle] = useState<string | null>(null)
   const [activePortal, setActivePortal] = useState<string | null>(null)
   
-  // Highlight articles dynamically based on selected obstacle
+  // Categorize articles from shared data file
+  const mustReadArticles = useMemo(() => {
+    return BENCHPRESS_ARTICLES.filter(art => art.type === 'basic')
+  }, [])
+
+  const columnArticles = useMemo(() => {
+    return BENCHPRESS_ARTICLES.filter(art => art.type === 'applied')
+  }, [])
+
+  // Dynamically generate roadmap steps from articles with a `roadmapNumber` (sorted ascending)
+  const roadmapSteps = useMemo(() => {
+    return BENCHPRESS_ARTICLES
+      .filter(art => typeof art.roadmapNumber === 'number')
+      .sort((a, b) => (a.roadmapNumber || 0) - (b.roadmapNumber || 0))
+  }, [])
+
+  // Highlight articles dynamically based on selected obstacle (only applies to basic articles)
   const filteredArticles = useMemo(() => {
-    if (!selectedObstacle) return MUST_READ_ARTICLES
-    return MUST_READ_ARTICLES.filter(art => art.obstacleTag === selectedObstacle)
-  }, [selectedObstacle])
+    if (!selectedObstacle) return mustReadArticles
+    return mustReadArticles.filter(art => art.obstacleTag === selectedObstacle)
+  }, [selectedObstacle, mustReadArticles])
 
   return (
     <main className="min-h-screen bg-black text-white selection:bg-blue-900 selection:text-white pb-32">
       
       {/* ----------------- SECTION ①: HERO ----------------- */}
-      <section className="relative overflow-hidden border-b border-zinc-900 pt-28 pb-20 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-950/20 via-black to-black">
+      <section className="relative overflow-hidden border-b border-zinc-900 pt-20 pb-12 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-950/20 via-black to-black">
         <div className="absolute inset-0 bg-black/40 backdrop-blur-[1px]" />
         
-        <div className="max-w-6xl mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
-            {/* Hero Left Content */}
-            <div className="lg:col-span-7 space-y-6">
-              <div className="flex items-center gap-2">
-                <span className="inline-flex items-center gap-1.5 text-[9px] font-extrabold text-blue-400 bg-blue-950/40 border border-blue-900/40 px-3 py-1 rounded-full uppercase tracking-widest">
-                  <Activity className="w-3.5 h-3.5 text-blue-500" /> Bench Press Research Facility
-                </span>
-                <span className="text-[10px] text-zinc-550 font-mono">CODE: BP-LAB-01</span>
-              </div>
+        <div className="max-w-4xl mx-auto px-6 relative z-10 text-center space-y-6">
+          <div className="flex items-center justify-center gap-2">
+            <span className="inline-flex items-center gap-1.5 text-[9px] font-extrabold text-blue-400 bg-blue-950/40 border border-blue-900/40 px-3 py-1 rounded-full uppercase tracking-widest">
+              <Activity className="w-3.5 h-3.5 text-blue-500" /> Bench Press Research Facility
+            </span>
+            <span className="text-[10px] text-zinc-550 font-mono">CODE: BP-LAB-01</span>
+          </div>
 
-              <h1 className="text-4xl md:text-6xl font-black tracking-tight text-white leading-tight">
-                ベンチプレス<br className="hidden md:inline" />
-                <span className="text-blue-500 font-extrabold relative inline-block">
-                  研究所
-                  <span className="absolute bottom-1.5 left-0 w-full h-1 bg-blue-950/30 -z-10 rounded" />
-                </span>
-              </h1>
+          <h1 className="text-4xl md:text-6xl font-black tracking-tight text-white leading-tight">
+            ベンチプレス<span className="text-blue-500 font-extrabold relative inline-block">研究所</span>
+          </h1>
 
-              <div className="space-y-4">
-                <p className="text-lg font-bold text-zinc-300">
-                  ベンチプレスを深く学ぶ
-                </p>
-                <p className="text-xs md:text-sm text-zinc-450 leading-relaxed font-light max-w-xl">
-                  挙上重量を競うだけではなく、関節の機能解剖学、バイオメカニクスの力学支点、そして運動単位の動員方程式からプレス動作を再設計する。科学の力で停滞を打破し、安全かつ最大効率で筋出力を極限まで高める特化探索ポータル。
-                </p>
-              </div>
+          <p className="text-base md:text-lg font-bold text-zinc-300">
+            ー 骨格アライメントと力学でプレスをハックする
+          </p>
 
-              {/* Quick stats / widgets */}
-              <div className="flex flex-wrap gap-3 pt-4">
-                <div className="flex items-center gap-2 bg-zinc-950 border border-zinc-900 rounded-lg px-4 py-2.5 text-xs font-mono text-zinc-400">
-                  <Dumbbell className="w-4 h-4 text-blue-500" />
-                  <span>6 Step Roadmap</span>
-                </div>
-                <div className="flex items-center gap-2 bg-zinc-950 border border-zinc-900 rounded-lg px-4 py-2.5 text-xs font-mono text-zinc-400">
-                  <Layers className="w-4 h-4 text-blue-500" />
-                  <span>9 Core Textbooks</span>
-                </div>
-                <div className="flex items-center gap-2 bg-zinc-950 border border-zinc-900 rounded-lg px-4 py-2.5 text-xs font-mono text-zinc-400">
-                  <TrendingUp className="w-4 h-4 text-blue-500" />
-                  <span>4 Literature Reviews</span>
-                </div>
-              </div>
+          <p className="text-xs md:text-sm text-zinc-450 leading-relaxed font-light max-w-2xl mx-auto">
+            挙上重量を競うだけではなく、関節の機能解剖学、バイオメカニクスの力学支点、および運動単位 of the 動員方程式からプレス動作を再設計する。科学の力で停滞を打破し、安全かつ最大効率で筋出力を極限まで高める特化探索ポータル。
+          </p>
+
+          {/* Quick stats / widgets */}
+          <div className="flex flex-wrap justify-center gap-3 pt-2">
+            <div className="flex items-center gap-2 bg-zinc-950 border border-zinc-900 rounded-lg px-4 py-2.5 text-xs font-mono text-zinc-400">
+              <Dumbbell className="w-4 h-4 text-blue-500" />
+              <span>{roadmapSteps.length} Step Roadmap</span>
             </div>
-
-            {/* Hero Right Visual: Generated Blueprint & Biomechanical Blueprint Art */}
-            <div className="lg:col-span-5 relative flex justify-center">
-              <div className="relative w-full max-w-sm aspect-square rounded-2xl border border-zinc-900 bg-zinc-950/20 backdrop-blur-xl shadow-2xl p-6 flex flex-col justify-between overflow-hidden group">
-                
-                {/* Scientific Blueprint Art Decoration Overlay */}
-                <div className="absolute inset-0 opacity-5 bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:14px_24px]" />
-                
-                {/* Decorative border tags */}
-                <div className="absolute top-0 left-0 border-t-2 border-l-2 border-blue-500/50 w-4 h-4 m-3" />
-                <div className="absolute top-0 right-0 border-t-2 border-r-2 border-blue-500/50 w-4 h-4 m-3" />
-                <div className="absolute bottom-0 left-0 border-b-2 border-l-2 border-blue-500/50 w-4 h-4 m-3" />
-                <div className="absolute bottom-0 right-0 border-b-2 border-r-2 border-blue-500/50 w-4 h-4 m-3" />
-
-                {/* Graphic Visual Panel */}
-                <div className="flex-1 flex items-center justify-center relative">
-                  <div className="w-64 h-64 rounded-full border border-dashed border-zinc-800 flex items-center justify-center animate-spin-slow absolute">
-                    <div className="w-40 h-40 rounded-full border border-dashed border-blue-950 flex items-center justify-center" />
-                  </div>
-                  
-                  {/* Blueprint dummy layout line-art visual */}
-                  <div className="relative z-10 w-full h-full flex flex-col items-center justify-center p-6 text-center select-none space-y-4">
-                    <div className="relative p-5 rounded-2xl bg-zinc-950 border border-zinc-900 shadow-xl max-w-[280px]">
-                      <span className="absolute -top-2.5 left-4 text-[8px] font-extrabold font-mono bg-blue-600 text-white px-2 py-0.5 rounded uppercase tracking-wider">
-                        BIOMECHANICS
-                      </span>
-                      <p className="text-[10px] font-mono text-zinc-550 mb-1.5 uppercase tracking-widest">
-                        Vector Dynamic Angle
-                      </p>
-                      <h4 className="text-xs md:text-sm font-black text-white leading-snug">
-                        肘関節モーメントアーム<br />と重力ベクトルの整合性
-                      </h4>
-                      <div className="mt-3 flex items-center justify-between text-[9px] font-mono text-blue-400 border-t border-zinc-900 pt-2.5">
-                        <span>θ = 75° (OPTIMAL)</span>
-                        <span>FORCE: Fg(↓)</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Panel Footer */}
-                <div className="relative z-10 border-t border-zinc-900 pt-4 flex items-center justify-between text-[10px] text-zinc-500 font-mono">
-                  <span>RESEARCH HUBS // SA</span>
-                  <Link href="/bodymake" className="flex items-center gap-1 text-blue-400 hover:text-blue-300 transition-colors font-bold cursor-pointer">
-                    LAB INDEX <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
-                </div>
-
-              </div>
+            <div className="flex items-center gap-2 bg-zinc-950 border border-zinc-900 rounded-lg px-4 py-2.5 text-xs font-mono text-zinc-400">
+              <Layers className="w-4 h-4 text-blue-500" />
+              <span>{mustReadArticles.length} Core Textbooks</span>
             </div>
-
+            <div className="flex items-center gap-2 bg-zinc-950 border border-zinc-900 rounded-lg px-4 py-2.5 text-xs font-mono text-zinc-400">
+              <TrendingUp className="w-4 h-4 text-blue-500" />
+              <span>{RESEARCH_PAPERS.length} Literature Reviews</span>
+            </div>
           </div>
         </div>
       </section>
@@ -354,11 +168,11 @@ export default function BenchPressLab() {
                 FACILITY DIRECTORY
               </span>
               <h2 className="text-2xl md:text-3xl font-black text-white tracking-tight">
-                まず読んでほしい基礎講義
+                基本理論
               </h2>
             </div>
             <p className="text-xs text-zinc-550 max-w-sm font-light mt-2 md:mt-0 leading-relaxed">
-              何よりも先に見直すべき、力学的エラーのない軌道設計と、肩関節を保護しながら大胸筋の緊張をフル維持する必須教科書。
+              怪我を防ぎ、大胸筋への刺激を最大化する必須の基礎理論。
             </p>
           </div>
 
@@ -387,7 +201,7 @@ export default function BenchPressLab() {
                   <div className="space-y-2">
                     <div className="flex items-center justify-between text-[9px] font-mono text-zinc-500">
                       <span className="uppercase tracking-widest text-blue-450 font-semibold">{art.category}</span>
-                      <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {art.readTime}</span>
+                      <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> {art.readTime}</span>
                     </div>
 
                     <h3 className="text-sm md:text-base font-bold text-white group-hover:text-blue-400 transition-colors leading-snug">
@@ -433,23 +247,23 @@ export default function BenchPressLab() {
               STRUCTURED PATHWAY
             </span>
             <h2 className="text-2xl md:text-3xl font-black text-white tracking-tight">
-              順番に学ぶ「アカデミック・ロードマップ」
+              ロードマップ
             </h2>
             <p className="text-xs text-zinc-400 max-w-xl mx-auto leading-relaxed font-light">
-              バイオメカニクスの段階的習得システム。STEP 1から順に専門書を読み進めることで、怪我のない物理的アライメントと、筋出力を高める神経系プログラム設計が完成します。
+              バイオメカニクスに基づく10段階の習得ステップ。
             </p>
           </div>
 
-          {/* Steps Horizontal/Vertical Responsive Scroll */}
+          {/* Steps Horizontal/Vertical Responsive Scroll (Dynamically populated from common data) */}
           <div className="overflow-x-auto pb-4 -mx-6 px-6 scrollbar-thin scrollbar-thumb-zinc-800">
-            <div className="flex lg:grid lg:grid-cols-6 gap-5 min-w-[1050px] lg:min-w-0">
-              {STEPS.map((st) => (
+            <div className="flex gap-5 min-w-[1700px]">
+              {roadmapSteps.map((st, idx) => (
                 <Link 
-                  key={st.num}
+                  key={st.id}
                   href={`/lab/benchpress/${st.slug}`}
-                  className="relative flex-1 bg-zinc-950 border border-zinc-900 rounded-xl p-5 hover:border-blue-900 hover:bg-zinc-900/10 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group cursor-pointer"
+                  className="relative w-[280px] shrink-0 bg-zinc-950 border border-zinc-900 rounded-xl p-5 hover:border-blue-900 hover:bg-zinc-900/10 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group cursor-pointer"
                 >
-                  {st.num < 6 && (
+                  {idx < roadmapSteps.length - 1 && (
                     <div className="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 z-20 bg-zinc-950 rounded-full p-1 border border-zinc-900 text-zinc-650 group-hover:text-blue-400 group-hover:bg-blue-950/30 transition-colors">
                       <ChevronRight className="w-3.5 h-3.5" />
                     </div>
@@ -458,21 +272,21 @@ export default function BenchPressLab() {
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
                       <span className="text-2xl font-black text-blue-950 group-hover:text-blue-900 transition-colors font-mono">
-                        0{st.num}
+                        0{st.roadmapNumber}
                       </span>
                       <span className="text-[8px] font-mono text-zinc-550 uppercase tracking-widest">
-                        STEP {st.num}
+                        STEP {st.roadmapNumber}
                       </span>
                     </div>
 
                     <div className="space-y-1.5">
                       <p className="text-[9px] font-mono text-blue-400/80 uppercase tracking-wide">
-                        {st.subtitle}
+                        {st.category}
                       </p>
                       <h3 className="text-sm font-bold text-white group-hover:text-blue-400 transition-colors leading-tight">
                         {st.title}
                       </h3>
-                      <p className="text-[11px] text-zinc-500 leading-relaxed font-light">
+                      <p className="text-[11px] text-zinc-500 leading-relaxed font-light line-clamp-3">
                         {st.desc}
                       </p>
                     </div>
@@ -501,10 +315,10 @@ export default function BenchPressLab() {
               DIAGNOSTIC NETWORK
             </span>
             <h2 className="text-2xl md:text-3xl font-black text-white tracking-tight">
-              障害・壁から探す（問題別インデックス）
+              悩み・壁から探す
             </h2>
             <p className="text-xs text-zinc-450 max-w-md mx-auto leading-relaxed font-light">
-              あなたの挙上を阻んでいる「壁」を選択してください。研究所のアーカイブからダイレクトに関連論文・講義を抽出します。
+              現在の悩みを選択し、関連する講義を瞬時に見つけます。
             </p>
           </div>
 
@@ -524,7 +338,7 @@ export default function BenchPressLab() {
                 >
                   <div className="space-y-2">
                     <span className={`text-[8px] font-extrabold font-mono tracking-widest uppercase block ${
-                      isActive ? 'text-blue-400' : 'text-zinc-500 group-hover:text-blue-400'
+                      isActive ? 'text-blue-400' : 'text-zinc-550 group-hover:text-blue-400'
                     }`}>
                       OBSTACLE
                     </span>
@@ -558,6 +372,18 @@ export default function BenchPressLab() {
             </div>
           )}
 
+          {/* 🌟 USER REQUEST: 「基本理論コラムをすべて見る」ボタンを追加 */}
+          <div className="mt-12 flex justify-center">
+            <Link 
+              href="/lab/benchpress/articles?tab=basic"
+              className="relative inline-flex items-center gap-2 bg-gradient-to-r from-blue-950/50 to-blue-900/30 hover:from-blue-900/60 hover:to-blue-800/40 border border-blue-800/50 hover:border-blue-500 text-white font-bold text-xs md:text-sm px-8 py-4 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10 tracking-wider group cursor-pointer"
+            >
+              <BookOpen className="w-4 h-4 text-blue-400 group-hover:text-blue-300 group-hover:scale-110 transition-all shrink-0" />
+              <span>基本理論コラムをすべて見る</span>
+              <ChevronRight className="w-4 h-4 text-blue-500 group-hover:translate-x-0.5 transition-transform" />
+            </Link>
+          </div>
+
         </div>
       </section>
 
@@ -571,17 +397,17 @@ export default function BenchPressLab() {
                 SPECIALIST INQUIRY
               </span>
               <h2 className="text-2xl md:text-3xl font-black text-white tracking-tight">
-                専門探究コラム (Deep Dive Lectures)
+                応用・探究
               </h2>
             </div>
-            <p className="text-xs text-zinc-500 max-w-sm font-light leading-relaxed">
-              一般の指導書には載らないバイオメカニクスの最深部。物理工学と力学を用いてプレスアングルをハックします。
+            <p className="text-xs text-zinc-550 max-w-sm font-light leading-relaxed">
+              物理学と解剖学の観点からプレス動作をより深くハックする。
             </p>
           </div>
 
           {/* Columns Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {COLUMN_ARTICLES.map((col) => (
+            {columnArticles.map((col) => (
               <Link 
                 key={col.id} 
                 href={`/lab/benchpress/${col.slug}`}
@@ -618,6 +444,18 @@ export default function BenchPressLab() {
             ))}
           </div>
 
+          {/* 🌟 USER REQUEST: 「応用・探究コラムをすべて見る」ボタンを追加 */}
+          <div className="mt-12 flex justify-center">
+            <Link 
+              href="/lab/benchpress/articles?tab=applied"
+              className="relative inline-flex items-center gap-2 bg-gradient-to-r from-zinc-900/70 to-zinc-850/50 hover:from-zinc-850/80 hover:to-zinc-800/60 border border-zinc-800 hover:border-zinc-650 text-white font-bold text-xs md:text-sm px-8 py-4 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-zinc-800/10 tracking-wider group cursor-pointer"
+            >
+              <Layers className="w-4 h-4 text-blue-400 group-hover:text-blue-300 group-hover:scale-110 transition-all shrink-0" />
+              <span>応用・探究コラムをすべて見る</span>
+              <ChevronRight className="w-4 h-4 text-blue-500 group-hover:translate-x-0.5 transition-transform" />
+            </Link>
+          </div>
+
         </div>
       </section>
 
@@ -630,10 +468,10 @@ export default function BenchPressLab() {
               ACADEMIC DATABASE
             </span>
             <h2 className="text-2xl md:text-3xl font-black text-white tracking-tight">
-              学術研究レビュー (Literature Reviews)
+              研究データ
             </h2>
             <p className="text-xs text-zinc-450 max-w-xl mx-auto leading-relaxed font-light">
-              エビデンスに基づくデータ科学。世界中のスポーツ生理学、生体力学（バイオメカニクス）論文からベンチプレスに関する重要知見を抽出して要約。
+              世界中の科学論文から、ベンチプレスに関する重要エビデンスを要約。
             </p>
           </div>
 
@@ -703,10 +541,10 @@ export default function BenchPressLab() {
               RESEARCH NETWORK
             </span>
             <h2 className="text-2xl font-black text-white tracking-tight">
-              他の関連する「研究所」を探索
+              関連ページ
             </h2>
-            <p className="text-xs text-zinc-500 leading-relaxed font-light">
-              身体運動と物理はすべて繋がっています。他の部位に特化した専門アライメントハブへ進みましょう。
+            <p className="text-xs text-zinc-550 leading-relaxed font-light">
+              他の部位や種目に特化した専門研究ページへ進みます。
             </p>
           </div>
 
@@ -764,7 +602,7 @@ export default function BenchPressLab() {
               <h3 className="text-xl font-black text-white leading-tight">
                 「{activePortal}」構築中
               </h3>
-              <p className="text-xs text-zinc-400 leading-relaxed font-light">
+              <p className="text-xs text-zinc-450 leading-relaxed font-light">
                 現在、Strength Arts研究チームが最新のスポーツバイオメカニクス論文と解剖データモデルを解析し、この種目の特化研究ページ（ベンチプレス研究所と同様のインタラクティブ構成）を全力で編纂しております。
               </p>
             </div>
