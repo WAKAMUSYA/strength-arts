@@ -36,10 +36,10 @@ export default function ArticleDetailPage() {
           指定されたコラム（ID: {slug}）は現在執筆中、または存在しないURLです。
         </p>
         <Link 
-          href="/lab/benchpress" 
+          href="/lab/benchpress/articles" 
           className="text-xs font-mono font-bold text-blue-400 hover:underline inline-flex items-center gap-1"
         >
-          <ArrowLeft className="w-3.5 h-3.5" /> ベンチプレス研究所へ戻る
+          <ArrowLeft className="w-3.5 h-3.5" /> コラム一覧へ戻る
         </Link>
       </div>
     )
@@ -65,10 +65,10 @@ export default function ArticleDetailPage() {
       <div className="sticky top-16 z-30 bg-zinc-950/80 backdrop-blur-md border-b border-zinc-900 px-6 py-3.5 flex items-center justify-between text-xs text-zinc-500 font-mono">
         <div className="flex items-center gap-2 max-w-lg truncate">
           <Link 
-            href="/lab/benchpress" 
+            href="/lab/benchpress/articles" 
             className="hover:text-blue-400 transition-colors flex items-center gap-1 shrink-0 font-bold"
           >
-            <ArrowLeft className="w-3.5 h-3.5" /> LAB HUB
+            <ArrowLeft className="w-3.5 h-3.5" /> コラム一覧へ戻る
           </Link>
           <span className="text-zinc-700">/</span>
           <span className="truncate text-zinc-300 font-bold">{article.title}</span>
@@ -188,10 +188,10 @@ export default function ArticleDetailPage() {
         {/* Bottom Navigation */}
         <div className="mt-20 pt-8 border-t border-zinc-900 flex flex-col sm:flex-row items-center justify-between gap-6">
           <Link 
-            href="/lab/benchpress" 
+            href="/lab/benchpress/articles" 
             className="text-xs font-mono font-bold text-zinc-500 hover:text-blue-400 transition-colors inline-flex items-center gap-1"
           >
-            <ArrowLeft className="w-3.5 h-3.5" /> BACK TO BENCHPRESS LAB
+            <ArrowLeft className="w-3.5 h-3.5" /> コラム一覧へ戻る
           </Link>
 
           {article.nextArticle && (
