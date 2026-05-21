@@ -9,6 +9,15 @@ export default function Home() {
         <div className="absolute inset-0 bg-black" />
         <div className="absolute inset-0 opacity-40 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-900 via-black to-black" />
         
+        {/* SA Logo Watermark */}
+        <div className="absolute inset-0 flex items-center justify-center opacity-[0.08] pointer-events-none select-none">
+          <img 
+            src="/sa-logo-maru.png" 
+            alt="Strength Arts Watermark" 
+            className="w-[80vw] h-[80vw] max-w-[800px] max-h-[800px] object-contain mix-blend-screen" 
+          />
+        </div>
+        
         <div className="relative z-10 flex flex-col items-center text-center space-y-12 max-w-5xl w-full">
           <h1 className="text-6xl md:text-8xl lg:text-9xl font-extrabold tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white via-blue-50 to-blue-900/50">
             STRENGTH ARTS
@@ -30,9 +39,9 @@ export default function Home() {
               className="group block relative h-[450px] md:h-[500px] bg-black overflow-hidden transition-transform duration-700 hover:-translate-y-2 border border-zinc-900 hover:border-blue-900/60"
             >
               {/* Dark Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-black/90 z-10" />
-              {/* Image Placeholder / Abstract Background */}
-              <div className="absolute inset-0 bg-black bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-950/40 to-black scale-105 group-hover:scale-100 transition-transform duration-1000 ease-out" />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/50 to-black/90 z-10" />
+              {/* Background Image */}
+              <div className="absolute inset-0 bg-[url('/sports2.jpg')] bg-cover bg-center opacity-70 scale-105 group-hover:scale-100 transition-transform duration-1000 ease-out" />
               
               <div className="relative z-20 h-full p-10 flex flex-col justify-end">
                 <h2 className="text-3xl md:text-4xl font-bold tracking-widest mb-6 uppercase text-white group-hover:text-blue-100 transition-colors duration-500">Athlete</h2>
@@ -50,8 +59,10 @@ export default function Home() {
               href="/bodymake" 
               className="group block relative h-[450px] md:h-[500px] bg-black overflow-hidden transition-transform duration-700 hover:-translate-y-2 border border-zinc-900 hover:border-blue-900/60"
             >
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-black/90 z-10" />
-              <div className="absolute inset-0 bg-black bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-950/40 to-black scale-105 group-hover:scale-100 transition-transform duration-1000 ease-out" />
+              {/* Dark Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/50 to-black/90 z-10" />
+              {/* Background Image */}
+              <div className="absolute inset-0 bg-[url('/bodymake.jpg')] bg-cover bg-center opacity-70 scale-105 group-hover:scale-100 transition-transform duration-1000 ease-out" />
               
               <div className="relative z-20 h-full p-10 flex flex-col justify-end">
                 <h2 className="text-3xl md:text-4xl font-bold tracking-widest mb-6 uppercase text-white group-hover:text-blue-100 transition-colors duration-500">Bodymake</h2>
