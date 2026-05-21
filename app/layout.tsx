@@ -6,7 +6,7 @@ import { createClient } from '@/utils/supabase/server'
 import NextTopLoader from 'nextjs-toploader'
 
 export const metadata: Metadata = {
-  title: 'Strength Arts - 強さの構造を解き明かす',
+  title: 'STENGTH ARTS',
   description: '科学、研究、身体トレーニング、感覚認識、そして哲学。複数の視点から「強さ」を探求し、発展させるプラットフォーム。',
   applicationName: 'STRENGTH ARTS',
   appleWebApp: {

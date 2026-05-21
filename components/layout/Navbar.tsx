@@ -16,7 +16,7 @@ export default function Navbar({ isLoggedIn }: { isLoggedIn: boolean }) {
     <header className="sticky top-0 z-50 w-full bg-white border-b border-gray-100">
       <div className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
         <Link href={isLoggedIn ? "/dashboard" : "/"} className="font-bold text-xl tracking-tighter text-gray-900">
-          STRENGTH <span className="text-gray-400">ARTS</span>
+          STRENGTH <span className="text-[#800020]">ARTS</span>
         </Link>
         <div className="flex items-center space-x-4">
           <nav className="hidden md:flex items-center space-x-4 lg:space-x-6 text-sm font-medium text-gray-600">
