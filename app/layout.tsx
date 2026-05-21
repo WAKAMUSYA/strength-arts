@@ -26,7 +26,7 @@ export default async function RootLayout({
         <div className="flex-1">
           {children}
         </div>
-        <BottomNav isLoggedIn={!!user} />
+        <BottomNav />
       </body>
     </html>
   )

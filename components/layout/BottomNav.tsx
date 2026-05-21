@@ -4,8 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Home, BookOpen, Bookmark, User, Dumbbell, Beaker } from "lucide-react";
-
-export default function BottomNav({ isLoggedIn }: { isLoggedIn?: boolean }) {
+export default function BottomNav() {
   const pathname = usePathname();
 
   // URLから現在の「研究所」を判定する
