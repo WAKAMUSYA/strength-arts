@@ -4,12 +4,9 @@ import React, { useState, useMemo } from 'react'
 import Link from 'next/link'
 import { 
   ArrowRight, 
-  Dumbbell, 
-  TrendingUp, 
   Layers, 
   Clock, 
   ChevronRight,
-  Sparkles,
   ExternalLink,
   Activity,
   Lock,
