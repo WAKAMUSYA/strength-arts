@@ -144,14 +144,11 @@ function ArticlesContent() {
                 <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> 読了目安: {art.readTime}</span>
               </div>
 
-              {/* Title & Subtitle */}
+              {/* Title */}
               <div className="space-y-1">
                 <h3 className="text-lg md:text-xl font-black text-white group-hover:text-blue-400 transition-colors leading-tight">
                   {art.title}
                 </h3>
-                <p className="text-[11px] md:text-xs text-zinc-500 italic">
-                  ー {art.subtitle}
-                </p>
               </div>
 
               {/* Article description */}
@@ -217,9 +214,6 @@ export default function BenchpressArticlesPage() {
         <h1 className="text-3xl md:text-5xl font-black tracking-tight text-white">
           ベンチプレス研究所<br className="sm:hidden" /> コラムアーカイブ
         </h1>
-        <p className="text-xs md:text-sm text-zinc-450 max-w-xl mx-auto leading-relaxed font-light">
-          解剖学に基づいた基本フォームから、物理学によるトルク計算、プログラム設計、最新のバイオメカニクス論文解説まで、すべての講義資料を網羅。
-        </p>
       </header>
 
       {/* 🚀 ARTICLES CONTENT WRAPPER */}

@@ -2,10 +2,10 @@
 
 import React, { useState, useMemo } from 'react'
 import Link from 'next/link'
-import { 
-  ArrowRight, 
-  Layers, 
-  Clock, 
+import {
+  ArrowRight,
+  Layers,
+  Clock,
   ChevronRight,
   ExternalLink,
   Activity,
@@ -86,7 +86,7 @@ const RELATED_LABS = [
 
 export default function BenchPressLab() {
   const [activePortal, setActivePortal] = useState<string | null>(null)
-  
+
   // Categorize articles from shared data file
   const mustReadArticles = useMemo(() => {
     return BENCHPRESS_ARTICLES.filter(art => art.type === 'basic')
@@ -105,58 +105,63 @@ export default function BenchPressLab() {
 
   return (
     <main className="min-h-screen bg-black text-white selection:bg-blue-900 selection:text-white pb-32">
-      
+
       {/* ----------------- SECTION ①: HERO ----------------- */}
-      <section className="relative overflow-hidden border-b border-zinc-900 pt-20 pb-12 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-950/20 via-black to-black">
-        <div className="absolute inset-0 bg-black/40 backdrop-blur-[1px]" />
-        
-        <div className="max-w-4xl mx-auto px-6 relative z-10 text-center space-y-6">
-          <div className="flex items-center justify-center gap-2">
-            <span className="inline-flex items-center gap-1.5 text-[9px] font-extrabold text-blue-400 bg-blue-950/40 border border-blue-900/40 px-3 py-1 rounded-full uppercase tracking-widest">
-              <Activity className="w-3.5 h-3.5 text-blue-500" /> Bench Press Research Facility
-            </span>
-            <span className="text-[10px] text-zinc-550 font-mono">CODE: BP-LAB-01</span>
+      <section className="relative overflow-hidden border-b border-zinc-900 pt-32 pb-20 bg-zinc-950">
+        {/* Background Image */}
+        <div
+          className="absolute inset-0 bg-[url('/benchpress.jpg')] bg-cover bg-center bg-no-repeat opacity-80"
+        />
+
+        {/* Overlays for readability */}
+        <div className="absolute inset-0 bg-black/10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
+
+        <div className="max-w-3xl mx-auto px-4 relative z-10">
+          <div className="bg-black/60 backdrop-blur-md rounded-3xl border border-white/10 shadow-2xl p-6 md:p-10 text-center space-y-6">
+            <div className="flex items-center justify-center gap-2">
+              <span className="inline-flex items-center gap-1.5 text-[9px] font-extrabold text-blue-400 bg-blue-950/40 border border-blue-900/40 px-3 py-1 rounded-full uppercase tracking-widest">
+                <Activity className="w-3.5 h-3.5 text-blue-500" /> Bench Press
+              </span>
+              <span className="text-[10px] text-zinc-400 font-mono">CODE: BP-LAB-01</span>
+            </div>
+
+            <h1 className="text-4xl md:text-6xl font-black tracking-tight text-white leading-tight">
+              ベンチプレス<span className="text-blue-500 font-extrabold relative inline-block">研究所</span>
+            </h1>
+
+            <p className="text-base md:text-lg font-bold text-zinc-300">
+              ー ベンチプレスを極める ー
+            </p>
+
+            <p className="text-xs md:text-sm text-zinc-300 leading-relaxed font-light max-w-2xl mx-auto">
+              単に挙上重量を競うだけでなく、関節の機能解剖学やバイオメカニクス、そして神経系の動員メカニズムからベンチプレスの動作を徹底的に再設計します。科学的なアプローチとSA独自の研究結果を融合させ、あなたのパフォーマンスを次の次元へと引き上げます。
+            </p>
           </div>
-
-          <h1 className="text-4xl md:text-6xl font-black tracking-tight text-white leading-tight">
-            ベンチプレス<span className="text-blue-500 font-extrabold relative inline-block">研究所</span>
-          </h1>
-
-          <p className="text-base md:text-lg font-bold text-zinc-300">
-            ー ベンチプレスを極める ー
-          </p>
-
-          <p className="text-xs md:text-sm text-zinc-450 leading-relaxed font-light max-w-2xl mx-auto">
-            単に挙上重量を競うだけでなく、関節の機能解剖学やバイオメカニクス、そして神経系の動員メカニズムからベンチプレスの動作を徹底的に再設計します。科学的なアプローチとSA独自の研究結果を融合させ、あなたのパフォーマンスを次の次元へと引き上げます。
-          </p>
-
-
         </div>
       </section>
 
       {/* ----------------- SECTION ②: まず読んでほしい基礎講義 ----------------- */}
       <section className="py-20 bg-black border-b border-zinc-900">
         <div className="max-w-6xl mx-auto px-6">
-          
-          <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-zinc-900 pb-6 mb-10">
-            <div className="space-y-2">
-              <span className="text-[10px] font-extrabold text-blue-400 tracking-wider uppercase block">
-                FACILITY DIRECTORY
-              </span>
-              <h2 className="text-2xl md:text-3xl font-black text-white tracking-tight">
-                基本理論
-              </h2>
-            </div>
-            <p className="text-xs text-zinc-550 max-w-sm font-light mt-2 md:mt-0 leading-relaxed">
-              怪我を防ぎ、大胸筋への刺激を最大化する必須の基礎理論。
+
+          <div className="text-center space-y-3 mb-12">
+            <span className="text-[10px] font-extrabold text-blue-400 tracking-wider uppercase block">
+              FACILITY DIRECTORY
+            </span>
+            <h2 className="text-2xl md:text-3xl font-black text-white tracking-tight">
+              基本理論
+            </h2>
+            <p className="text-xs text-zinc-450 max-w-xl mx-auto leading-relaxed font-light">
+              初心者が最初につまずくポイントと、力学的な正解フォームの基本を網羅。
             </p>
           </div>
 
           {/* Horizontal Swipe Card Container */}
           <div className="overflow-x-auto pb-6 scrollbar-thin scrollbar-thumb-zinc-800 scrollbar-track-zinc-950 flex gap-6 -mx-6 px-6">
             {mustReadArticles.map((art, idx) => (
-              <Link 
-                key={art.id} 
+              <Link
+                key={art.id}
                 href={`/lab/benchpress/${art.slug}`}
                 className="w-[280px] md:w-[350px] shrink-0 bg-zinc-950/40 border border-zinc-900 hover:border-zinc-800 rounded-xl p-4 transition-all duration-300 flex flex-col justify-between group shadow-lg hover:shadow-xl hover:bg-zinc-900/10 cursor-pointer"
               >
@@ -164,9 +169,9 @@ export default function BenchPressLab() {
                   {/* Card visual header */}
                   <div className="relative aspect-[16/10] w-full rounded-lg overflow-hidden bg-zinc-900">
                     <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent z-10" />
-                    <img 
-                      src={art.image} 
-                      alt={art.title} 
+                    <img
+                      src={art.image}
+                      alt={art.title}
                       className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500 opacity-80"
                     />
                     <span className="absolute top-2 left-2 z-20 text-[8px] font-extrabold text-blue-400 bg-zinc-950/90 border border-zinc-900 px-2 py-0.5 rounded tracking-widest uppercase">
@@ -212,9 +217,9 @@ export default function BenchPressLab() {
               STRUCTURED PATHWAY
             </span>
             <h2 className="text-2xl md:text-3xl font-black text-white tracking-tight">
-              ロードマップ
+              順番に学ぶ
             </h2>
-            <p className="text-xs text-zinc-400 max-w-xl mx-auto leading-relaxed font-light">
+            <p className="text-xs text-zinc-450 max-w-xl mx-auto leading-relaxed font-light">
               バイオメカニクスに基づく10段階の習得ステップ。
             </p>
           </div>
@@ -223,7 +228,7 @@ export default function BenchPressLab() {
           <div className="overflow-x-auto pb-4 -mx-6 px-6 scrollbar-thin scrollbar-thumb-zinc-800">
             <div className="flex gap-5 min-w-[1700px]">
               {roadmapSteps.map((st, idx) => (
-                <Link 
+                <Link
                   key={st.id}
                   href={`/lab/benchpress/${st.slug}`}
                   className="relative w-[280px] shrink-0 bg-zinc-950 border border-zinc-900 rounded-xl p-5 hover:border-blue-900 hover:bg-zinc-900/10 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group cursor-pointer"
@@ -236,7 +241,7 @@ export default function BenchPressLab() {
 
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
-                      <span className="text-2xl font-black text-blue-950 group-hover:text-blue-900 transition-colors font-mono">
+                      <span className="text-2xl font-black text-blue-900 group-hover:text-blue-700 transition-colors font-mono">
                         0{st.roadmapNumber}
                       </span>
                       <span className="text-[8px] font-mono text-zinc-550 uppercase tracking-widest">
@@ -312,7 +317,7 @@ export default function BenchPressLab() {
           </div>
 
           <div className="mt-12 flex justify-center">
-            <Link 
+            <Link
               href="/lab/benchpress/articles?tab=basic"
               className="relative inline-flex items-center gap-2 bg-gradient-to-r from-blue-950/50 to-blue-900/30 hover:from-blue-900/60 hover:to-blue-800/40 border border-blue-800/50 hover:border-blue-500 text-white font-bold text-xs md:text-sm px-8 py-4 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10 tracking-wider group cursor-pointer"
             >
@@ -329,25 +334,23 @@ export default function BenchPressLab() {
       <section className="py-20 bg-zinc-950/10 border-b border-zinc-900">
         <div className="max-w-6xl mx-auto px-6">
 
-          <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-zinc-900 pb-6 mb-10">
-            <div className="space-y-2">
-              <span className="text-[10px] font-extrabold text-blue-400 tracking-wider uppercase block">
-                SPECIALIST INQUIRY
-              </span>
-              <h2 className="text-2xl md:text-3xl font-black text-white tracking-tight">
-                応用・探究
-              </h2>
-            </div>
-            <p className="text-xs text-zinc-550 max-w-sm font-light leading-relaxed">
-              物理学と解剖学の観点からプレス動作をより深くハックする。
+          <div className="text-center space-y-3 mb-12">
+            <span className="text-[10px] font-extrabold text-blue-400 tracking-wider uppercase block">
+              SPECIALIST INQUIRY
+            </span>
+            <h2 className="text-2xl md:text-3xl font-black text-white tracking-tight">
+              応用・探究
+            </h2>
+            <p className="text-xs text-zinc-450 max-w-xl mx-auto leading-relaxed font-light">
+              ストレングスアーツ独自の視点からベンチプレスを探究する。
             </p>
           </div>
 
           {/* Horizontal Swipe Card Container */}
           <div className="overflow-x-auto pb-6 scrollbar-thin scrollbar-thumb-zinc-800 scrollbar-track-zinc-950 flex gap-6 -mx-6 px-6">
             {columnArticles.map((col) => (
-              <Link 
-                key={col.id} 
+              <Link
+                key={col.id}
                 href={`/lab/benchpress/${col.slug}`}
                 className="w-[280px] md:w-[350px] shrink-0 group cursor-pointer bg-zinc-950 border border-zinc-900 hover:border-zinc-800 rounded-xl p-6 transition-all duration-300 flex flex-col justify-between hover:shadow-xl hover:bg-zinc-900/10"
               >
@@ -384,7 +387,7 @@ export default function BenchPressLab() {
 
           {/* 🌟 USER REQUEST: 「応用・探究コラムをすべて見る」ボタンを追加 */}
           <div className="mt-12 flex justify-center">
-            <Link 
+            <Link
               href="/lab/benchpress/articles?tab=applied"
               className="relative inline-flex items-center gap-2 bg-gradient-to-r from-zinc-900/70 to-zinc-850/50 hover:from-zinc-850/80 hover:to-zinc-800/60 border border-zinc-800 hover:border-zinc-650 text-white font-bold text-xs md:text-sm px-8 py-4 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-zinc-800/10 tracking-wider group cursor-pointer"
             >
@@ -416,12 +419,12 @@ export default function BenchPressLab() {
           {/* Horizontal Swipe Card Container */}
           <div className="overflow-x-auto pb-6 scrollbar-thin scrollbar-thumb-zinc-800 scrollbar-track-zinc-950 flex gap-6 -mx-6 px-6">
             {RESEARCH_PAPERS.map((paper) => (
-              <div 
+              <div
                 key={paper.id}
                 className="w-[280px] md:w-[350px] shrink-0 bg-zinc-950 border border-zinc-900 rounded-xl p-6 hover:shadow-xl hover:bg-zinc-900/10 hover:border-zinc-800 transition-all duration-300 flex flex-col justify-between group"
               >
                 <div className="space-y-4">
-                  
+
                   {/* Paper Header */}
                   <div className="flex items-start justify-between border-b border-zinc-900 pb-3">
                     <div className="space-y-1">
@@ -453,13 +456,13 @@ export default function BenchPressLab() {
                 {/* Paper Footer */}
                 <div className="mt-6 pt-4 border-t border-zinc-900 flex items-center justify-between text-[9px] font-mono text-zinc-500">
                   <span>CITATIONS: {paper.citationCount}</span>
-                  <a 
+                  <a
                     href={`https://doi.org/${paper.doi}`}
-                    target="_blank" 
-                    rel="noopener noreferrer" 
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-center gap-1 text-zinc-450 hover:text-blue-400 transition-colors font-bold"
                   >
-                    ORIGINAL PAPER <ExternalLink className="w-3 h-3" />
+                    論文ページへ飛ぶ <ExternalLink className="w-3 h-3" />
                   </a>
                 </div>
 
@@ -488,7 +491,7 @@ export default function BenchPressLab() {
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {RELATED_LABS.map((lab) => (
-              <button 
+              <button
                 key={lab.slug}
                 onClick={() => setActivePortal(lab.title)}
                 className={`group p-5 rounded-xl border border-zinc-900 bg-zinc-950 text-center transition-all duration-300 block shadow-md hover:shadow-xl ${lab.glowColor}`}
@@ -510,8 +513,8 @@ export default function BenchPressLab() {
           </div>
 
           <div className="mt-16 text-center">
-            <Link 
-              href="/bodymake" 
+            <Link
+              href="/bodymake"
               className="text-xs font-mono font-bold text-zinc-550 hover:text-blue-400 transition-colors inline-flex items-center gap-1.5"
             >
               <ChevronRight className="w-3.5 h-3.5 rotate-180" /> BACK TO BODYMAKE MAIN
@@ -523,11 +526,11 @@ export default function BenchPressLab() {
 
       {/* --- Elegant Coming Soon Portal Dialog --- */}
       {activePortal && (
-        <div 
+        <div
           className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-sm animate-fadeIn"
           onClick={() => setActivePortal(null)}
         >
-          <div 
+          <div
             className="w-full max-w-md bg-zinc-950 border border-zinc-900 rounded-2xl p-6 md:p-8 space-y-6 shadow-2xl relative animate-scaleUp"
             onClick={(e) => e.stopPropagation()}
           >
