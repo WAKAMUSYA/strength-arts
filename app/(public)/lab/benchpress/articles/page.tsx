@@ -15,12 +15,22 @@ import {
 } from 'lucide-react'
 import { BENCHPRESS_ARTICLES } from '@/data/benchpressArticles'
 
+const OBSTACLES = [
+  { label: '胸に入らない', desc: '大胸筋に刺激を集中させたい' },
+  { label: '肩が痛い', desc: '挙上時に肩前面に違和感がある' },
+  { label: '停滞した', desc: 'MAX重量が数ヶ月更新されていない' },
+  { label: '腰が反る', desc: 'アーチ形成で腰が痛む・浮いてしまう' }
+]
+
 function ArticlesContent() {
   const searchParams = useSearchParams()
   const initialTab = searchParams.get('tab') === 'applied' ? 'applied' : 'basic'
+  const initialObstacle = searchParams.get('obstacle') || null
+  
   const [activeTab, setActiveTab] = useState<'basic' | 'applied'>(initialTab)
+  const [selectedObstacle, setSelectedObstacle] = useState<string | null>(initialObstacle)
 
-  // URLパラメータの変更があった場合にタブ状態を同期
+  // URLパラメータの変更があった場合に状態を同期
   useEffect(() => {
     const tabParam = searchParams.get('tab')
     if (tabParam === 'applied') {
@@ -28,9 +38,19 @@ function ArticlesContent() {
     } else if (tabParam === 'basic') {
       setActiveTab('basic')
     }
+    
+    const obsParam = searchParams.get('obstacle')
+    if (obsParam) {
+      setSelectedObstacle(obsParam)
+      setActiveTab('basic') // 悩みは基本理論に属するため
+    }
   }, [searchParams])
 
-  const filteredArticles = BENCHPRESS_ARTICLES.filter(art => art.type === activeTab)
+  const filteredArticles = BENCHPRESS_ARTICLES.filter(art => {
+    if (art.type !== activeTab) return false;
+    if (activeTab === 'basic' && selectedObstacle && art.obstacleTag !== selectedObstacle) return false;
+    return true;
+  })
 
   return (
     <div className="max-w-6xl mx-auto px-6 mt-8">
@@ -61,6 +81,48 @@ function ArticlesContent() {
           </button>
         </div>
       </div>
+
+      {/* 🛑 OBSTACLE FILTER (基本理論タブのみ表示) */}
+      {activeTab === 'basic' && (
+        <div className="mb-10 animate-fadeIn">
+          <div className="flex items-center gap-2 mb-4">
+            <span className="text-[10px] font-extrabold text-blue-400 tracking-wider uppercase block">
+              DIAGNOSTIC FILTER
+            </span>
+            <span className="text-xs text-zinc-500 font-light">
+              ー 現在の悩み・壁から絞り込む
+            </span>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <button
+              onClick={() => setSelectedObstacle(null)}
+              className={`px-4 py-2 rounded-xl text-xs font-bold transition-all duration-300 border ${
+                selectedObstacle === null
+                  ? 'bg-blue-950/40 border-blue-500 text-white shadow-md'
+                  : 'bg-zinc-950 border-zinc-900 text-zinc-500 hover:border-zinc-800 hover:text-zinc-300'
+              }`}
+            >
+              すべて表示
+            </button>
+            {OBSTACLES.map((obs) => {
+              const isActive = selectedObstacle === obs.label
+              return (
+                <button
+                  key={obs.label}
+                  onClick={() => setSelectedObstacle(isActive ? null : obs.label)}
+                  className={`px-4 py-2 rounded-xl text-xs font-bold transition-all duration-300 border flex items-center gap-2 ${
+                    isActive
+                      ? 'bg-blue-950/40 border-blue-500 text-white shadow-md shadow-blue-500/10'
+                      : 'bg-zinc-950 border-zinc-900 text-zinc-400 hover:border-zinc-800 hover:text-zinc-300'
+                  }`}
+                >
+                  {obs.label}
+                </button>
+              )
+            })}
+          </div>
+        </div>
+      )}
 
       {/* 📖 ARTICLE LIST GRID */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

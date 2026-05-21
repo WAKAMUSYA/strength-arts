@@ -88,7 +88,6 @@ const RELATED_LABS = [
 ]
 
 export default function BenchPressLab() {
-  const [selectedObstacle, setSelectedObstacle] = useState<string | null>(null)
   const [activePortal, setActivePortal] = useState<string | null>(null)
   
   // Categorize articles from shared data file
@@ -106,12 +105,6 @@ export default function BenchPressLab() {
       .filter(art => typeof art.roadmapNumber === 'number')
       .sort((a, b) => (a.roadmapNumber || 0) - (b.roadmapNumber || 0))
   }, [])
-
-  // Highlight articles dynamically based on selected obstacle (only applies to basic articles)
-  const filteredArticles = useMemo(() => {
-    if (!selectedObstacle) return mustReadArticles
-    return mustReadArticles.filter(art => art.obstacleTag === selectedObstacle)
-  }, [selectedObstacle, mustReadArticles])
 
   return (
     <main className="min-h-screen bg-black text-white selection:bg-blue-900 selection:text-white pb-32">
@@ -133,28 +126,14 @@ export default function BenchPressLab() {
           </h1>
 
           <p className="text-base md:text-lg font-bold text-zinc-300">
-            ー 骨格アライメントと力学でプレスをハックする
+            ー ベンチプレスを極める ー
           </p>
 
           <p className="text-xs md:text-sm text-zinc-450 leading-relaxed font-light max-w-2xl mx-auto">
-            挙上重量を競うだけではなく、関節の機能解剖学、バイオメカニクスの力学支点、および運動単位 of the 動員方程式からプレス動作を再設計する。科学の力で停滞を打破し、安全かつ最大効率で筋出力を極限まで高める特化探索ポータル。
+            単に挙上重量を競うだけでなく、関節の機能解剖学やバイオメカニクス、そして神経系の動員メカニズムからベンチプレスの動作を徹底的に再設計します。科学的なアプローチとSA独自の研究結果を融合させ、あなたのパフォーマンスを次の次元へと引き上げます。
           </p>
 
-          {/* Quick stats / widgets */}
-          <div className="flex flex-wrap justify-center gap-3 pt-2">
-            <div className="flex items-center gap-2 bg-zinc-950 border border-zinc-900 rounded-lg px-4 py-2.5 text-xs font-mono text-zinc-400">
-              <Dumbbell className="w-4 h-4 text-blue-500" />
-              <span>{roadmapSteps.length} Step Roadmap</span>
-            </div>
-            <div className="flex items-center gap-2 bg-zinc-950 border border-zinc-900 rounded-lg px-4 py-2.5 text-xs font-mono text-zinc-400">
-              <Layers className="w-4 h-4 text-blue-500" />
-              <span>{mustReadArticles.length} Core Textbooks</span>
-            </div>
-            <div className="flex items-center gap-2 bg-zinc-950 border border-zinc-900 rounded-lg px-4 py-2.5 text-xs font-mono text-zinc-400">
-              <TrendingUp className="w-4 h-4 text-blue-500" />
-              <span>{RESEARCH_PAPERS.length} Literature Reviews</span>
-            </div>
-          </div>
+
         </div>
       </section>
 
@@ -178,7 +157,7 @@ export default function BenchPressLab() {
 
           {/* Horizontal Swipe Card Container */}
           <div className="overflow-x-auto pb-6 scrollbar-thin scrollbar-thumb-zinc-800 scrollbar-track-zinc-950 flex gap-6 -mx-6 px-6">
-            {filteredArticles.map((art, idx) => (
+            {mustReadArticles.map((art, idx) => (
               <Link 
                 key={art.id} 
                 href={`/lab/benchpress/${art.slug}`}
@@ -223,17 +202,6 @@ export default function BenchPressLab() {
               </Link>
             ))}
           </div>
-
-          {selectedObstacle && (
-            <div className="mt-6 text-center animate-fadeIn">
-              <button 
-                onClick={() => setSelectedObstacle(null)}
-                className="text-xs text-zinc-500 hover:text-blue-450 font-semibold underline underline-offset-4"
-              >
-                フィルターを解除してすべての基礎講義を表示
-              </button>
-            </div>
-          )}
 
         </div>
       </section>
@@ -318,68 +286,41 @@ export default function BenchPressLab() {
               悩み・壁から探す
             </h2>
             <p className="text-xs text-zinc-450 max-w-md mx-auto leading-relaxed font-light">
-              現在の悩みを選択し、関連する講義を瞬時に見つけます。
+              現在の悩みを選択すると、コラム一覧ページにて関連する解決策を絞り込んで表示します。
             </p>
           </div>
 
           {/* Obstacle Cards Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-            {OBSTACLES.map((obs) => {
-              const isActive = selectedObstacle === obs.label
-              return (
-                <button
-                  key={obs.label}
-                  onClick={() => setSelectedObstacle(isActive ? null : obs.label)}
-                  className={`p-4 rounded-xl border text-left flex flex-col justify-between transition-all duration-300 group ${
-                    isActive 
-                      ? 'bg-blue-950/40 border-blue-500 text-white shadow-xl shadow-blue-500/10' 
-                      : 'bg-zinc-950 border-zinc-900 hover:border-zinc-800 hover:bg-zinc-900/10 text-zinc-300'
-                  }`}
-                >
-                  <div className="space-y-2">
-                    <span className={`text-[8px] font-extrabold font-mono tracking-widest uppercase block ${
-                      isActive ? 'text-blue-400' : 'text-zinc-550 group-hover:text-blue-400'
-                    }`}>
-                      OBSTACLE
-                    </span>
-                    <h3 className="text-xs md:text-sm font-bold leading-tight">
-                      {obs.label}
-                    </h3>
-                  </div>
+            {OBSTACLES.map((obs) => (
+              <Link
+                key={obs.label}
+                href={`/lab/benchpress/articles?tab=basic&obstacle=${encodeURIComponent(obs.label)}`}
+                className="p-4 rounded-xl border border-zinc-900 bg-zinc-950 text-left flex flex-col justify-between hover:border-blue-500 hover:bg-blue-950/20 hover:shadow-xl hover:shadow-blue-500/10 text-zinc-300 transition-all duration-300 group cursor-pointer"
+              >
+                <div className="space-y-2">
+                  <span className="text-[8px] font-extrabold font-mono tracking-widest uppercase block text-zinc-550 group-hover:text-blue-400">
+                    OBSTACLE
+                  </span>
+                  <h3 className="text-xs md:text-sm font-bold leading-tight group-hover:text-white">
+                    {obs.label}
+                  </h3>
+                </div>
 
-                  <p className={`text-[10px] leading-relaxed font-light mt-4 block ${
-                    isActive ? 'text-zinc-300' : 'text-zinc-550'
-                  }`}>
-                    {obs.desc}
-                  </p>
-                </button>
-              )
-            })}
+                <p className="text-[10px] leading-relaxed font-light mt-4 block text-zinc-550 group-hover:text-zinc-300">
+                  {obs.desc}
+                </p>
+              </Link>
+            ))}
           </div>
 
-          {selectedObstacle && (
-            <div className="mt-8 p-4 rounded-xl bg-blue-950/30 border border-blue-900/40 flex items-center justify-between text-xs text-blue-300 animate-fadeIn">
-              <span className="flex items-center gap-2">
-                <Sparkles className="w-4 h-4 text-blue-500 shrink-0 animate-pulse" />
-                <span>現在、<strong>「{selectedObstacle}」</strong>に関連する基礎講義を上記の一覧に抽出しています。</span>
-              </span>
-              <button 
-                onClick={() => setSelectedObstacle(null)}
-                className="underline font-bold hover:text-blue-400 transition-colors"
-              >
-                すべて見る
-              </button>
-            </div>
-          )}
-
-          {/* 🌟 USER REQUEST: 「基本理論コラムをすべて見る」ボタンを追加 */}
           <div className="mt-12 flex justify-center">
             <Link 
               href="/lab/benchpress/articles?tab=basic"
               className="relative inline-flex items-center gap-2 bg-gradient-to-r from-blue-950/50 to-blue-900/30 hover:from-blue-900/60 hover:to-blue-800/40 border border-blue-800/50 hover:border-blue-500 text-white font-bold text-xs md:text-sm px-8 py-4 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10 tracking-wider group cursor-pointer"
             >
               <BookOpen className="w-4 h-4 text-blue-400 group-hover:text-blue-300 group-hover:scale-110 transition-all shrink-0" />
-              <span>基本理論コラムをすべて見る</span>
+              <span>すべての基本理論コラムを見る</span>
               <ChevronRight className="w-4 h-4 text-blue-500 group-hover:translate-x-0.5 transition-transform" />
             </Link>
           </div>
@@ -405,13 +346,13 @@ export default function BenchPressLab() {
             </p>
           </div>
 
-          {/* Columns Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Horizontal Swipe Card Container */}
+          <div className="overflow-x-auto pb-6 scrollbar-thin scrollbar-thumb-zinc-800 scrollbar-track-zinc-950 flex gap-6 -mx-6 px-6">
             {columnArticles.map((col) => (
               <Link 
                 key={col.id} 
                 href={`/lab/benchpress/${col.slug}`}
-                className="group cursor-pointer bg-zinc-950 border border-zinc-900 hover:border-zinc-800 rounded-xl p-6 transition-all duration-300 flex flex-col justify-between hover:shadow-xl hover:bg-zinc-900/10"
+                className="w-[280px] md:w-[350px] shrink-0 group cursor-pointer bg-zinc-950 border border-zinc-900 hover:border-zinc-800 rounded-xl p-6 transition-all duration-300 flex flex-col justify-between hover:shadow-xl hover:bg-zinc-900/10"
               >
                 <div className="space-y-4">
                   <div className="flex items-center justify-between text-[9px] font-mono text-zinc-500">
@@ -475,12 +416,12 @@ export default function BenchPressLab() {
             </p>
           </div>
 
-          {/* Academic Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Horizontal Swipe Card Container */}
+          <div className="overflow-x-auto pb-6 scrollbar-thin scrollbar-thumb-zinc-800 scrollbar-track-zinc-950 flex gap-6 -mx-6 px-6">
             {RESEARCH_PAPERS.map((paper) => (
               <div 
                 key={paper.id}
-                className="bg-zinc-950 border border-zinc-900 rounded-xl p-6 hover:shadow-xl hover:bg-zinc-900/10 hover:border-zinc-800 transition-all duration-300 flex flex-col justify-between group"
+                className="w-[280px] md:w-[350px] shrink-0 bg-zinc-950 border border-zinc-900 rounded-xl p-6 hover:shadow-xl hover:bg-zinc-900/10 hover:border-zinc-800 transition-all duration-300 flex flex-col justify-between group"
               >
                 <div className="space-y-4">
                   
