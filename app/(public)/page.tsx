@@ -8,16 +8,16 @@ export default function Home() {
         {/* Subtle Background */}
         <div className="absolute inset-0 bg-black" />
         <div className="absolute inset-0 opacity-40 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-900 via-black to-black" />
-        
+
         {/* SA Logo Watermark */}
         <div className="absolute inset-0 flex items-center justify-center opacity-[0.08] pointer-events-none select-none">
-          <img 
-            src="/sa-logo-maru.png" 
-            alt="Strength Arts Watermark" 
-            className="w-[80vw] h-[80vw] max-w-[800px] max-h-[800px] object-contain mix-blend-screen" 
+          <img
+            src="/sa-logo-maru.png"
+            alt="Strength Arts Watermark"
+            className="w-[80vw] h-[80vw] max-w-[800px] max-h-[800px] object-contain mix-blend-screen"
           />
         </div>
-        
+
         <div className="relative z-10 flex flex-col items-center text-center space-y-12 max-w-5xl w-full">
           <h1 className="text-6xl md:text-8xl lg:text-9xl font-extrabold tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white via-blue-50 to-blue-900/50">
             STRENGTH ARTS
@@ -32,17 +32,17 @@ export default function Home() {
       <section className="py-24 md:py-32 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-            
+
             {/* Athlete Card */}
-            <Link 
-              href="/athlete" 
+            <Link
+              href="/athlete"
               className="group block relative h-[450px] md:h-[500px] bg-black overflow-hidden transition-transform duration-700 hover:-translate-y-2 border border-zinc-900 hover:border-blue-900/60"
             >
               {/* Dark Gradient Overlay */}
               <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/50 to-black/90 z-10" />
               {/* Background Image */}
               <div className="absolute inset-0 bg-[url('/sports2.jpg')] bg-cover bg-center opacity-70 scale-105 group-hover:scale-100 transition-transform duration-1000 ease-out" />
-              
+
               <div className="relative z-20 h-full p-10 flex flex-col justify-end">
                 <h2 className="text-3xl md:text-4xl font-bold tracking-widest mb-6 uppercase text-white group-hover:text-blue-100 transition-colors duration-500">Athlete</h2>
                 <p className="text-zinc-400 text-sm md:text-base leading-loose mb-10 font-light">
@@ -55,15 +55,15 @@ export default function Home() {
             </Link>
 
             {/* Bodymake Card */}
-            <Link 
-              href="/bodymake" 
+            <Link
+              href="/bodymake"
               className="group block relative h-[450px] md:h-[500px] bg-black overflow-hidden transition-transform duration-700 hover:-translate-y-2 border border-zinc-900 hover:border-blue-900/60"
             >
               {/* Dark Gradient Overlay */}
               <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/50 to-black/90 z-10" />
               {/* Background Image */}
               <div className="absolute inset-0 bg-[url('/bodymake.jpg')] bg-cover bg-center opacity-70 scale-105 group-hover:scale-100 transition-transform duration-1000 ease-out" />
-              
+
               <div className="relative z-20 h-full p-10 flex flex-col justify-end">
                 <h2 className="text-3xl md:text-4xl font-bold tracking-widest mb-6 uppercase text-white group-hover:text-blue-100 transition-colors duration-500">Bodymake</h2>
                 <p className="text-zinc-400 text-sm md:text-base leading-loose mb-10 font-light">
@@ -87,15 +87,13 @@ export default function Home() {
           </p>
           <div className="space-y-12 text-lg md:text-2xl font-light leading-loose text-zinc-300 tracking-wide">
             <p>
-              フォームを真似するだけではなく、<br />
-              「なぜその動きになるのか」を学ぶ。
+              知る、学ぶ、試す、深める
             </p>
 
             <p>
               ストレングスアーツは、<br />
-              身体を理解しながら、<br />
-              もっと上手く動けることを探究する<br />
-              オンラインプラットフォームです。
+              知識と実践を行き来しながら<br />
+              自分なりの答えを探究していく場所です。
             </p>
           </div>
         </div>
@@ -107,7 +105,7 @@ export default function Home() {
           <div className="relative rounded-2xl overflow-hidden border border-blue-900/30 bg-black p-12 md:p-20 text-center">
             {/* Blue subtle glow */}
             <div className="absolute inset-0 opacity-20 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-600 via-black to-black" />
-            
+
             <div className="relative z-10 space-y-10">
               <h2 className="text-3xl md:text-4xl font-bold tracking-widest text-white uppercase">
                 Free Content
@@ -123,8 +121,8 @@ export default function Home() {
                 </p>
               </div>
               <div className="pt-4">
-                <Link 
-                  href="/free" 
+                <Link
+                  href="/free"
                   className="inline-flex items-center justify-center px-10 py-5 bg-white text-black font-bold tracking-[0.2em] text-sm hover:bg-blue-50 hover:text-blue-900 transition-colors duration-300"
                 >
                   無料コンテンツを見る
@@ -149,8 +147,8 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             {/* Academy Card */}
-            <Link 
-              href="/academy" 
+            <Link
+              href="/academy"
               className="group block relative p-10 bg-black overflow-hidden transition-all duration-500 hover:-translate-y-1 border border-zinc-900 hover:border-blue-900/60"
             >
               <div className="relative z-20">
@@ -165,8 +163,8 @@ export default function Home() {
             </Link>
 
             {/* LAB Card */}
-            <Link 
-              href="https://tamuranaoki-lab.com" 
+            <Link
+              href="https://tamuranaoki-lab.com"
               target="_blank"
               rel="noopener noreferrer"
               className="group block relative p-10 bg-black overflow-hidden transition-all duration-500 hover:-translate-y-1 border border-zinc-900 hover:border-blue-900/60"
