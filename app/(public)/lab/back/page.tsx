@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useMemo } from 'react'
+import React, { useMemo } from 'react'
 import Link from 'next/link'
 import {
   ArrowRight,
@@ -60,7 +60,6 @@ const RELATED_LABS = [
 ]
 
 export default function BackLab() {
-  const [activePortal, setActivePortal] = useState<string | null>(null)
 
   const mustReadArticles = useMemo(() => {
     return BACK_ARTICLES.filter(art => art.type === 'basic')
