@@ -1,17 +1,13 @@
 'use client'
 
-import React, { useState, useMemo } from 'react'
+import React, { useMemo } from 'react'
 import Link from 'next/link'
 import {
   ArrowRight,
-  Layers,
   Clock,
   ChevronRight,
   ExternalLink,
   Activity,
-  Lock,
-  X,
-  Info,
   BookOpen
 } from 'lucide-react'
 import { CHEST_ARTICLES } from '@/data/chestArticles'
@@ -95,7 +91,6 @@ const RELATED_LABS = [
 ]
 
 export default function ChestLab() {
-  const [activePortal, setActivePortal] = useState<string | null>(null)
 
   const mustReadArticles = useMemo(() => {
     return CHEST_ARTICLES.filter(art => art.type === 'basic')
