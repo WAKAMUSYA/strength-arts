@@ -135,8 +135,19 @@ export default function BenchPressLab() {
             </p>
 
             <p className="text-xs md:text-sm text-zinc-300 leading-relaxed font-light max-w-2xl mx-auto">
-              科学的なアプローチとSA独自の研究結果を融合させ、あなたのパフォーマンスを次の次元へと引き上げます。
+              科学的なアプローチとSA独自の研究結果を融合させ、パフォーマンスを次の次元へと引き上げます。
             </p>
+
+            <div className="pt-6 flex justify-center">
+              <Link
+                href="/lab/benchpress/articles"
+                className="group relative inline-flex items-center justify-center gap-2 bg-blue-900 hover:bg-blue-800 text-white font-bold py-3.5 px-8 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-blue-900/40 border border-blue-700/50"
+              >
+                <BookOpen className="w-4 h-4" />
+                全コラム一覧を見る
+                <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -271,6 +282,16 @@ export default function BenchPressLab() {
                 </Link>
               ))}
             </div>
+          </div>
+
+          <div className="mt-12 text-center">
+            <Link
+              href="/lab/benchpress/articles"
+              className="inline-flex items-center justify-center gap-2 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-blue-900/50 text-zinc-300 hover:text-white font-bold py-3 px-8 rounded-full transition-all duration-300 shadow-md group"
+            >
+              <BookOpen className="w-4 h-4 text-blue-500 group-hover:scale-110 transition-transform" />
+              全コラム一覧を見る
+            </Link>
           </div>
 
         </div>

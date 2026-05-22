@@ -41,10 +41,10 @@ export default function AthleteDirectoryPage() {
             <Compass className="w-3.5 h-3.5 text-purple-500" /> Athlete Explorer
           </div>
           <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white">
-            アスリート個別強化探究
+            アスリート・スポーツの研究
           </h1>
-          <p className="max-w-lg mx-auto text-xs md:text-sm text-zinc-400 leading-relaxed font-light">
-            競技特性と力学のアプローチ。競技別・目的別・自主練のテーマを選択してください。
+          <p className="max-w-lg mx-auto text-xs md:text-sm text-zinc-400 leading-relaxed font-light tracking-widest">
+            各研究所一覧
           </p>
         </div>
       </section>

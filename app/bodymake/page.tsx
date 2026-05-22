@@ -13,8 +13,8 @@ import {
 
 // Defined items for each category
 const regions = [
-  { id: 'chest', title: '胸 (Chest)', isLab: false },
-  { id: 'back', title: '背中 (Back)', isLab: false },
+  { id: 'chest', title: '胸 (Chest)', href: '/lab/chest', isLab: true },
+  { id: 'back', title: '背中 (Back)', href: '/lab/back', isLab: true },
   { id: 'shoulder', title: '肩 (Shoulder)', isLab: false },
   { id: 'arms', title: '腕 (Arms)', isLab: false },
   { id: 'legs', title: '脚 (Legs)', isLab: false },
@@ -75,25 +75,49 @@ export default function BodymakeDirectoryPage() {
             <span className="text-[10px] font-mono text-zinc-650">Select Target Region</span>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {regions.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => handlePortalClick(item)}
-                className="group relative text-left w-full bg-zinc-950 hover:bg-zinc-900/30 border border-zinc-900 hover:border-zinc-800 rounded-lg p-5 transition-all duration-300 shadow-md flex items-center justify-between"
-              >
-                <div className="flex items-center gap-2">
-                  <span className="text-sm md:text-base font-bold text-zinc-300 group-hover:text-white transition-colors duration-300">
-                    {item.title}
-                  </span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-[8px] font-mono text-zinc-600 bg-zinc-900 border border-zinc-850 px-2 py-0.5 rounded uppercase tracking-wider">
-                    Coming Soon
-                  </span>
-                  <Lock className="w-3.5 h-3.5 text-zinc-700" />
-                </div>
-              </button>
-            ))}
+            {regions.map((item) => {
+              if (item.isLab && item.href) {
+                return (
+                  <Link
+                    key={item.id}
+                    href={item.href}
+                    className="group relative block bg-zinc-950 hover:bg-zinc-900/30 border border-blue-950/60 hover:border-blue-900 rounded-lg p-5 transition-all duration-300 shadow-md"
+                  >
+                    <div className="flex justify-between items-center">
+                      <div className="flex items-center gap-2">
+                        <span className="text-sm md:text-base font-bold text-white group-hover:text-blue-400 transition-colors duration-300">
+                          {item.title}
+                        </span>
+                        <span className="text-[8px] font-mono text-blue-400 bg-blue-950/50 border border-blue-900/50 px-2 py-0.5 rounded uppercase tracking-wider font-extrabold flex items-center gap-0.5">
+                          <Sparkles className="w-2.5 h-2.5" /> Active Lab
+                        </span>
+                      </div>
+                      <ArrowUpRight className="w-4 h-4 text-zinc-700 group-hover:text-blue-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                    </div>
+                  </Link>
+                )
+              }
+
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => handlePortalClick(item)}
+                  className="group relative text-left w-full bg-zinc-950 hover:bg-zinc-900/30 border border-zinc-900 hover:border-zinc-800 rounded-lg p-5 transition-all duration-300 shadow-md flex items-center justify-between"
+                >
+                  <div className="flex items-center gap-2">
+                    <span className="text-sm md:text-base font-bold text-zinc-300 group-hover:text-white transition-colors duration-300">
+                      {item.title}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-[8px] font-mono text-zinc-600 bg-zinc-900 border border-zinc-850 px-2 py-0.5 rounded uppercase tracking-wider">
+                      Coming Soon
+                    </span>
+                    <Lock className="w-3.5 h-3.5 text-zinc-700" />
+                  </div>
+                </button>
+              )
+            })}
           </div>
         </div>
 
