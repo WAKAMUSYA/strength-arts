@@ -108,7 +108,7 @@ export default function Home() {
 
             <div className="relative z-10 space-y-10">
               <h2 className="text-3xl md:text-4xl font-bold tracking-widest text-white uppercase">
-                Free Content
+                Contents
               </h2>
               <div className="space-y-6 text-zinc-300 font-light leading-relaxed max-w-2xl mx-auto text-sm md:text-base">
                 <p>
@@ -117,7 +117,7 @@ export default function Home() {
                 </p>
                 <p>
                   ストレングスアーツでは、<br />
-                  多くのコンテンツを無料で公開しています。
+                  多くのコンテンツをまとめて公開しています。
                 </p>
               </div>
               <div className="pt-4">
@@ -125,7 +125,7 @@ export default function Home() {
                   href="/free"
                   className="inline-flex items-center justify-center px-10 py-5 bg-white text-black font-bold tracking-[0.2em] text-sm hover:bg-blue-50 hover:text-blue-900 transition-colors duration-300"
                 >
-                  無料コンテンツを見る
+                  まとめコンテンツを見る
                 </Link>
               </div>
             </div>

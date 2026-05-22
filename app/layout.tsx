@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import Navbar from '@/components/layout/Navbar'
 import BottomNav from '@/components/layout/BottomNav'
+import Footer from '@/components/layout/Footer'
 import { createClient } from '@/utils/supabase/server'
 import NextTopLoader from 'nextjs-toploader'
 
@@ -32,6 +33,7 @@ export default async function RootLayout({
         <div className="flex-1">
           {children}
         </div>
+        <Footer />
         <BottomNav />
       </body>
     </html>

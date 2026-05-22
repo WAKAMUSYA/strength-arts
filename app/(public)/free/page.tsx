@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import Image from "next/image";
 
 const getPublicFreeHref = (fileName: string) =>
@@ -48,64 +48,66 @@ const FREE_ITEMS: FreeItem[] = [
 ];
 
 export const metadata: Metadata = {
-  title: "無料コンテンツ | Strength Arts",
+  title: "まとめコンテンツ | Strength Arts",
   description:
-    "無料で読めるPDFコンテンツ（筋肥大、腰痛、女性向けトレーニング、ハンドボールなど）をまとめています。",
+    "読めるPDFコンテンツ（筋肥大、腰痛、女性向けトレーニング、ハンドボールなど）をまとめています。",
 };
 
 export default function FreeContentPage() {
   return (
-    <main className="mx-auto w-full max-w-6xl px-6 py-12">
-      <header className="space-y-3">
-        <p className="text-xs font-semibold tracking-[0.25em] text-slate-500">
-          FREE CONTENTS
-        </p>
-        <h1 className="text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
-          無料コンテンツ
-        </h1>
-      </header>
+    <div className="min-h-screen bg-zinc-900 text-zinc-200 pb-32 pt-20">
+      <main className="mx-auto w-full max-w-6xl px-6">
+        <header className="space-y-4 text-center mb-16">
+          <p className="text-sm font-semibold tracking-[0.3em] text-zinc-400">
+            CONTENTS
+          </p>
+          <h1 className="text-3xl font-bold tracking-widest text-white md:text-4xl">
+            まとめコンテンツ
+          </h1>
+        </header>
 
-      <section className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {FREE_ITEMS.map((item) => (
-          <article
-            key={item.href}
-            className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
-          >
-            {item.coverSrc && (
-              <div className="relative mb-4 aspect-[4/5] w-full overflow-hidden rounded-xl border border-slate-200 bg-slate-50">
-                <Image
-                  src={item.coverSrc}
-                  alt={`${item.title} 表紙`}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                />
+        <section className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {FREE_ITEMS.map((item) => (
+            <article
+              key={item.href}
+              className="group rounded-2xl border border-zinc-700 bg-zinc-800 p-6 shadow-sm transition duration-500 hover:-translate-y-1 hover:border-blue-500/50 flex flex-col"
+            >
+              {item.coverSrc && (
+                <div className="relative mb-6 aspect-[4/5] w-full overflow-hidden rounded-xl border border-zinc-700 bg-zinc-900">
+                  <Image
+                    src={item.coverSrc}
+                    alt={`${item.title} 表紙`}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
+                </div>
+              )}
+
+              <h2 className="text-center text-lg font-bold tracking-wider text-white line-clamp-2 mb-4 group-hover:text-blue-100 transition-colors">
+                {item.title}
+              </h2>
+
+              {item.description && (
+                <p className="text-sm leading-relaxed text-zinc-400 mb-8 text-center flex-grow">
+                  {item.description}
+                </p>
+              )}
+
+              <div className="mt-auto">
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex w-full items-center justify-center rounded-full bg-white px-5 py-3 text-sm font-bold tracking-widest text-black transition-colors hover:bg-blue-50 hover:text-blue-900"
+                >
+                  {item.cta}
+                </a>
               </div>
-            )}
-
-            <h2 className="text-center text-base font-bold text-slate-900 line-clamp-2 md:text-lg">
-              {item.title}
-            </h2>
-
-            {item.description && (
-              <p className="mt-2 text-sm leading-relaxed text-slate-600">
-                {item.description}
-              </p>
-            )}
-
-            <div className="mt-4">
-              <a
-                href={item.href}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex w-full items-center justify-center rounded-full bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-slate-800"
-              >
-                {item.cta}
-              </a>
-            </div>
-          </article>
-        ))}
-      </section>
-    </main>
+            </article>
+          ))}
+        </section>
+      </main>
+    </div>
   );
 }
