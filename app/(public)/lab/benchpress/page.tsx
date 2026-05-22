@@ -135,7 +135,7 @@ export default function BenchPressLab() {
             </p>
 
             <p className="text-xs md:text-sm text-zinc-300 leading-relaxed font-light max-w-2xl mx-auto">
-              単に挙上重量を競うだけでなく、関節の機能解剖学やバイオメカニクス、そして神経系の動員メカニズムからベンチプレスの動作を徹底的に再設計します。科学的なアプローチとSA独自の研究結果を融合させ、あなたのパフォーマンスを次の次元へと引き上げます。
+              科学的なアプローチとSA独自の研究結果を融合させ、あなたのパフォーマンスを次の次元へと引き上げます。
             </p>
           </div>
         </div>
@@ -153,7 +153,7 @@ export default function BenchPressLab() {
               基本理論
             </h2>
             <p className="text-xs text-zinc-450 max-w-xl mx-auto leading-relaxed font-light">
-              初心者が最初につまずくポイントと、力学的な正解フォームの基本を網羅。
+              力学的な正解フォームの基本。
             </p>
           </div>
 

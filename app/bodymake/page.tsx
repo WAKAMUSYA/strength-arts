@@ -23,24 +23,17 @@ const regions = [
 
 const exercises = [
   { id: 'benchpress', title: 'ベンチプレス', href: '/lab/benchpress', isLab: true },
-  { id: 'dumbbellpress', title: 'ダンベルプレス', isLab: false },
-  { id: 'dumbbellfly', title: 'ダンベルフライ', isLab: false },
-  { id: 'sideraise', title: 'サイドレイズ', isLab: false },
-  { id: 'shoulderpress', title: 'ショルダープレス', isLab: false },
-  { id: 'pullup', title: '懸垂', isLab: false },
-  { id: 'bentoverrow', title: 'ベントオーバーロー', isLab: false },
-  { id: 'squat', title: 'スクワット系', isLab: false },
+  { id: 'squat', title: 'スクワット', isLab: false },
   { id: 'deadlift', title: 'デッドリフト', isLab: false },
-  { id: 'hipthrust', title: 'ヒップスラスト', isLab: false },
+  { id: 'sideraise', title: 'サイドレイズ', isLab: false },
 ]
 
 const goals = [
   { id: 'hypertrophy', title: '筋肥大', isLab: false },
+  { id: 'strength', title: '筋力', isLab: false },
   { id: 'diet', title: 'ダイエット', isLab: false },
   { id: 'glutes', title: 'ヒップアップ', isLab: false },
-  { id: 'posture', title: '姿勢改善', isLab: false },
   { id: 'backpain', title: '腰痛予防', isLab: false },
-  { id: 'painfree', title: '痛みなく鍛える', isLab: false },
 ]
 
 export default function BodymakeDirectoryPage() {
@@ -62,10 +55,10 @@ export default function BodymakeDirectoryPage() {
             <Compass className="w-3.5 h-3.5 text-blue-500" /> Biomechanics Hub
           </div>
           <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white">
-            ボディメイク解説
+            ボディメイクの研究
           </h1>
-          <p className="max-w-lg mx-auto text-xs md:text-sm text-zinc-400 leading-relaxed font-light">
-            解剖学と力学に基づくアプローチ。部位・種目・目的のテーマを選択してください。
+          <p className="max-w-lg mx-auto text-xs md:text-sm text-zinc-400 leading-relaxed font-light tracking-widest">
+            各研究所一覧
           </p>
         </div>
       </section>
