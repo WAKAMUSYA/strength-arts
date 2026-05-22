@@ -4,14 +4,10 @@ import React, { useState, useMemo } from 'react'
 import Link from 'next/link'
 import {
   ArrowRight,
-  Layers,
   Clock,
   ChevronRight,
   ExternalLink,
   Activity,
-  Lock,
-  X,
-  Info,
   BookOpen
 } from 'lucide-react'
 import { BACK_ARTICLES } from '@/data/backArticles'
