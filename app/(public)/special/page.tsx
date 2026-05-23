@@ -6,7 +6,6 @@ import {
   ArrowRight,
   Clock,
   ChevronRight,
-  ExternalLink,
   Activity,
   BookOpen,
   Zap
