@@ -6,7 +6,6 @@ import {
   ArrowRight,
   Clock,
   ChevronRight,
-  Activity,
   BookOpen,
   Zap
 } from 'lucide-react'
