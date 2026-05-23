@@ -10,7 +10,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="sm:col-span-1">
             <h3 className="text-xl font-bold text-white mb-4">
-              Strength Arts
+              STRENGTH ARTS
             </h3>
             <p className="text-gray-400 text-sm">
               科学、トレーニング、感覚、そして哲学を通じて強さを探求する。
@@ -51,7 +51,7 @@ export default function Footer() {
         {/* Divider */}
         <div className="border-t border-gray-800 pt-8">
           <p className="text-center text-gray-500 text-sm">
-            © {currentYear} Strength Arts. すべての権利を保有します。 | <a href="#" className="hover:text-gray-300">プライバシー</a> | <a href="#" className="hover:text-gray-300">利用規約</a>
+            © {currentYear} STRENGTH ARTS. すべての権利を保有します。 | <a href="#" className="hover:text-gray-300">プライバシー</a> | <a href="#" className="hover:text-gray-300">利用規約</a>
           </p>
         </div>
       </div>

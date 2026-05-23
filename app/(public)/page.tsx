@@ -13,7 +13,7 @@ export default function Home() {
         <div className="absolute inset-0 flex items-center justify-center opacity-[0.08] pointer-events-none select-none">
           <img
             src="/sa-logo-maru.png"
-            alt="Strength Arts Watermark"
+            alt="STRENGTH ARTS Watermark"
             className="w-[80vw] h-[80vw] max-w-[800px] max-h-[800px] object-contain mix-blend-screen"
           />
         </div>

@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "NSCA-CSCS試験対策｜基礎科学と実践をつなぐ合格のための勉強法 | Strength Arts",
+  title: "NSCA-CSCS試験対策｜基礎科学と実践をつなぐ合格のための勉強法 | STRENGTH ARTS",
   description:
     "NSCA-CSCS試験対策（CSCS試験対策）を、基礎科学と現場の判断に結びつけて整理。CSCS 勉強法のつまずき、学習の流れ、CSCS 基礎科学への内部リンクをまとめた記事ページです。",
 };

@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "NSCA-CPT試験対策｜基礎科学から理解する合格のための勉強法 | Strength Arts",
+  title: "NSCA-CPT試験対策｜基礎科学から理解する合格のための勉強法 | STRENGTH ARTS",
   description:
     "NSCA-CPT試験対策（CPT試験対策）を、暗記に寄せすぎず基礎科学（解剖学・運動生理学・バイオメカニクス）から整理。CPT 勉強法のつまずき、学習手順、内部リンクもまとめた記事ページです。",
 };

@@ -36,7 +36,7 @@ export default function LoginPage({
         <div className="flex flex-col gap-2 mb-4">
           <h1 className="text-2xl font-semibold">ログイン</h1>
           <p className="text-sm text-muted-foreground">
-            Strength Arts のアカウントへログインします
+            STRENGTH ARTS のアカウントへログインします
           </p>
         </div>
 

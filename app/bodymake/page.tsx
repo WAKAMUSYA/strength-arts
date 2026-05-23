@@ -236,7 +236,7 @@ export default function BodymakeDirectoryPage() {
                 「{activePortal}研究所」構築中
               </h3>
               <p className="text-xs text-zinc-400 leading-relaxed font-light">
-                現在、Strength Arts研究チームが最新のスポーツバイオメカニクス論文と解剖データモデルを解析し、この種目の特化研究ページ（ベンチプレス研究所と同様のインタラクティブ構成）を全力で編纂しております。
+                現在、STRENGTH ARTS研究チームが最新のスポーツバイオメカニクス論文と解剖データモデルを解析し、この種目の特化研究ページ（ベンチプレス研究所と同様のインタラクティブ構成）を全力で編纂しております。
               </p>
             </div>
 

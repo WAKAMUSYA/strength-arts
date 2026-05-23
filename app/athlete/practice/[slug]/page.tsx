@@ -334,7 +334,7 @@ export default function PracticeArticlePage({ params }: { params: { slug: string
 
             {/* Reader Footer */}
             <div className="p-4 border-t border-zinc-900 bg-zinc-950 flex justify-between items-center text-xs text-zinc-550 px-6">
-              <span>Strength Arts // Biomechanics Hub</span>
+              <span>STRENGTH ARTS // Biomechanics Hub</span>
               <button
                 onClick={() => setActiveSection(null)}
                 className="px-5 py-2 bg-zinc-900 hover:bg-zinc-800 text-zinc-300 font-bold rounded-lg transition-colors"

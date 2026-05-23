@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'ストレングスアーツについて - Strength Arts',
+  title: 'ストレングスアーツについて - STRENGTH ARTS',
   description: 'ストレングスアーツの思想・考え方',
 }
 
@@ -15,7 +15,7 @@ export default function AboutPage() {
         <div className="absolute inset-0 flex items-center justify-center opacity-[0.30] pointer-events-none select-none">
           <img
             src="/sa-logo-maru.png"
-            alt="Strength Arts Watermark"
+            alt="STRENGTH ARTS Watermark"
             className="w-[80vw] h-[80vw] max-w-[600px] max-h-[600px] object-contain mix-blend-screen"
           />
         </div>

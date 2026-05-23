@@ -6,12 +6,12 @@ export default function AboutSection() {
       <div className="section-container">
         <div className="max-w-3xl mx-auto">
           <h2 className="heading-md mb-8 text-white">
-            Strength Artsとは
+            STRENGTH ARTSとは
           </h2>
           
           <div className="space-y-6 text-gray-300 leading-relaxed">
             <p className="text-lg">
-              Strength Artsは単なるトレーニングではありません。強さのあらゆる次元を理解し、コントロールするための包括的なシステムです。
+              STRENGTH ARTSは単なるトレーニングではありません。強さのあらゆる次元を理解し、コントロールするための包括的なシステムです。
             </p>
 
             <p className="text-lg">

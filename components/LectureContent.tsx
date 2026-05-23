@@ -59,7 +59,7 @@ export default function LectureContent({
               </div>
               <h3 className="text-lg font-bold text-slate-900 mb-2">ここから先は会員限定です</h3>
               <p className="text-sm text-slate-500 mb-6">
-                Strength Artsの全講義コンテンツやトレーニング記録アプリを利用するには、無料の会員登録が必要です。
+                STRENGTH ARTSの全講義コンテンツやトレーニング記録アプリを利用するには、無料の会員登録が必要です。
               </p>
               <div className="space-y-3">
                 <Link

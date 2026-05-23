@@ -43,7 +43,7 @@ export default function ContentSection() {
             </div>
           </div>
 
-          {/* OSA (Origin Strength Arts) */}
+          {/* OSA (Origin STRENGTH ARTS) */}
           <div className="group relative bg-gradient-to-br from-purple-900/20 to-blue-900/20 border border-purple-800 rounded-xl p-8 sm:p-12 hover:border-purple-500 transition-all duration-300 overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-transparent group-hover:from-purple-500/10 transition-all duration-300"></div>
 
@@ -51,7 +51,7 @@ export default function ContentSection() {
               <div className="flex items-start justify-between mb-6">
                 <div>
                   <h3 className="heading-sm text-white mb-2">
-                    OSA (Origin Strength Arts)
+                    OSA (Origin STRENGTH ARTS)
                   </h3>
                   <p className="text-purple-400 font-semibold">深い探求の層</p>
                 </div>

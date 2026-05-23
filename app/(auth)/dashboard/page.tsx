@@ -18,7 +18,7 @@ export default async function DashboardPage() {
       <div className="mb-10">
         <h1 className="text-3xl font-bold text-slate-900 tracking-tight">Dashboard</h1>
         <p className="text-slate-600 mt-2">
-          ようこそ、Strength Arts へ。学習と記録を始めましょう。
+          ようこそ、STRENGTH ARTS へ。学習と記録を始めましょう。
         </p>
       </div>
 

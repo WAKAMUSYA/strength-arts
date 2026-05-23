@@ -48,7 +48,7 @@ const FREE_ITEMS: FreeItem[] = [
 ];
 
 export const metadata: Metadata = {
-  title: "まとめコンテンツ | Strength Arts",
+  title: "まとめコンテンツ | STRENGTH ARTS",
   description:
     "読めるPDFコンテンツ（筋肥大、腰痛、女性向けトレーニング、ハンドボールなど）をまとめています。",
 };
