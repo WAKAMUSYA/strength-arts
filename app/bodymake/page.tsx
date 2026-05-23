@@ -18,7 +18,7 @@ const regions = [
   { id: 'shoulder', title: '肩 (Shoulder)', href: '/lab/shoulder', isLab: true },
   { id: 'arms', title: '腕 (Arms)', href: '/lab/arms', isLab: true },
   { id: 'legs', title: '脚 (Legs)', href: '/lab/legs', isLab: true },
-  { id: 'abs', title: '腹 (Abs)', isLab: false },
+  { id: 'abs', title: '腹 (Abs)', href: '/lab/abs', isLab: true },
 ]
 
 const exercises = [
