@@ -10,9 +10,8 @@ import {
   Activity,
   BookOpen
 } from 'lucide-react'
-import { CHEST_ARTICLES } from '@/data/chestArticles'
+import { ARM_ARTICLES } from '@/data/armArticles'
 
-// --- DATA TYPES ---
 interface ResearchPaper {
   id: string
   title: string
@@ -25,89 +24,69 @@ interface ResearchPaper {
 }
 
 const OBSTACLES = [
-  { label: '胸に効かない', desc: '腕や肩ばかりが疲れる' },
-  { label: '内側が発達しない', desc: '大胸筋の谷間を作りたい' },
-  { label: '上部が薄い', desc: '鎖骨下の大胸筋上部を鍛えたい' },
-  { label: '重量が伸びない', desc: 'プレス系種目の重量が停滞' }
+  { label: '腕が太くならない', desc: 'Tシャツの袖が余ってしまう' },
+  { label: '二頭筋に効かない', desc: '前腕ばかり疲れてしまう' },
+  { label: '三頭筋に効かない', desc: 'プレスダウンで腕の裏が熱くならない' },
+  { label: '重量が伸びない', desc: 'カールの重量が全く上がらない' }
 ]
 
 const RESEARCH_PAPERS: ResearchPaper[] = [
   {
-    id: 'res-chest-1',
-    title: '異なる傾斜角での大胸筋上部・下部の筋電図分析',
+    id: 'res-arm-1',
+    title: '上腕三頭筋の長頭に対する肩関節角度の影響',
     journal: 'European Journal of Applied Physiology',
-    year: 2021,
-    doi: '10.1007/s00421-021-04678-x',
-    findings: 'インクライン30度が大胸筋上部の活性化に最も効果的であり、それ以上の角度では三角筋前部の関与が顕著になる。',
-    citationCount: 45,
-    tag: '角度力学'
+    year: 2018,
+    doi: '10.1007/s00421-018-3858-3',
+    findings: '肩関節を180度屈曲（腕を頭上に上げた状態）で行うエクステンションは、肩関節を0度（腕を下ろした状態）で行うよりも三頭筋長頭の筋肥大を有意に促進する。',
+    citationCount: 156,
+    tag: '挙上角度'
   },
   {
-    id: 'res-chest-2',
-    title: 'ダンベル vs バーベル：ベンチプレス中の筋活動比較',
-    journal: 'Journal of Strength and Conditioning Research',
-    year: 2017,
-    doi: '10.1519/JSC.0000000000001880',
-    findings: 'バーベルプレスは大胸筋全体の強い張力を生み出す（高重量の挙上）のに優れるが、ダンベルプレスは大胸筋内側への収縮刺激を有意に高める。',
-    citationCount: 112,
-    tag: 'EMG比較'
+    id: 'res-arm-2',
+    title: '血流制限（BFR）が上腕二頭筋の筋肥大に与える影響',
+    journal: 'Journal of Applied Physiology',
+    year: 2000,
+    doi: '10.1152/jappl.2000.88.1.61',
+    findings: '低負荷（1RMの20%）であっても、血流制限を行うことで高負荷トレーニングと同等の筋肥大および筋力向上効果が得られる。',
+    citationCount: 890,
+    tag: 'BFR'
   },
   {
-    id: 'res-chest-3',
-    title: 'マインドマッスルコネクションが胸部の筋活動に与える影響',
-    journal: 'European Journal of Sport Science',
-    year: 2016,
-    doi: '10.1080/17461391.2015.1073144',
-    findings: '大胸筋の収縮に意識を向ける（内的焦点）だけで、60%1RMの負荷において大胸筋の筋活動レベルが約22%向上することが確認された。',
-    citationCount: 89,
-    tag: '神経・運動連鎖'
-  },
-  {
-    id: 'res-chest-4',
-    title: 'ダンベルフライとベンチプレスの大胸筋動員パターンの違い',
-    journal: 'International Journal of Sports Medicine',
-    year: 2020,
-    doi: '10.1055/a-1152-3211',
-    findings: 'ダンベルフライは最大伸展位（ボトム）における大胸筋の筋活動が最も高まるが、トップポジションでの負荷低下が著しい。ストレッチ種目としての有効性が示唆。',
-    citationCount: 34,
-    tag: '種目間比較'
-  },
-  {
-    id: 'res-chest-5',
-    title: '大胸筋下部へのアプローチ：ディップス vs デクラインプレス',
-    journal: 'Journal of Biomechanics',
-    year: 2019,
-    doi: '10.1016/j.jbiomech.2019.01.023',
-    findings: '前傾姿勢を維持した加重ディップスは、デクラインベンチプレスと比較して大胸筋下部および前鋸筋の活動レベルが同等以上に高く、体幹の安定性にも寄与する。',
-    citationCount: 56,
-    tag: '下部線維アプローチ'
+    id: 'res-arm-3',
+    title: '上腕二頭筋におけるスピネイト（回外）の重要性',
+    journal: 'Journal of Sports Sciences',
+    year: 2015,
+    doi: '10.1080/02640414.2014.992036',
+    findings: 'ダンベルカール中に前腕を回外（スピネイト）させる動作を加えることで、単なる屈曲よりも上腕二頭筋短頭の筋電図活動が最大で30%増加する。',
+    citationCount: 210,
+    tag: 'フォーム'
   }
 ]
 
 const RELATED_LABS = [
-  { title: 'ベンチプレス研究所', label: 'Bench Press Hub', slug: 'benchpress', glowColor: 'hover:border-blue-500/40 hover:bg-blue-950/10' },
-  { title: '肩研究所', label: 'Shoulder Kinetic Hub', slug: 'shoulder', glowColor: 'hover:border-purple-500/40 hover:bg-purple-950/10' },
-  { title: '背中研究所', label: 'Back & Lat Hub', slug: 'back', glowColor: 'hover:border-emerald-500/40 hover:bg-emerald-950/10' }
+  { title: '胸トレ研究所', label: 'Chest Training Hub', slug: 'chest', glowColor: 'hover:border-blue-500/40 hover:bg-blue-950/10' },
+  { title: '背中トレ研究所', label: 'Back Kinetic Hub', slug: 'back', glowColor: 'hover:border-emerald-500/40 hover:bg-emerald-950/10' },
+  { title: '肩トレ研究所', label: 'Shoulder Training Hub', slug: 'shoulder', glowColor: 'hover:border-purple-500/40 hover:bg-purple-950/10' }
 ]
 
-export default function ChestLab() {
+export default function ArmLab() {
 
   const mustReadArticles = useMemo(() => {
-    return CHEST_ARTICLES.filter(art => art.type === 'basic')
+    return ARM_ARTICLES.filter(art => art.type === 'basic')
   }, [])
 
   const columnArticles = useMemo(() => {
-    return CHEST_ARTICLES.filter(art => art.type === 'applied')
+    return ARM_ARTICLES.filter(art => art.type === 'applied')
   }, [])
 
   const roadmapSteps = useMemo(() => {
-    return CHEST_ARTICLES
+    return ARM_ARTICLES
       .filter(art => typeof art.roadmapNumber === 'number')
       .sort((a, b) => (a.roadmapNumber || 0) - (b.roadmapNumber || 0))
   }, [])
 
   const programArticles = useMemo(() => {
-    return CHEST_ARTICLES.filter(art => art.type === 'program')
+    return ARM_ARTICLES.filter(art => art.type === 'program')
   }, [])
 
   return (
@@ -115,34 +94,34 @@ export default function ChestLab() {
 
       {/* ----------------- SECTION ①: HERO ----------------- */}
       <section className="relative overflow-hidden border-b border-zinc-900 pt-32 pb-20 bg-zinc-950">
-        <div className="absolute inset-0 bg-[url('/chest/chest10.jpg')] bg-cover bg-center bg-no-repeat opacity-40" />
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-[url('/arm/arm1.jpg')] bg-cover bg-center bg-no-repeat opacity-60" />
+        <div className="absolute inset-0 bg-black/40" />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
 
         <div className="max-w-3xl mx-auto px-4 relative z-10">
           <div className="bg-black/60 backdrop-blur-md rounded-3xl border border-white/10 shadow-2xl p-6 md:p-10 text-center space-y-6">
             <div className="flex items-center justify-center gap-2">
               <span className="inline-flex items-center gap-1.5 text-[9px] font-extrabold text-red-400 bg-red-950/40 border border-red-900/40 px-3 py-1 rounded-full uppercase tracking-widest">
-                <Activity className="w-3.5 h-3.5 text-red-500" /> Chest Training
+                <Activity className="w-3.5 h-3.5 text-red-500" /> Arm Training
               </span>
-              <span className="text-[10px] text-zinc-400 font-mono">CODE: CH-LAB-01</span>
+              <span className="text-[10px] text-zinc-400 font-mono">CODE: ARM-LAB-01</span>
             </div>
 
             <h1 className="text-4xl md:text-6xl font-black tracking-tight text-white leading-tight">
-              胸トレ<span className="text-red-500 font-extrabold relative inline-block">研究所</span>
+              腕トレ<span className="text-red-500 font-extrabold relative inline-block">研究所</span>
             </h1>
 
             <p className="text-base md:text-lg font-bold text-zinc-300">
-              ー 大胸筋の解剖と力学 ー
+              ー 極太の二頭・三頭を創るバイオメカニクス ー
             </p>
 
             <p className="text-xs md:text-sm text-zinc-300 leading-relaxed font-light max-w-2xl mx-auto">
-              解剖学に基づいた大胸筋のアプローチ。科学的な種目選択とフォーム構築により、理想の胸部デザインを実現します。
+              力こぶのピークから三頭筋の蹄鉄まで。解剖学に基づいたアイソレーションと圧倒的なパンプで、腕のサイズを限界まで引き上げます。
             </p>
 
             <div className="pt-6 flex justify-center">
               <Link
-                href="/lab/chest/articles"
+                href="/lab/arms/articles"
                 className="group relative inline-flex items-center justify-center gap-2 bg-red-900 hover:bg-red-800 text-white font-bold py-3.5 px-8 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-red-900/40 border border-red-700/50"
               >
                 <BookOpen className="w-4 h-4" />
@@ -165,7 +144,7 @@ export default function ChestLab() {
               基本理論
             </h2>
             <p className="text-xs text-zinc-450 max-w-xl mx-auto leading-relaxed font-light">
-              胸トレの解剖学と力学的アプローチの基本。
+              腕トレの解剖学と力学的アプローチの基本。
             </p>
           </div>
 
@@ -173,7 +152,7 @@ export default function ChestLab() {
             {mustReadArticles.map((art, idx) => (
               <Link
                 key={art.id}
-                href={`/lab/chest/${art.slug}`}
+                href={`/lab/arms/${art.slug}`}
                 className="w-[280px] md:w-[350px] shrink-0 bg-zinc-950/40 border border-zinc-900 hover:border-zinc-800 rounded-xl p-4 transition-all duration-300 flex flex-col justify-between group shadow-lg hover:shadow-xl hover:bg-zinc-900/10 cursor-pointer"
               >
                 <div className="space-y-4">
@@ -226,7 +205,7 @@ export default function ChestLab() {
               順番に学ぶ
             </h2>
             <p className="text-xs text-zinc-450 max-w-xl mx-auto leading-relaxed font-light">
-              バイオメカニクスに基づく胸トレの習得ステップ。
+              バイオメカニクスに基づく腕トレの習得ステップ。
             </p>
           </div>
 
@@ -235,7 +214,7 @@ export default function ChestLab() {
               {roadmapSteps.map((st, idx) => (
                 <Link
                   key={st.id}
-                  href={`/lab/chest/${st.slug}`}
+                  href={`/lab/arms/${st.slug}`}
                   className="relative w-[280px] shrink-0 bg-zinc-950 border border-zinc-900 rounded-xl p-5 hover:border-red-900 hover:bg-zinc-900/10 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group cursor-pointer"
                 >
                   {idx < roadmapSteps.length - 1 && (
@@ -268,7 +247,7 @@ export default function ChestLab() {
                   </div>
 
                   <div className="mt-8 pt-3 border-t border-zinc-900 flex items-center justify-between text-[9px] font-mono text-zinc-500">
-                    <span>CH-STEP-{st.slug.slice(0, 6)}</span>
+                    <span>ARM-STEP-{st.slug.slice(0, 6)}</span>
                     <span className="text-zinc-400 group-hover:text-red-400 font-bold flex items-center gap-0.5">
                       READ <ArrowRight className="w-2.5 h-2.5" />
                     </span>
@@ -280,7 +259,7 @@ export default function ChestLab() {
 
           <div className="mt-12 text-center">
             <Link
-              href="/lab/chest/articles"
+              href="/lab/arms/articles"
               className="inline-flex items-center justify-center gap-2 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-red-900/50 text-zinc-300 hover:text-white font-bold py-3 px-8 rounded-full transition-all duration-300 shadow-md group"
             >
               <BookOpen className="w-4 h-4 text-red-500 group-hover:scale-110 transition-transform" />
@@ -309,7 +288,7 @@ export default function ChestLab() {
             {programArticles.map((art) => (
               <Link
                 key={art.id}
-                href={`/lab/chest/${art.slug}`}
+                href={`/lab/arms/${art.slug}`}
                 className="w-[280px] md:w-[350px] shrink-0 bg-zinc-950 border border-zinc-900 hover:border-red-900/50 rounded-xl p-4 transition-all duration-300 flex flex-col justify-between group shadow-lg hover:shadow-xl hover:bg-zinc-900/10 cursor-pointer"
               >
                 <div className="space-y-4">
@@ -369,7 +348,7 @@ export default function ChestLab() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
             {OBSTACLES.map((obs) => (
               <Link
-                href={`/lab/chest/articles?obstacle=${obs.label}`}
+                href={`/lab/arms/articles?obstacle=${obs.label}`}
                 key={obs.label}
                 className="p-4 rounded-xl border border-zinc-900 bg-zinc-950 text-left flex flex-col justify-between hover:border-red-500 hover:bg-red-950/20 hover:shadow-xl hover:shadow-red-500/10 text-zinc-300 transition-all duration-300 group cursor-pointer block"
               >
@@ -401,7 +380,7 @@ export default function ChestLab() {
               応用・探究
             </h2>
             <p className="text-xs text-zinc-450 max-w-xl mx-auto leading-relaxed font-light">
-              バイオメカニクスや生理学の視点から、胸トレのより深い知識を探求します。
+              バイオメカニクスや生理学の視点から、腕トレのより深い知識を探求します。
             </p>
           </div>
 
@@ -409,7 +388,7 @@ export default function ChestLab() {
             {columnArticles.map((art) => (
               <Link
                 key={art.id}
-                href={`/lab/chest/${art.slug}`}
+                href={`/lab/arms/${art.slug}`}
                 className="w-[280px] md:w-[350px] shrink-0 bg-zinc-950 border border-zinc-900 hover:border-red-900/50 rounded-xl p-4 transition-all duration-300 flex flex-col justify-between group shadow-lg hover:shadow-xl hover:bg-zinc-900/10 cursor-pointer"
               >
                 <div className="space-y-4">
@@ -462,7 +441,7 @@ export default function ChestLab() {
               研究データ
             </h2>
             <p className="text-xs text-zinc-450 max-w-xl mx-auto leading-relaxed font-light">
-              胸トレに関する重要エビデンスを要約。
+              腕トレに関する重要エビデンスを要約。
             </p>
           </div>
 
@@ -549,15 +528,6 @@ export default function ChestLab() {
                 </p>
               </Link>
             ))}
-          </div>
-
-          <div className="mt-16 text-center">
-            <Link
-              href="/bodymake"
-              className="text-xs font-mono font-bold text-zinc-550 hover:text-red-400 transition-colors inline-flex items-center gap-1.5"
-            >
-              <ChevronRight className="w-3.5 h-3.5 rotate-180" /> BACK TO BODYMAKE MAIN
-            </Link>
           </div>
         </div>
       </section>

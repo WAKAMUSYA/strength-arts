@@ -15,9 +15,9 @@ import {
 const regions = [
   { id: 'chest', title: '胸 (Chest)', href: '/lab/chest', isLab: true },
   { id: 'back', title: '背中 (Back)', href: '/lab/back', isLab: true },
-  { id: 'shoulder', title: '肩 (Shoulder)', isLab: false },
-  { id: 'arms', title: '腕 (Arms)', isLab: false },
-  { id: 'legs', title: '脚 (Legs)', isLab: false },
+  { id: 'shoulder', title: '肩 (Shoulder)', href: '/lab/shoulder', isLab: true },
+  { id: 'arms', title: '腕 (Arms)', href: '/lab/arms', isLab: true },
+  { id: 'legs', title: '脚 (Legs)', href: '/lab/legs', isLab: true },
   { id: 'abs', title: '腹 (Abs)', isLab: false },
 ]
 

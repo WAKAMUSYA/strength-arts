@@ -15,33 +15,33 @@ import {
   CheckCircle2,
   Activity
 } from 'lucide-react'
-import { BACK_ARTICLES } from '@/data/backArticles'
+import { LEG_ARTICLES } from '@/data/legArticles'
 
-export default function BackArticleDetail() {
+export default function LegArticleDetail() {
   const params = useParams()
   const router = useRouter()
   const slug = params.slug as string
   
-  const articleIndex = BACK_ARTICLES.findIndex(art => art.slug === slug)
-  const article = BACK_ARTICLES[articleIndex]
+  const articleIndex = LEG_ARTICLES.findIndex(art => art.slug === slug)
+  const article = LEG_ARTICLES[articleIndex]
 
   if (!article) {
     notFound()
   }
 
   // Pre-calculate adjacent articles for navigation
-  const prevArticle = articleIndex > 0 ? BACK_ARTICLES[articleIndex - 1] : null
-  const nextArticleInList = articleIndex < BACK_ARTICLES.length - 1 ? BACK_ARTICLES[articleIndex + 1] : null
+  const prevArticle = articleIndex > 0 ? LEG_ARTICLES[articleIndex - 1] : null
+  const nextArticleInList = articleIndex < LEG_ARTICLES.length - 1 ? LEG_ARTICLES[articleIndex + 1] : null
 
   return (
-    <main className="min-h-screen bg-black text-white selection:bg-emerald-900 selection:text-white pb-32">
+    <main className="min-h-screen bg-black text-white selection:bg-amber-900 selection:text-white pb-32">
       
       {/* 🚀 TOP NAVIGATION BAR */}
       <nav className="border-b border-zinc-900 bg-zinc-950/80 backdrop-blur-md sticky top-16 z-40 px-6 py-4">
         <div className="max-w-4xl mx-auto flex items-center justify-between">
           <button 
             onClick={() => router.back()}
-            className="text-xs font-mono font-bold text-zinc-400 hover:text-emerald-400 transition-colors inline-flex items-center gap-1.5 cursor-pointer"
+            className="text-xs font-mono font-bold text-zinc-400 hover:text-amber-500 transition-colors inline-flex items-center gap-1.5 cursor-pointer"
           >
             <ArrowLeft className="w-4 h-4" /> BACK TO LAB
           </button>
@@ -50,7 +50,7 @@ export default function BackArticleDetail() {
             <button className="text-zinc-500 hover:text-white transition-colors">
               <Share2 className="w-4 h-4" />
             </button>
-            <button className="text-zinc-500 hover:text-emerald-400 transition-colors">
+            <button className="text-zinc-500 hover:text-amber-500 transition-colors">
               <Bookmark className="w-4 h-4" />
             </button>
           </div>
@@ -66,7 +66,7 @@ export default function BackArticleDetail() {
           <img 
             src={article.image} 
             alt={article.title} 
-            className="w-full h-full object-cover opacity-50"
+            className="w-full h-full object-cover opacity-50 grayscale"
           />
         </div>
 
@@ -74,7 +74,7 @@ export default function BackArticleDetail() {
           <div className="space-y-6">
             {/* Meta Tags */}
             <div className="flex flex-wrap items-center gap-3 text-xs font-mono">
-              <span className="bg-emerald-950/80 border border-emerald-900 text-emerald-400 px-3 py-1 rounded-full font-bold tracking-widest flex items-center gap-1.5">
+              <span className="bg-amber-950/80 border border-amber-900 text-amber-500 px-3 py-1 rounded-full font-bold tracking-widest flex items-center gap-1.5">
                 <Activity className="w-3.5 h-3.5" /> {article.category}
               </span>
               <span className="text-zinc-400 flex items-center gap-1 bg-zinc-950/50 px-3 py-1 rounded-full border border-zinc-800">
@@ -90,7 +90,7 @@ export default function BackArticleDetail() {
               <h1 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.1]">
                 {article.title}
               </h1>
-              <p className="text-lg md:text-xl text-emerald-400/90 font-bold leading-relaxed">
+              <p className="text-lg md:text-xl text-amber-500/90 font-bold leading-relaxed">
                 {article.subtitle}
               </p>
             </div>
@@ -114,7 +114,7 @@ export default function BackArticleDetail() {
       <article className="max-w-3xl mx-auto px-6 py-12 relative z-30">
         
         {/* Overview Box */}
-        <div className="bg-zinc-950/50 border-l-4 border-emerald-500 p-6 md:p-8 rounded-r-2xl mb-16 text-zinc-300 leading-relaxed font-light text-[15px] md:text-[17px]">
+        <div className="bg-zinc-950/50 border-l-4 border-amber-500 p-6 md:p-8 rounded-r-2xl mb-16 text-zinc-300 leading-relaxed font-light text-[15px] md:text-[17px]">
           <p>{article.overview}</p>
         </div>
 
@@ -124,7 +124,7 @@ export default function BackArticleDetail() {
             <section key={idx} className="space-y-6">
               
               <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight flex items-center gap-3">
-                <span className="text-emerald-500/70 text-4xl font-black font-mono">{(idx + 1).toString().padStart(2, '0')}</span>
+                <span className="text-amber-500/70 text-4xl font-black font-mono">{(idx + 1).toString().padStart(2, '0')}</span>
                 {section.title}
               </h2>
 
@@ -139,7 +139,7 @@ export default function BackArticleDetail() {
                 <ul className="bg-zinc-950 border border-zinc-900 rounded-xl p-6 space-y-3 mt-8">
                   {section.bullets.map((bullet, bIdx) => (
                     <li key={bIdx} className="flex items-start gap-3 text-zinc-300 text-sm md:text-base">
-                      <ChevronRight className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
+                      <ChevronRight className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
                       <span>{bullet}</span>
                     </li>
                   ))}
@@ -150,12 +150,12 @@ export default function BackArticleDetail() {
               {section.note && (
                 <div className={`mt-8 p-5 rounded-xl border flex gap-4 items-start ${
                   section.note.type === 'warning' ? 'bg-orange-950/20 border-orange-900/50 text-orange-200' :
-                  section.note.type === 'success' ? 'bg-emerald-950/20 border-emerald-900/50 text-emerald-200' :
+                  section.note.type === 'success' ? 'bg-amber-950/20 border-amber-900/50 text-amber-200' :
                   'bg-blue-950/20 border-blue-900/50 text-blue-200'
                 }`}>
                   <div className="shrink-0 mt-0.5">
                     {section.note.type === 'warning' && <AlertTriangle className="w-5 h-5 text-orange-500" />}
-                    {section.note.type === 'success' && <CheckCircle2 className="w-5 h-5 text-emerald-500" />}
+                    {section.note.type === 'success' && <CheckCircle2 className="w-5 h-5 text-amber-500" />}
                     {section.note.type === 'info' && <Info className="w-5 h-5 text-blue-500" />}
                   </div>
                   <div>
@@ -170,7 +170,7 @@ export default function BackArticleDetail() {
 
         {/* 🚀 CONCLUSION */}
         <div className="mt-20 pt-12 border-t border-zinc-900">
-          <h3 className="text-lg font-bold text-emerald-400 mb-4 flex items-center gap-2">
+          <h3 className="text-lg font-bold text-amber-500 mb-4 flex items-center gap-2">
             <Bookmark className="w-5 h-5" /> まとめ
           </h3>
           <p className="text-zinc-300 leading-relaxed font-light text-[15px] md:text-[17px]">
@@ -182,7 +182,7 @@ export default function BackArticleDetail() {
         <div className="mt-12 flex flex-wrap gap-2">
           {article.tags.map(tag => (
             <Link 
-              href={`/lab/back/articles?tag=${tag}`} 
+              href={`/lab/legs/articles?tag=${tag}`} 
               key={tag}
               className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-400 px-3 py-1.5 rounded-lg text-xs font-mono transition-colors"
             >
@@ -198,28 +198,28 @@ export default function BackArticleDetail() {
           
           {prevArticle ? (
             <Link 
-              href={`/lab/back/${prevArticle.slug}`}
+              href={`/lab/legs/${prevArticle.slug}`}
               className="group p-6 rounded-2xl border border-zinc-900 bg-zinc-950 hover:border-zinc-700 hover:bg-zinc-900 transition-all flex flex-col justify-center"
             >
               <div className="flex items-center gap-2 text-zinc-500 text-xs font-mono mb-2 group-hover:text-white transition-colors">
                 <ChevronLeft className="w-4 h-4" /> PREVIOUS ARTICLE
               </div>
-              <h4 className="font-bold text-white text-sm md:text-base leading-tight group-hover:text-emerald-400 transition-colors">
+              <h4 className="font-bold text-white text-sm md:text-base leading-tight group-hover:text-amber-500 transition-colors">
                 {prevArticle.title}
               </h4>
             </Link>
           ) : <div />}
 
-          {/* Next Article (Explicit link if exists, otherwise fallback to next in list) */}
+          {/* Next Article */}
           {(article.nextArticle || nextArticleInList) ? (
             <Link 
-              href={`/lab/back/${article.nextArticle?.slug || nextArticleInList?.slug}`}
-              className="group p-6 rounded-2xl border border-zinc-900 bg-zinc-950 hover:border-emerald-900/50 hover:bg-emerald-950/10 transition-all flex flex-col justify-center text-right"
+              href={`/lab/legs/${article.nextArticle?.slug || nextArticleInList?.slug}`}
+              className="group p-6 rounded-2xl border border-zinc-900 bg-zinc-950 hover:border-amber-900/50 hover:bg-amber-950/10 transition-all flex flex-col justify-center text-right"
             >
-              <div className="flex items-center justify-end gap-2 text-zinc-500 text-xs font-mono mb-2 group-hover:text-emerald-400 transition-colors">
+              <div className="flex items-center justify-end gap-2 text-zinc-500 text-xs font-mono mb-2 group-hover:text-amber-500 transition-colors">
                 NEXT LECTURE <ChevronRight className="w-4 h-4" />
               </div>
-              <h4 className="font-bold text-white text-sm md:text-base leading-tight group-hover:text-emerald-400 transition-colors">
+              <h4 className="font-bold text-white text-sm md:text-base leading-tight group-hover:text-amber-500 transition-colors">
                 {article.nextArticle?.title || nextArticleInList?.title}
               </h4>
             </Link>

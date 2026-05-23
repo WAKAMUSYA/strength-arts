@@ -50,6 +50,36 @@ const RESEARCH_PAPERS: ResearchPaper[] = [
     findings: '自重を用いたチンニングは、同じ相対負荷のラットプルダウンに比べて、体幹安定筋群（腹直筋・脊柱起立筋）の動員が有意に高い。',
     citationCount: 98,
     tag: '種目間比較'
+  },
+  {
+    id: 'res-back-3',
+    title: 'グリップの向き（順手・逆手・パラレル）による広背筋活動の差異',
+    journal: 'Journal of Strength and Conditioning Research',
+    year: 2010,
+    doi: '10.1519/JSC.0b013e3181d1569e',
+    findings: 'パラレルグリップとアンダーハンド（逆手）グリップは、オーバーハンド（順手）に比べて広背筋下部への筋電図（EMG）活動を優位に高めることが示された。',
+    citationCount: 215,
+    tag: 'グリップ角度'
+  },
+  {
+    id: 'res-back-4',
+    title: 'デッドリフトにおける広背筋のアイソメトリック活動の定量的評価',
+    journal: 'European Journal of Applied Physiology',
+    year: 2017,
+    doi: '10.1007/s00421-017-3603-5',
+    findings: 'デッドリフトの引き始めにおいて、広背筋は最大随意収縮（MVC）の約60%のアイソメトリック張力を発揮し、バーベルを体に引き寄せる安定器として機能する。',
+    citationCount: 84,
+    tag: 'バイオメカニクス'
+  },
+  {
+    id: 'res-back-5',
+    title: 'マインド・マッスル・コネクションが広背筋の動員に与える影響',
+    journal: 'European Journal of Sport Science',
+    year: 2016,
+    doi: '10.1080/17461391.2015.1119262',
+    findings: '「背中の筋肉を使う」という明確な意識（内的キューイング）を持つことで、持たない場合と比較して広背筋の筋活動レベルが有意に（最大20%）増加した。',
+    citationCount: 132,
+    tag: '神経伝達'
   }
 ]
 
@@ -84,8 +114,8 @@ export default function BackLab() {
 
       {/* ----------------- SECTION ①: HERO ----------------- */}
       <section className="relative overflow-hidden border-b border-zinc-900 pt-32 pb-20 bg-zinc-950">
-        <div className="absolute inset-0 bg-[url('/bodymake.jpg')] bg-cover bg-center bg-no-repeat opacity-40" />
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-[url('/back/back1.jpg')] bg-cover bg-center bg-no-repeat opacity-60" />
+        <div className="absolute inset-0 bg-black/40" />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
 
         <div className="max-w-3xl mx-auto px-4 relative z-10">
@@ -215,7 +245,7 @@ export default function BackLab() {
 
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
-                      <span className="text-2xl font-black text-emerald-900 group-hover:text-emerald-700 transition-colors font-mono">
+                      <span className="text-2xl font-black text-emerald-600/80 group-hover:text-emerald-400 transition-colors font-mono">
                         0{st.roadmapNumber}
                       </span>
                       <span className="text-[8px] font-mono text-zinc-550 uppercase tracking-widest">

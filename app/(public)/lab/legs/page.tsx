@@ -10,9 +10,8 @@ import {
   Activity,
   BookOpen
 } from 'lucide-react'
-import { CHEST_ARTICLES } from '@/data/chestArticles'
+import { LEG_ARTICLES } from '@/data/legArticles'
 
-// --- DATA TYPES ---
 interface ResearchPaper {
   id: string
   title: string
@@ -25,125 +24,108 @@ interface ResearchPaper {
 }
 
 const OBSTACLES = [
-  { label: '胸に効かない', desc: '腕や肩ばかりが疲れる' },
-  { label: '内側が発達しない', desc: '大胸筋の谷間を作りたい' },
-  { label: '上部が薄い', desc: '鎖骨下の大胸筋上部を鍛えたい' },
-  { label: '重量が伸びない', desc: 'プレス系種目の重量が停滞' }
+  { label: '脚が太くならない', desc: 'ズボンがダブつく' },
+  { label: '裏ももに効かない', desc: '前ももばかり筋肉痛になる' },
+  { label: 'お尻に効かない', desc: 'ヒップアップしたい' },
+  { label: '重量が伸びない', desc: 'スクワットが重くならない' },
+  { label: 'ふくらはぎが細い', desc: 'カーフが育たない' },
+  { label: '腰が痛い', desc: 'スクワットで腰を痛める' }
 ]
 
 const RESEARCH_PAPERS: ResearchPaper[] = [
   {
-    id: 'res-chest-1',
-    title: '異なる傾斜角での大胸筋上部・下部の筋電図分析',
-    journal: 'European Journal of Applied Physiology',
-    year: 2021,
-    doi: '10.1007/s00421-021-04678-x',
-    findings: 'インクライン30度が大胸筋上部の活性化に最も効果的であり、それ以上の角度では三角筋前部の関与が顕著になる。',
-    citationCount: 45,
-    tag: '角度力学'
-  },
-  {
-    id: 'res-chest-2',
-    title: 'ダンベル vs バーベル：ベンチプレス中の筋活動比較',
+    id: 'res-leg-1',
+    title: 'スクワットの深さが大臀筋および大腿四頭筋の筋電図活動に与える影響',
     journal: 'Journal of Strength and Conditioning Research',
-    year: 2017,
-    doi: '10.1519/JSC.0000000000001880',
-    findings: 'バーベルプレスは大胸筋全体の強い張力を生み出す（高重量の挙上）のに優れるが、ダンベルプレスは大胸筋内側への収縮刺激を有意に高める。',
-    citationCount: 112,
-    tag: 'EMG比較'
+    year: 2002,
+    doi: '10.1519/1533-4287(2002)016<0428:TEOSDO>2.0.CO;2',
+    findings: '大臀筋の筋活動は、大腿が床と平行になるパラレルスクワットで最大となり、それ以上深くしゃがんでも有意な増加は見られない。',
+    citationCount: 452,
+    tag: 'スクワット深度'
   },
   {
-    id: 'res-chest-3',
-    title: 'マインドマッスルコネクションが胸部の筋活動に与える影響',
-    journal: 'European Journal of Sport Science',
-    year: 2016,
-    doi: '10.1080/17461391.2015.1073144',
-    findings: '大胸筋の収縮に意識を向ける（内的焦点）だけで、60%1RMの負荷において大胸筋の筋活動レベルが約22%向上することが確認された。',
-    citationCount: 89,
-    tag: '神経・運動連鎖'
-  },
-  {
-    id: 'res-chest-4',
-    title: 'ダンベルフライとベンチプレスの大胸筋動員パターンの違い',
-    journal: 'International Journal of Sports Medicine',
+    id: 'res-leg-2',
+    title: '大腿四頭筋の筋肥大に対するシシースクワットとレッグエクステンションの比較',
+    journal: 'European Journal of Applied Physiology',
     year: 2020,
-    doi: '10.1055/a-1152-3211',
-    findings: 'ダンベルフライは最大伸展位（ボトム）における大胸筋の筋活動が最も高まるが、トップポジションでの負荷低下が著しい。ストレッチ種目としての有効性が示唆。',
-    citationCount: 34,
-    tag: '種目間比較'
+    doi: '10.1007/s00421-020-04301-4',
+    findings: '股関節を伸展位に保った状態で行う動作（シシースクワット等）は、大腿直筋の肥大においてレッグエクステンションよりも高い効果を示す。',
+    citationCount: 89,
+    tag: '大腿直筋'
   },
   {
-    id: 'res-chest-5',
-    title: '大胸筋下部へのアプローチ：ディップス vs デクラインプレス',
-    journal: 'Journal of Biomechanics',
-    year: 2019,
-    doi: '10.1016/j.jbiomech.2019.01.023',
-    findings: '前傾姿勢を維持した加重ディップスは、デクラインベンチプレスと比較して大胸筋下部および前鋸筋の活動レベルが同等以上に高く、体幹の安定性にも寄与する。',
-    citationCount: 56,
-    tag: '下部線維アプローチ'
+    id: 'res-leg-3',
+    title: 'ハムストリングスの部位別筋活動：レッグカール vs デッドリフト',
+    journal: 'Journal of Sports Sciences',
+    year: 2015,
+    doi: '10.1080/02640414.2014.992037',
+    findings: 'ヒンジ動作（RDL等）はハムストリングス近位部（お尻側）を、膝関節屈曲（レッグカール）は遠位部（膝側）を選択的に活性化する。',
+    citationCount: 310,
+    tag: '裏もも'
   }
 ]
 
 const RELATED_LABS = [
-  { title: 'ベンチプレス研究所', label: 'Bench Press Hub', slug: 'benchpress', glowColor: 'hover:border-blue-500/40 hover:bg-blue-950/10' },
-  { title: '肩研究所', label: 'Shoulder Kinetic Hub', slug: 'shoulder', glowColor: 'hover:border-purple-500/40 hover:bg-purple-950/10' },
-  { title: '背中研究所', label: 'Back & Lat Hub', slug: 'back', glowColor: 'hover:border-emerald-500/40 hover:bg-emerald-950/10' }
+  { title: '胸トレ研究所', label: 'Chest Training Hub', slug: 'chest', glowColor: 'hover:border-blue-500/40 hover:bg-blue-950/10' },
+  { title: '背中トレ研究所', label: 'Back Kinetic Hub', slug: 'back', glowColor: 'hover:border-emerald-500/40 hover:bg-emerald-950/10' },
+  { title: '肩トレ研究所', label: 'Shoulder Training Hub', slug: 'shoulder', glowColor: 'hover:border-purple-500/40 hover:bg-purple-950/10' },
+  { title: '腕トレ研究所', label: 'Arm Training Hub', slug: 'arms', glowColor: 'hover:border-red-500/40 hover:bg-red-950/10' }
 ]
 
-export default function ChestLab() {
+export default function LegsLab() {
 
   const mustReadArticles = useMemo(() => {
-    return CHEST_ARTICLES.filter(art => art.type === 'basic')
+    return LEG_ARTICLES.filter(art => art.type === 'basic')
   }, [])
 
   const columnArticles = useMemo(() => {
-    return CHEST_ARTICLES.filter(art => art.type === 'applied')
+    return LEG_ARTICLES.filter(art => art.type === 'applied')
   }, [])
 
   const roadmapSteps = useMemo(() => {
-    return CHEST_ARTICLES
+    return LEG_ARTICLES
       .filter(art => typeof art.roadmapNumber === 'number')
       .sort((a, b) => (a.roadmapNumber || 0) - (b.roadmapNumber || 0))
   }, [])
 
   const programArticles = useMemo(() => {
-    return CHEST_ARTICLES.filter(art => art.type === 'program')
+    return LEG_ARTICLES.filter(art => art.type === 'program')
   }, [])
 
   return (
-    <main className="min-h-screen bg-black text-white selection:bg-red-900 selection:text-white pb-32">
+    <main className="min-h-screen bg-black text-white selection:bg-amber-900 selection:text-white pb-32">
 
       {/* ----------------- SECTION ①: HERO ----------------- */}
       <section className="relative overflow-hidden border-b border-zinc-900 pt-32 pb-20 bg-zinc-950">
-        <div className="absolute inset-0 bg-[url('/chest/chest10.jpg')] bg-cover bg-center bg-no-repeat opacity-40" />
+        <div className="absolute inset-0 bg-[url('/leg/leg1.jpg')] bg-cover bg-center bg-no-repeat opacity-60 grayscale-[50%]" />
         <div className="absolute inset-0 bg-black/50" />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
 
         <div className="max-w-3xl mx-auto px-4 relative z-10">
           <div className="bg-black/60 backdrop-blur-md rounded-3xl border border-white/10 shadow-2xl p-6 md:p-10 text-center space-y-6">
             <div className="flex items-center justify-center gap-2">
-              <span className="inline-flex items-center gap-1.5 text-[9px] font-extrabold text-red-400 bg-red-950/40 border border-red-900/40 px-3 py-1 rounded-full uppercase tracking-widest">
-                <Activity className="w-3.5 h-3.5 text-red-500" /> Chest Training
+              <span className="inline-flex items-center gap-1.5 text-[9px] font-extrabold text-amber-500 bg-amber-950/40 border border-amber-900/40 px-3 py-1 rounded-full uppercase tracking-widest">
+                <Activity className="w-3.5 h-3.5 text-amber-500" /> Leg Training
               </span>
-              <span className="text-[10px] text-zinc-400 font-mono">CODE: CH-LAB-01</span>
+              <span className="text-[10px] text-zinc-400 font-mono">CODE: LEG-LAB-01</span>
             </div>
 
             <h1 className="text-4xl md:text-6xl font-black tracking-tight text-white leading-tight">
-              胸トレ<span className="text-red-500 font-extrabold relative inline-block">研究所</span>
+              脚トレ<span className="text-amber-500 font-extrabold relative inline-block">研究所</span>
             </h1>
 
             <p className="text-base md:text-lg font-bold text-zinc-300">
-              ー 大胸筋の解剖と力学 ー
+              ー 重力に逆らう人体最大の出力エンジン ー
             </p>
 
             <p className="text-xs md:text-sm text-zinc-300 leading-relaxed font-light max-w-2xl mx-auto">
-              解剖学に基づいた大胸筋のアプローチ。科学的な種目選択とフォーム構築により、理想の胸部デザインを実現します。
+              大腿四頭筋、ハムストリングス、大臀筋。解剖学に基づいたフォーム修正と圧倒的なパワーで、揺るぎない下半身の土台を構築します。
             </p>
 
             <div className="pt-6 flex justify-center">
               <Link
-                href="/lab/chest/articles"
-                className="group relative inline-flex items-center justify-center gap-2 bg-red-900 hover:bg-red-800 text-white font-bold py-3.5 px-8 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-red-900/40 border border-red-700/50"
+                href="/lab/legs/articles"
+                className="group relative inline-flex items-center justify-center gap-2 bg-amber-600 hover:bg-amber-500 text-black font-bold py-3.5 px-8 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-amber-900/40 border border-amber-500"
               >
                 <BookOpen className="w-4 h-4" />
                 全コラム一覧を見る
@@ -158,14 +140,14 @@ export default function ChestLab() {
       <section className="py-20 bg-black border-b border-zinc-900">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center space-y-3 mb-12">
-            <span className="text-[10px] font-extrabold text-red-400 tracking-wider uppercase block">
+            <span className="text-[10px] font-extrabold text-amber-500 tracking-wider uppercase block">
               FACILITY DIRECTORY
             </span>
             <h2 className="text-2xl md:text-3xl font-black text-white tracking-tight">
               基本理論
             </h2>
             <p className="text-xs text-zinc-450 max-w-xl mx-auto leading-relaxed font-light">
-              胸トレの解剖学と力学的アプローチの基本。
+              脚トレの解剖学と力学的アプローチの基本。
             </p>
           </div>
 
@@ -173,7 +155,7 @@ export default function ChestLab() {
             {mustReadArticles.map((art, idx) => (
               <Link
                 key={art.id}
-                href={`/lab/chest/${art.slug}`}
+                href={`/lab/legs/${art.slug}`}
                 className="w-[280px] md:w-[350px] shrink-0 bg-zinc-950/40 border border-zinc-900 hover:border-zinc-800 rounded-xl p-4 transition-all duration-300 flex flex-col justify-between group shadow-lg hover:shadow-xl hover:bg-zinc-900/10 cursor-pointer"
               >
                 <div className="space-y-4">
@@ -184,17 +166,17 @@ export default function ChestLab() {
                       alt={art.title}
                       className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500 opacity-80"
                     />
-                    <span className="absolute top-2 left-2 z-20 text-[8px] font-extrabold text-red-400 bg-zinc-950/90 border border-zinc-900 px-2 py-0.5 rounded tracking-widest uppercase">
+                    <span className="absolute top-2 left-2 z-20 text-[8px] font-extrabold text-amber-500 bg-zinc-950/90 border border-zinc-900 px-2 py-0.5 rounded tracking-widest uppercase">
                       LECTURE 0{idx + 1}
                     </span>
                   </div>
 
                   <div className="space-y-2">
                     <div className="flex items-center justify-between text-[9px] font-mono text-zinc-500">
-                      <span className="uppercase tracking-widest text-red-450 font-semibold">{art.category}</span>
+                      <span className="uppercase tracking-widest text-amber-500 font-semibold">{art.category}</span>
                       <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> {art.readTime}</span>
                     </div>
-                    <h3 className="text-sm md:text-base font-bold text-white group-hover:text-red-400 transition-colors leading-snug">
+                    <h3 className="text-sm md:text-base font-bold text-white group-hover:text-amber-500 transition-colors leading-snug">
                       {art.title}
                     </h3>
                     <p className="text-xs text-zinc-400 leading-relaxed font-light line-clamp-3">
@@ -205,7 +187,7 @@ export default function ChestLab() {
 
                 <div className="mt-6 pt-3 border-t border-zinc-900 flex items-center justify-between text-[10px] font-mono text-zinc-500">
                   <span className="bg-zinc-900 text-zinc-400 border border-zinc-850 px-2.5 py-0.5 rounded text-[8px] uppercase tracking-wider font-semibold">LEVEL: {art.level}</span>
-                  <span className="text-zinc-400 group-hover:text-red-400 group-hover:translate-x-1 transition-all flex items-center gap-1 font-bold">
+                  <span className="text-zinc-400 group-hover:text-amber-500 group-hover:translate-x-1 transition-all flex items-center gap-1 font-bold">
                     探究する <ArrowRight className="w-3.5 h-3.5" />
                   </span>
                 </div>
@@ -219,14 +201,14 @@ export default function ChestLab() {
       <section className="py-20 bg-zinc-950/20 border-b border-zinc-900">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center space-y-3 mb-16">
-            <span className="text-[10px] font-extrabold text-red-400 tracking-wider uppercase bg-red-950/40 border border-red-900/40 px-3 py-1 rounded-full">
+            <span className="text-[10px] font-extrabold text-amber-500 tracking-wider uppercase bg-amber-950/40 border border-amber-900/40 px-3 py-1 rounded-full">
               STRUCTURED PATHWAY
             </span>
             <h2 className="text-2xl md:text-3xl font-black text-white tracking-tight">
               順番に学ぶ
             </h2>
             <p className="text-xs text-zinc-450 max-w-xl mx-auto leading-relaxed font-light">
-              バイオメカニクスに基づく胸トレの習得ステップ。
+              バイオメカニクスに基づく脚トレの習得ステップ。
             </p>
           </div>
 
@@ -235,18 +217,18 @@ export default function ChestLab() {
               {roadmapSteps.map((st, idx) => (
                 <Link
                   key={st.id}
-                  href={`/lab/chest/${st.slug}`}
-                  className="relative w-[280px] shrink-0 bg-zinc-950 border border-zinc-900 rounded-xl p-5 hover:border-red-900 hover:bg-zinc-900/10 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group cursor-pointer"
+                  href={`/lab/legs/${st.slug}`}
+                  className="relative w-[280px] shrink-0 bg-zinc-950 border border-zinc-900 rounded-xl p-5 hover:border-amber-900 hover:bg-zinc-900/10 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group cursor-pointer"
                 >
                   {idx < roadmapSteps.length - 1 && (
-                    <div className="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 z-20 bg-zinc-950 rounded-full p-1 border border-zinc-900 text-zinc-650 group-hover:text-red-400 group-hover:bg-red-950/30 transition-colors">
+                    <div className="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 z-20 bg-zinc-950 rounded-full p-1 border border-zinc-900 text-zinc-650 group-hover:text-amber-500 group-hover:bg-amber-950/30 transition-colors">
                       <ChevronRight className="w-3.5 h-3.5" />
                     </div>
                   )}
 
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
-                      <span className="text-2xl font-black text-red-600/80 group-hover:text-red-400 transition-colors font-mono">
+                      <span className="text-2xl font-black text-amber-600/80 group-hover:text-amber-500 transition-colors font-mono">
                         0{st.roadmapNumber}
                       </span>
                       <span className="text-[8px] font-mono text-zinc-550 uppercase tracking-widest">
@@ -255,10 +237,10 @@ export default function ChestLab() {
                     </div>
 
                     <div className="space-y-1.5">
-                      <p className="text-[9px] font-mono text-red-400/80 uppercase tracking-wide">
+                      <p className="text-[9px] font-mono text-amber-500/80 uppercase tracking-wide">
                         {st.category}
                       </p>
-                      <h3 className="text-sm font-bold text-white group-hover:text-red-400 transition-colors leading-tight">
+                      <h3 className="text-sm font-bold text-white group-hover:text-amber-500 transition-colors leading-tight">
                         {st.title}
                       </h3>
                       <p className="text-[11px] text-zinc-500 leading-relaxed font-light line-clamp-3">
@@ -268,8 +250,8 @@ export default function ChestLab() {
                   </div>
 
                   <div className="mt-8 pt-3 border-t border-zinc-900 flex items-center justify-between text-[9px] font-mono text-zinc-500">
-                    <span>CH-STEP-{st.slug.slice(0, 6)}</span>
-                    <span className="text-zinc-400 group-hover:text-red-400 font-bold flex items-center gap-0.5">
+                    <span>LEG-STEP-{st.slug.slice(0, 6)}</span>
+                    <span className="text-zinc-400 group-hover:text-amber-500 font-bold flex items-center gap-0.5">
                       READ <ArrowRight className="w-2.5 h-2.5" />
                     </span>
                   </div>
@@ -280,10 +262,10 @@ export default function ChestLab() {
 
           <div className="mt-12 text-center">
             <Link
-              href="/lab/chest/articles"
-              className="inline-flex items-center justify-center gap-2 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-red-900/50 text-zinc-300 hover:text-white font-bold py-3 px-8 rounded-full transition-all duration-300 shadow-md group"
+              href="/lab/legs/articles"
+              className="inline-flex items-center justify-center gap-2 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-amber-900/50 text-zinc-300 hover:text-white font-bold py-3 px-8 rounded-full transition-all duration-300 shadow-md group"
             >
-              <BookOpen className="w-4 h-4 text-red-500 group-hover:scale-110 transition-transform" />
+              <BookOpen className="w-4 h-4 text-amber-500 group-hover:scale-110 transition-transform" />
               全コラム一覧を見る
             </Link>
           </div>
@@ -294,7 +276,7 @@ export default function ChestLab() {
       <section className="py-20 bg-black border-b border-zinc-900">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center space-y-3 mb-12">
-            <span className="text-[10px] font-extrabold text-red-400 tracking-wider uppercase block">
+            <span className="text-[10px] font-extrabold text-amber-500 tracking-wider uppercase block">
               TRAINING PROGRAMS
             </span>
             <h2 className="text-2xl md:text-3xl font-black text-white tracking-tight">
@@ -309,8 +291,8 @@ export default function ChestLab() {
             {programArticles.map((art) => (
               <Link
                 key={art.id}
-                href={`/lab/chest/${art.slug}`}
-                className="w-[280px] md:w-[350px] shrink-0 bg-zinc-950 border border-zinc-900 hover:border-red-900/50 rounded-xl p-4 transition-all duration-300 flex flex-col justify-between group shadow-lg hover:shadow-xl hover:bg-zinc-900/10 cursor-pointer"
+                href={`/lab/legs/${art.slug}`}
+                className="w-[280px] md:w-[350px] shrink-0 bg-zinc-950 border border-zinc-900 hover:border-amber-900/50 rounded-xl p-4 transition-all duration-300 flex flex-col justify-between group shadow-lg hover:shadow-xl hover:bg-zinc-900/10 cursor-pointer"
               >
                 <div className="space-y-4">
                   <div className="relative aspect-[16/10] w-full rounded-lg overflow-hidden bg-zinc-900">
@@ -320,17 +302,17 @@ export default function ChestLab() {
                       alt={art.title}
                       className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500 opacity-80"
                     />
-                    <span className="absolute top-2 left-2 z-20 text-[8px] font-extrabold text-white bg-red-900/90 border border-red-800 px-2 py-0.5 rounded tracking-widest uppercase">
+                    <span className="absolute top-2 left-2 z-20 text-[8px] font-extrabold text-white bg-amber-600/90 border border-amber-500 px-2 py-0.5 rounded tracking-widest uppercase">
                       PROGRAM
                     </span>
                   </div>
 
                   <div className="space-y-2">
                     <div className="flex items-center justify-between text-[9px] font-mono text-zinc-500">
-                      <span className="uppercase tracking-widest text-red-450 font-semibold">{art.category}</span>
+                      <span className="uppercase tracking-widest text-amber-500 font-semibold">{art.category}</span>
                       <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> {art.readTime}</span>
                     </div>
-                    <h3 className="text-sm md:text-base font-bold text-white group-hover:text-red-400 transition-colors leading-snug">
+                    <h3 className="text-sm md:text-base font-bold text-white group-hover:text-amber-500 transition-colors leading-snug">
                       {art.title}
                     </h3>
                     <p className="text-xs text-zinc-400 leading-relaxed font-light line-clamp-3">
@@ -341,7 +323,7 @@ export default function ChestLab() {
 
                 <div className="mt-6 pt-3 border-t border-zinc-900 flex items-center justify-between text-[10px] font-mono text-zinc-500">
                   <span className="bg-zinc-900 text-zinc-400 border border-zinc-850 px-2.5 py-0.5 rounded text-[8px] uppercase tracking-wider font-semibold">LEVEL: {art.level}</span>
-                  <span className="text-zinc-400 group-hover:text-red-400 group-hover:translate-x-1 transition-all flex items-center gap-1 font-bold">
+                  <span className="text-zinc-400 group-hover:text-amber-500 group-hover:translate-x-1 transition-all flex items-center gap-1 font-bold">
                     メニューを見る <ArrowRight className="w-3.5 h-3.5" />
                   </span>
                 </div>
@@ -355,7 +337,7 @@ export default function ChestLab() {
       <section className="py-20 bg-black border-b border-zinc-900">
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center space-y-3 mb-12">
-            <span className="text-[10px] font-extrabold text-red-400 tracking-wider uppercase block">
+            <span className="text-[10px] font-extrabold text-amber-500 tracking-wider uppercase block">
               DIAGNOSTIC NETWORK
             </span>
             <h2 className="text-2xl md:text-3xl font-black text-white tracking-tight">
@@ -366,15 +348,15 @@ export default function ChestLab() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {OBSTACLES.map((obs) => (
               <Link
-                href={`/lab/chest/articles?obstacle=${obs.label}`}
+                href={`/lab/legs/articles?obstacle=${obs.label}`}
                 key={obs.label}
-                className="p-4 rounded-xl border border-zinc-900 bg-zinc-950 text-left flex flex-col justify-between hover:border-red-500 hover:bg-red-950/20 hover:shadow-xl hover:shadow-red-500/10 text-zinc-300 transition-all duration-300 group cursor-pointer block"
+                className="p-4 rounded-xl border border-zinc-900 bg-zinc-950 text-left flex flex-col justify-between hover:border-amber-500 hover:bg-amber-950/20 hover:shadow-xl hover:shadow-amber-500/10 text-zinc-300 transition-all duration-300 group cursor-pointer block"
               >
                 <div className="space-y-2">
-                  <span className="text-[8px] font-extrabold font-mono tracking-widest uppercase block text-zinc-550 group-hover:text-red-400">
+                  <span className="text-[8px] font-extrabold font-mono tracking-widest uppercase block text-zinc-550 group-hover:text-amber-500">
                     OBSTACLE
                   </span>
                   <h3 className="text-xs md:text-sm font-bold leading-tight group-hover:text-white">
@@ -394,14 +376,14 @@ export default function ChestLab() {
       <section className="py-20 bg-zinc-950/20 border-b border-zinc-900">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center space-y-3 mb-12">
-            <span className="text-[10px] font-extrabold text-red-400 tracking-wider uppercase block">
+            <span className="text-[10px] font-extrabold text-amber-500 tracking-wider uppercase block">
               ADVANCED LECTURE
             </span>
             <h2 className="text-2xl md:text-3xl font-black text-white tracking-tight">
               応用・探究
             </h2>
             <p className="text-xs text-zinc-450 max-w-xl mx-auto leading-relaxed font-light">
-              バイオメカニクスや生理学の視点から、胸トレのより深い知識を探求します。
+              バイオメカニクスや生理学の視点から、脚トレのより深い知識を探求します。
             </p>
           </div>
 
@@ -409,8 +391,8 @@ export default function ChestLab() {
             {columnArticles.map((art) => (
               <Link
                 key={art.id}
-                href={`/lab/chest/${art.slug}`}
-                className="w-[280px] md:w-[350px] shrink-0 bg-zinc-950 border border-zinc-900 hover:border-red-900/50 rounded-xl p-4 transition-all duration-300 flex flex-col justify-between group shadow-lg hover:shadow-xl hover:bg-zinc-900/10 cursor-pointer"
+                href={`/lab/legs/${art.slug}`}
+                className="w-[280px] md:w-[350px] shrink-0 bg-zinc-950 border border-zinc-900 hover:border-amber-900/50 rounded-xl p-4 transition-all duration-300 flex flex-col justify-between group shadow-lg hover:shadow-xl hover:bg-zinc-900/10 cursor-pointer"
               >
                 <div className="space-y-4">
                   <div className="relative aspect-[16/10] w-full rounded-lg overflow-hidden bg-zinc-900">
@@ -427,10 +409,10 @@ export default function ChestLab() {
 
                   <div className="space-y-2">
                     <div className="flex items-center justify-between text-[9px] font-mono text-zinc-500">
-                      <span className="uppercase tracking-widest text-red-450 font-semibold">{art.category}</span>
+                      <span className="uppercase tracking-widest text-amber-500 font-semibold">{art.category}</span>
                       <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> {art.readTime}</span>
                     </div>
-                    <h3 className="text-sm md:text-base font-bold text-white group-hover:text-red-400 transition-colors leading-snug">
+                    <h3 className="text-sm md:text-base font-bold text-white group-hover:text-amber-500 transition-colors leading-snug">
                       {art.title}
                     </h3>
                     <p className="text-xs text-zinc-400 leading-relaxed font-light line-clamp-3">
@@ -441,7 +423,7 @@ export default function ChestLab() {
 
                 <div className="mt-6 pt-3 border-t border-zinc-900 flex items-center justify-between text-[10px] font-mono text-zinc-500">
                   <span className="bg-zinc-900 text-zinc-400 border border-zinc-850 px-2.5 py-0.5 rounded text-[8px] uppercase tracking-wider font-semibold">LEVEL: {art.level}</span>
-                  <span className="text-zinc-400 group-hover:text-red-400 group-hover:translate-x-1 transition-all flex items-center gap-1 font-bold">
+                  <span className="text-zinc-400 group-hover:text-amber-500 group-hover:translate-x-1 transition-all flex items-center gap-1 font-bold">
                     探究する <ArrowRight className="w-3.5 h-3.5" />
                   </span>
                 </div>
@@ -455,14 +437,14 @@ export default function ChestLab() {
       <section className="py-20 bg-black border-b border-zinc-900">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center space-y-3 mb-16">
-            <span className="text-[10px] font-extrabold text-red-400 tracking-wider uppercase bg-red-950/40 border border-red-900/40 px-3 py-1 rounded-full">
+            <span className="text-[10px] font-extrabold text-amber-500 tracking-wider uppercase bg-amber-950/40 border border-amber-900/40 px-3 py-1 rounded-full">
               ACADEMIC DATABASE
             </span>
             <h2 className="text-2xl md:text-3xl font-black text-white tracking-tight">
               研究データ
             </h2>
             <p className="text-xs text-zinc-450 max-w-xl mx-auto leading-relaxed font-light">
-              胸トレに関する重要エビデンスを要約。
+              脚トレに関する重要エビデンスを要約。
             </p>
           </div>
 
@@ -482,12 +464,12 @@ export default function ChestLab() {
                         {paper.journal} ({paper.year})
                       </h4>
                     </div>
-                    <span className="text-[8px] font-bold text-red-400 bg-red-950/50 border border-red-900/50 px-2.5 py-0.5 rounded-full uppercase tracking-wider font-mono">
+                    <span className="text-[8px] font-bold text-amber-500 bg-amber-950/50 border border-amber-900/50 px-2.5 py-0.5 rounded-full uppercase tracking-wider font-mono">
                       {paper.tag}
                     </span>
                   </div>
 
-                  <h3 className="text-sm md:text-base font-extrabold text-white leading-snug group-hover:text-red-400 transition-colors">
+                  <h3 className="text-sm md:text-base font-extrabold text-white leading-snug group-hover:text-amber-500 transition-colors">
                     {paper.title}
                   </h3>
 
@@ -503,7 +485,7 @@ export default function ChestLab() {
                     href={`https://doi.org/${paper.doi}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-1 text-zinc-450 hover:text-red-400 transition-colors font-bold"
+                    className="flex items-center gap-1 text-zinc-450 hover:text-amber-500 transition-colors font-bold"
                   >
                     論文ページへ飛ぶ <ExternalLink className="w-3 h-3" />
                   </a>
@@ -518,7 +500,7 @@ export default function ChestLab() {
       <section className="py-20 bg-zinc-950/20">
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center space-y-3 mb-12">
-            <span className="text-[10px] font-extrabold text-red-400 tracking-wider uppercase block">
+            <span className="text-[10px] font-extrabold text-amber-500 tracking-wider uppercase block">
               RESEARCH NETWORK
             </span>
             <h2 className="text-2xl font-black text-white tracking-tight">
@@ -529,7 +511,7 @@ export default function ChestLab() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
             {RELATED_LABS.map((lab) => (
               <Link
                 href={`/lab/${lab.slug}`}
@@ -549,15 +531,6 @@ export default function ChestLab() {
                 </p>
               </Link>
             ))}
-          </div>
-
-          <div className="mt-16 text-center">
-            <Link
-              href="/bodymake"
-              className="text-xs font-mono font-bold text-zinc-550 hover:text-red-400 transition-colors inline-flex items-center gap-1.5"
-            >
-              <ChevronRight className="w-3.5 h-3.5 rotate-180" /> BACK TO BODYMAKE MAIN
-            </Link>
           </div>
         </div>
       </section>

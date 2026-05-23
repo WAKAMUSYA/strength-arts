@@ -252,7 +252,7 @@ export default function BenchPressLab() {
 
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
-                      <span className="text-2xl font-black text-blue-900 group-hover:text-blue-700 transition-colors font-mono">
+                      <span className="text-2xl font-black text-blue-600/80 group-hover:text-blue-400 transition-colors font-mono">
                         0{st.roadmapNumber}
                       </span>
                       <span className="text-[8px] font-mono text-zinc-550 uppercase tracking-widest">
