@@ -1,4 +1,5 @@
 'use client'
+import Link from 'next/link'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -21,9 +22,11 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold text-white mb-4">探索</h4>
             <ul className="space-y-2 text-sm">
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">について</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">プログラム</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">リソース</a></li>
+              <li><Link href="/about" className="text-gray-400 hover:text-white transition-colors">ABOUT</Link></li>
+              <li><Link href="/athlete" className="text-gray-400 hover:text-white transition-colors">アスリート</Link></li>
+              <li><Link href="/bodymake" className="text-gray-400 hover:text-white transition-colors">ボディメイク</Link></li>
+              <li><Link href="/special" className="text-gray-400 hover:text-white transition-colors">スペシャル</Link></li>
+              <li><Link href="/lab" className="text-gray-400 hover:text-white transition-colors">研究所（ラボ）</Link></li>
             </ul>
           </div>
 

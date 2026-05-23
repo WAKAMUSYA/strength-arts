@@ -30,6 +30,7 @@ export default function Footer() {
               <ul className="space-y-3 text-sm font-light">
                 <li><Link href="/athlete" className="hover:text-gray-900 transition-colors">アスリート</Link></li>
                 <li><Link href="/bodymake" className="hover:text-gray-900 transition-colors">ボディメイク</Link></li>
+                <li><Link href="/special" className="hover:text-gray-900 transition-colors">スペシャル</Link></li>
                 <li><Link href="/free" className="hover:text-gray-900 transition-colors">まとめコンテンツ</Link></li>
               </ul>
             </div>

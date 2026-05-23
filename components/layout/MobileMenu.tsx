@@ -46,7 +46,8 @@ export default function MobileMenu({ isLoggedIn, signOutAction }: Props) {
             <Link href="/about" className="hover:text-zinc-950 transition-colors">about</Link>
             <Link href="/athlete" className="hover:text-amber-600 transition-colors">アスリート</Link>
             <Link href="/bodymake" className="hover:text-blue-600 transition-colors">ボディメイク</Link>
-            <Link href={isLoggedIn ? "/dashboard/academy" : "/academy"} className="hover:text-indigo-600 transition-colors">アカデミー</Link>
+            <Link href="/special" className="hover:text-indigo-600 transition-colors">スペシャル</Link>
+            <Link href={isLoggedIn ? "/dashboard/academy" : "/academy"} className="hover:text-fuchsia-600 transition-colors">アカデミー</Link>
             <Link href={isLoggedIn ? "/dashboard/lab" : "/lab"} className="hover:text-purple-600 transition-colors">ラボ</Link>
             <Link href="/free" className="hover:text-emerald-600 transition-colors">まとめコンテンツ</Link>
             
