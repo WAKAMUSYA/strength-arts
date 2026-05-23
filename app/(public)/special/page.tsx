@@ -11,17 +11,6 @@ import {
 } from 'lucide-react'
 import { SPECIAL_ARTICLES } from '@/data/specialArticles'
 
-interface ResearchPaper {
-  id: string
-  title: string
-  journal: string
-  year: number
-  doi: string
-  findings: string
-  citationCount: number
-  tag: string
-}
-
 const OBSTACLES = [
   { label: '力みが抜けない', desc: 'どうしても居着いてしまう' },
   { label: 'スピードが出ない', desc: '爆発力や発勁の感覚が掴めない' },
@@ -29,28 +18,6 @@ const OBSTACLES = [
   { label: '目的を見失った', desc: 'ただ重いものを挙げることに疑問がある' }
 ]
 
-const RESEARCH_PAPERS: ResearchPaper[] = [
-  {
-    id: 'res-sp-1',
-    title: '弾性エネルギー（伸張反射）とプレテンションの力学的相関',
-    journal: 'Journal of Sports Biomechanics',
-    year: 2018,
-    doi: '10.1080/14763141.2018.1503322',
-    findings: '完全な脱力状態よりも、深層筋にわずかなプレテンションをかけた状態からのSSC（ストレッチ・ショートニング・サイクル）の方が、力の立ち上がり率（RFD）が有意に向上する。',
-    citationCount: 245,
-    tag: '脱力と爆発力'
-  },
-  {
-    id: 'res-sp-2',
-    title: '横隔膜の下降が骨盤底筋群および体幹剛性に与える影響：武道呼吸の解剖学',
-    journal: 'International Journal of Martial Arts Science',
-    year: 2021,
-    doi: '10.1016/j.ijmas.2021.09.004',
-    findings: '武道で言われる「丹田への気おろし」は、横隔膜の最大収縮とそれに拮抗する腹壁・骨盤底筋群の同調収縮（IAPの最適化）と一致し、重心の下方シフトをもたらす。',
-    citationCount: 112,
-    tag: '丹田・IAP'
-  }
-]
 
 const RELATED_LABS = [
   { title: 'ベンチプレス研究所', label: 'Bench Press Hub', slug: 'benchpress', glowColor: 'hover:border-purple-500/40 hover:bg-purple-950/10' },
@@ -66,12 +33,6 @@ export default function SpecialLab() {
 
   const columnArticles = useMemo(() => {
     return SPECIAL_ARTICLES.filter(art => art.type === 'applied')
-  }, [])
-
-  const roadmapSteps = useMemo(() => {
-    return SPECIAL_ARTICLES
-      .filter(art => typeof art.roadmapNumber === 'number')
-      .sort((a, b) => (a.roadmapNumber || 0) - (b.roadmapNumber || 0))
   }, [])
 
   const programArticles = useMemo(() => {

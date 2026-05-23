@@ -20,7 +20,7 @@ export interface Article {
   desc: string
   image: string
   tags: string[]
-  level: '初級' | '中級' | '上級'
+  level: '初級' | '中級' | '上級' | '全レベル対象'
   obstacleTag?: string
   roadmapNumber?: number
   overview: string
