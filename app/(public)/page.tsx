@@ -76,6 +76,27 @@ export default function Home() {
             </Link>
 
           </div>
+
+          {/* Special Card */}
+          <Link
+            href="/special"
+            className="group block relative h-[250px] md:h-[300px] mt-8 md:mt-12 bg-black overflow-hidden transition-transform duration-700 hover:-translate-y-2 border border-zinc-900 hover:border-blue-900/60"
+          >
+            {/* Dark Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-black/80 z-10" />
+            {/* Background Image */}
+            <div className="absolute inset-0 bg-[url('/special.jpg')] bg-cover bg-center opacity-60 scale-105 group-hover:scale-100 transition-transform duration-1000 ease-out grayscale group-hover:grayscale-0" />
+
+            <div className="relative z-20 h-full p-10 flex flex-col justify-center">
+              <h2 className="text-3xl md:text-4xl font-bold tracking-widest mb-4 uppercase text-white group-hover:text-blue-100 transition-colors duration-500">Special</h2>
+              <p className="text-zinc-400 text-sm md:text-base leading-loose mb-6 font-light">
+                武道・哲学・身体操作。
+              </p>
+              <div className="flex items-center text-xs font-semibold tracking-[0.2em] text-zinc-600 group-hover:text-blue-400 transition-colors duration-300">
+                READ MORE <span className="ml-3 group-hover:translate-x-2 transition-transform duration-300">→</span>
+              </div>
+            </div>
+          </Link>
         </div>
       </section>
 

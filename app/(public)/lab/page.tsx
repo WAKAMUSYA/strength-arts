@@ -70,33 +70,39 @@ export default function LabPage() {
               </div>
             </Link>
 
-            {/* Upcoming Hub: Squat Lab (Coming Soon) */}
-            <div className="bg-white border border-dashed border-zinc-200 rounded-2xl p-6 md:p-8 flex flex-col justify-between relative overflow-hidden opacity-75">
+            {/* Active Hub: Squat Lab */}
+            <Link 
+              href="/lab/squat"
+              className="bg-white border border-zinc-200/80 rounded-2xl p-6 md:p-8 hover:border-red-500 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
+            >
+              {/* Subtle background decoration */}
+              <div className="absolute top-0 right-0 w-24 h-24 bg-red-50/50 rounded-bl-full -z-10 group-hover:scale-125 transition-transform" />
+
               <div className="space-y-6">
                 <div className="flex items-center justify-between">
-                  <span className="inline-flex items-center gap-1 text-[9px] font-extrabold text-zinc-500 bg-zinc-50 border border-zinc-150 px-2.5 py-0.5 rounded-full uppercase tracking-wider">
-                    <Layers className="w-3 h-3" /> UNDER CONSTRUCTION
+                  <span className="inline-flex items-center gap-1 text-[9px] font-extrabold text-red-600 bg-red-50 border border-red-100 px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                    <Activity className="w-3 h-3" /> ACTIVE FACILITY
                   </span>
                   <span className="text-[10px] text-zinc-400 font-mono">SQ-LAB</span>
                 </div>
 
                 <div className="space-y-2">
-                  <h3 className="text-xl md:text-2xl font-black text-zinc-900 leading-tight">
+                  <h3 className="text-xl md:text-2xl font-black text-zinc-900 group-hover:text-red-600 transition-colors leading-tight">
                     スクワット研究所
                   </h3>
-                  <p className="text-xs md:text-sm text-zinc-500 leading-relaxed font-light">
+                  <p className="text-xs md:text-sm text-zinc-550 leading-relaxed font-light">
                     骨格アライメントの崩れ、バットウィンクの力学要因、足首可動性と膝関節の連動、トリプルエクステンションのエネルギー伝達理論。下半身を極める学術ハブ。
                   </p>
                 </div>
               </div>
 
               <div className="mt-8 pt-4 border-t border-zinc-50 flex items-center justify-between text-xs text-zinc-450 font-mono">
-                <span className="flex items-center gap-1.5"><Sparkles className="w-4 h-4 text-zinc-400" /> Coming in Q3 2026</span>
-                <span className="text-zinc-400 flex items-center gap-1 font-bold">
-                  準備中
+                <span className="flex items-center gap-1.5"><Dumbbell className="w-4 h-4 text-red-500" /> 10+ Core Lessons Ready</span>
+                <span className="text-red-600 group-hover:translate-x-1.5 transition-all flex items-center gap-1 font-bold">
+                  研究所に入る <ArrowRight className="w-3.5 h-3.5" />
                 </span>
               </div>
-            </div>
+            </Link>
 
           </div>
         </div>
