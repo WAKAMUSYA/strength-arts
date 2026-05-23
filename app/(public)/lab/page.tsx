@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import { FlaskConical, Dumbbell, ArrowRight, Activity, Layers, ShieldAlert, Sparkles } from 'lucide-react'
+import { FlaskConical, Dumbbell, ArrowRight, Activity, ShieldAlert, Sparkles } from 'lucide-react'
 
 export default function LabPage() {
   return (
