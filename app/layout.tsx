@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description: '科学、研究、身体トレーニング、感覚認識、そして哲学。複数の視点から「強さ」を探求し、発展させるプラットフォーム。',
   applicationName: 'STRENGTH ARTS',
   appleWebApp: {
-    capable: true,
+    capable: false,
     title: 'STRENGTH ARTS',
     statusBarStyle: 'default',
   },

@@ -6,7 +6,7 @@ export default function manifest(): MetadataRoute.Manifest {
     short_name: 'STRENGTH ARTS',
     description: '科学、研究、身体トレーニング、感覚認識、そして哲学。複数の視点から「強さ」を探求する。',
     start_url: '/',
-    display: 'standalone',
+    display: 'browser',
     background_color: '#000000',
     theme_color: '#000000',
     icons: [
