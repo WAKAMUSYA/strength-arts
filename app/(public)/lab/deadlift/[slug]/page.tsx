@@ -2,7 +2,7 @@
 
 import React from 'react'
 import Link from 'next/link'
-import { useParams, notFound, useRouter } from 'next/navigation'
+import { useParams, notFound } from 'next/navigation'
 import {
   ArrowLeft,
   Clock,
@@ -19,7 +19,6 @@ import { DEADLIFT_ARTICLES } from '@/data/deadliftArticles'
 
 export default function DeadliftArticleDetail() {
   const params = useParams()
-  const router = useRouter()
   const slug = params.slug as string
 
   const articleIndex = DEADLIFT_ARTICLES.findIndex(art => art.slug === slug)
