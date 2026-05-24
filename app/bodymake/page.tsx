@@ -24,7 +24,7 @@ const regions = [
 const exercises = [
   { id: 'benchpress', title: 'ベンチプレス', href: '/lab/benchpress', isLab: true },
   { id: 'squat', title: 'スクワット', href: '/lab/squat', isLab: true },
-  { id: 'deadlift', title: 'デッドリフト', isLab: false },
+  { id: 'deadlift', title: 'デッドリフト', href: '/lab/deadlift', isLab: true },
   { id: 'sideraise', title: 'サイドレイズ', isLab: false },
 ]
 

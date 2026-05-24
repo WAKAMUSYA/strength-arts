@@ -103,6 +103,40 @@ export default function LabPage() {
                 </span>
               </div>
             </Link>
+            
+            {/* Active Hub: Deadlift Lab */}
+            <Link 
+              href="/lab/deadlift"
+              className="bg-white border border-zinc-200/80 rounded-2xl p-6 md:p-8 hover:border-emerald-500 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
+            >
+              {/* Subtle background decoration */}
+              <div className="absolute top-0 right-0 w-24 h-24 bg-emerald-50/50 rounded-bl-full -z-10 group-hover:scale-125 transition-transform" />
+
+              <div className="space-y-6">
+                <div className="flex items-center justify-between">
+                  <span className="inline-flex items-center gap-1 text-[9px] font-extrabold text-emerald-600 bg-emerald-50 border border-emerald-100 px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                    <Activity className="w-3 h-3" /> ACTIVE FACILITY
+                  </span>
+                  <span className="text-[10px] text-zinc-400 font-mono">DL-LAB</span>
+                </div>
+
+                <div className="space-y-2">
+                  <h3 className="text-xl md:text-2xl font-black text-zinc-900 group-hover:text-emerald-600 transition-colors leading-tight">
+                    デッドリフト研究所
+                  </h3>
+                  <p className="text-xs md:text-sm text-zinc-550 leading-relaxed font-light">
+                    全身の筋力を統合する「キング・オブ・エクササイズ」の力学解剖。ヒップヒンジの習得、広背筋の動員、グリップ戦略まで、床から重量を引き剥がす全てのメカニズムを探求します。
+                  </p>
+                </div>
+              </div>
+
+              <div className="mt-8 pt-4 border-t border-zinc-50 flex items-center justify-between text-xs text-zinc-450 font-mono">
+                <span className="flex items-center gap-1.5"><Dumbbell className="w-4 h-4 text-emerald-500" /> 20 Core Lessons Ready</span>
+                <span className="text-emerald-600 group-hover:translate-x-1.5 transition-all flex items-center gap-1 font-bold">
+                  研究所に入る <ArrowRight className="w-3.5 h-3.5" />
+                </span>
+              </div>
+            </Link>
 
           </div>
         </div>
