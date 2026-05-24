@@ -28,7 +28,7 @@ function ArticlesContent() {
   const initialTab = searchParams.get('tab') === 'applied' ? 'applied' : 'basic'
   const initialObstacle = searchParams.get('obstacle') || null
   
-  const [activeTab, setActiveTab] = useState<'basic' | 'applied'>(initialTab)
+  const [activeTab, setActiveTab] = useState<'basic' | 'applied' | 'program'>(initialTab)
   const [selectedObstacle, setSelectedObstacle] = useState<string | null>(initialObstacle)
 
   // URLパラメータの変更があった場合に状態を同期
