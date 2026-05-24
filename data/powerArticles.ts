@@ -24,6 +24,7 @@ export interface Article {
   roadmapNumber?: number
   overview: string
   conclusion?: string
+  obstacleTag?: string
   sections: Section[]
 }
 

@@ -52,24 +52,36 @@ function ArticlesContent() {
       setSelectedObstacle(obsParam)
       setActiveTab('basic') // 悩みは基本理論に属するため
       
-      // Some obstacles might point to applied or program, auto-adjust if no basic matches
-      const hasBasicMatch = POWER_ARTICLES.some(art => art.type === 'basic' && art.obstacleTag === obsParam)
-      const hasAppliedMatch = POWER_ARTICLES.some(art => art.type === 'applied' && art.obstacleTag === obsParam)
-      const hasProgramMatch = POWER_ARTICLES.some(art => art.type === 'program' && art.obstacleTag === obsParam)
+      // Map obstacles to article IDs
+      const OBSTACLE_MAP: Record<string, string> = {
+        'バーが肩まで上がらない': 'pw-p2',
+        '腕が先に曲がる': 'pw-8',
+        'キャッチで鎖骨が痛い': 'pw-3',
+        'パワー（速度）が出ない': 'pw-a1'
+      };
       
-      if (!hasBasicMatch) {
-        if (hasAppliedMatch) setActiveTab('applied')
-        else if (hasProgramMatch) setActiveTab('program')
+      const targetId = OBSTACLE_MAP[obsParam];
+      const targetArt = targetId ? POWER_ARTICLES.find(a => a.id === targetId) : null;
+      
+      if (targetArt) {
+        if (targetArt.type === 'applied') setActiveTab('applied')
+        else if (targetArt.type === 'program') setActiveTab('program')
       }
     }
   }, [searchParams])
 
   const filteredArticles = POWER_ARTICLES.filter(art => {
     if (art.type !== activeTab) return false;
-    // Since we didn't define obstacleTag in POWER_ARTICLES, we just mock filtering for now 
-    // or skip if obstacleTag doesn't exist. Actually, let's just show all for the selected tab 
-    // unless obstacleTag is strictly used.
-    // If you want actual filtering, the data objects need `obstacleTag: '腕が先に曲がる'` etc.
+    
+    if (selectedObstacle) {
+      const OBSTACLE_MAP: Record<string, string> = {
+        'バーが肩まで上がらない': 'pw-p2',
+        '腕が先に曲がる': 'pw-8',
+        'キャッチで鎖骨が痛い': 'pw-3',
+        'パワー（速度）が出ない': 'pw-a1'
+      };
+      if (OBSTACLE_MAP[selectedObstacle] !== art.id) return false;
+    }
     return true; 
   })
 
