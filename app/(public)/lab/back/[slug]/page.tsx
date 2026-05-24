@@ -1,8 +1,8 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import Link from 'next/link'
-import { useParams, notFound, useRouter } from 'next/navigation'
+import { useParams, notFound } from 'next/navigation'
 import { 
   ArrowLeft, 
   Clock, 
@@ -18,8 +18,11 @@ import {
 import { BACK_ARTICLES } from '@/data/backArticles'
 
 export default function BackArticleDetail() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const params = useParams()
-  const router = useRouter()
   const slug = params.slug as string
   
   const articleIndex = BACK_ARTICLES.findIndex(art => art.slug === slug)
@@ -39,12 +42,12 @@ export default function BackArticleDetail() {
       {/* 🚀 TOP NAVIGATION BAR */}
       <nav className="border-b border-zinc-900 bg-zinc-950/80 backdrop-blur-md sticky top-16 z-40 px-6 py-4">
         <div className="max-w-4xl mx-auto flex items-center justify-between">
-          <button 
-            onClick={() => router.back()}
-            className="text-xs font-mono font-bold text-zinc-400 hover:text-emerald-400 transition-colors inline-flex items-center gap-1.5 cursor-pointer"
+          <Link
+            href="/lab/back"
+            className="text-xs font-mono font-bold text-zinc-400 hover:text-zinc-500 transition-colors inline-flex items-center gap-1.5 cursor-pointer"
           >
             <ArrowLeft className="w-4 h-4" /> BACK TO LAB
-          </button>
+          </Link>
 
           <div className="flex gap-4">
             <button className="text-zinc-500 hover:text-white transition-colors">
@@ -194,6 +197,15 @@ export default function BackArticleDetail() {
 
       {/* 🚀 BOTTOM NAVIGATION */}
       <div className="max-w-4xl mx-auto px-6 mt-16">
+        <div className="flex justify-center mb-12">
+          <Link 
+            href="/lab/back/articles" 
+            className="px-8 py-4 rounded-full bg-zinc-900 hover:bg-zinc-950/50 border border-zinc-800 hover:border-zinc-900 text-sm font-bold text-zinc-300 hover:text-zinc-400 transition-all flex items-center gap-2"
+          >
+            <ArrowLeft className="w-4 h-4" /> コラム一覧へ戻る
+          </Link>
+        </div>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           
           {prevArticle ? (

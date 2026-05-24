@@ -240,6 +240,10 @@ function ArticlesContent() {
 }
 
 export default function PowerArticlesPage() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <main className="min-h-screen bg-black text-white selection:bg-orange-900 selection:text-white pb-32">
       

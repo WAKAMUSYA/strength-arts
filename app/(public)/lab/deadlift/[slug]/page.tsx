@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import Link from 'next/link'
 import { useParams, notFound } from 'next/navigation'
 import {
@@ -18,6 +18,10 @@ import {
 import { DEADLIFT_ARTICLES } from '@/data/deadliftArticles'
 
 export default function DeadliftArticleDetail() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const params = useParams()
   const slug = params.slug as string
 

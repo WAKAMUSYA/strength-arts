@@ -217,6 +217,10 @@ function ArticlesContent() {
 }
 
 export default function ShoulderArticlesPage() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <main className="min-h-screen bg-black text-white selection:bg-purple-900 selection:text-white pb-32">
       

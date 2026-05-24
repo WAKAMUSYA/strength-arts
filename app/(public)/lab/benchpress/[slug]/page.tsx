@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
 import { 
@@ -20,6 +20,10 @@ import {
 import { BENCHPRESS_ARTICLES } from '@/data/benchpressArticles'
 
 export default function ArticleDetailPage() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const params = useParams()
   const slug = params?.slug as string
   
