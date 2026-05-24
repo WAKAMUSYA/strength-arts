@@ -46,7 +46,7 @@ export default function Home() {
               <div className="relative z-20 h-full p-10 flex flex-col justify-end">
                 <h2 className="text-3xl md:text-4xl font-bold tracking-widest mb-6 uppercase text-white group-hover:text-blue-100 transition-colors duration-500">Athlete</h2>
                 <p className="text-zinc-400 text-sm md:text-base leading-loose mb-10 font-light">
-                  競技理解・身体操作・戦術・パフォーマンス。
+                  競技理解・トレーニング・戦術・パフォーマンス。
                 </p>
                 <div className="flex items-center text-xs font-semibold tracking-[0.2em] text-zinc-600 group-hover:text-blue-400 transition-colors duration-300">
                   READ MORE <span className="ml-3 group-hover:translate-x-2 transition-transform duration-300">→</span>
@@ -67,7 +67,7 @@ export default function Home() {
               <div className="relative z-20 h-full p-10 flex flex-col justify-end">
                 <h2 className="text-3xl md:text-4xl font-bold tracking-widest mb-6 uppercase text-white group-hover:text-blue-100 transition-colors duration-500">Bodymake</h2>
                 <p className="text-zinc-400 text-sm md:text-base leading-loose mb-10 font-light">
-                  ダイエット・筋肥大・姿勢・痛み・継続。
+                  筋肥大・ダイエット・方法・継続。
                 </p>
                 <div className="flex items-center text-xs font-semibold tracking-[0.2em] text-zinc-600 group-hover:text-blue-400 transition-colors duration-300">
                   READ MORE <span className="ml-3 group-hover:translate-x-2 transition-transform duration-300">→</span>
@@ -137,7 +137,7 @@ export default function Home() {
               <div className="space-y-6 text-zinc-400 font-light leading-relaxed max-w-2xl mx-auto text-sm md:text-base">
                 <p>
                   10を超える専門領域に特化した、<br />
-                  強さと身体操作の探求ハブ。
+                  研究所一覧。
                 </p>
               </div>
               <div className="pt-4 flex justify-center items-center text-xs font-semibold tracking-[0.2em] text-zinc-500 group-hover:text-blue-400 transition-colors duration-300">
