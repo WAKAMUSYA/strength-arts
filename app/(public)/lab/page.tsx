@@ -131,8 +131,41 @@ export default function LabPage() {
               </div>
 
               <div className="mt-8 pt-4 border-t border-zinc-50 flex items-center justify-between text-xs text-zinc-450 font-mono">
-                <span className="flex items-center gap-1.5"><Dumbbell className="w-4 h-4 text-emerald-500" /> 20 Core Lessons Ready</span>
+                <span className="flex items-center gap-1.5"><Dumbbell className="w-4 h-4 text-emerald-500" /> 26 Core Lessons Ready</span>
                 <span className="text-emerald-600 group-hover:translate-x-1.5 transition-all flex items-center gap-1 font-bold">
+                  研究所に入る <ArrowRight className="w-3.5 h-3.5" />
+                </span>
+              </div>
+            </Link>
+
+            {/* Clean & Snatch Lab Card */}
+            <Link 
+              href="/lab/power"
+              className="group relative bg-white border border-zinc-150/70 hover:border-orange-500/30 rounded-2xl p-6 md:p-8 hover:shadow-xl hover:shadow-orange-500/5 transition-all duration-500 flex flex-col h-full overflow-hidden"
+            >
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-orange-500/5 to-rose-500/5 rounded-full blur-2xl -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-700" />
+              
+              <div className="space-y-6">
+                <div className="flex items-center justify-between">
+                  <span className="inline-flex items-center gap-1 text-[9px] font-extrabold text-orange-600 bg-orange-50 border border-orange-100 px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                    <Activity className="w-3 h-3" /> ACTIVE FACILITY
+                  </span>
+                  <span className="text-[10px] text-zinc-400 font-mono">PW-LAB</span>
+                </div>
+
+                <div className="space-y-2">
+                  <h3 className="text-xl md:text-2xl font-black text-zinc-900 group-hover:text-orange-600 transition-colors leading-tight">
+                    クリーン＆スナッチ研究所
+                  </h3>
+                  <p className="text-xs md:text-sm text-zinc-550 leading-relaxed font-light">
+                    競技パフォーマンスに直結する究極の瞬発力とボディコントロール。トリプルエクステンションの力学と、重力を超えるための五輪リフティングの叡智を体系化します。
+                  </p>
+                </div>
+              </div>
+
+              <div className="mt-8 pt-4 border-t border-zinc-50 flex items-center justify-between text-xs text-zinc-450 font-mono">
+                <span className="flex items-center gap-1.5"><Dumbbell className="w-4 h-4 text-orange-500" /> 14 Core Lessons Ready</span>
+                <span className="text-orange-600 group-hover:translate-x-1.5 transition-all flex items-center gap-1 font-bold">
                   研究所に入る <ArrowRight className="w-3.5 h-3.5" />
                 </span>
               </div>

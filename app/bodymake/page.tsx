@@ -25,7 +25,7 @@ const exercises = [
   { id: 'benchpress', title: 'ベンチプレス', href: '/lab/benchpress', isLab: true },
   { id: 'squat', title: 'スクワット', href: '/lab/squat', isLab: true },
   { id: 'deadlift', title: 'デッドリフト', href: '/lab/deadlift', isLab: true },
-  { id: 'sideraise', title: 'サイドレイズ', isLab: false },
+  { id: 'power', title: 'クリーン＆スナッチ', href: '/lab/power', isLab: true },
 ]
 
 const goals = [
