@@ -69,10 +69,10 @@ export default function ArticleDetailPage() {
       <div className="sticky top-16 z-30 bg-zinc-950/80 backdrop-blur-md border-b border-zinc-900 px-6 py-3.5 flex items-center justify-between text-xs text-zinc-500 font-mono">
         <div className="flex items-center gap-2 max-w-lg truncate">
           <Link 
-            href="/lab/power/articles" 
+            href="/lab/power" 
             className="hover:text-orange-400 transition-colors flex items-center gap-1 shrink-0 font-bold"
           >
-            <ArrowLeft className="w-3.5 h-3.5" /> コラム一覧へ戻る
+            <ArrowLeft className="w-3.5 h-3.5" /> BACK TO LAB
           </Link>
           <span className="text-zinc-700">/</span>
           <span className="truncate text-zinc-300 font-bold">{article.title}</span>
@@ -191,27 +191,31 @@ export default function ArticleDetailPage() {
         )}
 
         {/* Bottom Navigation */}
-        <div className="mt-20 pt-8 border-t border-zinc-900 flex flex-col sm:flex-row items-center justify-between gap-6">
-          <Link 
-            href="/lab/power/articles" 
-            className="text-xs font-mono font-bold text-zinc-500 hover:text-orange-400 transition-colors inline-flex items-center gap-1"
-          >
-            <ArrowLeft className="w-3.5 h-3.5" /> コラム一覧へ戻る
-          </Link>
-
-          {nextArticle && (
+        <div className="mt-20 pt-8 border-t border-zinc-900">
+          <div className="flex justify-center mb-12">
             <Link 
-              href={`/lab/power/${nextArticle.slug}`}
-              className="group p-4 rounded-xl border border-zinc-850 bg-zinc-900/20 hover:border-orange-900/60 hover:shadow-md transition-all duration-300 text-right flex flex-col items-end gap-1"
+              href="/lab/power/articles" 
+              className="px-8 py-4 rounded-full bg-zinc-900 hover:bg-orange-950/50 border border-zinc-800 hover:border-orange-900 text-sm font-bold text-zinc-300 hover:text-orange-400 transition-all flex items-center gap-2"
             >
-              <span className="text-[9px] font-mono text-zinc-500 uppercase tracking-widest flex items-center gap-1">
-                NEXT LECTURE <ChevronRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
-              </span>
-              <span className="text-xs font-bold text-zinc-300 group-hover:text-orange-400 transition-colors">
-                {nextArticle.title}
-              </span>
+              <ArrowLeft className="w-4 h-4" /> コラム一覧へ戻る
             </Link>
-          )}
+          </div>
+
+          <div className="flex flex-col sm:flex-row items-center justify-end gap-6">
+            {nextArticle && (
+              <Link 
+                href={`/lab/power/${nextArticle.slug}`}
+                className="group p-4 rounded-xl border border-zinc-850 bg-zinc-900/20 hover:border-orange-900/60 hover:shadow-md transition-all duration-300 text-right flex flex-col items-end gap-1 w-full sm:w-auto"
+              >
+                <span className="text-[9px] font-mono text-zinc-500 uppercase tracking-widest flex items-center gap-1">
+                  NEXT LECTURE <ChevronRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+                </span>
+                <span className="text-xs font-bold text-zinc-300 group-hover:text-orange-400 transition-colors">
+                  {nextArticle.title}
+                </span>
+              </Link>
+            )}
+          </div>
         </div>
 
       </div>

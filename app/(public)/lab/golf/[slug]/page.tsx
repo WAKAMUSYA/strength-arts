@@ -17,13 +17,14 @@ import {
   CheckCircle2,
   AlertTriangle
 } from 'lucide-react'
-import { BENCHPRESS_ARTICLES } from '@/data/benchpressArticles'
+import { GOLF_ARTICLES } from '@/data/golfArticles'
 
 export default function ArticleDetailPage() {
   const params = useParams()
   const slug = params?.slug as string
   
-  const article = BENCHPRESS_ARTICLES.find(art => art.slug === slug)
+  const articleIndex = GOLF_ARTICLES.findIndex(art => art.slug === slug)
+  const article = GOLF_ARTICLES[articleIndex]
 
   if (!article) {
     return (
@@ -36,14 +37,17 @@ export default function ArticleDetailPage() {
           指定されたコラム（ID: {slug}）は現在執筆中、または存在しないURLです。
         </p>
         <Link 
-          href="/lab/benchpress/articles" 
-          className="text-xs font-mono font-bold text-blue-400 hover:underline inline-flex items-center gap-1"
+          href="/lab/golf/articles" 
+          className="text-xs font-mono font-bold text-emerald-400 hover:underline inline-flex items-center gap-1"
         >
           <ArrowLeft className="w-3.5 h-3.5" /> コラム一覧へ戻る
         </Link>
       </div>
     )
   }
+
+  // Pre-calculate next article for navigation
+  const nextArticle = GOLF_ARTICLES[articleIndex + 1] || null
 
   // ノートのタイプごとに適切なアイコンを返すヘルパー
   const getNoteIcon = (type: 'warning' | 'info' | 'success') => {
@@ -54,19 +58,19 @@ export default function ArticleDetailPage() {
         return <CheckCircle2 className="w-5 h-5 shrink-0 mt-0.5 text-emerald-400" />
       case 'info':
       default:
-        return <Info className="w-5 h-5 shrink-0 mt-0.5 text-blue-400" />
+        return <Info className="w-5 h-5 shrink-0 mt-0.5 text-emerald-400" />
     }
   }
 
   return (
-    <main className="min-h-screen bg-zinc-950 text-zinc-200 font-sans antialiased selection:bg-blue-900/50 selection:text-blue-100 pb-32">
+    <main className="min-h-screen bg-zinc-950 text-zinc-200 font-sans antialiased selection:bg-emerald-900/50 selection:text-emerald-100 pb-32">
       
       {/* 🚀 STICKY READING PROGRESS SHEET HEADER */}
       <div className="sticky top-16 z-30 bg-zinc-950/80 backdrop-blur-md border-b border-zinc-900 px-6 py-3.5 flex items-center justify-between text-xs text-zinc-500 font-mono">
         <div className="flex items-center gap-2 max-w-lg truncate">
           <Link 
-            href="/lab/benchpress" 
-            className="hover:text-blue-400 transition-colors flex items-center gap-1 shrink-0 font-bold"
+            href="/lab/golf" 
+            className="hover:text-emerald-400 transition-colors flex items-center gap-1 shrink-0 font-bold"
           >
             <ArrowLeft className="w-3.5 h-3.5" /> BACK TO LAB
           </Link>
@@ -74,7 +78,7 @@ export default function ArticleDetailPage() {
           <span className="truncate text-zinc-300 font-bold">{article.title}</span>
         </div>
         <div className="hidden sm:flex items-center gap-4 shrink-0">
-          <span className="flex items-center gap-1 uppercase text-blue-400 font-bold"><Activity className="w-3.5 h-3.5" /> {article.category}</span>
+          <span className="flex items-center gap-1 uppercase text-emerald-400 font-bold"><Activity className="w-3.5 h-3.5" /> {article.category}</span>
           <span className="bg-zinc-900 text-zinc-400 px-2 py-0.5 rounded text-[10px] border border-zinc-800">LEVEL: {article.level}</span>
         </div>
       </div>
@@ -85,10 +89,10 @@ export default function ArticleDetailPage() {
         {/* Article Title Meta Header */}
         <div className="space-y-4 mb-10 pb-8 border-b border-zinc-900">
           <div className="flex items-center gap-2">
-            <span className="inline-flex items-center gap-1 text-[9px] font-extrabold text-blue-400 bg-blue-950/50 border border-blue-900/50 px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+            <span className="inline-flex items-center gap-1 text-[9px] font-extrabold text-emerald-400 bg-emerald-950/50 border border-emerald-900/50 px-2.5 py-0.5 rounded-full uppercase tracking-wider">
               <BookOpen className="w-3 h-3" /> SA SPECIAL LECTURE
             </span>
-            <span className="text-[10px] text-zinc-500 font-mono">CODE: BP-ART-{slug.toUpperCase()}</span>
+            <span className="text-[10px] text-zinc-500 font-mono">CODE: PW-ART-{slug.toUpperCase()}</span>
           </div>
 
           <h1 className="text-3xl md:text-5xl font-black text-white tracking-tight leading-tight">
@@ -107,8 +111,8 @@ export default function ArticleDetailPage() {
 
         {/* Overview Box / 要約 */}
         <div className="p-6 rounded-2xl bg-zinc-900/40 border border-zinc-900 shadow-sm mb-12 space-y-3">
-          <h3 className="text-xs font-mono font-extrabold text-blue-400 flex items-center gap-1.5 uppercase tracking-widest">
-            <Compass className="w-4 h-4 text-blue-400" /> 要約
+          <h3 className="text-xs font-mono font-extrabold text-emerald-400 flex items-center gap-1.5 uppercase tracking-widest">
+            <Compass className="w-4 h-4 text-emerald-400" /> 要約
           </h3>
           <p className="text-sm md:text-base text-zinc-300 leading-relaxed font-light whitespace-pre-line">
             {article.overview}
@@ -122,7 +126,7 @@ export default function ArticleDetailPage() {
               
               {/* Section Title */}
               <h2 className="text-xl md:text-2xl font-black text-white tracking-tight border-b border-zinc-900 pb-3 flex items-center gap-2">
-                <CornerDownRight className="w-5 h-5 text-blue-400 shrink-0" />
+                <CornerDownRight className="w-5 h-5 text-emerald-400 shrink-0" />
                 {sect.title}
               </h2>
 
@@ -142,7 +146,7 @@ export default function ArticleDetailPage() {
                     ? 'bg-amber-950/20 border-amber-900/30 text-amber-200' 
                     : sect.note.type === 'success'
                     ? 'bg-emerald-950/20 border-emerald-900/30 text-emerald-200'
-                    : 'bg-blue-950/20 border-blue-900/30 text-blue-200'
+                    : 'bg-emerald-950/20 border-emerald-900/30 text-emerald-200'
                 }`}>
                   {getNoteIcon(sect.note.type)}
                   <div className="space-y-1.5">
@@ -159,7 +163,7 @@ export default function ArticleDetailPage() {
                 <ul className="space-y-3.5 pl-1.5 my-6">
                   {sect.bullets.map((bullet, idx) => (
                     <li key={idx} className="flex items-start gap-3">
-                      <span className="w-5 h-5 rounded-full bg-blue-950/50 border border-blue-900/40 text-blue-400 text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">
+                      <span className="w-5 h-5 rounded-full bg-emerald-950/50 border border-emerald-900/40 text-emerald-400 text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">
                         ✓
                       </span>
                       <span className="text-zinc-300 text-sm md:text-[15px] leading-relaxed font-light">
@@ -174,39 +178,40 @@ export default function ArticleDetailPage() {
           ))}
         </div>
 
-        {/* Conclusion Summary Sheet / まとめ */}
-        <div className="mt-20 p-6 md:p-8 rounded-2xl bg-zinc-900/80 border border-zinc-800 text-zinc-100 shadow-xl space-y-4">
-          <div className="flex items-center gap-2 text-xs font-bold text-blue-400 font-mono">
-            <Bookmark className="w-4 h-4 text-blue-400" />
-            <span>まとめ</span>
+        {article.conclusion && (
+          <div className="mt-20 p-6 md:p-8 rounded-2xl bg-zinc-900/80 border border-zinc-800 text-zinc-100 shadow-xl space-y-4">
+            <div className="flex items-center gap-2 text-xs font-bold text-emerald-400 font-mono">
+              <Bookmark className="w-4 h-4 text-emerald-400" />
+              <span>まとめ</span>
+            </div>
+            <p className="text-xs md:text-sm text-zinc-300 leading-relaxed font-light whitespace-pre-line">
+              {article.conclusion}
+            </p>
           </div>
-          <p className="text-xs md:text-sm text-zinc-300 leading-relaxed font-light whitespace-pre-line">
-            {article.conclusion}
-          </p>
-        </div>
+        )}
 
         {/* Bottom Navigation */}
         <div className="mt-20 pt-8 border-t border-zinc-900">
           <div className="flex justify-center mb-12">
             <Link 
-              href="/lab/benchpress/articles" 
-              className="px-8 py-4 rounded-full bg-zinc-900 hover:bg-blue-950/50 border border-zinc-800 hover:border-blue-900 text-sm font-bold text-zinc-300 hover:text-blue-400 transition-all flex items-center gap-2"
+              href="/lab/golf/articles" 
+              className="px-8 py-4 rounded-full bg-zinc-900 hover:bg-emerald-950/50 border border-zinc-800 hover:border-emerald-900 text-sm font-bold text-zinc-300 hover:text-emerald-400 transition-all flex items-center gap-2"
             >
               <ArrowLeft className="w-4 h-4" /> コラム一覧へ戻る
             </Link>
           </div>
-
+          
           <div className="flex flex-col sm:flex-row items-center justify-end gap-6">
-            {article.nextArticle && (
+            {nextArticle && (
               <Link 
-                href={`/lab/benchpress/${article.nextArticle.slug}`}
-                className="group p-4 rounded-xl border border-zinc-850 bg-zinc-900/20 hover:border-blue-900/60 hover:shadow-md transition-all duration-300 text-right flex flex-col items-end gap-1 w-full sm:w-auto"
+                href={`/lab/golf/${nextArticle.slug}`}
+                className="group p-4 rounded-xl border border-zinc-850 bg-zinc-900/20 hover:border-emerald-900/60 hover:shadow-md transition-all duration-300 text-right flex flex-col items-end gap-1 w-full sm:w-auto"
               >
                 <span className="text-[9px] font-mono text-zinc-500 uppercase tracking-widest flex items-center gap-1">
                   NEXT LECTURE <ChevronRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
                 </span>
-                <span className="text-xs font-bold text-zinc-300 group-hover:text-blue-400 transition-colors">
-                  {article.nextArticle.title}
+                <span className="text-xs font-bold text-zinc-300 group-hover:text-emerald-400 transition-colors">
+                  {nextArticle.title}
                 </span>
               </Link>
             )}

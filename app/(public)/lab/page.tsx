@@ -18,6 +18,10 @@ const bodyLabs = [
   { id: 'abs', title: '腹筋研究所', desc: '体幹の屈曲と安定化、腹直筋・腹斜筋のコントラクション。', href: '/lab/abs' },
 ]
 
+const sportsLabs = [
+  { id: 'golf', title: 'ゴルフ研究所', desc: 'スイングの力学、床反力と回旋、飛距離アップのバイオメカニクス。', href: '/lab/golf' },
+]
+
 export default function LabPage() {
   return (
     <main className="min-h-screen bg-black text-white selection:bg-blue-900 selection:text-white pb-28">
@@ -90,6 +94,36 @@ export default function LabPage() {
                       {lab.title}
                     </h3>
                     <ArrowRight className="w-4 h-4 text-zinc-600 group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />
+                  </div>
+                  <p className="text-xs text-zinc-500 leading-relaxed font-light">
+                    {lab.desc}
+                  </p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/* --- Category C: アスリート・スポーツ系 --- */}
+        <div className="space-y-6">
+          <div className="flex items-center justify-between border-b border-zinc-900 pb-2.5">
+            <h2 className="text-sm font-bold tracking-wider text-zinc-300 uppercase">
+              アスリート・スポーツ特化
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {sportsLabs.map((lab) => (
+              <Link
+                key={lab.id}
+                href={lab.href}
+                className="group relative block bg-zinc-950 hover:bg-zinc-900/40 border border-zinc-900 hover:border-purple-900/50 rounded-xl p-5 transition-all duration-300 shadow-md"
+              >
+                <div className="space-y-3">
+                  <div className="flex justify-between items-center">
+                    <h3 className="text-base font-bold text-white group-hover:text-purple-400 transition-colors duration-300">
+                      {lab.title}
+                    </h3>
+                    <ArrowRight className="w-4 h-4 text-zinc-600 group-hover:text-purple-400 group-hover:translate-x-1 transition-all" />
                   </div>
                   <p className="text-xs text-zinc-500 leading-relaxed font-light">
                     {lab.desc}

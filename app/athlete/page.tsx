@@ -16,6 +16,7 @@ const sports = [
   { id: 'soccer', title: 'サッカー (Soccer)', href: '/athlete/sport/soccer' },
   { id: 'basketball', title: 'バスケット (Basketball)', href: '/athlete/sport/basketball' },
   { id: 'athletics', title: '陸上 (Track & Field)', href: '/athlete/sport/athletics' },
+  { id: 'golf', title: 'ゴルフ (Golf)', href: '/athlete/sport/golf' },
 ]
 
 const goals = [
@@ -63,23 +64,43 @@ export default function AthleteDirectoryPage() {
             競技別
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {sports.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => setActivePortal(item.title)}
-                className="group relative text-left w-full bg-zinc-950 hover:bg-zinc-900/30 border border-zinc-900 hover:border-zinc-800 rounded-lg p-5 transition-all duration-300 shadow-md flex items-center justify-between"
-              >
-                <span className="text-sm md:text-base font-bold text-zinc-300 group-hover:text-white transition-colors duration-300">
-                  {item.title}
-                </span>
-                <div className="flex items-center gap-2">
-                  <span className="text-[8px] font-mono text-zinc-600 bg-zinc-900 border border-zinc-850 px-2 py-0.5 rounded uppercase tracking-wider">
-                    Coming Soon
+            {sports.map((item) => {
+              if (item.id === 'golf') {
+                return (
+                  <Link
+                    key={item.id}
+                    href="/lab/golf"
+                    className="group relative text-left w-full bg-zinc-950 hover:bg-zinc-900/30 border border-zinc-900 hover:border-purple-900/50 rounded-lg p-5 transition-all duration-300 shadow-md flex items-center justify-between"
+                  >
+                    <span className="text-sm md:text-base font-bold text-zinc-300 group-hover:text-white transition-colors duration-300">
+                      {item.title}
+                    </span>
+                    <div className="flex items-center gap-2">
+                      <span className="text-[8px] font-mono text-purple-400 bg-purple-950/40 border border-purple-900/40 px-2 py-0.5 rounded uppercase tracking-wider">
+                        Open
+                      </span>
+                    </div>
+                  </Link>
+                );
+              }
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => setActivePortal(item.title)}
+                  className="group relative text-left w-full bg-zinc-950 hover:bg-zinc-900/30 border border-zinc-900 hover:border-zinc-800 rounded-lg p-5 transition-all duration-300 shadow-md flex items-center justify-between"
+                >
+                  <span className="text-sm md:text-base font-bold text-zinc-300 group-hover:text-white transition-colors duration-300">
+                    {item.title}
                   </span>
-                  <Lock className="w-3.5 h-3.5 text-zinc-700" />
-                </div>
-              </button>
-            ))}
+                  <div className="flex items-center gap-2">
+                    <span className="text-[8px] font-mono text-zinc-600 bg-zinc-900 border border-zinc-850 px-2 py-0.5 rounded uppercase tracking-wider">
+                      Coming Soon
+                    </span>
+                    <Lock className="w-3.5 h-3.5 text-zinc-700" />
+                  </div>
+                </button>
+              );
+            })}
           </div>
         </div>
 
