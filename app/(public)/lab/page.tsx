@@ -1,191 +1,117 @@
 import React from 'react'
 import Link from 'next/link'
-import { FlaskConical, Dumbbell, ArrowRight, Activity, ShieldAlert } from 'lucide-react'
+import { FlaskConical, ArrowRight } from 'lucide-react'
+
+const big3Labs = [
+  { id: 'benchpress', title: 'ベンチプレス研究所', desc: 'フォーム、力学的支点、肩関節インピンジメント予防、プログラミング。', href: '/lab/benchpress' },
+  { id: 'squat', title: 'スクワット研究所', desc: '骨格アライメントの崩れ、バットウィンク、トリプルエクステンションの力学。', href: '/lab/squat' },
+  { id: 'deadlift', title: 'デッドリフト研究所', desc: 'ヒップヒンジの習得、広背筋の動員、床から重量を引き剥がすメカニズム。', href: '/lab/deadlift' },
+  { id: 'power', title: 'クリーン＆スナッチ研究所', desc: '瞬発力とボディコントロール。五輪リフティングの叡智を体系化。', href: '/lab/power' },
+]
+
+const bodyLabs = [
+  { id: 'chest', title: '胸トレ研究所', desc: '大胸筋の解剖学的走行、最適なストレッチと収縮ポジション。', href: '/lab/chest' },
+  { id: 'back', title: '背中トレ研究所', desc: '広背筋・僧帽筋の機能解剖、肩甲骨の連動と軌道制御。', href: '/lab/back' },
+  { id: 'shoulder', title: '肩トレ研究所', desc: '三角筋前・中・後部の選択的肥大、肩関節の安定性強化。', href: '/lab/shoulder' },
+  { id: 'arms', title: '腕トレ研究所', desc: '上腕二頭筋・三頭筋のバイオメカニクス、モーメントアームの最大化。', href: '/lab/arms' },
+  { id: 'legs', title: '脚トレ研究所', desc: '大腿四頭筋・ハムストリングス・臀部の特異的肥大理論。', href: '/lab/legs' },
+  { id: 'abs', title: '腹筋研究所', desc: '体幹の屈曲と安定化、腹直筋・腹斜筋のコントラクション。', href: '/lab/abs' },
+]
 
 export default function LabPage() {
   return (
-    <div className="min-h-screen bg-slate-50/40 text-neutral-800 font-sans antialiased pb-32">
+    <main className="min-h-screen bg-black text-white selection:bg-blue-900 selection:text-white pb-28">
       
-      {/* Hero Banner */}
-      <section className="bg-white border-b border-zinc-150/80 pt-20 pb-16">
-        <div className="max-w-5xl mx-auto px-6">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-10 h-10 bg-blue-50 border border-blue-100 text-blue-600 rounded-xl flex items-center justify-center">
-              <FlaskConical className="w-5 h-5" />
-            </div>
-            <span className="text-[10px] font-extrabold text-blue-600 uppercase tracking-widest bg-blue-50/50 px-2.5 py-0.5 rounded-full">
-              SA Research Division
-            </span>
+      {/* 1. Ultra-Minimalist Hero Header */}
+      <section className="relative pt-28 pb-16 text-center bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-blue-950/20 via-black to-black">
+        <div className="max-w-3xl mx-auto px-6 space-y-4">
+          <div className="inline-flex items-center gap-2 text-[10px] font-mono tracking-widest text-blue-500 uppercase bg-blue-950/30 border border-blue-900/50 px-3 py-1 rounded-full">
+            <FlaskConical className="w-3.5 h-3.5" /> SA Research Division
           </div>
-          
-          <h1 className="text-3xl md:text-5xl font-black text-zinc-900 tracking-tight leading-tight">
-            LAB / <span className="text-blue-600">強さの研究所</span>
+          <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white">
+            研究所
           </h1>
-          <p className="mt-4 text-xs md:text-sm text-zinc-500 leading-relaxed font-light max-w-xl">
-            単なるトレーニング記事の集積地ではありません。解剖学、力学、スポーツ生理学の理論を結集し、身体の限界と可能性を徹底追求するSAのフラッグシップ研究所ネットワーク。
+          <p className="max-w-lg mx-auto text-xs md:text-sm text-zinc-400 leading-relaxed font-light tracking-widest">
+            各分野に特化した研究所一覧
           </p>
         </div>
       </section>
 
-      {/* Grid of Labs */}
-      <section className="max-w-5xl mx-auto px-6 mt-12">
+      {/* 2. Directory Lists */}
+      <section className="max-w-5xl mx-auto px-6 mt-12 space-y-16">
+
+        {/* --- Category A: BIG3 & リフティング --- */}
         <div className="space-y-6">
-          <div className="border-b border-zinc-100 pb-3">
-            <h2 className="text-lg font-black text-zinc-900 tracking-tight">稼働中の研究所</h2>
+          <div className="flex items-center justify-between border-b border-zinc-900 pb-2.5">
+            <h2 className="text-sm font-bold tracking-wider text-zinc-300 uppercase">
+              BIG3・リフティング系
+            </h2>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            
-            {/* Active Hub: Bench Press Lab */}
-            <Link 
-              href="/lab/benchpress"
-              className="bg-white border border-zinc-200/80 rounded-2xl p-6 md:p-8 hover:border-blue-500 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
-            >
-              {/* Subtle background decoration */}
-              <div className="absolute top-0 right-0 w-24 h-24 bg-blue-50/50 rounded-bl-full -z-10 group-hover:scale-125 transition-transform" />
-
-              <div className="space-y-6">
-                <div className="flex items-center justify-between">
-                  <span className="inline-flex items-center gap-1 text-[9px] font-extrabold text-blue-600 bg-blue-50 border border-blue-100 px-2.5 py-0.5 rounded-full uppercase tracking-wider">
-                    <Activity className="w-3 h-3" /> ACTIVE FACILITY
-                  </span>
-                  <span className="text-[10px] text-zinc-400 font-mono">BP-LAB</span>
-                </div>
-
-                <div className="space-y-2">
-                  <h3 className="text-xl md:text-2xl font-black text-zinc-900 group-hover:text-blue-600 transition-colors leading-tight">
-                    ベンチプレス研究所
-                  </h3>
-                  <p className="text-xs md:text-sm text-zinc-550 leading-relaxed font-light">
-                    フォーム、力学的支点、肩関節インピンジメント予防、筋肥大、そして最新の神経系活性プログラミングまで。ベンチプレスのすべてを学術的・体得的アプローチで解き明かします。
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {big3Labs.map((lab) => (
+              <Link
+                key={lab.id}
+                href={lab.href}
+                className="group relative block bg-zinc-950 hover:bg-zinc-900/40 border border-zinc-900 hover:border-zinc-700 rounded-xl p-5 transition-all duration-300 shadow-md"
+              >
+                <div className="space-y-3">
+                  <div className="flex justify-between items-center">
+                    <h3 className="text-base md:text-lg font-bold text-white group-hover:text-blue-400 transition-colors duration-300">
+                      {lab.title}
+                    </h3>
+                    <ArrowRight className="w-4 h-4 text-zinc-600 group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />
+                  </div>
+                  <p className="text-xs text-zinc-500 leading-relaxed font-light">
+                    {lab.desc}
                   </p>
                 </div>
-              </div>
-
-              <div className="mt-8 pt-4 border-t border-zinc-50 flex items-center justify-between text-xs text-zinc-450 font-mono">
-                <span className="flex items-center gap-1.5"><Dumbbell className="w-4 h-4 text-blue-500" /> 6 Core Lessons Ready</span>
-                <span className="text-blue-600 group-hover:translate-x-1.5 transition-all flex items-center gap-1 font-bold">
-                  研究所に入る <ArrowRight className="w-3.5 h-3.5" />
-                </span>
-              </div>
-            </Link>
-
-            {/* Active Hub: Squat Lab */}
-            <Link 
-              href="/lab/squat"
-              className="bg-white border border-zinc-200/80 rounded-2xl p-6 md:p-8 hover:border-red-500 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
-            >
-              {/* Subtle background decoration */}
-              <div className="absolute top-0 right-0 w-24 h-24 bg-red-50/50 rounded-bl-full -z-10 group-hover:scale-125 transition-transform" />
-
-              <div className="space-y-6">
-                <div className="flex items-center justify-between">
-                  <span className="inline-flex items-center gap-1 text-[9px] font-extrabold text-red-600 bg-red-50 border border-red-100 px-2.5 py-0.5 rounded-full uppercase tracking-wider">
-                    <Activity className="w-3 h-3" /> ACTIVE FACILITY
-                  </span>
-                  <span className="text-[10px] text-zinc-400 font-mono">SQ-LAB</span>
-                </div>
-
-                <div className="space-y-2">
-                  <h3 className="text-xl md:text-2xl font-black text-zinc-900 group-hover:text-red-600 transition-colors leading-tight">
-                    スクワット研究所
-                  </h3>
-                  <p className="text-xs md:text-sm text-zinc-550 leading-relaxed font-light">
-                    骨格アライメントの崩れ、バットウィンクの力学要因、足首可動性と膝関節の連動、トリプルエクステンションのエネルギー伝達理論。下半身を極める学術ハブ。
-                  </p>
-                </div>
-              </div>
-
-              <div className="mt-8 pt-4 border-t border-zinc-50 flex items-center justify-between text-xs text-zinc-450 font-mono">
-                <span className="flex items-center gap-1.5"><Dumbbell className="w-4 h-4 text-red-500" /> 10+ Core Lessons Ready</span>
-                <span className="text-red-600 group-hover:translate-x-1.5 transition-all flex items-center gap-1 font-bold">
-                  研究所に入る <ArrowRight className="w-3.5 h-3.5" />
-                </span>
-              </div>
-            </Link>
-            
-            {/* Active Hub: Deadlift Lab */}
-            <Link 
-              href="/lab/deadlift"
-              className="bg-white border border-zinc-200/80 rounded-2xl p-6 md:p-8 hover:border-emerald-500 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
-            >
-              {/* Subtle background decoration */}
-              <div className="absolute top-0 right-0 w-24 h-24 bg-emerald-50/50 rounded-bl-full -z-10 group-hover:scale-125 transition-transform" />
-
-              <div className="space-y-6">
-                <div className="flex items-center justify-between">
-                  <span className="inline-flex items-center gap-1 text-[9px] font-extrabold text-emerald-600 bg-emerald-50 border border-emerald-100 px-2.5 py-0.5 rounded-full uppercase tracking-wider">
-                    <Activity className="w-3 h-3" /> ACTIVE FACILITY
-                  </span>
-                  <span className="text-[10px] text-zinc-400 font-mono">DL-LAB</span>
-                </div>
-
-                <div className="space-y-2">
-                  <h3 className="text-xl md:text-2xl font-black text-zinc-900 group-hover:text-emerald-600 transition-colors leading-tight">
-                    デッドリフト研究所
-                  </h3>
-                  <p className="text-xs md:text-sm text-zinc-550 leading-relaxed font-light">
-                    全身の筋力を統合する「キング・オブ・エクササイズ」の力学解剖。ヒップヒンジの習得、広背筋の動員、グリップ戦略まで、床から重量を引き剥がす全てのメカニズムを探求します。
-                  </p>
-                </div>
-              </div>
-
-              <div className="mt-8 pt-4 border-t border-zinc-50 flex items-center justify-between text-xs text-zinc-450 font-mono">
-                <span className="flex items-center gap-1.5"><Dumbbell className="w-4 h-4 text-emerald-500" /> 26 Core Lessons Ready</span>
-                <span className="text-emerald-600 group-hover:translate-x-1.5 transition-all flex items-center gap-1 font-bold">
-                  研究所に入る <ArrowRight className="w-3.5 h-3.5" />
-                </span>
-              </div>
-            </Link>
-
-            {/* Clean & Snatch Lab Card */}
-            <Link 
-              href="/lab/power"
-              className="group relative bg-white border border-zinc-150/70 hover:border-orange-500/30 rounded-2xl p-6 md:p-8 hover:shadow-xl hover:shadow-orange-500/5 transition-all duration-500 flex flex-col h-full overflow-hidden"
-            >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-orange-500/5 to-rose-500/5 rounded-full blur-2xl -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-700" />
-              
-              <div className="space-y-6">
-                <div className="flex items-center justify-between">
-                  <span className="inline-flex items-center gap-1 text-[9px] font-extrabold text-orange-600 bg-orange-50 border border-orange-100 px-2.5 py-0.5 rounded-full uppercase tracking-wider">
-                    <Activity className="w-3 h-3" /> ACTIVE FACILITY
-                  </span>
-                  <span className="text-[10px] text-zinc-400 font-mono">PW-LAB</span>
-                </div>
-
-                <div className="space-y-2">
-                  <h3 className="text-xl md:text-2xl font-black text-zinc-900 group-hover:text-orange-600 transition-colors leading-tight">
-                    クリーン＆スナッチ研究所
-                  </h3>
-                  <p className="text-xs md:text-sm text-zinc-550 leading-relaxed font-light">
-                    競技パフォーマンスに直結する究極の瞬発力とボディコントロール。トリプルエクステンションの力学と、重力を超えるための五輪リフティングの叡智を体系化します。
-                  </p>
-                </div>
-              </div>
-
-              <div className="mt-8 pt-4 border-t border-zinc-50 flex items-center justify-between text-xs text-zinc-450 font-mono">
-                <span className="flex items-center gap-1.5"><Dumbbell className="w-4 h-4 text-orange-500" /> 14 Core Lessons Ready</span>
-                <span className="text-orange-600 group-hover:translate-x-1.5 transition-all flex items-center gap-1 font-bold">
-                  研究所に入る <ArrowRight className="w-3.5 h-3.5" />
-                </span>
-              </div>
-            </Link>
-
+              </Link>
+            ))}
           </div>
         </div>
 
-        {/* Philosophy Callout */}
-        <div className="mt-16 p-6 md:p-8 rounded-2xl bg-white border border-zinc-150/70 shadow-sm space-y-4">
-          <div className="flex items-center gap-2 text-xs font-bold text-zinc-700">
-            <ShieldAlert className="w-4 h-4 text-blue-500" />
-            <span>SA研究所ポリシー：本質とエビデンスの融合</span>
+        {/* --- Category B: 部位別 --- */}
+        <div className="space-y-6">
+          <div className="flex items-center justify-between border-b border-zinc-900 pb-2.5">
+            <h2 className="text-sm font-bold tracking-wider text-zinc-300 uppercase">
+              部位別ボディメイク
+            </h2>
           </div>
-          <p className="text-xs md:text-sm text-zinc-500 leading-relaxed font-light">
-            SAにおける「研究所」は、単にインフルエンサーの感覚的なアドバイスを掲載する場所ではありません。すべての推奨フォームやプログラミングには、解剖学的なアライメントの裏付け、または査読付き学術論文の客観的データが存在します。主観的体得（Art）と客観的検証（Science）の幸福な融合が、私たちの探究テーマです。
-          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {bodyLabs.map((lab) => (
+              <Link
+                key={lab.id}
+                href={lab.href}
+                className="group relative block bg-zinc-950 hover:bg-zinc-900/40 border border-zinc-900 hover:border-zinc-700 rounded-xl p-5 transition-all duration-300 shadow-md"
+              >
+                <div className="space-y-3">
+                  <div className="flex justify-between items-center">
+                    <h3 className="text-base font-bold text-white group-hover:text-blue-400 transition-colors duration-300">
+                      {lab.title}
+                    </h3>
+                    <ArrowRight className="w-4 h-4 text-zinc-600 group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />
+                  </div>
+                  <p className="text-xs text-zinc-500 leading-relaxed font-light">
+                    {lab.desc}
+                  </p>
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
+
       </section>
 
-    </div>
+      {/* 3. Bottom Return Button */}
+      <section className="max-w-5xl mx-auto px-6 mt-20 text-center">
+        <Link 
+          href="/" 
+          className="inline-flex items-center justify-center text-xs text-zinc-500 hover:text-zinc-350 transition-colors font-medium border-b border-zinc-900 hover:border-zinc-800 pb-1"
+        >
+          トップページへ戻る
+        </Link>
+      </section>
+
+    </main>
   )
 }

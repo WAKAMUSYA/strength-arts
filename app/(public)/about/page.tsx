@@ -129,19 +129,19 @@ export default function AboutPage() {
               <p className="text-zinc-500 text-sm mt-3 tracking-wider">ボディメイク</p>
             </Link>
 
-            <Link href="/academy" className="group block p-8 border border-zinc-800 bg-zinc-900/50 hover:bg-zinc-900 hover:border-blue-900/60 transition-all duration-500 hover:-translate-y-1 text-center">
-              <h3 className="text-xl md:text-2xl font-bold tracking-widest text-white group-hover:text-blue-100 transition-colors uppercase">Academy</h3>
-              <p className="text-zinc-500 text-sm mt-3 tracking-wider">アカデミー</p>
+            <Link href="/special" className="group block p-8 border border-zinc-800 bg-zinc-900/50 hover:bg-zinc-900 hover:border-blue-900/60 transition-all duration-500 hover:-translate-y-1 text-center">
+              <h3 className="text-xl md:text-2xl font-bold tracking-widest text-white group-hover:text-blue-100 transition-colors uppercase">Special</h3>
+              <p className="text-zinc-500 text-sm mt-3 tracking-wider">スペシャル</p>
             </Link>
 
-            <Link href="https://tamuranaoki-lab.com" target="_blank" rel="noopener noreferrer" className="group block p-8 border border-zinc-800 bg-zinc-900/50 hover:bg-zinc-900 hover:border-blue-900/60 transition-all duration-500 hover:-translate-y-1 text-center">
-              <h3 className="text-xl md:text-2xl font-bold tracking-widest text-white group-hover:text-blue-100 transition-colors uppercase">LAB</h3>
-              <p className="text-zinc-500 text-sm mt-3 tracking-wider">個人の研究・ブログ</p>
+            <Link href="/lab" className="group block p-8 border border-zinc-800 bg-zinc-900/50 hover:bg-zinc-900 hover:border-blue-900/60 transition-all duration-500 hover:-translate-y-1 text-center">
+              <h3 className="text-xl md:text-2xl font-bold tracking-widest text-white group-hover:text-blue-100 transition-colors uppercase">Lab</h3>
+              <p className="text-zinc-500 text-sm mt-3 tracking-wider">研究所一覧</p>
             </Link>
 
-            <Link href="/free" className="group block p-8 border border-zinc-800 bg-zinc-900/50 hover:bg-zinc-900 hover:border-blue-900/60 transition-all duration-500 hover:-translate-y-1 text-center sm:col-span-2 lg:col-span-2">
-              <h3 className="text-xl md:text-2xl font-bold tracking-widest text-white group-hover:text-blue-100 transition-colors uppercase">Contents</h3>
-              <p className="text-zinc-500 text-sm mt-3 tracking-wider">まとめコンテンツ</p>
+            <Link href="/project" className="group block p-8 border border-zinc-800 bg-zinc-900/50 hover:bg-zinc-900 hover:border-blue-900/60 transition-all duration-500 hover:-translate-y-1 text-center sm:col-span-2 lg:col-span-2">
+              <h3 className="text-xl md:text-2xl font-bold tracking-widest text-white group-hover:text-blue-100 transition-colors uppercase">Projects</h3>
+              <p className="text-zinc-500 text-sm mt-3 tracking-wider">プロジェクト・アーカイブ</p>
             </Link>
           </div>
         </div>

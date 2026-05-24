@@ -92,7 +92,7 @@ export default function SquatLab() {
   return (
     <main className="min-h-screen bg-black text-white selection:bg-red-900 selection:text-white pb-32">
 
-      {/* ----------------- SECTION ①: HERO ----------------- */}
+{/* ----------------- SECTION ①: HERO ----------------- */}
       <section className="relative overflow-hidden border-b border-zinc-900 pt-32 pb-20 bg-zinc-950">
         <div className="absolute inset-0 bg-[url('/squat/sq1.jpg')] bg-cover bg-center bg-no-repeat opacity-60 grayscale-[50%]" />
         <div className="absolute inset-0 bg-black/50" />
@@ -133,7 +133,7 @@ export default function SquatLab() {
         </div>
       </section>
 
-      {/* ----------------- SECTION ②: まず読んでほしい基礎講義 ----------------- */}
+{/* ----------------- SECTION ②: まず読んでほしい基礎講義 ----------------- */}
       <section className="py-20 bg-black border-b border-zinc-900">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center space-y-3 mb-12">
@@ -194,7 +194,7 @@ export default function SquatLab() {
         </div>
       </section>
 
-      {/* ----------------- SECTION ③: 基本から順番に読む「ロードマップ」 ----------------- */}
+{/* ----------------- SECTION ③: 基本から順番に読む「ロードマップ」 ----------------- */}
       <section className="py-20 bg-zinc-950/20 border-b border-zinc-900">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center space-y-3 mb-16">
@@ -257,119 +257,10 @@ export default function SquatLab() {
             </div>
           </div>
 
-          <div className="mt-12 text-center">
-            <Link
-              href="/lab/squat/articles"
-              className="inline-flex items-center justify-center gap-2 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-red-900/50 text-zinc-300 hover:text-white font-bold py-3 px-8 rounded-full transition-all duration-300 shadow-md group"
-            >
-              <BookOpen className="w-4 h-4 text-red-500 group-hover:scale-110 transition-transform" />
-              全コラム一覧を見る
-            </Link>
-          </div>
         </div>
       </section>
 
-      {/* ----------------- SECTION ④: 実践プログラム ----------------- */}
-      <section className="py-20 bg-black border-b border-zinc-900">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center space-y-3 mb-12">
-            <span className="text-[10px] font-extrabold text-red-500 tracking-wider uppercase block">
-              TRAINING PROGRAMS
-            </span>
-            <h2 className="text-2xl md:text-3xl font-black text-white tracking-tight">
-              実践プログラム
-            </h2>
-            <p className="text-xs text-zinc-450 max-w-xl mx-auto leading-relaxed font-light">
-              目的別・レベル別に組まれた、効果を最大化するトレーニングメニュー。
-            </p>
-          </div>
-
-          <div className="overflow-x-auto pb-6 scrollbar-thin scrollbar-thumb-zinc-800 scrollbar-track-zinc-950 flex gap-6 -mx-6 px-6">
-            {programArticles.map((art) => (
-              <Link
-                key={art.id}
-                href={`/lab/squat/${art.slug}`}
-                className="w-[280px] md:w-[350px] shrink-0 bg-zinc-950 border border-zinc-900 hover:border-red-900/50 rounded-xl p-4 transition-all duration-300 flex flex-col justify-between group shadow-lg hover:shadow-xl hover:bg-zinc-900/10 cursor-pointer"
-              >
-                <div className="space-y-4">
-                  <div className="relative aspect-[16/10] w-full rounded-lg overflow-hidden bg-zinc-900">
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent z-10" />
-                    <img
-                      src={art.image}
-                      alt={art.title}
-                      className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500 opacity-80"
-                    />
-                    <span className="absolute top-2 left-2 z-20 text-[8px] font-extrabold text-white bg-red-600/90 border border-red-500 px-2 py-0.5 rounded tracking-widest uppercase">
-                      PROGRAM
-                    </span>
-                  </div>
-
-                  <div className="space-y-2">
-                    <div className="flex items-center justify-between text-[9px] font-mono text-zinc-500">
-                      <span className="uppercase tracking-widest text-red-500 font-semibold">{art.category}</span>
-                      <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> {art.readTime}</span>
-                    </div>
-                    <h3 className="text-sm md:text-base font-bold text-white group-hover:text-red-500 transition-colors leading-snug">
-                      {art.title}
-                    </h3>
-                    <p className="text-xs text-zinc-400 leading-relaxed font-light line-clamp-3">
-                      {art.desc}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="mt-6 pt-3 border-t border-zinc-900 flex items-center justify-between text-[10px] font-mono text-zinc-500">
-                  <span className="bg-zinc-900 text-zinc-400 border border-zinc-850 px-2.5 py-0.5 rounded text-[8px] uppercase tracking-wider font-semibold">LEVEL: {art.level}</span>
-                  <span className="text-zinc-400 group-hover:text-red-500 group-hover:translate-x-1 transition-all flex items-center gap-1 font-bold">
-                    メニューを見る <ArrowRight className="w-3.5 h-3.5" />
-                  </span>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ----------------- SECTION ⑤: 障害・壁から探す ----------------- */}
-      <section className="py-20 bg-black border-b border-zinc-900">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="text-center space-y-3 mb-12">
-            <span className="text-[10px] font-extrabold text-red-500 tracking-wider uppercase block">
-              DIAGNOSTIC NETWORK
-            </span>
-            <h2 className="text-2xl md:text-3xl font-black text-white tracking-tight">
-              悩み・壁から探す
-            </h2>
-            <p className="text-xs text-zinc-450 max-w-md mx-auto leading-relaxed font-light">
-              現在の悩みを選択すると、関連する解決策を表示します。
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-4">
-            {OBSTACLES.map((obs) => (
-              <Link
-                href={`/lab/squat/articles?obstacle=${obs.label}`}
-                key={obs.label}
-                className="p-4 rounded-xl border border-zinc-900 bg-zinc-950 text-left flex flex-col justify-between hover:border-red-500 hover:bg-red-950/20 hover:shadow-xl hover:shadow-red-500/10 text-zinc-300 transition-all duration-300 group cursor-pointer block"
-              >
-                <div className="space-y-2">
-                  <span className="text-[8px] font-extrabold font-mono tracking-widest uppercase block text-zinc-550 group-hover:text-red-500">
-                    OBSTACLE
-                  </span>
-                  <h3 className="text-xs md:text-sm font-bold leading-tight group-hover:text-white">
-                    {obs.label}
-                  </h3>
-                </div>
-                <p className="text-[10px] leading-relaxed font-light mt-4 block text-zinc-550 group-hover:text-zinc-300">
-                  {obs.desc}
-                </p>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ----------------- SECTION ⑥: 応用・探究 ----------------- */}
+{/* ----------------- SECTION ④: 応用・探究 ----------------- */}
       <section className="py-20 bg-zinc-950/20 border-b border-zinc-900">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center space-y-3 mb-12">
@@ -430,7 +321,116 @@ export default function SquatLab() {
         </div>
       </section>
 
-      {/* ----------------- SECTION ⑦: 学術研究レビュー ----------------- */}
+{/* ----------------- SECTION ⑤: 障害・壁から探す ----------------- */}
+      <section className="py-20 bg-black border-b border-zinc-900">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="text-center space-y-3 mb-12">
+            <span className="text-[10px] font-extrabold text-red-500 tracking-wider uppercase block">
+              DIAGNOSTIC NETWORK
+            </span>
+            <h2 className="text-2xl md:text-3xl font-black text-white tracking-tight">
+              悩み・壁から探す
+            </h2>
+            <p className="text-xs text-zinc-450 max-w-md mx-auto leading-relaxed font-light">
+              現在の悩みを選択すると、関連する解決策を表示します。
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-4">
+            {OBSTACLES.map((obs) => (
+              <Link
+                href={`/lab/squat/articles?obstacle=${obs.label}`}
+                key={obs.label}
+                className="p-4 rounded-xl border border-zinc-900 bg-zinc-950 text-left flex flex-col justify-between hover:border-red-500 hover:bg-red-950/20 hover:shadow-xl hover:shadow-red-500/10 text-zinc-300 transition-all duration-300 group cursor-pointer block"
+              >
+                <div className="space-y-2">
+                  <span className="text-[8px] font-extrabold font-mono tracking-widest uppercase block text-zinc-550 group-hover:text-red-500">
+                    OBSTACLE
+                  </span>
+                  <h3 className="text-xs md:text-sm font-bold leading-tight group-hover:text-white">
+                    {obs.label}
+                  </h3>
+                </div>
+                <p className="text-[10px] leading-relaxed font-light mt-4 block text-zinc-550 group-hover:text-zinc-300">
+                  {obs.desc}
+                </p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+{/* ----------------- SECTION ⑥: 実践プログラム ----------------- */}
+      <section className="py-20 bg-black border-b border-zinc-900">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center space-y-3 mb-12">
+            <span className="text-[10px] font-extrabold text-red-500 tracking-wider uppercase block">
+              TRAINING PROGRAMS
+            </span>
+            <h2 className="text-2xl md:text-3xl font-black text-white tracking-tight">
+              実践プログラム
+            </h2>
+            <p className="text-xs text-zinc-450 max-w-xl mx-auto leading-relaxed font-light">
+              目的別・レベル別に組まれた、効果を最大化するトレーニングメニュー。
+            </p>
+          </div>
+
+          <div className="overflow-x-auto pb-6 scrollbar-thin scrollbar-thumb-zinc-800 scrollbar-track-zinc-950 flex gap-6 -mx-6 px-6">
+            {programArticles.map((art) => (
+              <Link
+                key={art.id}
+                href={`/lab/squat/${art.slug}`}
+                className="w-[280px] md:w-[350px] shrink-0 bg-zinc-950 border border-zinc-900 hover:border-red-900/50 rounded-xl p-4 transition-all duration-300 flex flex-col justify-between group shadow-lg hover:shadow-xl hover:bg-zinc-900/10 cursor-pointer"
+              >
+                <div className="space-y-4">
+                  <div className="relative aspect-[16/10] w-full rounded-lg overflow-hidden bg-zinc-900">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent z-10" />
+                    <img
+                      src={art.image}
+                      alt={art.title}
+                      className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500 opacity-80"
+                    />
+                    <span className="absolute top-2 left-2 z-20 text-[8px] font-extrabold text-white bg-red-600/90 border border-red-500 px-2 py-0.5 rounded tracking-widest uppercase">
+                      PROGRAM
+                    </span>
+                  </div>
+
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between text-[9px] font-mono text-zinc-500">
+                      <span className="uppercase tracking-widest text-red-500 font-semibold">{art.category}</span>
+                      <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> {art.readTime}</span>
+                    </div>
+                    <h3 className="text-sm md:text-base font-bold text-white group-hover:text-red-500 transition-colors leading-snug">
+                      {art.title}
+                    </h3>
+                    <p className="text-xs text-zinc-400 leading-relaxed font-light line-clamp-3">
+                      {art.desc}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="mt-6 pt-3 border-t border-zinc-900 flex items-center justify-between text-[10px] font-mono text-zinc-500">
+                  <span className="bg-zinc-900 text-zinc-400 border border-zinc-850 px-2.5 py-0.5 rounded text-[8px] uppercase tracking-wider font-semibold">LEVEL: {art.level}</span>
+                  <span className="text-zinc-400 group-hover:text-red-500 group-hover:translate-x-1 transition-all flex items-center gap-1 font-bold">
+                    メニューを見る <ArrowRight className="w-3.5 h-3.5" />
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+          <div className="mt-12 text-center">
+            <Link
+              href="/lab/squat/articles"
+              className="inline-flex items-center justify-center gap-2 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-red-900/50 text-zinc-300 hover:text-white font-bold py-3 px-8 rounded-full transition-all duration-300 shadow-md group"
+            >
+              <BookOpen className="w-4 h-4 text-red-500 group-hover:scale-110 transition-transform" />
+              全コラム一覧を見る
+            </Link>
+          </div>
+        </div>
+      </section>
+
+{/* ----------------- SECTION ⑦: 学術研究レビュー ----------------- */}
       <section className="py-20 bg-black border-b border-zinc-900">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center space-y-3 mb-16">
@@ -493,7 +493,7 @@ export default function SquatLab() {
         </div>
       </section>
 
-      {/* ----------------- SECTION ⑧: 関連研究所 (Related Portals) ----------------- */}
+{/* ----------------- SECTION ⑧: 関連研究所 (Related Portals) ----------------- */}
       <section className="py-20 bg-zinc-950/20">
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center space-y-3 mb-12">
@@ -529,9 +529,10 @@ export default function SquatLab() {
               </Link>
             ))}
           </div>
+
         </div>
       </section>
 
-    </main>
+                                                    </main>
   )
 }

@@ -21,7 +21,7 @@ export default function Footer() {
               <h4 className="text-gray-900 text-sm font-bold tracking-widest uppercase">Explore</h4>
               <ul className="space-y-3 text-sm font-light">
                 <li><Link href="/" className="hover:text-gray-900 transition-colors">ホーム</Link></li>
-                <li><Link href="/about" className="hover:text-gray-900 transition-colors">About</Link></li>
+                <li><Link href="/about" className="hover:text-gray-900 transition-colors">SAについて</Link></li>
               </ul>
             </div>
 
@@ -31,15 +31,14 @@ export default function Footer() {
                 <li><Link href="/athlete" className="hover:text-gray-900 transition-colors">アスリート</Link></li>
                 <li><Link href="/bodymake" className="hover:text-gray-900 transition-colors">ボディメイク</Link></li>
                 <li><Link href="/special" className="hover:text-gray-900 transition-colors">スペシャル</Link></li>
-                <li><Link href="/free" className="hover:text-gray-900 transition-colors">まとめコンテンツ</Link></li>
+                <li><Link href="/lab" className="hover:text-gray-900 transition-colors">研究所一覧</Link></li>
               </ul>
             </div>
 
             <div className="space-y-4">
-              <h4 className="text-gray-900 text-sm font-bold tracking-widest uppercase">Research</h4>
+              <h4 className="text-gray-900 text-sm font-bold tracking-widest uppercase">Projects</h4>
               <ul className="space-y-3 text-sm font-light">
-                <li><Link href="/academy" className="hover:text-gray-900 transition-colors">アカデミー</Link></li>
-                <li><Link href="https://tamuranaoki-lab.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 transition-colors">LAB</Link></li>
+                <li><Link href="/project" className="hover:text-gray-900 transition-colors">プロジェクト</Link></li>
               </ul>
             </div>
           </div>

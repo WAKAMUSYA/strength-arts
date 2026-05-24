@@ -120,87 +120,31 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Free Content Section */}
-      <section className="py-24 md:py-32 px-6">
+      {/* Projects Section */}
+      <section className="py-24 md:py-32 px-6 border-t border-zinc-900 bg-black/50">
         <div className="max-w-5xl mx-auto">
-          <div className="relative rounded-2xl overflow-hidden border border-blue-900/30 bg-black p-12 md:p-20 text-center">
-            {/* Blue subtle glow */}
-            <div className="absolute inset-0 opacity-20 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-600 via-black to-black" />
+          <Link
+            href="/project"
+            className="group block relative rounded-2xl overflow-hidden border border-zinc-900 bg-zinc-950 p-12 md:p-20 text-center transition-all duration-500 hover:border-emerald-900/50 hover:bg-zinc-900/50 hover:-translate-y-1 shadow-lg"
+          >
+            {/* Emerald subtle glow */}
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-700 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-emerald-600 via-transparent to-transparent" />
 
             <div className="relative z-10 space-y-10">
-              <h2 className="text-3xl md:text-4xl font-bold tracking-widest text-white uppercase">
-                Contents
+              <h2 className="text-3xl md:text-4xl font-bold tracking-widest text-white uppercase group-hover:text-emerald-50 transition-colors">
+                Projects
               </h2>
-              <div className="space-y-6 text-zinc-300 font-light leading-relaxed max-w-2xl mx-auto text-sm md:text-base">
+              <div className="space-y-6 text-zinc-400 font-light leading-relaxed max-w-2xl mx-auto text-sm md:text-base">
                 <p>
-                  「知りたい」と思った時に、<br />
-                  すぐ学べる場所でありたい。
-                </p>
-                <p>
-                  ストレングスアーツでは、<br />
-                  多くのコンテンツをまとめて公開しています。
+                  アカデミー（資格対策）、個人の研究ブログ、<br />
+                  その他SAの枠に収まらない多様な制作物・アーカイブス。
                 </p>
               </div>
-              <div className="pt-4">
-                <Link
-                  href="/free"
-                  className="inline-flex items-center justify-center px-10 py-5 bg-white text-black font-bold tracking-[0.2em] text-sm hover:bg-blue-50 hover:text-blue-900 transition-colors duration-300"
-                >
-                  まとめコンテンツを見る
-                </Link>
+              <div className="pt-4 flex justify-center items-center text-xs font-semibold tracking-[0.2em] text-zinc-500 group-hover:text-emerald-400 transition-colors duration-300">
+                VIEW PROJECTS <span className="ml-3 group-hover:translate-x-2 transition-transform duration-300">→</span>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Education & Research Section */}
-      <section className="py-24 md:py-32 px-6 border-t border-zinc-900 bg-black/50">
-        <div className="max-w-5xl mx-auto space-y-16">
-          <div className="text-center space-y-6">
-            <h2 className="text-2xl md:text-3xl font-bold tracking-widest text-white">育成・研究</h2>
-            <div className="space-y-2 text-zinc-400 font-light leading-relaxed text-sm md:text-base">
-              <p>ストレングスアーツは資格対策も行っています。</p>
-              <p>NSCAの勉強、試験対策に活用してください。</p>
-              <p>LABは僕の個人ブログへつながります。</p>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-            {/* Academy Card */}
-            <Link
-              href="/academy"
-              className="group block relative p-10 bg-black overflow-hidden transition-all duration-500 hover:-translate-y-1 border border-zinc-900 hover:border-blue-900/60"
-            >
-              <div className="relative z-20">
-                <h3 className="text-2xl font-bold tracking-widest mb-3 uppercase text-white group-hover:text-blue-100 transition-colors duration-300">Academy</h3>
-                <p className="text-zinc-500 text-sm leading-loose">
-                  資格対策・基礎科学の学習
-                </p>
-                <div className="mt-10 flex items-center text-xs font-semibold tracking-[0.2em] text-zinc-600 group-hover:text-blue-400 transition-colors duration-300">
-                  ENTER <span className="ml-3 group-hover:translate-x-2 transition-transform duration-300">→</span>
-                </div>
-              </div>
-            </Link>
-
-            {/* LAB Card */}
-            <Link
-              href="https://tamuranaoki-lab.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group block relative p-10 bg-black overflow-hidden transition-all duration-500 hover:-translate-y-1 border border-zinc-900 hover:border-blue-900/60"
-            >
-              <div className="relative z-20">
-                <h3 className="text-2xl font-bold tracking-widest mb-3 uppercase text-white group-hover:text-blue-100 transition-colors duration-300">LAB</h3>
-                <p className="text-zinc-500 text-sm leading-loose">
-                  個人の研究・ブログ
-                </p>
-                <div className="mt-10 flex items-center text-xs font-semibold tracking-[0.2em] text-zinc-600 group-hover:text-blue-400 transition-colors duration-300">
-                  VISIT <span className="ml-3 group-hover:translate-x-2 transition-transform duration-300">↗</span>
-                </div>
-              </div>
-            </Link>
-          </div>
+          </Link>
         </div>
       </section>
     </div>

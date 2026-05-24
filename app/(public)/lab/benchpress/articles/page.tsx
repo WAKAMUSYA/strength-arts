@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, Suspense } from 'react'
 import Link from 'next/link'
-import { useSearchParams } from 'next/navigation'
+import { useSearchParams, useRouter } from 'next/navigation'
 import { 
   ArrowLeft, 
   BookOpen, 
@@ -23,6 +23,7 @@ const OBSTACLES = [
 ]
 
 function ArticlesContent() {
+  const router = useRouter()
   const searchParams = useSearchParams()
   const initialTab = searchParams.get('tab') === 'applied' ? 'applied' : 'basic'
   const initialObstacle = searchParams.get('obstacle') || null
@@ -46,6 +47,15 @@ function ArticlesContent() {
     }
   }, [searchParams])
 
+  const handleTabChange = (tab: 'basic' | 'applied' | 'program') => {
+    setActiveTab(tab);
+    // URLを更新してブラウザバック時にタブ状態を復元できるようにする
+    const newParams = new URLSearchParams(searchParams.toString());
+    newParams.set('tab', tab);
+    router.replace("?" + newParams.toString(), { scroll: false });
+  };
+
+
   const filteredArticles = BENCHPRESS_ARTICLES.filter(art => {
     if (art.type !== activeTab) return false;
     if (activeTab === 'basic' && selectedObstacle && art.obstacleTag !== selectedObstacle) return false;
@@ -58,7 +68,7 @@ function ArticlesContent() {
       <div className="flex justify-center mb-12">
         <div className="flex bg-zinc-950 p-1.5 rounded-2xl border border-zinc-900 shadow-inner w-full max-w-md">
           <button
-            onClick={() => setActiveTab('basic')}
+            onClick={() => handleTabChange('basic')}
             className={`flex-1 flex items-center justify-center gap-2 py-3.5 rounded-xl font-bold text-xs md:text-sm transition-all duration-300 cursor-pointer ${
               activeTab === 'basic'
                 ? 'bg-gradient-to-r from-blue-950/60 to-blue-900/40 border border-blue-800/40 text-white shadow-md'
@@ -69,7 +79,7 @@ function ArticlesContent() {
             <span>基本理論コラム</span>
           </button>
           <button
-            onClick={() => setActiveTab('applied')}
+            onClick={() => handleTabChange('applied')}
             className={`flex-1 flex items-center justify-center gap-2 py-3.5 rounded-xl font-bold text-xs md:text-sm transition-all duration-300 cursor-pointer ${
               activeTab === 'applied'
                 ? 'bg-gradient-to-r from-zinc-900 to-zinc-850 border border-zinc-800 text-white shadow-md'

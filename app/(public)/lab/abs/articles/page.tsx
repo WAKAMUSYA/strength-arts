@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, Suspense } from 'react'
 import Link from 'next/link'
-import { useSearchParams } from 'next/navigation'
+import { useSearchParams, useRouter } from 'next/navigation'
 import { 
   ArrowLeft, 
   BookOpen, 
@@ -26,6 +26,7 @@ const OBSTACLES = [
 ]
 
 function ArticlesContent() {
+  const router = useRouter()
   const searchParams = useSearchParams()
   const getInitialTab = () => {
     const tab = searchParams.get('tab')
@@ -66,6 +67,15 @@ function ArticlesContent() {
     }
   }, [searchParams])
 
+  const handleTabChange = (tab: 'basic' | 'applied' | 'program') => {
+    setActiveTab(tab);
+    // URLを更新してブラウザバック時にタブ状態を復元できるようにする
+    const newParams = new URLSearchParams(searchParams.toString());
+    newParams.set('tab', tab);
+    router.replace("?" + newParams.toString(), { scroll: false });
+  };
+
+
   const filteredArticles = ABS_ARTICLES.filter(art => {
     if (art.type !== activeTab) return false;
     if (selectedObstacle && art.obstacleTag !== selectedObstacle) return false;
@@ -78,7 +88,7 @@ function ArticlesContent() {
       <div className="flex justify-center mb-12">
         <div className="grid grid-cols-3 gap-1 bg-zinc-950 p-1.5 rounded-2xl border border-zinc-900 shadow-inner w-full max-w-2xl">
           <button
-            onClick={() => setActiveTab('basic')}
+            onClick={() => handleTabChange('basic')}
             className={`flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-1.5 py-2 sm:py-3.5 px-1 sm:px-3 rounded-xl font-bold text-[10px] sm:text-xs transition-all duration-300 cursor-pointer ${
               activeTab === 'basic'
                 ? 'bg-gradient-to-r from-orange-950/60 to-orange-900/40 border border-orange-800/40 text-white shadow-md'
@@ -89,7 +99,7 @@ function ArticlesContent() {
             <span>基本理論</span>
           </button>
           <button
-            onClick={() => setActiveTab('applied')}
+            onClick={() => handleTabChange('applied')}
             className={`flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-1.5 py-2 sm:py-3.5 px-1 sm:px-3 rounded-xl font-bold text-[10px] sm:text-xs transition-all duration-300 cursor-pointer ${
               activeTab === 'applied'
                 ? 'bg-gradient-to-r from-orange-950/60 to-orange-900/40 border border-orange-800/40 text-white shadow-md'
@@ -100,7 +110,7 @@ function ArticlesContent() {
             <span>応用・探究</span>
           </button>
           <button
-            onClick={() => setActiveTab('program')}
+            onClick={() => handleTabChange('program')}
             className={`flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-1.5 py-2 sm:py-3.5 px-1 sm:px-3 rounded-xl font-bold text-[10px] sm:text-xs transition-all duration-300 cursor-pointer ${
               activeTab === 'program'
                 ? 'bg-gradient-to-r from-orange-950/60 to-orange-900/40 border border-orange-800/40 text-white shadow-md'

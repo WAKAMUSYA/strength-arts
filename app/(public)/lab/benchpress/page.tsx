@@ -106,7 +106,7 @@ export default function BenchPressLab() {
   return (
     <main className="min-h-screen bg-black text-white selection:bg-blue-900 selection:text-white pb-32">
 
-      {/* ----------------- SECTION ①: HERO ----------------- */}
+{/* ----------------- SECTION ①: HERO ----------------- */}
       <section className="relative overflow-hidden border-b border-zinc-900 pt-32 pb-20 bg-zinc-950">
         {/* Background Image */}
         <div
@@ -152,7 +152,7 @@ export default function BenchPressLab() {
         </div>
       </section>
 
-      {/* ----------------- SECTION ②: まず読んでほしい基礎講義 ----------------- */}
+{/* ----------------- SECTION ②: まず読んでほしい基礎講義 ----------------- */}
       <section className="py-20 bg-black border-b border-zinc-900">
         <div className="max-w-6xl mx-auto px-6">
 
@@ -219,7 +219,7 @@ export default function BenchPressLab() {
         </div>
       </section>
 
-      {/* ----------------- SECTION ③: 基本から順番に読む「ロードマップ」 ----------------- */}
+{/* ----------------- SECTION ③: 基本から順番に読む「ロードマップ」 ----------------- */}
       <section className="py-20 bg-zinc-950/20 border-b border-zinc-900">
         <div className="max-w-6xl mx-auto px-6">
 
@@ -284,74 +284,12 @@ export default function BenchPressLab() {
             </div>
           </div>
 
-          <div className="mt-12 text-center">
-            <Link
-              href="/lab/benchpress/articles"
-              className="inline-flex items-center justify-center gap-2 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-blue-900/50 text-zinc-300 hover:text-white font-bold py-3 px-8 rounded-full transition-all duration-300 shadow-md group"
-            >
-              <BookOpen className="w-4 h-4 text-blue-500 group-hover:scale-110 transition-transform" />
-              全コラム一覧を見る
-            </Link>
-          </div>
+
 
         </div>
       </section>
 
-      {/* ----------------- SECTION ④: 障害・壁から探す ----------------- */}
-      <section className="py-20 bg-black border-b border-zinc-900">
-        <div className="max-w-4xl mx-auto px-6">
-
-          <div className="text-center space-y-3 mb-12">
-            <span className="text-[10px] font-extrabold text-blue-400 tracking-wider uppercase block">
-              DIAGNOSTIC NETWORK
-            </span>
-            <h2 className="text-2xl md:text-3xl font-black text-white tracking-tight">
-              悩み・壁から探す
-            </h2>
-            <p className="text-xs text-zinc-450 max-w-md mx-auto leading-relaxed font-light">
-              現在の悩みを選択すると、コラム一覧ページにて関連する解決策を絞り込んで表示します。
-            </p>
-          </div>
-
-          {/* Obstacle Cards Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-            {OBSTACLES.map((obs) => (
-              <Link
-                key={obs.label}
-                href={`/lab/benchpress/articles?tab=basic&obstacle=${encodeURIComponent(obs.label)}`}
-                className="p-4 rounded-xl border border-zinc-900 bg-zinc-950 text-left flex flex-col justify-between hover:border-blue-500 hover:bg-blue-950/20 hover:shadow-xl hover:shadow-blue-500/10 text-zinc-300 transition-all duration-300 group cursor-pointer"
-              >
-                <div className="space-y-2">
-                  <span className="text-[8px] font-extrabold font-mono tracking-widest uppercase block text-zinc-550 group-hover:text-blue-400">
-                    OBSTACLE
-                  </span>
-                  <h3 className="text-xs md:text-sm font-bold leading-tight group-hover:text-white">
-                    {obs.label}
-                  </h3>
-                </div>
-
-                <p className="text-[10px] leading-relaxed font-light mt-4 block text-zinc-550 group-hover:text-zinc-300">
-                  {obs.desc}
-                </p>
-              </Link>
-            ))}
-          </div>
-
-          <div className="mt-12 flex justify-center">
-            <Link
-              href="/lab/benchpress/articles?tab=basic"
-              className="relative inline-flex items-center gap-2 bg-gradient-to-r from-blue-950/50 to-blue-900/30 hover:from-blue-900/60 hover:to-blue-800/40 border border-blue-800/50 hover:border-blue-500 text-white font-bold text-xs md:text-sm px-8 py-4 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10 tracking-wider group cursor-pointer"
-            >
-              <BookOpen className="w-4 h-4 text-blue-400 group-hover:text-blue-300 group-hover:scale-110 transition-all shrink-0" />
-              <span>すべての基本理論コラムを見る</span>
-              <ChevronRight className="w-4 h-4 text-blue-500 group-hover:translate-x-0.5 transition-transform" />
-            </Link>
-          </div>
-
-        </div>
-      </section>
-
-      {/* ----------------- SECTION ⑤: 専門探究コラム ----------------- */}
+{/* ----------------- SECTION ④: 専門探究コラム ----------------- */}
       <section className="py-20 bg-zinc-950/10 border-b border-zinc-900">
         <div className="max-w-6xl mx-auto px-6">
 
@@ -421,7 +359,69 @@ export default function BenchPressLab() {
         </div>
       </section>
 
-      {/* ----------------- SECTION ⑥: 学術研究レビュー ----------------- */}
+{/* ----------------- SECTION ⑤: 障害・壁から探す ----------------- */}
+      <section className="py-20 bg-black border-b border-zinc-900">
+        <div className="max-w-4xl mx-auto px-6">
+
+          <div className="text-center space-y-3 mb-12">
+            <span className="text-[10px] font-extrabold text-blue-400 tracking-wider uppercase block">
+              DIAGNOSTIC NETWORK
+            </span>
+            <h2 className="text-2xl md:text-3xl font-black text-white tracking-tight">
+              悩み・壁から探す
+            </h2>
+            <p className="text-xs text-zinc-450 max-w-md mx-auto leading-relaxed font-light">
+              現在の悩みを選択すると、コラム一覧ページにて関連する解決策を絞り込んで表示します。
+            </p>
+          </div>
+
+          {/* Obstacle Cards Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+            {OBSTACLES.map((obs) => (
+              <Link
+                key={obs.label}
+                href={`/lab/benchpress/articles?tab=basic&obstacle=${encodeURIComponent(obs.label)}`}
+                className="p-4 rounded-xl border border-zinc-900 bg-zinc-950 text-left flex flex-col justify-between hover:border-blue-500 hover:bg-blue-950/20 hover:shadow-xl hover:shadow-blue-500/10 text-zinc-300 transition-all duration-300 group cursor-pointer"
+              >
+                <div className="space-y-2">
+                  <span className="text-[8px] font-extrabold font-mono tracking-widest uppercase block text-zinc-550 group-hover:text-blue-400">
+                    OBSTACLE
+                  </span>
+                  <h3 className="text-xs md:text-sm font-bold leading-tight group-hover:text-white">
+                    {obs.label}
+                  </h3>
+                </div>
+
+                <p className="text-[10px] leading-relaxed font-light mt-4 block text-zinc-550 group-hover:text-zinc-300">
+                  {obs.desc}
+                </p>
+              </Link>
+            ))}
+          </div>
+
+          <div className="mt-12 flex justify-center">
+            <Link
+              href="/lab/benchpress/articles?tab=basic"
+              className="relative inline-flex items-center gap-2 bg-gradient-to-r from-blue-950/50 to-blue-900/30 hover:from-blue-900/60 hover:to-blue-800/40 border border-blue-800/50 hover:border-blue-500 text-white font-bold text-xs md:text-sm px-8 py-4 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10 tracking-wider group cursor-pointer"
+            >
+              <BookOpen className="w-4 h-4 text-blue-400 group-hover:text-blue-300 group-hover:scale-110 transition-all shrink-0" />
+              <span>すべての基本理論コラムを見る</span>
+              <ChevronRight className="w-4 h-4 text-blue-500 group-hover:translate-x-0.5 transition-transform" />
+            </Link>
+          </div>
+
+          <div className="mt-12 text-center">
+            <Link
+              href="/lab/benchpress/articles"
+              className="inline-flex items-center justify-center gap-2 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-blue-900/50 text-zinc-300 hover:text-white font-bold py-3 px-8 rounded-full transition-all duration-300 shadow-md group"
+            >
+              <BookOpen className="w-4 h-4 text-blue-500 group-hover:scale-110 transition-transform" />
+              全コラム一覧を見る
+            </Link>
+          </div>        </div>
+      </section>
+
+{/* ----------------- SECTION ⑥: 学術研究レビュー ----------------- */}
       <section className="py-20 bg-black border-b border-zinc-900">
         <div className="max-w-6xl mx-auto px-6">
 
@@ -494,7 +494,7 @@ export default function BenchPressLab() {
         </div>
       </section>
 
-      {/* ----------------- SECTION ⑦: 関連研究所 (Related Portals) ----------------- */}
+{/* ----------------- SECTION ⑦: 関連研究所 (Related Portals) ----------------- */}
       <section className="py-20 bg-zinc-950/20">
         <div className="max-w-4xl mx-auto px-6">
 
@@ -543,6 +543,7 @@ export default function BenchPressLab() {
           </div>
 
         </div>
+      
       </section>
 
       {/* --- Elegant Coming Soon Portal Dialog --- */}
@@ -600,6 +601,6 @@ export default function BenchPressLab() {
         </div>
       )}
 
-    </main>
+                                              </main>
   )
 }
