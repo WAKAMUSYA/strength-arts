@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import Navbar from '@/components/layout/Navbar'
-import BottomNav from '@/components/layout/BottomNav'
 import Footer from '@/components/layout/Footer'
 import { createClient } from '@/utils/supabase/server'
 import NextTopLoader from 'nextjs-toploader'
@@ -27,14 +26,13 @@ export default async function RootLayout({
 
   return (
     <html lang="ja">
-      <body className="bg-slate-50 text-gray-900 min-h-screen pb-16 md:pb-0 flex flex-col">
+      <body className="bg-slate-50 text-gray-900 min-h-screen flex flex-col">
         <NextTopLoader color="#2563eb" showSpinner={false} />
         <Navbar isLoggedIn={!!user} />
         <div className="flex-1">
           {children}
         </div>
         <Footer />
-        <BottomNav />
       </body>
     </html>
   )
