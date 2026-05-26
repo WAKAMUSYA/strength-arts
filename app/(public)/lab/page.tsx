@@ -22,6 +22,10 @@ const sportsLabs = [
   { id: 'golf', title: 'ゴルフ研究所', desc: 'スイングの力学、床反力と回旋、飛距離アップのバイオメカニクス。', href: '/lab/golf' },
 ]
 
+const specialLabs = [
+  { id: 'special', title: '武道・哲学研究所', desc: '筋力を超えた「勁」と、精神修養としての身体操作を探究。', href: '/special' },
+]
+
 export default function LabPage() {
   return (
     <main className="min-h-screen bg-black text-white selection:bg-blue-900 selection:text-white pb-28">
@@ -116,14 +120,44 @@ export default function LabPage() {
               <Link
                 key={lab.id}
                 href={lab.href}
-                className="group relative block bg-zinc-950 hover:bg-zinc-900/40 border border-zinc-900 hover:border-purple-900/50 rounded-xl p-5 transition-all duration-300 shadow-md"
+                className="group relative block bg-zinc-950 hover:bg-zinc-900/40 border border-zinc-900 hover:border-emerald-900/50 rounded-xl p-5 transition-all duration-300 shadow-md"
               >
                 <div className="space-y-3">
                   <div className="flex justify-between items-center">
-                    <h3 className="text-base font-bold text-white group-hover:text-purple-400 transition-colors duration-300">
+                    <h3 className="text-base font-bold text-white group-hover:text-emerald-400 transition-colors duration-300">
                       {lab.title}
                     </h3>
-                    <ArrowRight className="w-4 h-4 text-zinc-600 group-hover:text-purple-400 group-hover:translate-x-1 transition-all" />
+                    <ArrowRight className="w-4 h-4 text-zinc-600 group-hover:text-emerald-400 group-hover:translate-x-1 transition-all" />
+                  </div>
+                  <p className="text-xs text-zinc-500 leading-relaxed font-light">
+                    {lab.desc}
+                  </p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/* --- Category D: スペシャル・特化型 --- */}
+        <div className="space-y-6">
+          <div className="flex items-center justify-between border-b border-zinc-900 pb-2.5">
+            <h2 className="text-sm font-bold tracking-wider text-zinc-300 uppercase">
+              スペシャル・特化型
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {specialLabs.map((lab) => (
+              <Link
+                key={lab.id}
+                href={lab.href}
+                className="group relative block bg-zinc-950 hover:bg-zinc-900/40 border border-zinc-900 hover:border-indigo-900/50 rounded-xl p-5 transition-all duration-300 shadow-md"
+              >
+                <div className="space-y-3">
+                  <div className="flex justify-between items-center">
+                    <h3 className="text-base font-bold text-white group-hover:text-indigo-400 transition-colors duration-300">
+                      {lab.title}
+                    </h3>
+                    <ArrowRight className="w-4 h-4 text-zinc-600 group-hover:text-indigo-400 group-hover:translate-x-1 transition-all" />
                   </div>
                   <p className="text-xs text-zinc-500 leading-relaxed font-light">
                     {lab.desc}

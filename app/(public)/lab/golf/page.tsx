@@ -441,7 +441,7 @@ export default function GolfLab() {
               研究データ
             </h2>
             <p className="text-xs text-zinc-450 max-w-xl mx-auto leading-relaxed font-light">
-              クイックリフトに関する重要エビデンスを要約。
+              ゴルフスイングと生体力学に関する重要エビデンスを要約。
             </p>
           </div>
 
