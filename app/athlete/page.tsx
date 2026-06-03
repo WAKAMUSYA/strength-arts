@@ -40,10 +40,15 @@ export default function AthleteDirectoryPage() {
   return (
     <main className="min-h-screen bg-black text-white selection:bg-purple-900 selection:text-white pb-28">
       
-      {/* 1. Ultra-Minimalist Hero Header */}
-      <section className="relative pt-28 pb-16 text-center bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-purple-950/20 via-black to-black">
-        <div className="max-w-3xl mx-auto px-6 space-y-4">
-          <div className="inline-flex items-center gap-2 text-[10px] font-mono tracking-widest text-zinc-550 uppercase">
+      {/* 1. Hero Header with Background Image */}
+      <section className="relative pt-32 pb-24 text-center overflow-hidden">
+        {/* Background Image & Overlays */}
+        <div className="absolute inset-0 bg-[url('/sports2.jpg')] bg-cover bg-center opacity-40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/80 to-black" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-purple-900/20 via-transparent to-transparent" />
+
+        <div className="relative z-10 max-w-3xl mx-auto px-6 space-y-4">
+          <div className="inline-flex items-center gap-2 text-[10px] font-mono tracking-widest text-zinc-300 uppercase">
             <Compass className="w-3.5 h-3.5 text-purple-500" /> Athlete Explorer
           </div>
           <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white">
