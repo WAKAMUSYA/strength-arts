@@ -13,43 +13,43 @@ export default function Navbar({ isLoggedIn }: { isLoggedIn: boolean }) {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-white border-b border-gray-100">
+    <header className="sticky top-0 z-50 w-full bg-black border-b border-zinc-900">
       <div className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
-        <Link href={isLoggedIn ? "/dashboard" : "/"} className="font-bold text-xl tracking-tighter text-gray-900">
-          STRENGTH <span className="text-[#800020]">ARTS</span>
+        <Link href={isLoggedIn ? "/dashboard" : "/"} className="font-bold text-xl tracking-tighter text-white">
+          STRENGTH <span className="text-red-600">ARTS</span>
         </Link>
         <div className="flex items-center space-x-4">
-          <nav className="hidden md:flex items-center space-x-4 lg:space-x-6 text-sm font-medium text-gray-600">
-            <Link href="/about" className="hover:text-zinc-950 transition-colors">SAについて</Link>
-            <Link href="/athlete" className="hover:text-amber-600 transition-colors">アスリート</Link>
-            <Link href="/bodymake" className="hover:text-blue-600 transition-colors">ボディメイク</Link>
-            <Link href="/special" className="hover:text-indigo-600 transition-colors">スペシャル</Link>
-            <Link href={isLoggedIn ? "/dashboard/lab" : "/lab"} className="hover:text-purple-600 transition-colors">研究所一覧</Link>
-            <Link href="/project" className="hover:text-emerald-600 transition-colors">プロジェクト</Link>
+          <nav className="hidden md:flex items-center space-x-4 lg:space-x-6 text-sm font-medium text-zinc-300">
+            <Link href="/about" className="hover:text-white transition-colors">SAについて</Link>
+            <Link href="/athlete" className="hover:text-red-400 transition-colors">アスリート</Link>
+            <Link href="/bodymake" className="hover:text-red-400 transition-colors">ボディメイク</Link>
+            <Link href="/special" className="hover:text-red-400 transition-colors">スペシャル</Link>
+            <Link href={isLoggedIn ? "/dashboard/lab" : "/lab"} className="hover:text-red-400 transition-colors">研究所一覧</Link>
+            <Link href="/project" className="hover:text-red-400 transition-colors">プロジェクト</Link>
           </nav>
 
           {isLoggedIn ? (
             <div className="hidden md:flex items-center space-x-4">
               <Link
                 href="/dashboard"
-                className="text-sm font-medium text-white bg-black px-4 py-2 rounded-md hover:bg-gray-800 transition-colors"
+                className="text-sm font-medium text-black bg-white px-4 py-2 rounded-md hover:bg-zinc-200 transition-colors"
               >
                 Dashboard
               </Link>
               <form action={signOut}>
-                <button className="text-sm text-gray-500 hover:text-gray-900">
+                <button className="text-sm text-zinc-400 hover:text-white transition-colors">
                   ログアウト
                 </button>
               </form>
             </div>
           ) : (
             <div className="hidden md:flex items-center space-x-4">
-              <Link href="/login" className="text-sm font-medium text-gray-600 hover:text-gray-900">
+              <Link href="/login" className="text-sm font-medium text-zinc-400 hover:text-white transition-colors">
                 ログイン
               </Link>
               <Link
                 href="/signup"
-                className="text-sm font-medium text-white bg-black px-4 py-2 rounded-md hover:bg-gray-800 transition-colors"
+                className="text-sm font-medium text-black bg-white px-4 py-2 rounded-md hover:bg-zinc-200 transition-colors"
               >
                 新規登録
               </Link>
