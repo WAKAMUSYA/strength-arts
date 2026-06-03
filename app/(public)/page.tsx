@@ -85,12 +85,12 @@ export default function Home() {
           {/* Special Card */}
           <Link
             href="/special"
-            className="group block relative h-[180px] md:h-[300px] mt-4 md:mt-12 bg-black overflow-hidden transition-transform duration-700 hover:-translate-y-2 border border-zinc-900 hover:border-red-900/60"
+            className="group block relative h-[120px] md:h-[300px] mt-4 md:mt-12 bg-black overflow-hidden transition-transform duration-700 hover:-translate-y-2 border border-zinc-900 hover:border-red-900/60"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-black/80 z-10" />
             <div className="absolute inset-0 bg-[url('/special.jpg')] bg-cover bg-center opacity-80 scale-105 group-hover:scale-100 transition-transform duration-1000 ease-out grayscale group-hover:grayscale-0" />
 
-            <div className="relative z-20 h-full p-6 md:p-10 flex flex-col justify-center">
+            <div className="relative z-20 h-full p-4 md:p-10 flex flex-col justify-center">
               <h2 className="text-2xl md:text-4xl font-bold tracking-widest mb-2 md:mb-4 uppercase text-white group-hover:text-red-100 transition-colors duration-500">SPECIAL</h2>
               <p className="text-zinc-400 text-xs md:text-base leading-relaxed md:leading-loose mb-4 md:mb-6 font-light">
                 武道・哲学・身体操作。
