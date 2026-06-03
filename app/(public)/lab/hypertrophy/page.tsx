@@ -8,7 +8,6 @@ import {
   Clock,
   ChevronRight,
   ExternalLink,
-  Activity,
   Lock,
   X,
   Info,
