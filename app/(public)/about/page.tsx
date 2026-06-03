@@ -59,30 +59,38 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 3 Cards Section */}
+      {/* 4 Cards Section */}
       <section className="py-20 md:py-32 px-6">
-        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {/* Card 1 */}
-          <div className="p-12 border border-zinc-800 bg-zinc-900/50 hover:bg-zinc-900 transition-colors duration-500 flex flex-col items-center text-center group">
-            <h3 className="text-2xl md:text-3xl font-bold tracking-widest mb-6 text-white group-hover:text-blue-100 transition-colors duration-300">知る</h3>
+          <div className="p-10 lg:p-12 border border-zinc-800 bg-zinc-900/50 hover:bg-zinc-900 transition-colors duration-500 flex flex-col items-center text-center group">
+            <h3 className="text-2xl md:text-3xl font-bold tracking-widest mb-6 text-white group-hover:text-red-400 transition-colors duration-300">知る</h3>
             <p className="text-zinc-400 text-sm md:text-base leading-loose font-light">
-              研究や基礎知識を学ぶ
+              最新の研究や<br />基礎知識に触れる
             </p>
           </div>
 
           {/* Card 2 */}
-          <div className="p-12 border border-zinc-800 bg-zinc-900/50 hover:bg-zinc-900 transition-colors duration-500 flex flex-col items-center text-center group">
-            <h3 className="text-2xl md:text-3xl font-bold tracking-widest mb-6 text-white group-hover:text-blue-100 transition-colors duration-300">試す</h3>
+          <div className="p-10 lg:p-12 border border-zinc-800 bg-zinc-900/50 hover:bg-zinc-900 transition-colors duration-500 flex flex-col items-center text-center group">
+            <h3 className="text-2xl md:text-3xl font-bold tracking-widest mb-6 text-white group-hover:text-red-400 transition-colors duration-300">学ぶ</h3>
             <p className="text-zinc-400 text-sm md:text-base leading-loose font-light">
-              実践しながら身体で確かめる
+              先人たちの理論や<br />技術を体系的に吸収する
             </p>
           </div>
 
           {/* Card 3 */}
-          <div className="p-12 border border-zinc-800 bg-zinc-900/50 hover:bg-zinc-900 transition-colors duration-500 flex flex-col items-center text-center group">
-            <h3 className="text-2xl md:text-3xl font-bold tracking-widest mb-6 text-white group-hover:text-blue-100 transition-colors duration-300">深める</h3>
+          <div className="p-10 lg:p-12 border border-zinc-800 bg-zinc-900/50 hover:bg-zinc-900 transition-colors duration-500 flex flex-col items-center text-center group">
+            <h3 className="text-2xl md:text-3xl font-bold tracking-widest mb-6 text-white group-hover:text-red-400 transition-colors duration-300">試す</h3>
             <p className="text-zinc-400 text-sm md:text-base leading-loose font-light">
-              考察し、自分なりの答えを作る
+              実践を通して<br />身体で確かめる
+            </p>
+          </div>
+
+          {/* Card 4 */}
+          <div className="p-10 lg:p-12 border border-zinc-800 bg-zinc-900/50 hover:bg-zinc-900 transition-colors duration-500 flex flex-col items-center text-center group">
+            <h3 className="text-2xl md:text-3xl font-bold tracking-widest mb-6 text-white group-hover:text-red-400 transition-colors duration-300">深める</h3>
+            <p className="text-zinc-400 text-sm md:text-base leading-loose font-light">
+              考察し、<br />自分なりの答えを作る
             </p>
           </div>
         </div>

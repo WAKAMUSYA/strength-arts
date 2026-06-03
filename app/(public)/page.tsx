@@ -25,10 +25,15 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-12 flex flex-col items-center space-y-4 z-10">
-          <span className="text-[10px] md:text-xs font-semibold tracking-[0.3em] text-zinc-400">SCROLL</span>
-          <div className="w-[1px] h-12 bg-zinc-600" />
+        {/* SA About Button */}
+        <div className="absolute bottom-12 flex justify-center w-full z-10">
+          <Link
+            href="/about"
+            className="group flex items-center justify-center px-6 py-3 border border-red-600/50 bg-red-600/10 hover:bg-red-600 hover:border-red-600 text-white text-xs md:text-sm font-semibold tracking-widest transition-all duration-300 backdrop-blur-sm"
+          >
+            SAについて
+            <span className="ml-3 group-hover:translate-x-1 transition-transform duration-300">→</span>
+          </Link>
         </div>
       </section>
 
@@ -105,19 +110,22 @@ export default function Home() {
         <div className="max-w-5xl mx-auto">
           <Link
             href="/lab"
-            className="group block relative rounded-2xl overflow-hidden border border-zinc-900 bg-zinc-950 p-12 md:p-20 text-center transition-all duration-500 hover:border-blue-900/50 hover:bg-zinc-900/50 hover:-translate-y-1 shadow-lg"
+            className="group block relative rounded-2xl overflow-hidden border border-zinc-900 bg-black p-12 md:p-20 text-center transition-all duration-500 hover:border-blue-900/50 hover:-translate-y-1 shadow-lg"
           >
-            {/* Blue subtle glow */}
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-700 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-600 via-transparent to-transparent" />
+            {/* Background Image and Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/70 to-black/90 z-10" />
+            <div className="absolute inset-0 bg-[url('/coach.jpg')] bg-cover bg-center opacity-60 scale-105 group-hover:scale-100 transition-transform duration-1000 ease-out grayscale group-hover:grayscale-0" />
 
-            <div className="relative z-10 space-y-10">
+            {/* Blue subtle glow */}
+            <div className="absolute inset-0 z-10 opacity-0 group-hover:opacity-40 transition-opacity duration-700 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-600 via-transparent to-transparent pointer-events-none" />
+
+            <div className="relative z-20 space-y-10">
               <h2 className="text-3xl md:text-4xl font-bold tracking-widest text-white uppercase group-hover:text-blue-50 transition-colors">
                 Lab Directory
               </h2>
               <div className="space-y-6 text-zinc-400 font-light leading-relaxed max-w-2xl mx-auto text-sm md:text-base">
                 <p>
-                  10を超える専門領域に特化した、<br />
-                  研究所一覧。
+                  研究所一覧
                 </p>
               </div>
               <div className="pt-4 flex justify-center items-center text-xs font-semibold tracking-[0.2em] text-zinc-500 group-hover:text-blue-400 transition-colors duration-300">
@@ -133,12 +141,16 @@ export default function Home() {
         <div className="max-w-5xl mx-auto">
           <Link
             href="/project"
-            className="group block relative rounded-2xl overflow-hidden border border-zinc-900 bg-zinc-950 p-12 md:p-20 text-center transition-all duration-500 hover:border-emerald-900/50 hover:bg-zinc-900/50 hover:-translate-y-1 shadow-lg"
+            className="group block relative rounded-2xl overflow-hidden border border-zinc-900 bg-black p-12 md:p-20 text-center transition-all duration-500 hover:border-emerald-900/50 hover:-translate-y-1 shadow-lg"
           >
-            {/* Emerald subtle glow */}
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-700 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-emerald-600 via-transparent to-transparent" />
+            {/* Background Image and Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/70 to-black/90 z-10" />
+            <div className="absolute inset-0 bg-[url('/project.png')] bg-cover bg-center opacity-60 scale-105 group-hover:scale-100 transition-transform duration-1000 ease-out grayscale group-hover:grayscale-0" />
 
-            <div className="relative z-10 space-y-10">
+            {/* Emerald subtle glow */}
+            <div className="absolute inset-0 z-10 opacity-0 group-hover:opacity-40 transition-opacity duration-700 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-emerald-600 via-transparent to-transparent pointer-events-none" />
+
+            <div className="relative z-20 space-y-10">
               <h2 className="text-3xl md:text-4xl font-bold tracking-widest text-white uppercase group-hover:text-emerald-50 transition-colors">
                 Projects
               </h2>
