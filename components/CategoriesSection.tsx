@@ -8,12 +8,12 @@ interface CategoryCard {
 
 const categories: CategoryCard[] = [
   {
-    title: 'ボディメイク',
+    title: 'トレーニング',
     description: '脂肪減少、筋肉増加、体型開発',
     icon: '💪',
   },
   {
-    title: 'アスリートトレーニング',
+    title: '競技別トレーニング',
     description: 'パフォーマンス、スピード、強さ、競技',
     icon: '🏃',
   },

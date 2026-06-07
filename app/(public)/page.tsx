@@ -51,7 +51,7 @@ export default function Home() {
               <div className="absolute inset-0 bg-[url('/sports2.jpg')] bg-cover bg-center opacity-85 scale-105 group-hover:scale-100 transition-transform duration-1000 ease-out" />
 
               <div className="relative z-20 h-full p-4 md:p-10 flex flex-col justify-end">
-                <h2 className="text-xl md:text-4xl font-bold tracking-widest mb-2 md:mb-6 uppercase text-white group-hover:text-red-100 transition-colors duration-500">ATHLETE</h2>
+                <h2 className="text-xl md:text-4xl font-bold tracking-widest mb-2 md:mb-6 uppercase text-white group-hover:text-red-100 transition-colors duration-500">競技別</h2>
                 <p className="text-zinc-400 text-[10px] md:text-base leading-relaxed md:leading-loose mb-4 md:mb-10 font-light">
                   競技理解・トレーニング・<br className="md:hidden" />戦術・パフォーマンス。
                 </p>
@@ -70,7 +70,7 @@ export default function Home() {
               <div className="absolute inset-0 bg-[url('/bodymake.jpg')] bg-cover bg-center opacity-85 scale-105 group-hover:scale-100 transition-transform duration-1000 ease-out" />
 
               <div className="relative z-20 h-full p-4 md:p-10 flex flex-col justify-end">
-                <h2 className="text-xl md:text-4xl font-bold tracking-widest mb-2 md:mb-6 uppercase text-white group-hover:text-red-100 transition-colors duration-500">BODYMAKE</h2>
+                <h2 className="text-xl md:text-4xl font-bold tracking-widest mb-2 md:mb-6 uppercase text-white group-hover:text-red-100 transition-colors duration-500">トレーニング</h2>
                 <p className="text-zinc-400 text-[10px] md:text-base leading-relaxed md:leading-loose mb-4 md:mb-10 font-light">
                   筋肥大・ダイエット・<br className="md:hidden" />方法・継続。
                 </p>

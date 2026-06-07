@@ -129,12 +129,12 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             <Link href="/athlete" className="group block p-8 border border-zinc-800 bg-zinc-900/50 hover:bg-zinc-900 hover:border-blue-900/60 transition-all duration-500 hover:-translate-y-1 text-center">
               <h3 className="text-xl md:text-2xl font-bold tracking-widest text-white group-hover:text-blue-100 transition-colors uppercase">Athlete</h3>
-              <p className="text-zinc-500 text-sm mt-3 tracking-wider">アスリート</p>
+              <p className="text-zinc-500 text-sm mt-3 tracking-wider">競技別</p>
             </Link>
 
             <Link href="/bodymake" className="group block p-8 border border-zinc-800 bg-zinc-900/50 hover:bg-zinc-900 hover:border-blue-900/60 transition-all duration-500 hover:-translate-y-1 text-center">
-              <h3 className="text-xl md:text-2xl font-bold tracking-widest text-white group-hover:text-blue-100 transition-colors uppercase">Bodymake</h3>
-              <p className="text-zinc-500 text-sm mt-3 tracking-wider">ボディメイク</p>
+              <h3 className="text-xl md:text-2xl font-bold tracking-widest text-white group-hover:text-blue-100 transition-colors uppercase">Training</h3>
+              <p className="text-zinc-500 text-sm mt-3 tracking-wider">トレーニング</p>
             </Link>
 
             <Link href="/special" className="group block p-8 border border-zinc-800 bg-zinc-900/50 hover:bg-zinc-900 hover:border-blue-900/60 transition-all duration-500 hover:-translate-y-1 text-center">

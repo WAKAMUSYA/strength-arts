@@ -17,21 +17,7 @@ const sports = [
   { id: 'basketball', title: 'バスケット (Basketball)', href: '/athlete/sport/basketball' },
   { id: 'athletics', title: '陸上 (Track & Field)', href: '/athlete/sport/athletics' },
   { id: 'golf', title: 'ゴルフ (Golf)', href: '/athlete/sport/golf' },
-]
-
-const goals = [
-  { id: 'speedup', title: '足を速くしたい', href: '/athlete/goal/speedup' },
-  { id: 'jumppower', title: 'ジャンプ力を上げたい', href: '/athlete/goal/jumppower' },
-  { id: 'contactpower', title: '当たりを強くしたい', href: '/athlete/goal/contactpower' },
-  { id: 'ballspeed', title: '球速を上げたい', href: '/athlete/goal/ballspeed' },
-  { id: 'rotation', title: '回旋を強くしたい', href: '/athlete/goal/rotation' },
-  { id: 'injuryfree', title: 'ケガを予防したい', href: '/athlete/goal/injuryfree' },
-]
-
-const practices = [
-  { id: 'pitching150', title: '150km投げるための考え方', href: '/athlete/practice/pitching150' },
-  { id: 'jumpstretch', title: 'ジャンプ力が高い選手の特徴', href: '/athlete/practice/jumpstretch' },
-  { id: 'prosenshu', title: 'プロ選手の自主練', href: '/athlete/practice/prosenshu' },
+  { id: 'performance', title: 'アスリート能力', href: '/athlete/performance' },
 ]
 
 export default function AthleteDirectoryPage() {
@@ -52,7 +38,7 @@ export default function AthleteDirectoryPage() {
             <Compass className="w-3.5 h-3.5 text-purple-500" /> Athlete Explorer
           </div>
           <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white">
-            アスリート・スポーツの研究
+            競技別の研究
           </h1>
           <p className="max-w-lg mx-auto text-xs md:text-sm text-zinc-400 leading-relaxed font-light tracking-widest">
             各研究所一覧
@@ -70,11 +56,11 @@ export default function AthleteDirectoryPage() {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {sports.map((item) => {
-              if (item.id === 'golf') {
+              if (item.id === 'golf' || item.id === 'performance') {
                 return (
                   <Link
                     key={item.id}
-                    href="/lab/golf"
+                    href={item.href}
                     className="group relative text-left w-full bg-zinc-950 hover:bg-zinc-900/30 border border-zinc-900 hover:border-purple-900/50 rounded-lg p-5 transition-all duration-300 shadow-md flex items-center justify-between"
                   >
                     <span className="text-sm md:text-base font-bold text-zinc-300 group-hover:text-white transition-colors duration-300">
@@ -106,58 +92,6 @@ export default function AthleteDirectoryPage() {
                 </button>
               );
             })}
-          </div>
-        </div>
-
-        {/* --- Category B: 目的別 --- */}
-        <div className="space-y-6">
-          <h2 className="text-sm font-bold tracking-wider text-zinc-450 border-b border-zinc-905 pb-2.5 uppercase">
-            目的別
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {goals.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => setActivePortal(item.title)}
-                className="group relative text-left w-full bg-zinc-950 hover:bg-zinc-900/30 border border-zinc-900 hover:border-zinc-800 rounded-lg p-5 transition-all duration-300 shadow-md flex items-center justify-between"
-              >
-                <span className="text-sm md:text-base font-bold text-zinc-300 group-hover:text-white transition-colors duration-300">
-                  {item.title}
-                </span>
-                <div className="flex items-center gap-2">
-                  <span className="text-[8px] font-mono text-zinc-600 bg-zinc-900 border border-zinc-850 px-2 py-0.5 rounded uppercase tracking-wider">
-                    Coming Soon
-                  </span>
-                  <Lock className="w-3.5 h-3.5 text-zinc-700" />
-                </div>
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* --- Category C: 一流の自主練 --- */}
-        <div className="space-y-6">
-          <h2 className="text-sm font-bold tracking-wider text-zinc-450 border-b border-zinc-905 pb-2.5 uppercase">
-            一流の自主練
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {practices.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => setActivePortal(item.title)}
-                className="group relative text-left w-full bg-zinc-950 hover:bg-zinc-900/30 border border-zinc-900 hover:border-zinc-800 rounded-lg p-5 transition-all duration-300 shadow-md flex items-center justify-between"
-              >
-                <span className="text-sm md:text-base font-bold text-zinc-300 group-hover:text-white transition-colors duration-300">
-                  {item.title}
-                </span>
-                <div className="flex items-center gap-2">
-                  <span className="text-[8px] font-mono text-zinc-600 bg-zinc-900 border border-zinc-850 px-2 py-0.5 rounded uppercase tracking-wider">
-                    Coming Soon
-                  </span>
-                  <Lock className="w-3.5 h-3.5 text-zinc-700" />
-                </div>
-              </button>
-            ))}
           </div>
         </div>
 

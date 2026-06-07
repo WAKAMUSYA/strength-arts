@@ -60,7 +60,7 @@ export default function BodymakeDirectoryPage() {
             <Compass className="w-3.5 h-3.5 text-blue-500" /> Biomechanics Hub
           </div>
           <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white">
-            ボディメイクの研究
+            トレーニングの研究
           </h1>
           <p className="max-w-lg mx-auto text-xs md:text-sm text-zinc-400 leading-relaxed font-light tracking-widest">
             各研究所一覧

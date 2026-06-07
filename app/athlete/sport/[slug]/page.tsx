@@ -238,7 +238,7 @@ export default function SportArticlePage({ params }: { params: { slug: string } 
   }
 
   const relatedLinks = relatedMap[slug] || [
-    { label: 'アスリートトップに戻る', href: '/athlete' }
+    { label: '競技別トップに戻る', href: '/athlete' }
   ]
 
   return (

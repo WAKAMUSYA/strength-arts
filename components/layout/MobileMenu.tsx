@@ -44,8 +44,8 @@ export default function MobileMenu({ isLoggedIn, signOutAction }: Props) {
         <div className="fixed inset-0 top-16 z-40 bg-white border-t border-gray-100 flex flex-col pt-8 px-8 overflow-y-auto pb-24">
           <nav className="flex flex-col space-y-6 text-xl font-bold text-gray-800">
             <Link href="/about" className="hover:text-zinc-950 transition-colors">SAについて</Link>
-            <Link href="/athlete" className="hover:text-amber-600 transition-colors">アスリート</Link>
-            <Link href="/bodymake" className="hover:text-blue-600 transition-colors">ボディメイク</Link>
+            <Link href="/athlete" className="hover:text-amber-600 transition-colors">競技別</Link>
+            <Link href="/bodymake" className="hover:text-blue-600 transition-colors">トレーニング</Link>
             <Link href="/special" className="hover:text-indigo-600 transition-colors">スペシャル</Link>
             <Link href={isLoggedIn ? "/dashboard/lab" : "/lab"} className="hover:text-purple-600 transition-colors">研究所一覧</Link>
             <Link href="/project" className="hover:text-emerald-600 transition-colors">プロジェクト</Link>

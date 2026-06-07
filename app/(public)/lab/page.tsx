@@ -87,7 +87,7 @@ export default function LabPage() {
         <div className="space-y-6">
           <div className="flex items-center justify-between border-b border-zinc-900 pb-2.5">
             <h2 className="text-sm font-bold tracking-wider text-zinc-300 uppercase">
-              部位別ボディメイク
+              部位別トレーニング
             </h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -117,7 +117,7 @@ export default function LabPage() {
         <div className="space-y-6">
           <div className="flex items-center justify-between border-b border-zinc-900 pb-2.5">
             <h2 className="text-sm font-bold tracking-wider text-zinc-300 uppercase">
-              アスリート・スポーツ特化
+              競技別特化
             </h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

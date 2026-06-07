@@ -21,8 +21,8 @@ export default function Navbar({ isLoggedIn }: { isLoggedIn: boolean }) {
         <div className="flex items-center space-x-4">
           <nav className="hidden md:flex items-center space-x-4 lg:space-x-6 text-sm font-medium text-zinc-300">
             <Link href="/about" className="hover:text-white transition-colors">SAについて</Link>
-            <Link href="/athlete" className="hover:text-red-400 transition-colors">アスリート</Link>
-            <Link href="/bodymake" className="hover:text-red-400 transition-colors">ボディメイク</Link>
+            <Link href="/athlete" className="hover:text-red-400 transition-colors">競技別</Link>
+            <Link href="/bodymake" className="hover:text-red-400 transition-colors">トレーニング</Link>
             <Link href="/special" className="hover:text-red-400 transition-colors">スペシャル</Link>
             <Link href={isLoggedIn ? "/dashboard/lab" : "/lab"} className="hover:text-red-400 transition-colors">研究所一覧</Link>
             <Link href="/project" className="hover:text-red-400 transition-colors">プロジェクト</Link>

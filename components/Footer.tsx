@@ -23,8 +23,8 @@ export default function Footer() {
             <h4 className="font-semibold text-white mb-4">探索</h4>
             <ul className="space-y-2 text-sm">
               <li><Link href="/about" className="text-gray-400 hover:text-white transition-colors">ABOUT</Link></li>
-              <li><Link href="/athlete" className="text-gray-400 hover:text-white transition-colors">アスリート</Link></li>
-              <li><Link href="/bodymake" className="text-gray-400 hover:text-white transition-colors">ボディメイク</Link></li>
+              <li><Link href="/athlete" className="text-gray-400 hover:text-white transition-colors">競技別</Link></li>
+              <li><Link href="/bodymake" className="text-gray-400 hover:text-white transition-colors">トレーニング</Link></li>
               <li><Link href="/special" className="text-gray-400 hover:text-white transition-colors">スペシャル</Link></li>
               <li><Link href="/lab" className="text-gray-400 hover:text-white transition-colors">研究所（ラボ）</Link></li>
             </ul>

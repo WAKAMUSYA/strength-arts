@@ -28,8 +28,8 @@ export default function Footer() {
             <div className="space-y-4">
               <h4 className="text-gray-900 text-sm font-bold tracking-widest uppercase">Contents</h4>
               <ul className="space-y-3 text-sm font-light">
-                <li><Link href="/athlete" className="hover:text-gray-900 transition-colors">アスリート</Link></li>
-                <li><Link href="/bodymake" className="hover:text-gray-900 transition-colors">ボディメイク</Link></li>
+                <li><Link href="/athlete" className="hover:text-gray-900 transition-colors">競技別</Link></li>
+                <li><Link href="/bodymake" className="hover:text-gray-900 transition-colors">トレーニング</Link></li>
                 <li><Link href="/special" className="hover:text-gray-900 transition-colors">スペシャル</Link></li>
                 <li><Link href="/lab" className="hover:text-gray-900 transition-colors">研究所一覧</Link></li>
               </ul>
