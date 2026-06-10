@@ -7,6 +7,7 @@ const big3Labs = [
   { id: 'squat', title: 'スクワット研究所', desc: '骨格アライメントの崩れ、バットウィンク、トリプルエクステンションの力学。', href: '/lab/squat' },
   { id: 'deadlift', title: 'デッドリフト研究所', desc: 'ヒップヒンジの習得、広背筋の動員、床から重量を引き剥がすメカニズム。', href: '/lab/deadlift' },
   { id: 'power', title: 'クリーン＆スナッチ研究所', desc: '瞬発力とボディコントロール。五輪リフティングの叡智を体系化。', href: '/lab/power' },
+  { id: 'ziju', title: '自重トレーニング研究所', desc: 'バイオメカニクスに基づく自重トレーニングの真髄。プッシュアップ、懸垂、ピストルスクワット。', href: '/lab/ziju' },
 ]
 
 const bodyLabs = [
@@ -20,6 +21,11 @@ const bodyLabs = [
 
 const sportsLabs = [
   { id: 'golf', title: 'ゴルフ研究所', desc: 'スイングの力学、床反力と回旋、飛距離アップのバイオメカニクス。', href: '/lab/golf' },
+  { id: 'athlete', title: 'アスリート能力研究所', desc: '競技パフォーマンス向上、スピード・アジリティ・パワーのスポーツ科学。', href: '/athlete/performance' },
+]
+
+const goalLabs = [
+  { id: 'hypertrophy', title: '筋肥大研究所', desc: '筋量増加のメカニズム、筋タンパク質合成とボリューム理論。', href: '/lab/hypertrophy' },
 ]
 
 const specialLabs = [
@@ -143,7 +149,37 @@ export default function LabPage() {
           </div>
         </div>
 
-        {/* --- Category D: スペシャル・特化型 --- */}
+        {/* --- Category D: 目的別 --- */}
+        <div className="space-y-6">
+          <div className="flex items-center justify-between border-b border-zinc-900 pb-2.5">
+            <h2 className="text-sm font-bold tracking-wider text-zinc-300 uppercase">
+              目的別
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {goalLabs.map((lab) => (
+              <Link
+                key={lab.id}
+                href={lab.href}
+                className="group relative block bg-zinc-950 hover:bg-zinc-900/40 border border-zinc-900 hover:border-blue-900/50 rounded-xl p-5 transition-all duration-300 shadow-md"
+              >
+                <div className="space-y-3">
+                  <div className="flex justify-between items-center">
+                    <h3 className="text-base font-bold text-white group-hover:text-blue-400 transition-colors duration-300">
+                      {lab.title}
+                    </h3>
+                    <ArrowRight className="w-4 h-4 text-zinc-600 group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />
+                  </div>
+                  <p className="text-xs text-zinc-500 leading-relaxed font-light">
+                    {lab.desc}
+                  </p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/* --- Category E: スペシャル・特化型 --- */}
         <div className="space-y-6">
           <div className="flex items-center justify-between border-b border-zinc-900 pb-2.5">
             <h2 className="text-sm font-bold tracking-wider text-zinc-300 uppercase">

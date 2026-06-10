@@ -26,6 +26,7 @@ const exercises = [
   { id: 'squat', title: 'スクワット', href: '/lab/squat', isLab: true },
   { id: 'deadlift', title: 'デッドリフト', href: '/lab/deadlift', isLab: true },
   { id: 'power', title: 'クリーン＆スナッチ', href: '/lab/power', isLab: true },
+  { id: 'ziju', title: '自重', href: '/lab/ziju', isLab: true },
 ]
 
 const goals = [

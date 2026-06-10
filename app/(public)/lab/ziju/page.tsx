@@ -8,13 +8,13 @@ import {
   Clock,
   ChevronRight,
   ExternalLink,
+  Activity,
   Lock,
   X,
   Info,
-  BookOpen,
-  Dumbbell
+  BookOpen
 } from 'lucide-react'
-import { HYPERTROPHY_ARTICLES } from '@/data/hypertrophyArticles'
+import { ZIJU_ARTICLES } from '@/data/zijuArticles'
 
 // --- DATA TYPES ---
 interface ResearchPaper {
@@ -29,102 +29,123 @@ interface ResearchPaper {
 }
 
 const OBSTACLES = [
-  { label: '筋肉が大きくならない', desc: '筋トレしてもサイズが変わらない' },
-  { label: '形が変わらない', desc: '全体的にのっぺりしている' },
-  { label: '筋肉痛がこない', desc: '効いている感覚が全くない' },
-  { label: '疲労だけ溜まる', desc: '関節が痛くなるだけで発達しない' }
+  { label: '胸に入らない', desc: '大胸筋に刺激を集中させたい' },
+  { label: '肩が痛い', desc: '挙上時に肩前面に違和感がある' },
+  { label: '停滞した', desc: 'MAX重量が数ヶ月更新されていない' },
+  { label: '腰が反る', desc: 'アーチ形成で腰が痛む・浮いてしまう' }
 ]
 
 const RESEARCH_PAPERS: ResearchPaper[] = [
   {
     id: 'res-1',
-    title: '筋力トレーニングのボリュームと筋肥大の用量反応関係',
-    journal: 'Journal of Sports Sciences',
-    year: 2017,
-    doi: '10.1080/02640414.2016.1210197',
-    findings: '週あたりのセット数が多いほど筋肥大効果は高まる傾向にあるが、過剰なボリュームはオーバートレーニングを招く。',
-    citationCount: 412,
-    tag: 'ボリューム'
+    title: '限界セット数（ボリューム）と大胸筋肥大の相関関係：ランダム化比較試験',
+    journal: 'Journal of Strength and Conditioning Research',
+    year: 2022,
+    doi: '10.1519/JSC.0000000000004123',
+    findings: '週あたり10セットと20セットの比較において、漸進的過負荷が維持されている限り、高ボリューム群で大胸筋の横断面積（CSA）が著しく増加した。',
+    citationCount: 42,
+    tag: 'ボリューム設計'
   },
   {
     id: 'res-2',
-    title: '筋肥大における低負荷と高負荷トレーニングの比較',
+    title: '異なる自重トレーニング角度（0°, 30°, 45°）が筋肉活性化に及ぼす筋電図（EMG）分析',
     journal: 'European Journal of Sport Science',
-    year: 2015,
-    doi: '10.1080/17461391.2014.989922',
-    findings: '限界まで追い込めば、低負荷（30% 1RM）でも高負荷（80% 1RM）と同等の筋肥大が起こり得る。',
-    citationCount: 285,
-    tag: '負荷強度'
+    year: 2020,
+    doi: '10.1080/17461391.2019.1695952',
+    findings: '大胸筋上部繊維の活性化は30°のインクラインで最大となり、45°以上では三角筋前部の活性化が急増し大胸筋上部の貢献度は減少した。',
+    citationCount: 68,
+    tag: '角度力学'
+  },
+  {
+    id: 'res-3',
+    title: '挙上速度低下フィードバックによる自重トレーニングのプログラム処方と筋力向上率',
+    journal: 'International Journal of Sports Physiology and Performance',
+    year: 2021,
+    doi: '10.1123/ijspp.2020-0321',
+    findings: '挙上中のバー速度（Velocity Loss）を指標にセット終了を決定することで、過度な疲労を蓄積させることなく最大筋力を向上できることが実証された。',
+    citationCount: 31,
+    tag: '速度制御（VBT）'
+  },
+  {
+    id: 'res-4',
+    title: 'ブリッジの高さが肩関節への圧縮力および剪断ストレスに及ぼす生体力学的モデリング',
+    journal: 'Clinical Biomechanics',
+    year: 2023,
+    doi: '10.1016/j.clinbiomech.2023.105942',
+    findings: '過度な胸椎伸展ブリッジは挙上距離を約35%削減し、肩関節の最大外転トルクを軽減させる一方で、腰椎部の圧縮ストレスが増加することを示唆した。',
+    citationCount: 15,
+    tag: '関節応力'
   }
 ]
 
 const RELATED_LABS = [
-  { title: '胸研究所', label: 'Chest Biomechanics Hub', slug: 'chest', glowColor: 'hover:border-red-500/40 hover:bg-red-950/10' },
-  { title: '背中研究所', label: 'Back Biomechanics Hub', slug: 'back', glowColor: 'hover:border-blue-500/40 hover:bg-blue-950/10' },
-  { title: '脚トレ研究所', label: 'Legs Training Hub', slug: 'legs', glowColor: 'hover:border-amber-500/40 hover:bg-amber-950/10' },
-  { title: '自重研究所', label: 'Bodyweight Biomechanics Hub', slug: 'ziju', glowColor: 'hover:border-zinc-500/40 hover:bg-zinc-950/10', isReady: true }
+  { title: '胸研究所', label: 'Chest Biomechanics Hub', slug: 'chest', glowColor: 'hover:border-blue-500/40 hover:bg-blue-950/10' },
+  { title: '肩研究所', label: 'Shoulder Kinetic Hub', slug: 'shoulder', glowColor: 'hover:border-purple-500/40 hover:bg-purple-950/10' },
+  { title: 'スクワット研究所', label: 'Squat & Lower-Body Hub', slug: 'squat', glowColor: 'hover:border-amber-500/40 hover:bg-amber-950/10' }
 ]
 
-export default function HypertrophyLab() {
+export default function BenchPressLab() {
   const [activePortal, setActivePortal] = useState<string | null>(null)
 
+  // Categorize articles from shared data file
   const mustReadArticles = useMemo(() => {
-    return HYPERTROPHY_ARTICLES.filter(art => art.type === 'basic')
+    return ZIJU_ARTICLES.filter(art => art.type === 'basic')
   }, [])
 
   const columnArticles = useMemo(() => {
-    return HYPERTROPHY_ARTICLES.filter(art => art.type === 'applied')
+    return ZIJU_ARTICLES.filter(art => art.type === 'applied')
   }, [])
 
-  const practicalArticles = useMemo(() => {
-    return HYPERTROPHY_ARTICLES.filter(art => art.type === 'practical')
-  }, [])
-
+  // Dynamically generate roadmap steps from articles with a `roadmapNumber` (sorted ascending)
   const roadmapSteps = useMemo(() => {
-    return HYPERTROPHY_ARTICLES
+    return ZIJU_ARTICLES
       .filter(art => typeof art.roadmapNumber === 'number')
       .sort((a, b) => (a.roadmapNumber || 0) - (b.roadmapNumber || 0))
   }, [])
 
+  const programArticles = useMemo(() => {
+    return ZIJU_ARTICLES.filter(art => art.type === 'program')
+  }, [])
+
   return (
-    <main className="min-h-screen bg-black text-white selection:bg-red-900 selection:text-white pb-32">
+    <main className="min-h-screen bg-black text-white selection:bg-blue-900 selection:text-white pb-32">
 
 {/* ----------------- SECTION ①: HERO ----------------- */}
       <section className="relative overflow-hidden border-b border-zinc-900 pt-32 pb-20 bg-zinc-950">
         {/* Background Image */}
         <div
-          className="absolute inset-0 bg-[url('/muscle.jpg')] bg-cover bg-center bg-no-repeat opacity-40 grayscale"
+          className="absolute inset-0 bg-[url('/ziju.jpg')] bg-cover bg-center bg-no-repeat opacity-80"
         />
 
         {/* Overlays for readability */}
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-black/10" />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
 
         <div className="max-w-3xl mx-auto px-4 relative z-10">
           <div className="bg-black/60 backdrop-blur-md rounded-3xl border border-white/10 shadow-2xl p-6 md:p-10 text-center space-y-6">
             <div className="flex items-center justify-center gap-2">
-              <span className="inline-flex items-center gap-1.5 text-[9px] font-extrabold text-red-400 bg-red-950/40 border border-red-900/40 px-3 py-1 rounded-full uppercase tracking-widest">
-                <Dumbbell className="w-3.5 h-3.5 text-red-500" /> Hypertrophy Science
+              <span className="inline-flex items-center gap-1.5 text-[9px] font-extrabold text-blue-400 bg-blue-950/40 border border-blue-900/40 px-3 py-1 rounded-full uppercase tracking-widest">
+                <Activity className="w-3.5 h-3.5 text-blue-500" /> Bench Press
               </span>
-              <span className="text-[10px] text-zinc-400 font-mono">CODE: HYP-LAB-01</span>
+              <span className="text-[10px] text-zinc-400 font-mono">CODE: BP-LAB-01</span>
             </div>
 
             <h1 className="text-4xl md:text-6xl font-black tracking-tight text-white leading-tight">
-              筋肥大<span className="text-red-500 font-extrabold relative inline-block">研究所</span>
+              自重トレーニング<span className="text-blue-500 font-extrabold relative inline-block">研究所</span>
             </h1>
 
             <p className="text-base md:text-lg font-bold text-zinc-300">
-              ー 筋肉を最大化する科学的アプローチ ー
+              ー 自重トレーニングを極める ー
             </p>
 
             <p className="text-xs md:text-sm text-zinc-300 leading-relaxed font-light max-w-2xl mx-auto">
-              機械的張力、代謝的ストレス、筋損傷。生理学と力学のエビデンスに基づき、最短で筋量を追加するための理論と実践。
+              科学的なアプローチとSA独自の研究結果を融合させ、パフォーマンスを次の次元へと引き上げます。
             </p>
 
             <div className="pt-6 flex justify-center">
               <Link
-                href="/lab/hypertrophy/articles"
-                className="group relative inline-flex items-center justify-center gap-2 bg-red-900 hover:bg-red-800 text-white font-bold py-3.5 px-8 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-red-900/40 border border-red-700/50"
+                href="/lab/ziju/articles"
+                className="group relative inline-flex items-center justify-center gap-2 bg-blue-900 hover:bg-blue-800 text-white font-bold py-3.5 px-8 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-blue-900/40 border border-blue-700/50"
               >
                 <BookOpen className="w-4 h-4" />
                 全コラム一覧を見る
@@ -140,14 +161,14 @@ export default function HypertrophyLab() {
         <div className="max-w-6xl mx-auto px-6">
 
           <div className="text-center space-y-3 mb-12">
-            <span className="text-[10px] font-extrabold text-red-400 tracking-wider uppercase block">
+            <span className="text-[10px] font-extrabold text-blue-400 tracking-wider uppercase block">
               FACILITY DIRECTORY
             </span>
             <h2 className="text-2xl md:text-3xl font-black text-white tracking-tight">
               基本理論
             </h2>
             <p className="text-xs text-zinc-450 max-w-xl mx-auto leading-relaxed font-light">
-              筋肥大の原則を学ぶ基礎講義。
+              力学的な正解フォームの基本。
             </p>
           </div>
 
@@ -156,7 +177,7 @@ export default function HypertrophyLab() {
             {mustReadArticles.map((art, idx) => (
               <Link
                 key={art.id}
-                href={`/lab/hypertrophy/${art.slug}`}
+                href={`/lab/ziju/${art.slug}`}
                 className="w-[280px] md:w-[350px] shrink-0 bg-zinc-950/40 border border-zinc-900 hover:border-zinc-800 rounded-xl p-4 transition-all duration-300 flex flex-col justify-between group shadow-lg hover:shadow-xl hover:bg-zinc-900/10 cursor-pointer"
               >
                 <div className="space-y-4">
@@ -168,18 +189,18 @@ export default function HypertrophyLab() {
                       alt={art.title}
                       className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500 opacity-80"
                     />
-                    <span className="absolute top-2 left-2 z-20 text-[8px] font-extrabold text-red-400 bg-zinc-950/90 border border-zinc-900 px-2 py-0.5 rounded tracking-widest uppercase">
+                    <span className="absolute top-2 left-2 z-20 text-[8px] font-extrabold text-blue-400 bg-zinc-950/90 border border-zinc-900 px-2 py-0.5 rounded tracking-widest uppercase">
                       LECTURE 0{idx + 1}
                     </span>
                   </div>
 
                   <div className="space-y-2">
                     <div className="flex items-center justify-between text-[9px] font-mono text-zinc-500">
-                      <span className="uppercase tracking-widest text-red-400 font-semibold">{art.category}</span>
+                      <span className="uppercase tracking-widest text-blue-450 font-semibold">{art.category}</span>
                       <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> {art.readTime}</span>
                     </div>
 
-                    <h3 className="text-sm md:text-base font-bold text-white group-hover:text-red-400 transition-colors leading-snug">
+                    <h3 className="text-sm md:text-base font-bold text-white group-hover:text-blue-400 transition-colors leading-snug">
                       {art.title}
                     </h3>
 
@@ -191,7 +212,7 @@ export default function HypertrophyLab() {
 
                 <div className="mt-6 pt-3 border-t border-zinc-900 flex items-center justify-between text-[10px] font-mono text-zinc-500">
                   <span className="bg-zinc-900 text-zinc-400 border border-zinc-850 px-2.5 py-0.5 rounded text-[8px] uppercase tracking-wider font-semibold">LEVEL: {art.level}</span>
-                  <span className="text-zinc-400 group-hover:text-red-400 group-hover:translate-x-1 transition-all flex items-center gap-1 font-bold">
+                  <span className="text-zinc-400 group-hover:text-blue-400 group-hover:translate-x-1 transition-all flex items-center gap-1 font-bold">
                     探究する <ArrowRight className="w-3.5 h-3.5" />
                   </span>
                 </div>
@@ -207,35 +228,35 @@ export default function HypertrophyLab() {
         <div className="max-w-6xl mx-auto px-6">
 
           <div className="text-center space-y-3 mb-16">
-            <span className="text-[10px] font-extrabold text-red-400 tracking-wider uppercase bg-red-950/40 border border-red-900/40 px-3 py-1 rounded-full">
+            <span className="text-[10px] font-extrabold text-blue-400 tracking-wider uppercase bg-blue-950/40 border border-blue-900/40 px-3 py-1 rounded-full">
               STRUCTURED PATHWAY
             </span>
             <h2 className="text-2xl md:text-3xl font-black text-white tracking-tight">
               順番に学ぶ
             </h2>
             <p className="text-xs text-zinc-450 max-w-xl mx-auto leading-relaxed font-light">
-              筋肥大理論の段階的習得ステップ。
+              バイオメカニクスに基づく10段階の習得ステップ。
             </p>
           </div>
 
-          {/* Steps Horizontal/Vertical Responsive Scroll */}
+          {/* Steps Horizontal/Vertical Responsive Scroll (Dynamically populated from common data) */}
           <div className="overflow-x-auto pb-4 -mx-6 px-6 scrollbar-thin scrollbar-thumb-zinc-800">
-            <div className="flex gap-5 min-w-[max-content]">
+            <div className="flex gap-5 min-w-[1700px]">
               {roadmapSteps.map((st, idx) => (
                 <Link
                   key={st.id}
-                  href={`/lab/hypertrophy/${st.slug}`}
-                  className="relative w-[280px] shrink-0 bg-zinc-950 border border-zinc-900 rounded-xl p-5 hover:border-red-900 hover:bg-zinc-900/10 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group cursor-pointer"
+                  href={`/lab/ziju/${st.slug}`}
+                  className="relative w-[280px] shrink-0 bg-zinc-950 border border-zinc-900 rounded-xl p-5 hover:border-blue-900 hover:bg-zinc-900/10 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group cursor-pointer"
                 >
                   {idx < roadmapSteps.length - 1 && (
-                    <div className="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 z-20 bg-zinc-950 rounded-full p-1 border border-zinc-900 text-zinc-650 group-hover:text-red-400 group-hover:bg-red-950/30 transition-colors">
+                    <div className="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 z-20 bg-zinc-950 rounded-full p-1 border border-zinc-900 text-zinc-650 group-hover:text-blue-400 group-hover:bg-blue-950/30 transition-colors">
                       <ChevronRight className="w-3.5 h-3.5" />
                     </div>
                   )}
 
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
-                      <span className="text-2xl font-black text-red-600/80 group-hover:text-red-400 transition-colors font-mono">
+                      <span className="text-2xl font-black text-blue-600/80 group-hover:text-blue-400 transition-colors font-mono">
                         0{st.roadmapNumber}
                       </span>
                       <span className="text-[8px] font-mono text-zinc-550 uppercase tracking-widest">
@@ -244,10 +265,10 @@ export default function HypertrophyLab() {
                     </div>
 
                     <div className="space-y-1.5">
-                      <p className="text-[9px] font-mono text-red-400/80 uppercase tracking-wide">
+                      <p className="text-[9px] font-mono text-blue-400/80 uppercase tracking-wide">
                         {st.category}
                       </p>
-                      <h3 className="text-sm font-bold text-white group-hover:text-red-400 transition-colors leading-tight">
+                      <h3 className="text-sm font-bold text-white group-hover:text-blue-400 transition-colors leading-tight">
                         {st.title}
                       </h3>
                       <p className="text-[11px] text-zinc-500 leading-relaxed font-light line-clamp-3">
@@ -257,8 +278,8 @@ export default function HypertrophyLab() {
                   </div>
 
                   <div className="mt-8 pt-3 border-t border-zinc-900 flex items-center justify-between text-[9px] font-mono text-zinc-500">
-                    <span>HYP-STEP-{st.slug.slice(0, 6)}</span>
-                    <span className="text-zinc-400 group-hover:text-red-400 font-bold flex items-center gap-0.5">
+                    <span>BP-STEP-{st.slug.slice(0, 6)}</span>
+                    <span className="text-zinc-400 group-hover:text-blue-400 font-bold flex items-center gap-0.5">
                       READ <ArrowRight className="w-2.5 h-2.5" />
                     </span>
                   </div>
@@ -266,6 +287,8 @@ export default function HypertrophyLab() {
               ))}
             </div>
           </div>
+
+
 
         </div>
       </section>
@@ -275,14 +298,14 @@ export default function HypertrophyLab() {
         <div className="max-w-6xl mx-auto px-6">
 
           <div className="text-center space-y-3 mb-12">
-            <span className="text-[10px] font-extrabold text-red-400 tracking-wider uppercase block">
+            <span className="text-[10px] font-extrabold text-blue-400 tracking-wider uppercase block">
               SPECIALIST INQUIRY
             </span>
             <h2 className="text-2xl md:text-3xl font-black text-white tracking-tight">
               応用・探究
             </h2>
             <p className="text-xs text-zinc-450 max-w-xl mx-auto leading-relaxed font-light">
-              より高度な筋肥大アプローチと最新エビデンスの応用。
+              ストレングスアーツ独自の視点から自重トレーニングを探究する。
             </p>
           </div>
 
@@ -291,16 +314,16 @@ export default function HypertrophyLab() {
             {columnArticles.map((col) => (
               <Link
                 key={col.id}
-                href={`/lab/hypertrophy/${col.slug}`}
+                href={`/lab/ziju/${col.slug}`}
                 className="w-[280px] md:w-[350px] shrink-0 group cursor-pointer bg-zinc-950 border border-zinc-900 hover:border-zinc-800 rounded-xl p-6 transition-all duration-300 flex flex-col justify-between hover:shadow-xl hover:bg-zinc-900/10"
               >
                 <div className="space-y-4">
                   <div className="flex items-center justify-between text-[9px] font-mono text-zinc-500">
-                    <span className="uppercase tracking-widest text-red-400 font-semibold">{col.category}</span>
+                    <span className="uppercase tracking-widest text-blue-450 font-semibold">{col.category}</span>
                     <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {col.readTime}</span>
                   </div>
 
-                  <h3 className="text-base md:text-lg font-black text-white group-hover:text-red-400 transition-colors leading-snug">
+                  <h3 className="text-base md:text-lg font-black text-white group-hover:text-blue-450 transition-colors leading-snug">
                     {col.title}
                   </h3>
 
@@ -317,7 +340,7 @@ export default function HypertrophyLab() {
                       </span>
                     ))}
                   </div>
-                  <span className="text-zinc-400 group-hover:text-red-400 group-hover:translate-x-1 transition-all flex items-center gap-1 font-bold">
+                  <span className="text-zinc-400 group-hover:text-blue-400 group-hover:translate-x-1 transition-all flex items-center gap-1 font-bold">
                     講読する <ArrowRight className="w-3.5 h-3.5" />
                   </span>
                 </div>
@@ -325,91 +348,15 @@ export default function HypertrophyLab() {
             ))}
           </div>
 
+          {/* 🌟 USER REQUEST: 「応用・探究コラムをすべて見る」ボタンを追加 */}
           <div className="mt-12 flex justify-center">
             <Link
-              href="/lab/hypertrophy/articles?tab=applied"
+              href="/lab/ziju/articles?tab=applied"
               className="relative inline-flex items-center gap-2 bg-gradient-to-r from-zinc-900/70 to-zinc-850/50 hover:from-zinc-850/80 hover:to-zinc-800/60 border border-zinc-800 hover:border-zinc-650 text-white font-bold text-xs md:text-sm px-8 py-4 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-zinc-800/10 tracking-wider group cursor-pointer"
             >
-              <Layers className="w-4 h-4 text-red-400 group-hover:text-red-300 group-hover:scale-110 transition-all shrink-0" />
+              <Layers className="w-4 h-4 text-blue-400 group-hover:text-blue-300 group-hover:scale-110 transition-all shrink-0" />
               <span>応用・探究コラムをすべて見る</span>
-              <ChevronRight className="w-4 h-4 text-red-500 group-hover:translate-x-0.5 transition-transform" />
-            </Link>
-          </div>
-
-        </div>
-      </section>
-
-{/* ----------------- SECTION 4.5: 実践プログラム ----------------- */}
-      <section className="py-20 bg-black border-b border-zinc-900">
-        <div className="max-w-6xl mx-auto px-6">
-
-          <div className="text-center space-y-3 mb-12">
-            <span className="text-[10px] font-extrabold text-red-400 tracking-wider uppercase block">
-              PRACTICAL PROTOCOLS
-            </span>
-            <h2 className="text-2xl md:text-3xl font-black text-white tracking-tight">
-              実践プログラム
-            </h2>
-            <p className="text-xs text-zinc-450 max-w-xl mx-auto leading-relaxed font-light">
-              筋肥大に特化した具体的なトレーニングルーティンとテクニック。
-            </p>
-          </div>
-
-          {/* Horizontal Swipe Card Container */}
-          <div className="overflow-x-auto pb-6 scrollbar-thin scrollbar-thumb-zinc-800 scrollbar-track-zinc-950 flex gap-6 -mx-6 px-6">
-            {practicalArticles.map((art) => (
-              <Link
-                key={art.id}
-                href={`/lab/hypertrophy/${art.slug}`}
-                className="w-[280px] md:w-[350px] shrink-0 bg-zinc-950/40 border border-zinc-900 hover:border-red-900/50 rounded-xl p-4 transition-all duration-300 flex flex-col justify-between group shadow-lg hover:shadow-xl hover:bg-zinc-900/10 cursor-pointer"
-              >
-                <div className="space-y-4">
-                  <div className="relative aspect-[16/10] w-full rounded-lg overflow-hidden bg-zinc-900">
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent z-10" />
-                    <img
-                      src={art.image}
-                      alt={art.title}
-                      className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500 opacity-80"
-                    />
-                    <span className="absolute top-2 right-2 z-20 text-[8px] font-extrabold text-white bg-red-600 border border-red-500 px-2 py-0.5 rounded tracking-widest uppercase shadow-md">
-                      PRACTICAL
-                    </span>
-                  </div>
-
-                  <div className="space-y-2">
-                    <div className="flex items-center justify-between text-[9px] font-mono text-zinc-500">
-                      <span className="uppercase tracking-widest text-red-400 font-semibold">{art.category}</span>
-                      <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> {art.readTime}</span>
-                    </div>
-
-                    <h3 className="text-sm md:text-base font-bold text-white group-hover:text-red-400 transition-colors leading-snug">
-                      {art.title}
-                    </h3>
-
-                    <p className="text-xs text-zinc-400 leading-relaxed font-light line-clamp-3">
-                      {art.desc}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="mt-6 pt-3 border-t border-zinc-900 flex items-center justify-between text-[10px] font-mono text-zinc-500">
-                  <span className="bg-zinc-900 text-zinc-400 border border-zinc-850 px-2.5 py-0.5 rounded text-[8px] uppercase tracking-wider font-semibold">LEVEL: {art.level}</span>
-                  <span className="text-zinc-400 group-hover:text-red-400 group-hover:translate-x-1 transition-all flex items-center gap-1 font-bold">
-                    実践する <ArrowRight className="w-3.5 h-3.5" />
-                  </span>
-                </div>
-              </Link>
-            ))}
-          </div>
-
-          <div className="mt-12 flex justify-center">
-            <Link
-              href="/lab/hypertrophy/articles?tab=practical"
-              className="relative inline-flex items-center gap-2 bg-gradient-to-r from-red-950/20 to-zinc-900/50 hover:from-red-900/30 hover:to-zinc-800/60 border border-red-900/30 hover:border-red-700/50 text-white font-bold text-xs md:text-sm px-8 py-4 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-red-900/10 tracking-wider group cursor-pointer"
-            >
-              <Dumbbell className="w-4 h-4 text-red-400 group-hover:text-red-300 group-hover:scale-110 transition-all shrink-0" />
-              <span>実践プログラムをすべて見る</span>
-              <ChevronRight className="w-4 h-4 text-red-500 group-hover:translate-x-0.5 transition-transform" />
+              <ChevronRight className="w-4 h-4 text-blue-500 group-hover:translate-x-0.5 transition-transform" />
             </Link>
           </div>
 
@@ -421,7 +368,7 @@ export default function HypertrophyLab() {
         <div className="max-w-4xl mx-auto px-6">
 
           <div className="text-center space-y-3 mb-12">
-            <span className="text-[10px] font-extrabold text-red-400 tracking-wider uppercase block">
+            <span className="text-[10px] font-extrabold text-blue-400 tracking-wider uppercase block">
               DIAGNOSTIC NETWORK
             </span>
             <h2 className="text-2xl md:text-3xl font-black text-white tracking-tight">
@@ -437,11 +384,11 @@ export default function HypertrophyLab() {
             {OBSTACLES.map((obs) => (
               <Link
                 key={obs.label}
-                href={`/lab/hypertrophy/articles?tab=basic&obstacle=${encodeURIComponent(obs.label)}`}
-                className="p-4 rounded-xl border border-zinc-900 bg-zinc-950 text-left flex flex-col justify-between hover:border-red-500 hover:bg-red-950/20 hover:shadow-xl hover:shadow-red-500/10 text-zinc-300 transition-all duration-300 group cursor-pointer"
+                href={`/lab/ziju/articles?tab=basic&obstacle=${encodeURIComponent(obs.label)}`}
+                className="p-4 rounded-xl border border-zinc-900 bg-zinc-950 text-left flex flex-col justify-between hover:border-blue-500 hover:bg-blue-950/20 hover:shadow-xl hover:shadow-blue-500/10 text-zinc-300 transition-all duration-300 group cursor-pointer"
               >
                 <div className="space-y-2">
-                  <span className="text-[8px] font-extrabold font-mono tracking-widest uppercase block text-zinc-550 group-hover:text-red-400">
+                  <span className="text-[8px] font-extrabold font-mono tracking-widest uppercase block text-zinc-550 group-hover:text-blue-400">
                     OBSTACLE
                   </span>
                   <h3 className="text-xs md:text-sm font-bold leading-tight group-hover:text-white">
@@ -455,42 +402,93 @@ export default function HypertrophyLab() {
               </Link>
             ))}
           </div>
-
-          <div className="mt-12 flex justify-center">
-            <Link
-              href="/lab/hypertrophy/articles?tab=basic"
-              className="relative inline-flex items-center gap-2 bg-gradient-to-r from-red-950/50 to-red-900/30 hover:from-red-900/60 hover:to-red-800/40 border border-red-800/50 hover:border-red-500 text-white font-bold text-xs md:text-sm px-8 py-4 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-red-500/10 tracking-wider group cursor-pointer"
-            >
-              <BookOpen className="w-4 h-4 text-red-400 group-hover:text-red-300 group-hover:scale-110 transition-all shrink-0" />
-              <span>すべての基本理論コラムを見る</span>
-              <ChevronRight className="w-4 h-4 text-red-500 group-hover:translate-x-0.5 transition-transform" />
-            </Link>
-          </div>
-
-          <div className="mt-12 text-center">
-            <Link
-              href="/lab/hypertrophy/articles"
-              className="inline-flex items-center justify-center gap-2 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-red-900/50 text-zinc-300 hover:text-white font-bold py-3 px-8 rounded-full transition-all duration-300 shadow-md group"
-            >
-              <BookOpen className="w-4 h-4 text-red-500 group-hover:scale-110 transition-transform" />
-              全コラム一覧を見る
-            </Link>
-          </div>        </div>
+        </div>
       </section>
 
-{/* ----------------- SECTION ⑥: 学術研究レビュー ----------------- */}
+{/* ----------------- SECTION ⑥: 実践プログラム ----------------- */}
+      <section className="py-20 bg-black border-b border-zinc-900">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center space-y-3 mb-12">
+            <span className="text-[10px] font-extrabold text-blue-400 tracking-wider uppercase block">
+              TRAINING PROGRAMS
+            </span>
+            <h2 className="text-2xl md:text-3xl font-black text-white tracking-tight">
+              実践プログラム
+            </h2>
+            <p className="text-xs text-zinc-450 max-w-xl mx-auto leading-relaxed font-light">
+              目的別・レベル別に組まれた、効果を最大化するトレーニングメニュー。
+            </p>
+          </div>
+
+          <div className="overflow-x-auto pb-6 scrollbar-thin scrollbar-thumb-zinc-800 scrollbar-track-zinc-950 flex gap-6 -mx-6 px-6">
+            {programArticles.map((art) => (
+              <Link
+                key={art.id}
+                href={`/lab/ziju/${art.slug}`}
+                className="w-[280px] md:w-[350px] shrink-0 bg-zinc-950 border border-zinc-900 hover:border-blue-900/50 rounded-xl p-4 transition-all duration-300 flex flex-col justify-between group shadow-lg hover:shadow-xl hover:bg-zinc-900/10 cursor-pointer"
+              >
+                <div className="space-y-4">
+                  <div className="relative aspect-[16/10] w-full rounded-lg overflow-hidden bg-zinc-900">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent z-10" />
+                    <img
+                      src={art.image}
+                      alt={art.title}
+                      className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500 opacity-80"
+                    />
+                    <span className="absolute top-2 left-2 z-20 text-[8px] font-extrabold text-white bg-blue-600/90 border border-blue-500 px-2 py-0.5 rounded tracking-widest uppercase">
+                      PROGRAM
+                    </span>
+                  </div>
+
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between text-[9px] font-mono text-zinc-500">
+                      <span className="uppercase tracking-widest text-blue-500 font-semibold">{art.category}</span>
+                      <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> {art.readTime}</span>
+                    </div>
+                    <h3 className="text-sm md:text-base font-bold text-white group-hover:text-blue-400 transition-colors leading-snug">
+                      {art.title}
+                    </h3>
+                    <p className="text-xs text-zinc-400 leading-relaxed font-light line-clamp-3">
+                      {art.desc}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="mt-6 pt-3 border-t border-zinc-900 flex items-center justify-between text-[10px] font-mono text-zinc-500">
+                  <span className="bg-zinc-900 text-zinc-400 border border-zinc-850 px-2.5 py-0.5 rounded text-[8px] uppercase tracking-wider font-semibold">LEVEL: {art.level}</span>
+                  <span className="text-zinc-400 group-hover:text-blue-500 group-hover:translate-x-1 transition-all flex items-center gap-1 font-bold">
+                    メニューを見る <ArrowRight className="w-3.5 h-3.5" />
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+          
+          <div className="mt-12 text-center">
+            <Link
+              href="/lab/ziju/articles"
+              className="inline-flex items-center justify-center gap-2 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-blue-900/50 text-zinc-300 hover:text-white font-bold py-3 px-8 rounded-full transition-all duration-300 shadow-md group"
+            >
+              <BookOpen className="w-4 h-4 text-blue-500 group-hover:scale-110 transition-transform" />
+              全コラム一覧を見る
+            </Link>
+          </div>
+        </div>
+      </section>
+
+{/* ----------------- SECTION ⑦: 学術研究レビュー ----------------- */}
       <section className="py-20 bg-black border-b border-zinc-900">
         <div className="max-w-6xl mx-auto px-6">
 
           <div className="text-center space-y-3 mb-16">
-            <span className="text-[10px] font-extrabold text-red-400 tracking-wider uppercase bg-red-950/40 border border-red-900/40 px-3 py-1 rounded-full">
+            <span className="text-[10px] font-extrabold text-blue-400 tracking-wider uppercase bg-blue-950/40 border border-blue-900/40 px-3 py-1 rounded-full">
               ACADEMIC DATABASE
             </span>
             <h2 className="text-2xl md:text-3xl font-black text-white tracking-tight">
               研究データ
             </h2>
             <p className="text-xs text-zinc-450 max-w-xl mx-auto leading-relaxed font-light">
-              世界中の科学論文から、筋肥大に関する重要エビデンスを要約。
+              世界中の科学論文から、自重トレーニングに関する重要エビデンスを要約。
             </p>
           </div>
 
@@ -513,13 +511,13 @@ export default function HypertrophyLab() {
                         {paper.journal} ({paper.year})
                       </h4>
                     </div>
-                    <span className="text-[8px] font-bold text-red-400 bg-red-950/50 border border-red-900/50 px-2.5 py-0.5 rounded-full uppercase tracking-wider font-mono">
+                    <span className="text-[8px] font-bold text-blue-400 bg-blue-950/50 border border-blue-900/50 px-2.5 py-0.5 rounded-full uppercase tracking-wider font-mono">
                       {paper.tag}
                     </span>
                   </div>
 
                   {/* Paper Title */}
-                  <h3 className="text-sm md:text-base font-extrabold text-white leading-snug group-hover:text-red-400 transition-colors">
+                  <h3 className="text-sm md:text-base font-extrabold text-white leading-snug group-hover:text-blue-400 transition-colors">
                     {paper.title}
                   </h3>
 
@@ -538,7 +536,7 @@ export default function HypertrophyLab() {
                     href={`https://doi.org/${paper.doi}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-1 text-zinc-450 hover:text-red-400 transition-colors font-bold"
+                    className="flex items-center gap-1 text-zinc-450 hover:text-blue-400 transition-colors font-bold"
                   >
                     論文ページへ飛ぶ <ExternalLink className="w-3 h-3" />
                   </a>
@@ -551,71 +549,49 @@ export default function HypertrophyLab() {
         </div>
       </section>
 
-{/* ----------------- SECTION ⑦: 関連研究所 (Related Portals) ----------------- */}
+{/* ----------------- SECTION ⑧: 関連研究所 (Related Portals) ----------------- */}
       <section className="py-20 bg-zinc-950/20">
         <div className="max-w-4xl mx-auto px-6">
 
           <div className="text-center space-y-3 mb-12">
-            <span className="text-[10px] font-extrabold text-red-400 tracking-wider uppercase block">
+            <span className="text-[10px] font-extrabold text-blue-400 tracking-wider uppercase block">
               RESEARCH NETWORK
             </span>
             <h2 className="text-2xl font-black text-white tracking-tight">
               関連ページ
             </h2>
             <p className="text-xs text-zinc-550 leading-relaxed font-light">
-              部位ごとの専門研究ページへ進みます。
+              他の部位や種目に特化した専門研究ページへ進みます。
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {RELATED_LABS.map((lab) => {
-              const InnerContent = (
-                <>
-                  <span className="text-[8px] font-mono text-zinc-550 uppercase tracking-widest block mb-1.5">
-                    SA PORTAL HUB
-                  </span>
-                  <div className="flex items-center justify-center gap-1">
-                    <h3 className="text-sm font-bold text-zinc-300 group-hover:text-white transition-colors">
-                      {lab.title}
-                    </h3>
-                    {!lab.isReady && <Lock className="w-3.5 h-3.5 text-zinc-700" />}
-                  </div>
-                  <p className="text-[10px] text-zinc-500 leading-relaxed font-light mt-1">
-                    {lab.label}
-                  </p>
-                </>
-              )
-
-              const className = `group p-5 rounded-xl border border-zinc-900 bg-zinc-950 text-center transition-all duration-300 block shadow-md hover:shadow-xl ${lab.glowColor}`
-
-              if (lab.isReady) {
-                return (
-                  <Link
-                    key={lab.slug}
-                    href={`/lab/${lab.slug}`}
-                    className={className}
-                  >
-                    {InnerContent}
-                  </Link>
-                )
-              }
-
-              return (
-                <button
-                  key={lab.slug}
-                  onClick={() => setActivePortal(lab.title)}
-                  className={className}
-                >
-                  {InnerContent}
-                </button>
-              )
-            })}
+            {RELATED_LABS.map((lab) => (
+              <button
+                key={lab.slug}
+                onClick={() => setActivePortal(lab.title)}
+                className={`group p-5 rounded-xl border border-zinc-900 bg-zinc-950 text-center transition-all duration-300 block shadow-md hover:shadow-xl ${lab.glowColor}`}
+              >
+                <span className="text-[8px] font-mono text-zinc-550 uppercase tracking-widest block mb-1.5">
+                  SA PORTAL HUB
+                </span>
+                <div className="flex items-center justify-center gap-1">
+                  <h3 className="text-sm font-bold text-zinc-300 group-hover:text-white transition-colors">
+                    {lab.title}
+                  </h3>
+                  <Lock className="w-3.5 h-3.5 text-zinc-700" />
+                </div>
+                <p className="text-[10px] text-zinc-500 leading-relaxed font-light mt-1">
+                  {lab.label}
+                </p>
+              </button>
+            ))}
           </div>
 
           <div className="mt-16 text-center">
             <Link
               href="/bodymake"
-              className="text-xs font-mono font-bold text-zinc-550 hover:text-red-400 transition-colors inline-flex items-center gap-1.5"
+              className="text-xs font-mono font-bold text-zinc-550 hover:text-blue-400 transition-colors inline-flex items-center gap-1.5"
             >
               <ChevronRight className="w-3.5 h-3.5 rotate-180" /> BACK TO BODYMAKE MAIN
             </Link>
@@ -635,7 +611,7 @@ export default function HypertrophyLab() {
             className="w-full max-w-md bg-zinc-950 border border-zinc-900 rounded-2xl p-6 md:p-8 space-y-6 shadow-2xl relative animate-scaleUp"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex items-center gap-2 text-red-400 text-xs font-mono">
+            <div className="flex items-center gap-2 text-blue-400 text-xs font-mono">
               <Info className="w-4 h-4" />
               <span>UNDER CONSTRUCTION</span>
             </div>
@@ -645,7 +621,7 @@ export default function HypertrophyLab() {
                 「{activePortal}」構築中
               </h3>
               <p className="text-xs text-zinc-450 leading-relaxed font-light">
-                現在、STRENGTH ARTS研究チームが最新の研究データと解剖データを解析し、この部位の特化研究ページを全力で編纂しております。
+                現在、STRENGTH ARTS研究チームが最新のスポーツバイオメカニクス論文と解剖データモデルを解析し、この種目の特化研究ページ（自重トレーニング研究所と同様のインタラクティブ構成）を全力で編纂しております。
               </p>
             </div>
 
@@ -654,9 +630,9 @@ export default function HypertrophyLab() {
                 公開予定の専門コンテンツ例
               </span>
               <ul className="text-[11px] text-zinc-400 space-y-1.5 list-disc pl-4 font-light">
-                <li>筋群ごとの最適な収縮・伸張ポジション解析</li>
-                <li>対象筋への刺激を逃がさないフォーム最適化</li>
-                <li>筋肥大のための部位別ボリューム設定</li>
+                <li>骨格比率に応じたフォームのパーソナライズ測定</li>
+                <li>関節モーメントアームの最適化とエラー軌道分析</li>
+                <li>対象筋の筋電図（EMG）に基づく収縮誘導テクニック</li>
               </ul>
             </div>
 
@@ -680,6 +656,6 @@ export default function HypertrophyLab() {
         </div>
       )}
 
-    </main>
+                                              </main>
   )
 }
