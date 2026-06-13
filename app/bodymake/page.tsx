@@ -31,7 +31,7 @@ const exercises = [
 
 const goals = [
   { id: 'hypertrophy', title: '筋肥大', href: '/lab/hypertrophy', isLab: true },
-  { id: 'strength', title: '筋力', isLab: false },
+  { id: 'strength', title: '筋力', href: '/lab/strength', isLab: true },
   { id: 'diet', title: 'ダイエット', isLab: false },
   { id: 'glutes', title: 'ヒップアップ', isLab: false },
   { id: 'backpain', title: '腰痛予防', isLab: false },

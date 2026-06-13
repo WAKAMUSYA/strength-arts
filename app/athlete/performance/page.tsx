@@ -29,12 +29,16 @@ export default function PerformanceLab() {
     return PERFORMANCE_ARTICLES.filter(art => art.level === 'INTERMEDIATE' || art.level === 'ADVANCED')
   }, [])
 
+  const programArticles = useMemo(() => {
+    return PERFORMANCE_ARTICLES.filter(art => art.level === 'PROGRAM')
+  }, [])
+
   return (
     <main className="min-h-screen bg-black text-white selection:bg-cyan-900 selection:text-white pb-32">
 
       {/* 1. Portal Branded Hero Banner */}
       <section className="relative overflow-hidden border-b border-zinc-900 pt-32 pb-20 bg-zinc-950">
-        <div className="absolute inset-0 bg-[url('/sports2.jpg')] bg-cover bg-center bg-no-repeat opacity-40 grayscale-[30%]" />
+        <div className="absolute inset-0 bg-[url('/athlete.jpg')] bg-cover bg-center bg-no-repeat opacity-40 grayscale-[30%]" />
         <div className="absolute inset-0 bg-black/60" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-cyan-900/30 via-transparent to-transparent" />
 
@@ -191,6 +195,67 @@ export default function PerformanceLab() {
                   <span className="bg-zinc-900 text-zinc-400 border border-zinc-850 px-2.5 py-0.5 rounded text-[8px] uppercase tracking-wider font-semibold">LEVEL: {art.level}</span>
                   <span className="text-zinc-400 group-hover:text-cyan-400 group-hover:translate-x-1 transition-all flex items-center gap-1 font-bold">
                     探究する <ArrowRight className="w-3.5 h-3.5" />
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4. 実践プログラム (Practical Program) */}
+      <section className="py-20 bg-zinc-950 border-b border-zinc-900">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center space-y-3 mb-12">
+            <span className="text-[10px] font-extrabold text-cyan-500 tracking-wider uppercase block">
+              PRACTICAL PROGRAM
+            </span>
+            <h2 className="text-2xl md:text-3xl font-black text-white tracking-tight">
+              実践プログラム
+            </h2>
+            <p className="text-xs text-zinc-450 max-w-xl mx-auto leading-relaxed font-light">
+              フィールドやジムですぐに実践できる、具体的なトレーニング・プロトコル。
+            </p>
+          </div>
+
+          <div className="overflow-x-auto pb-6 scrollbar-thin scrollbar-thumb-zinc-800 scrollbar-track-zinc-950 flex gap-6 -mx-6 px-6">
+            {programArticles.map((art, idx) => (
+              <Link
+                key={art.id}
+                href={`/athlete/performance/${art.slug}`}
+                className="w-[280px] md:w-[350px] shrink-0 bg-zinc-900/40 border border-zinc-800 hover:border-cyan-900/50 rounded-xl p-4 transition-all duration-300 flex flex-col justify-between group shadow-lg hover:shadow-xl hover:bg-zinc-900/80 cursor-pointer"
+              >
+                <div className="space-y-4">
+                  <div className="relative aspect-[16/10] w-full rounded-lg overflow-hidden bg-zinc-900">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent z-10" />
+                    <img
+                      src={art.image}
+                      alt={art.title}
+                      className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500 opacity-80"
+                    />
+                    <span className="absolute top-2 left-2 z-20 text-[8px] font-extrabold text-cyan-900 bg-cyan-400 border border-cyan-300 px-2 py-0.5 rounded tracking-widest uppercase shadow-sm">
+                      PROGRAM 0{idx + 1}
+                    </span>
+                  </div>
+
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between text-[9px] font-mono text-zinc-500">
+                      <span className="uppercase tracking-widest text-cyan-400 font-semibold">{art.category}</span>
+                      <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> {art.readTime}</span>
+                    </div>
+                    <h3 className="text-sm md:text-base font-bold text-white group-hover:text-cyan-400 transition-colors leading-snug">
+                      {art.title}
+                    </h3>
+                    <p className="text-xs text-zinc-400 leading-relaxed font-light line-clamp-3">
+                      {art.desc}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="mt-6 pt-3 border-t border-zinc-800 flex items-center justify-between text-[10px] font-mono text-zinc-500">
+                  <span className="bg-zinc-800 text-zinc-400 border border-zinc-700 px-2.5 py-0.5 rounded text-[8px] uppercase tracking-wider font-semibold">LEVEL: {art.level}</span>
+                  <span className="text-zinc-400 group-hover:text-cyan-400 group-hover:translate-x-1 transition-all flex items-center gap-1 font-bold">
+                    実践する <ArrowRight className="w-3.5 h-3.5" />
                   </span>
                 </div>
               </Link>

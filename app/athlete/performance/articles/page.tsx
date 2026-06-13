@@ -1,14 +1,41 @@
 'use client'
 
-import React, { useMemo, Suspense } from 'react'
+import React, { useState, useEffect, useMemo, Suspense } from 'react'
 import Link from 'next/link'
-import { useSearchParams } from 'next/navigation'
-import { Clock, ChevronLeft, ArrowRight, Filter } from 'lucide-react'
+import { useSearchParams, useRouter } from 'next/navigation'
+import { Clock, ChevronLeft, ArrowRight, Filter, BookOpen, Layers, Activity } from 'lucide-react'
 import { PERFORMANCE_ARTICLES } from '@/data/performanceArticles'
 
 function ArticlesList() {
+  const router = useRouter()
   const searchParams = useSearchParams()
   const goal = searchParams.get('goal')
+
+  const getInitialTab = () => {
+    const tab = searchParams.get('tab')
+    if (tab === 'applied' || tab === 'program') return tab
+    return 'basic'
+  }
+  
+  const [activeTab, setActiveTab] = useState<'basic' | 'applied' | 'program'>(getInitialTab())
+
+  useEffect(() => {
+    const tabParam = searchParams.get('tab')
+    if (tabParam === 'applied') {
+      setActiveTab('applied')
+    } else if (tabParam === 'program') {
+      setActiveTab('program')
+    } else if (tabParam === 'basic') {
+      setActiveTab('basic')
+    }
+  }, [searchParams])
+
+  const handleTabChange = (tab: 'basic' | 'applied' | 'program') => {
+    setActiveTab(tab)
+    const newParams = new URLSearchParams(searchParams.toString())
+    newParams.set('tab', tab)
+    router.replace("?" + newParams.toString(), { scroll: false })
+  }
 
   const filteredArticles = useMemo(() => {
     let articles = [...PERFORMANCE_ARTICLES]
@@ -27,6 +54,16 @@ function ArticlesList() {
     }
     return articles
   }, [goal])
+
+  const currentTabArticles = useMemo(() => {
+    if (activeTab === 'basic') {
+      return filteredArticles.filter(a => a.level === 'BASIC')
+    } else if (activeTab === 'applied') {
+      return filteredArticles.filter(a => a.level === 'ADVANCED' || a.level === 'INTERMEDIATE')
+    } else {
+      return filteredArticles.filter(a => a.level === 'PROGRAM')
+    }
+  }, [activeTab, filteredArticles])
 
   return (
     <main className="min-h-screen bg-black text-white selection:bg-cyan-900 selection:text-white pb-32">
@@ -52,57 +89,105 @@ function ArticlesList() {
         </div>
       </section>
 
-      <section className="max-w-5xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {filteredArticles.map((art) => (
-            <Link
-              key={art.id}
-              href={`/athlete/performance/${art.slug}`}
-              className="group relative bg-zinc-950/60 border border-zinc-900 hover:border-cyan-900/60 rounded-2xl overflow-hidden transition-all duration-500 shadow-lg hover:shadow-cyan-900/20 flex flex-col h-full"
+      <section className="max-w-5xl mx-auto px-6 py-12">
+        {/* 🚀 TAB TRIGGER CONTROLS */}
+        <div className="flex justify-center mb-12">
+          <div className="grid grid-cols-3 gap-1 bg-zinc-950 p-1.5 rounded-2xl border border-zinc-900 shadow-inner w-full max-w-2xl">
+            <button
+              onClick={() => handleTabChange('basic')}
+              className={`flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-1.5 py-2 sm:py-3.5 px-1 sm:px-3 rounded-xl font-bold text-[10px] sm:text-xs transition-all duration-300 cursor-pointer ${
+                activeTab === 'basic'
+                  ? 'bg-gradient-to-r from-cyan-950/60 to-cyan-900/40 border border-cyan-800/40 text-white shadow-md'
+                  : 'text-zinc-550 hover:text-zinc-300'
+              }`}
             >
-              <div className="relative h-48 w-full overflow-hidden bg-zinc-900">
-                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent z-10" />
-                <img
-                  src={art.image}
-                  alt={art.title}
-                  className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 opacity-60 group-hover:opacity-80"
-                />
-                <span className="absolute top-4 left-4 z-20 text-[9px] font-extrabold text-cyan-300 bg-cyan-950/80 border border-cyan-800/50 px-2.5 py-1 rounded tracking-widest uppercase shadow-sm">
-                  {art.category}
-                </span>
-              </div>
-              <div className="p-6 flex flex-col flex-grow justify-between bg-gradient-to-b from-zinc-950 to-zinc-950/80">
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between text-[10px] font-mono text-zinc-500">
-                    <span className="bg-zinc-900 text-zinc-400 border border-zinc-850 px-2 py-0.5 rounded uppercase font-semibold">
-                      LEVEL: {art.level}
-                    </span>
-                    <span className="flex items-center gap-1.5 bg-zinc-900 px-2 py-0.5 rounded border border-zinc-850 text-zinc-400">
-                      <Clock className="w-3 h-3" /> {art.readTime}
-                    </span>
-                  </div>
-                  <h3 className="text-lg md:text-xl font-bold text-white group-hover:text-cyan-400 transition-colors leading-snug">
-                    {art.title}
-                  </h3>
-                  <div className="p-4 rounded-xl bg-zinc-900/50 border border-zinc-800/50">
-                    <span className="text-[10px] font-bold text-cyan-500 block mb-1">【研究テーマ】</span>
-                    <p className="text-xs text-zinc-300 leading-relaxed font-medium">
-                      {art.theme.question}
-                    </p>
-                  </div>
-                  <p className="text-xs text-zinc-400 leading-relaxed font-light line-clamp-2">
-                    {art.desc}
-                  </p>
-                </div>
-                <div className="mt-8 pt-4 border-t border-zinc-900/80 flex items-center justify-end text-[10px] font-mono text-zinc-500">
-                  <span className="text-cyan-500 font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                    講読する <ArrowRight className="w-4 h-4" />
+              <BookOpen className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${activeTab === 'basic' ? 'text-cyan-400' : 'text-zinc-600'}`} />
+              <span>基本理論</span>
+            </button>
+            <button
+              onClick={() => handleTabChange('applied')}
+              className={`flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-1.5 py-2 sm:py-3.5 px-1 sm:px-3 rounded-xl font-bold text-[10px] sm:text-xs transition-all duration-300 cursor-pointer ${
+                activeTab === 'applied'
+                  ? 'bg-gradient-to-r from-cyan-950/60 to-cyan-900/40 border border-cyan-800/40 text-white shadow-md'
+                  : 'text-zinc-550 hover:text-zinc-300'
+              }`}
+            >
+              <Layers className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${activeTab === 'applied' ? 'text-cyan-400' : 'text-zinc-600'}`} />
+              <span>応用・探究</span>
+            </button>
+            <button
+              onClick={() => handleTabChange('program')}
+              className={`flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-1.5 py-2 sm:py-3.5 px-1 sm:px-3 rounded-xl font-bold text-[10px] sm:text-xs transition-all duration-300 cursor-pointer ${
+                activeTab === 'program'
+                  ? 'bg-gradient-to-r from-cyan-950/60 to-cyan-900/40 border border-cyan-800/40 text-white shadow-md'
+                  : 'text-zinc-550 hover:text-zinc-300'
+              }`}
+            >
+              <Activity className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${activeTab === 'program' ? 'text-cyan-400' : 'text-zinc-600'}`} />
+              <span>実践プログラム</span>
+            </button>
+          </div>
+        </div>
+
+        {/* ARTICLES GRID */}
+        {currentTabArticles.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 animate-fadeIn">
+            {currentTabArticles.map((art) => (
+              <Link
+                key={art.id}
+                href={`/athlete/performance/${art.slug}`}
+                className="group relative bg-zinc-950/60 border border-zinc-900 hover:border-cyan-900/60 rounded-2xl overflow-hidden transition-all duration-500 shadow-lg hover:shadow-cyan-900/20 flex flex-col h-full"
+              >
+                <div className="relative h-48 w-full overflow-hidden bg-zinc-900">
+                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent z-10" />
+                  <img
+                    src={art.image}
+                    alt={art.title}
+                    className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 opacity-60 group-hover:opacity-80"
+                  />
+                  <span className="absolute top-4 left-4 z-20 text-[9px] font-extrabold text-cyan-300 bg-cyan-950/80 border border-cyan-800/50 px-2.5 py-1 rounded tracking-widest uppercase shadow-sm">
+                    {art.category}
                   </span>
                 </div>
-              </div>
-            </Link>
-          ))}
-        </div>
+                <div className="p-6 flex flex-col flex-grow justify-between bg-gradient-to-b from-zinc-950 to-zinc-950/80">
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between text-[10px] font-mono text-zinc-500">
+                      <span className="bg-zinc-900 text-zinc-400 border border-zinc-850 px-2 py-0.5 rounded uppercase font-semibold">
+                        LEVEL: {art.level}
+                      </span>
+                      <span className="flex items-center gap-1.5 bg-zinc-900 px-2 py-0.5 rounded border border-zinc-850 text-zinc-400">
+                        <Clock className="w-3 h-3" /> {art.readTime}
+                      </span>
+                    </div>
+                    <h3 className="text-lg md:text-xl font-bold text-white group-hover:text-cyan-400 transition-colors leading-snug">
+                      {art.title}
+                    </h3>
+                    <div className="p-4 rounded-xl bg-zinc-900/50 border border-zinc-800/50">
+                      <span className="text-[10px] font-bold text-cyan-500 block mb-1">【研究テーマ】</span>
+                      <p className="text-xs text-zinc-300 leading-relaxed font-medium">
+                        {art.theme?.question || art.desc}
+                      </p>
+                    </div>
+                    <p className="text-xs text-zinc-400 leading-relaxed font-light line-clamp-2">
+                      {art.desc}
+                    </p>
+                  </div>
+                  <div className="mt-8 pt-4 border-t border-zinc-900/80 flex items-center justify-end text-[10px] font-mono text-zinc-500">
+                    <span className="text-cyan-500 font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                      講読する <ArrowRight className="w-4 h-4" />
+                    </span>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-20 bg-zinc-950/50 rounded-2xl border border-zinc-900 animate-fadeIn">
+            <Activity className="w-8 h-8 text-zinc-700 mx-auto mb-4" />
+            <h3 className="text-lg font-bold text-zinc-400 mb-2">準備中</h3>
+            <p className="text-sm text-zinc-500">このセクションの記事は現在作成中です。</p>
+          </div>
+        )}
       </section>
 
       <section className="max-w-5xl mx-auto px-6 mt-12 text-center border-t border-zinc-900 pt-12">

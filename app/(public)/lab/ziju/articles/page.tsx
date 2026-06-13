@@ -11,7 +11,8 @@ import {
   Bookmark, 
   ChevronRight,
   Compass,
-  FileText
+  FileText,
+  Dumbbell
 } from 'lucide-react'
 import { ZIJU_ARTICLES } from '@/data/zijuArticles'
 
@@ -25,7 +26,8 @@ const OBSTACLES = [
 function ArticlesContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
-  const initialTab = searchParams.get('tab') === 'applied' ? 'applied' : 'basic'
+  const initialTabStr = searchParams.get('tab')
+  const initialTab = initialTabStr === 'applied' ? 'applied' : initialTabStr === 'program' ? 'program' : 'basic'
   const initialObstacle = searchParams.get('obstacle') || null
   
   const [activeTab, setActiveTab] = useState<'basic' | 'applied' | 'program'>(initialTab)
@@ -36,6 +38,8 @@ function ArticlesContent() {
     const tabParam = searchParams.get('tab')
     if (tabParam === 'applied') {
       setActiveTab('applied')
+    } else if (tabParam === 'program') {
+      setActiveTab('program')
     } else if (tabParam === 'basic') {
       setActiveTab('basic')
     }
@@ -66,7 +70,7 @@ function ArticlesContent() {
     <div className="max-w-6xl mx-auto px-6 mt-8">
       {/* 🚀 TAB TRIGGER CONTROLS */}
       <div className="flex justify-center mb-12">
-        <div className="flex bg-zinc-950 p-1.5 rounded-2xl border border-zinc-900 shadow-inner w-full max-w-md">
+        <div className="flex bg-zinc-950 p-1.5 rounded-2xl border border-zinc-900 shadow-inner w-full max-w-2xl">
           <button
             onClick={() => handleTabChange('basic')}
             className={`flex-1 flex items-center justify-center gap-2 py-3.5 rounded-xl font-bold text-xs md:text-sm transition-all duration-300 cursor-pointer ${
@@ -88,6 +92,17 @@ function ArticlesContent() {
           >
             <Layers className={`w-4 h-4 ${activeTab === 'applied' ? 'text-blue-400' : 'text-zinc-600'}`} />
             <span>応用・探究コラム</span>
+          </button>
+          <button
+            onClick={() => handleTabChange('program')}
+            className={`flex-1 flex items-center justify-center gap-2 py-3.5 rounded-xl font-bold text-xs md:text-sm transition-all duration-300 cursor-pointer ${
+              activeTab === 'program'
+                ? 'bg-gradient-to-r from-blue-950/30 to-blue-900/20 border border-blue-900/30 text-white shadow-md'
+                : 'text-zinc-550 hover:text-zinc-300'
+            }`}
+          >
+            <Dumbbell className={`w-4 h-4 ${activeTab === 'program' ? 'text-blue-400' : 'text-zinc-600'}`} />
+            <span>実践プログラム</span>
           </button>
         </div>
       </div>
