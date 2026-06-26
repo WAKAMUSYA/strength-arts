@@ -14,6 +14,8 @@ import {
   FileText
 } from 'lucide-react'
 import { BENCHPRESS_ARTICLES } from '@/data/benchpressArticles'
+import { getBulkArticleStatus } from '@/app/actions/sa-member'
+import { CheckCircle2 } from 'lucide-react'
 
 const OBSTACLES = [
   { label: '胸に入らない', desc: '大胸筋に刺激を集中させたい' },
@@ -30,6 +32,22 @@ function ArticlesContent() {
   
   const [activeTab, setActiveTab] = useState<'basic' | 'applied' | 'program'>(initialTab)
   const [selectedObstacle, setSelectedObstacle] = useState<string | null>(initialObstacle)
+
+  const [statuses, setStatuses] = useState<Record<string, { isFavorite: boolean; isRead: boolean }>>({})
+
+  useEffect(() => {
+    const fetchStatuses = async () => {
+      const ids = BENCHPRESS_ARTICLES.map(art => `benchpress/${art.slug}`)
+      try {
+        const res = await getBulkArticleStatus(ids)
+        setStatuses(res)
+      } catch (e) {
+        console.error(e)
+      }
+    }
+    fetchStatuses()
+  }, [])
+
 
   // URLパラメータの変更があった場合に状態を同期
   useEffect(() => {
@@ -136,7 +154,13 @@ function ArticlesContent() {
 
       {/* 📖 ARTICLE LIST GRID */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {filteredArticles.map((art) => (
+        
+        {filteredArticles.map((art) => {
+          const articleId = `benchpress/${art.slug}`;
+          const isRead = statuses[articleId]?.isRead;
+          const isFavorite = statuses[articleId]?.isFavorite;
+          
+          return (
           <Link
             key={art.id}
             href={`/lab/benchpress/${art.slug}`}
@@ -147,10 +171,24 @@ function ArticlesContent() {
             
             <div className="space-y-5 relative z-10">
               {/* Top meta tags */}
+              
               <div className="flex items-center justify-between text-[10px] font-mono text-zinc-500 border-b border-zinc-900/60 pb-3">
-                <span className="uppercase tracking-widest text-blue-450 font-extrabold flex items-center gap-1">
-                  <Bookmark className="w-3.5 h-3.5 text-blue-500" /> {art.category}
-                </span>
+                <div className="flex items-center gap-3">
+                  <span className="uppercase tracking-widest text-blue-450 font-extrabold flex items-center gap-1">
+                    <Bookmark className="w-3.5 h-3.5 text-blue-500" /> {art.category}
+                  </span>
+                  {isRead && (
+                    <span className="flex items-center gap-1 text-emerald-500 font-bold bg-emerald-950/30 px-1.5 py-0.5 rounded border border-emerald-900/50">
+                      <CheckCircle2 className="w-3 h-3" /> 既読
+                    </span>
+                  )}
+                  {isFavorite && (
+                    <span className="flex items-center gap-1 text-blue-400 font-bold bg-blue-950/30 px-1.5 py-0.5 rounded border border-blue-900/50">
+                      <Bookmark className="w-3 h-3 fill-current" /> 保存済
+                    </span>
+                  )}
+                </div>
+
                 <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> 読了目安: {art.readTime}</span>
               </div>
 
@@ -184,7 +222,8 @@ function ArticlesContent() {
               </span>
             </div>
           </Link>
-        ))}
+          )
+        })}
       </div>
 
       {filteredArticles.length === 0 && (

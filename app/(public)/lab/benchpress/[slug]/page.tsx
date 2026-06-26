@@ -1,8 +1,6 @@
-'use client'
-
-import React, { useEffect } from 'react'
+import React from 'react'
 import Link from 'next/link'
-import { useParams } from 'next/navigation'
+import { notFound } from 'next/navigation'
 import { 
   ArrowLeft, 
   Clock, 
@@ -15,39 +13,25 @@ import {
   ChevronRight,
   Info,
   CheckCircle2,
-  AlertTriangle
+  AlertTriangle,
+  Lock
 } from 'lucide-react'
 import { BENCHPRESS_ARTICLES } from '@/data/benchpressArticles'
+import { getSAMemberStatus, getArticleStatus } from '@/app/actions/sa-member'
+import { ArticleInteractions } from '@/app/components/sa/ArticleInteractions'
 
-export default function ArticleDetailPage() {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
-  const params = useParams()
-  const slug = params?.slug as string
+export default async function ArticleDetailPage({ params }: { params: { slug: string } }) {
+  const { slug } = params
   
   const article = BENCHPRESS_ARTICLES.find(art => art.slug === slug)
 
   if (!article) {
-    return (
-      <div className="min-h-screen bg-zinc-950 flex flex-col items-center justify-center p-6 text-center text-zinc-100">
-        <div className="w-16 h-16 bg-red-950/30 border border-red-900/50 text-red-400 rounded-2xl flex items-center justify-center mb-4">
-          <ShieldAlert className="w-8 h-8" />
-        </div>
-        <h1 className="text-xl font-bold text-white mb-2">コラムが見つかりませんでした</h1>
-        <p className="text-sm text-zinc-400 mb-6">
-          指定されたコラム（ID: {slug}）は現在執筆中、または存在しないURLです。
-        </p>
-        <Link 
-          href="/lab/benchpress/articles" 
-          className="text-xs font-mono font-bold text-blue-400 hover:underline inline-flex items-center gap-1"
-        >
-          <ArrowLeft className="w-3.5 h-3.5" /> コラム一覧へ戻る
-        </Link>
-      </div>
-    )
+    return notFound()
   }
+
+  const { isMember } = await getSAMemberStatus()
+  const articleId = `benchpress/${slug}`
+  const { isFavorite, isRead } = await getArticleStatus(articleId)
 
   // ノートのタイプごとに適切なアイコンを返すヘルパー
   const getNoteIcon = (type: 'warning' | 'info' | 'success') => {
@@ -109,6 +93,29 @@ export default function ArticleDetailPage() {
           </div>
         </div>
 
+        
+        {!isMember ? (
+          <div className="p-8 rounded-2xl bg-zinc-900/40 border border-zinc-900 shadow-sm text-center space-y-6 mb-20">
+            <div className="w-16 h-16 bg-blue-950/30 border border-blue-900/50 text-blue-400 rounded-full flex items-center justify-center mx-auto">
+              <Lock className="w-8 h-8" />
+            </div>
+            <div className="space-y-2">
+              <h2 className="text-xl font-bold text-white">SAメンバー限定コラム</h2>
+              <p className="text-sm text-zinc-400 max-w-md mx-auto leading-relaxed">
+                ここから先の実践プログラムや詳細な解説は、SAメンバーのみ閲覧可能です。ログインまたはメンバー登録を行ってください。
+              </p>
+            </div>
+            <div className="pt-4 flex items-center justify-center gap-4">
+              <Link 
+                href="/login" 
+                className="px-6 py-3 rounded-full bg-blue-600 hover:bg-blue-500 text-white text-sm font-bold transition-all shadow-[0_0_15px_rgba(37,99,235,0.4)]"
+              >
+                ログイン / 登録する
+              </Link>
+            </div>
+          </div>
+        ) : (
+          <>
         {/* Overview Box / 要約 */}
         <div className="p-6 rounded-2xl bg-zinc-900/40 border border-zinc-900 shadow-sm mb-12 space-y-3">
           <h3 className="text-xs font-mono font-extrabold text-blue-400 flex items-center gap-1.5 uppercase tracking-widest">
@@ -189,6 +196,15 @@ export default function ArticleDetailPage() {
           </p>
         </div>
 
+        
+        <ArticleInteractions 
+          articleId={articleId} 
+          initialIsFavorite={isFavorite} 
+          initialIsRead={isRead} 
+        />
+        </>
+        )}
+        
         {/* Bottom Navigation */}
         <div className="mt-20 pt-8 border-t border-zinc-900">
           <div className="flex justify-center mb-12">
