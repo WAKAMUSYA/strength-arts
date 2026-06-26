@@ -39,41 +39,6 @@ export async function signup(formData: FormData) {
     redirect(`/signup?message=${error.message}`)
   }
 
-  // Create Stripe Checkout Session
-  const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
-  const priceId = process.env.NEXT_PUBLIC_STRIPE_PRICE_ID
-
-  if (!priceId || !process.env.STRIPE_SECRET_KEY) {
-    // Fallback if Stripe is not configured yet
-    console.warn("Stripe is not configured. Redirecting to dashboard.")
-    revalidatePath('/', 'layout')
-    redirect('/dashboard')
-  }
-
-  try {
-    const session = await stripe.checkout.sessions.create({
-      payment_method_types: ['card'],
-      line_items: [
-        {
-          price: priceId,
-          quantity: 1,
-        },
-      ],
-      mode: 'subscription',
-      success_url: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/dashboard?checkout_success=true`,
-      cancel_url: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/signup?canceled=true`,
-      customer_email: email,
-      client_reference_id: authData.user?.id,
-    })
-
-    if (session.url) {
-      redirect(session.url)
-    }
-  } catch (err: any) {
-    console.error("Stripe session creation error:", err)
-    redirect(`/signup?message=決済画面の作成に失敗しました: ${err.message}`)
-  }
-
-  revalidatePath('/', 'layout')
-  redirect('/dashboard')
+  // 登録完了後、確認メールを送信した旨を通知
+  redirect(`/signup?message=登録確認メールを送信しました。メール内のリンクをクリックして登録を完了してください。`)
 }
