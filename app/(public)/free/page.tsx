@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
+import { createClient } from "@/utils/supabase/server";
 
 const getPublicFreeHref = (fileName: string) =>
   `/free/${encodeURIComponent(fileName)}`;
@@ -53,7 +55,10 @@ export const metadata: Metadata = {
     "読めるPDFコンテンツ（筋肥大、腰痛、女性向けトレーニング、ハンドボールなど）をまとめています。",
 };
 
-export default function FreeContentPage() {
+export default async function FreeContentPage() {
+  const supabase = createClient();
+  const { data: { session } } = await supabase.auth.getSession();
+  
   return (
     <div className="min-h-screen bg-zinc-900 text-zinc-200 pb-32 pt-20">
       <main className="mx-auto w-full max-w-6xl px-6">
@@ -95,14 +100,23 @@ export default function FreeContentPage() {
               )}
 
               <div className="mt-auto">
-                <a
-                  href={item.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex w-full items-center justify-center rounded-full bg-white px-5 py-3 text-sm font-bold tracking-widest text-black transition-colors hover:bg-blue-50 hover:text-blue-900"
-                >
-                  {item.cta}
-                </a>
+                {session ? (
+                  <a
+                    href={item.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex w-full items-center justify-center rounded-full bg-white px-5 py-3 text-sm font-bold tracking-widest text-black transition-colors hover:bg-blue-50 hover:text-blue-900"
+                  >
+                    {item.cta}
+                  </a>
+                ) : (
+                  <Link
+                    href="/login"
+                    className="inline-flex w-full items-center justify-center rounded-full bg-zinc-700 px-5 py-3 text-sm font-bold tracking-widest text-white transition-colors hover:bg-zinc-600"
+                  >
+                    ログインしてダウンロード
+                  </Link>
+                )}
               </div>
             </article>
           ))}

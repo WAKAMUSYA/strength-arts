@@ -16,8 +16,7 @@ import {
   Lock
 } from 'lucide-react'
 import { BENCHPRESS_ARTICLES } from '@/data/benchpressArticles'
-import { getBulkArticleStatus } from '@/app/actions/sa-member'
-import { createClient } from '@/utils/supabase/client'
+import { getBulkArticleStatus, getSAMemberStatus } from '@/app/actions/sa-member'
 import { CheckCircle2 } from 'lucide-react'
 
 const OBSTACLES = [
@@ -37,7 +36,8 @@ function ArticlesContent() {
   const [selectedObstacle, setSelectedObstacle] = useState<string | null>(initialObstacle)
 
   const [statuses, setStatuses] = useState<Record<string, { isFavorite: boolean; isRead: boolean }>>({})
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null)
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean | null>(null)
+  const [isMember, setIsMember] = useState<boolean | null>(null)
 
   useEffect(() => {
     const fetchStatuses = async () => {
@@ -51,9 +51,13 @@ function ArticlesContent() {
     }
     
     const checkAuth = async () => {
-      const supabase = createClient()
-      const { data: { session } } = await supabase.auth.getSession()
-      setIsAuthenticated(!!session)
+      try {
+        const status = await getSAMemberStatus()
+        setIsLoggedIn(!!status.user)
+        setIsMember(status.isMember)
+      } catch (e) {
+        console.error(e)
+      }
     }
 
     checkAuth()
@@ -190,11 +194,20 @@ function ArticlesContent() {
             className="group cursor-pointer bg-zinc-950/40 border border-zinc-900 hover:border-blue-900/60 hover:bg-zinc-900/10 rounded-2xl p-6 transition-all duration-500 flex flex-col justify-between hover:shadow-2xl hover:shadow-blue-950/10 relative overflow-hidden"
           >
             {/* Hover overlay for non-members */}
-            {isAuthenticated === false && (
+            {isLoggedIn === false && (
               <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-30 flex items-center justify-center rounded-2xl pointer-events-none">
                 <div className="bg-zinc-900 border border-zinc-800 text-white text-xs font-bold px-5 py-3 rounded-full flex items-center gap-2 shadow-2xl transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
                   <Lock className="w-4 h-4 text-blue-400" />
                   会員限定コンテンツ（一部無料公開）
+                </div>
+              </div>
+            )}
+            {/* Hover overlay for free members (PRO only content) */}
+            {isLoggedIn === true && isMember === false && art.type === 'program' && (
+              <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-30 flex items-center justify-center rounded-2xl pointer-events-none">
+                <div className="bg-zinc-900 border border-blue-900/50 text-white text-xs font-bold px-5 py-3 rounded-full flex items-center gap-2 shadow-2xl transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                  <Lock className="w-4 h-4 text-blue-400" />
+                  PROプラン限定
                 </div>
               </div>
             )}
