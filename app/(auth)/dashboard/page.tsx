@@ -87,7 +87,7 @@ export default async function DashboardPage() {
               思考ログ機能は準備中です
             </div>
           </div>
-          <Link href="/dashboard/lab" className="w-full py-3 bg-slate-900 text-white rounded-xl text-center font-medium hover:bg-slate-800 transition-colors">
+          <Link href="/lab" className="w-full py-3 bg-slate-900 text-white rounded-xl text-center font-medium hover:bg-slate-800 transition-colors">
             LABへ向かう
           </Link>
         </div>

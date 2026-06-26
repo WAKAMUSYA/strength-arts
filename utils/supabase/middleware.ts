@@ -76,12 +76,6 @@ export async function updateSession(request: NextRequest) {
         url.pathname = request.nextUrl.pathname.replace('/training', '/dashboard/training')
         return NextResponse.redirect(url)
       }
-
-      if (request.nextUrl.pathname.startsWith('/lab')) {
-        const url = request.nextUrl.clone()
-        url.pathname = request.nextUrl.pathname.replace('/lab', '/dashboard/lab')
-        return NextResponse.redirect(url)
-      }
     }
 
     return supabaseResponse

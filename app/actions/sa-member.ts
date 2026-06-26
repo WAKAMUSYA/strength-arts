@@ -14,9 +14,9 @@ export async function getSAMemberStatus() {
     return { isMember: false, user: null }
   }
 
-  // sa_profilesテーブルをチェック（SAサイト専用のプロフィールテーブル）
+  // すでに存在している profiles テーブルをチェック
   const { data: profile } = await supabase
-    .from('sa_profiles')
+    .from('profiles')
     .select('is_sa_member')
     .eq('id', session.user.id)
     .single()
