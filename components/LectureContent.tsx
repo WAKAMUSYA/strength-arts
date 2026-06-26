@@ -8,6 +8,7 @@ type Props = {
   isMember: boolean;
   isRead?: boolean;
   nextLectureId?: string;
+  nextLecturePath?: string;
   gateContent?: boolean;
   showMemberActions?: boolean;
   publicPreviewMaxHeightPx?: number;
@@ -19,6 +20,7 @@ export default function LectureContent({
   isMember,
   isRead = false,
   nextLectureId,
+  nextLecturePath = '/dashboard/academy/basics',
   gateContent,
   showMemberActions,
   publicPreviewMaxHeightPx = 980,
@@ -88,7 +90,7 @@ export default function LectureContent({
             {nextLectureId && (
               <div className="flex-1 w-full">
                 <Link
-                  href={`/dashboard/academy/basics/${nextLectureId}`}
+                  href={`${nextLecturePath}/${nextLectureId}`}
                   className="w-full flex items-center justify-center space-x-2 px-8 py-4 rounded-xl font-bold bg-blue-600 text-white hover:bg-blue-700 transition-colors"
                 >
                   <span>次を読む</span>

@@ -11,10 +11,13 @@ import {
   Bookmark, 
   ChevronRight,
   Compass,
-  FileText
+  FileText,
+  Activity,
+  Lock
 } from 'lucide-react'
 import { BENCHPRESS_ARTICLES } from '@/data/benchpressArticles'
 import { getBulkArticleStatus } from '@/app/actions/sa-member'
+import { createClient } from '@/utils/supabase/client'
 import { CheckCircle2 } from 'lucide-react'
 
 const OBSTACLES = [
@@ -34,6 +37,7 @@ function ArticlesContent() {
   const [selectedObstacle, setSelectedObstacle] = useState<string | null>(initialObstacle)
 
   const [statuses, setStatuses] = useState<Record<string, { isFavorite: boolean; isRead: boolean }>>({})
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null)
 
   useEffect(() => {
     const fetchStatuses = async () => {
@@ -45,6 +49,14 @@ function ArticlesContent() {
         console.error(e)
       }
     }
+    
+    const checkAuth = async () => {
+      const supabase = createClient()
+      const { data: { session } } = await supabase.auth.getSession()
+      setIsAuthenticated(!!session)
+    }
+
+    checkAuth()
     fetchStatuses()
   }, [])
 
@@ -84,21 +96,21 @@ function ArticlesContent() {
     <div className="max-w-6xl mx-auto px-6 mt-8">
       {/* 🚀 TAB TRIGGER CONTROLS */}
       <div className="flex justify-center mb-12">
-        <div className="flex bg-zinc-950 p-1.5 rounded-2xl border border-zinc-900 shadow-inner w-full max-w-md">
+        <div className="grid grid-cols-3 gap-1 bg-zinc-950 p-1.5 rounded-2xl border border-zinc-900 shadow-inner w-full max-w-2xl">
           <button
             onClick={() => handleTabChange('basic')}
-            className={`flex-1 flex items-center justify-center gap-2 py-3.5 rounded-xl font-bold text-xs md:text-sm transition-all duration-300 cursor-pointer ${
+            className={`flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-1.5 py-2 sm:py-3.5 px-1 sm:px-3 rounded-xl font-bold text-[10px] sm:text-xs transition-all duration-300 cursor-pointer ${
               activeTab === 'basic'
                 ? 'bg-gradient-to-r from-blue-950/60 to-blue-900/40 border border-blue-800/40 text-white shadow-md'
                 : 'text-zinc-550 hover:text-zinc-300'
             }`}
           >
             <BookOpen className={`w-4 h-4 ${activeTab === 'basic' ? 'text-blue-400' : 'text-zinc-600'}`} />
-            <span>基本理論コラム</span>
+            <span>基本理論</span>
           </button>
           <button
             onClick={() => handleTabChange('applied')}
-            className={`flex-1 flex items-center justify-center gap-2 py-3.5 rounded-xl font-bold text-xs md:text-sm transition-all duration-300 cursor-pointer ${
+            className={`flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-1.5 py-2 sm:py-3.5 px-1 sm:px-3 rounded-xl font-bold text-[10px] sm:text-xs transition-all duration-300 cursor-pointer ${
               activeTab === 'applied'
                 ? 'bg-gradient-to-r from-zinc-900 to-zinc-850 border border-zinc-800 text-white shadow-md'
                 : 'text-zinc-550 hover:text-zinc-300'
@@ -106,6 +118,17 @@ function ArticlesContent() {
           >
             <Layers className={`w-4 h-4 ${activeTab === 'applied' ? 'text-blue-400' : 'text-zinc-600'}`} />
             <span>応用・探究コラム</span>
+          </button>
+          <button
+            onClick={() => handleTabChange('program')}
+            className={`flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-1.5 py-2 sm:py-3.5 px-1 sm:px-3 rounded-xl font-bold text-[10px] sm:text-xs transition-all duration-300 cursor-pointer ${
+              activeTab === 'program'
+                ? 'bg-gradient-to-r from-emerald-950/60 to-emerald-900/40 border border-emerald-800/40 text-white shadow-md'
+                : 'text-zinc-550 hover:text-zinc-300'
+            }`}
+          >
+            <Activity className={`w-4 h-4 ${activeTab === 'program' ? 'text-emerald-400' : 'text-zinc-600'}`} />
+            <span>実践プログラム</span>
           </button>
         </div>
       </div>
@@ -166,6 +189,16 @@ function ArticlesContent() {
             href={`/lab/benchpress/${art.slug}`}
             className="group cursor-pointer bg-zinc-950/40 border border-zinc-900 hover:border-blue-900/60 hover:bg-zinc-900/10 rounded-2xl p-6 transition-all duration-500 flex flex-col justify-between hover:shadow-2xl hover:shadow-blue-950/10 relative overflow-hidden"
           >
+            {/* Hover overlay for non-members */}
+            {isAuthenticated === false && (
+              <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-30 flex items-center justify-center rounded-2xl pointer-events-none">
+                <div className="bg-zinc-900 border border-zinc-800 text-white text-xs font-bold px-5 py-3 rounded-full flex items-center gap-2 shadow-2xl transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                  <Lock className="w-4 h-4 text-blue-400" />
+                  会員限定コンテンツ（一部無料公開）
+                </div>
+              </div>
+            )}
+
             {/* Soft decorative accent glow */}
             <div className="absolute top-0 right-0 w-24 h-24 bg-blue-500/5 rounded-full blur-2xl group-hover:bg-blue-500/10 transition-colors duration-500" />
             

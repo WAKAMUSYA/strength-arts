@@ -16,6 +16,7 @@ import {
   Activity
 } from 'lucide-react'
 import { SQUAT_ARTICLES } from '@/data/squatArticles'
+import { ArticleInteractionsClient } from '@/app/components/sa/ArticleInteractionsClient'
 
 export default function SquatArticleDetail() {
   useEffect(() => {
@@ -182,6 +183,9 @@ export default function SquatArticleDetail() {
             </p>
           </div>
         )}
+
+        
+        <ArticleInteractionsClient articleId={`squat/${slug}`} />
 
         {/* 🚀 ARTICLE TAGS */}
         <div className="mt-12 flex flex-wrap gap-2">

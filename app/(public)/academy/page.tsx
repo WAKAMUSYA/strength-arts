@@ -24,19 +24,6 @@ export default function AcademyPage() {
         <section>
           <h2 className="text-lg font-bold border-b pb-2 mb-4">資格対策問題集</h2>
           <div className="grid md:grid-cols-2 gap-4">
-            <Link href="/academy/cscs" className="block bg-white border border-gray-100 p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow group">
-              <div className="flex justify-between items-start">
-                <div>
-                  <div className="flex items-center space-x-2 mb-2">
-                    <FileQuestion className="w-5 h-5 text-blue-600" />
-                    <h3 className="font-bold text-gray-900">CSCS 資格対策問題集</h3>
-                  </div>
-                  <p className="text-sm text-gray-600">CSCS向けの問題演習（カテゴリ別/ランダム）です。</p>
-                </div>
-                <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-blue-600 transition-colors" />
-              </div>
-            </Link>
-
             <Link
               href="/academy/cpt"
               className="block bg-white border border-gray-100 p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow group"
@@ -48,6 +35,19 @@ export default function AcademyPage() {
                     <h3 className="font-bold text-gray-900">CPT 資格対策問題集</h3>
                   </div>
                   <p className="text-sm text-gray-600">CPT向けの問題演習（ブロック別/ランダム）です。</p>
+                </div>
+                <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-blue-600 transition-colors" />
+              </div>
+            </Link>
+
+            <Link href="/academy/cscs" className="block bg-white border border-gray-100 p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow group">
+              <div className="flex justify-between items-start">
+                <div>
+                  <div className="flex items-center space-x-2 mb-2">
+                    <FileQuestion className="w-5 h-5 text-blue-600" />
+                    <h3 className="font-bold text-gray-900">CSCS 資格対策問題集</h3>
+                  </div>
+                  <p className="text-sm text-gray-600">CSCS向けの問題演習（カテゴリ別/ランダム）です。</p>
                 </div>
                 <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-blue-600 transition-colors" />
               </div>

@@ -15,7 +15,7 @@ export default function Navbar({ isLoggedIn }: { isLoggedIn: boolean }) {
   return (
     <header className="sticky top-0 z-50 w-full bg-black border-b border-zinc-900">
       <div className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
-        <Link href={isLoggedIn ? "/dashboard" : "/"} className="font-bold text-xl tracking-tighter text-white">
+        <Link href="/" className="font-bold text-xl tracking-tighter text-white">
           STRENGTH <span className="text-red-600">ARTS</span>
         </Link>
         <div className="flex items-center space-x-4">

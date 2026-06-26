@@ -122,8 +122,8 @@ export async function getReadLectures() {
     }
 
     const { data, error } = await supabase
-      .from('lecture_reads')
-      .select('lecture_id')
+      .from('sa_read_history')
+      .select('article_id')
       .eq('user_id', user.id);
 
     if (error) {
@@ -131,7 +131,7 @@ export async function getReadLectures() {
       return [];
     }
 
-    return data.map(item => item.lecture_id);
+    return data.map(item => item.article_id);
   } catch (error) {
     console.error('Error in getReadLectures:', error);
     return [];
@@ -153,19 +153,19 @@ export async function toggleLectureRead(lectureId: string, isCurrentlyRead: bool
     if (isCurrentlyRead) {
       // Remove read status
       const { error } = await supabase
-        .from('lecture_reads')
+        .from('sa_read_history')
         .delete()
         .eq('user_id', user.id)
-        .eq('lecture_id', lectureId);
+        .eq('article_id', lectureId);
 
       if (error) throw error;
     } else {
       // Add read status
       const { error } = await supabase
-        .from('lecture_reads')
+        .from('sa_read_history')
         .insert({
           user_id: user.id,
-          lecture_id: lectureId
+          article_id: lectureId
         });
 
       if (error) throw error;

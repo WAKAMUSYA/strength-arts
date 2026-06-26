@@ -1,4 +1,41 @@
-import Link from 'next/link';
+const fs = require('fs');
+
+// 1. Fix benchpress articles tab
+let articlesData = fs.readFileSync('app/(public)/lab/benchpress/articles/page.tsx', 'utf8');
+
+const targetTabs = `<div className="flex bg-zinc-950 p-1.5 rounded-2xl border border-zinc-900 shadow-inner w-full max-w-md">`;
+const replaceTabs = `<div className="grid grid-cols-3 gap-1 bg-zinc-950 p-1.5 rounded-2xl border border-zinc-900 shadow-inner w-full max-w-2xl">`;
+
+articlesData = articlesData.replace(targetTabs, replaceTabs);
+
+// Add the 3rd button
+const appliedButtonEnd = `<span>応用・探究コラム</span>
+          </button>`;
+          
+const programButton = `<span>応用・探究</span>
+          </button>
+          <button
+            onClick={() => handleTabChange('program')}
+            className={\`flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-1.5 py-2 sm:py-3.5 px-1 sm:px-3 rounded-xl font-bold text-[10px] sm:text-xs transition-all duration-300 cursor-pointer \${
+              activeTab === 'program'
+                ? 'bg-gradient-to-r from-blue-950/60 to-blue-900/40 border border-blue-800/40 text-white shadow-md'
+                : 'text-zinc-550 hover:text-zinc-300'
+            }\`}
+          >
+            <BookOpen className={\`w-3.5 h-3.5 sm:w-4 sm:h-4 \${activeTab === 'program' ? 'text-blue-400' : 'text-zinc-600'}\`} />
+            <span>実践プログラム</span>
+          </button>`;
+
+articlesData = articlesData.replace(appliedButtonEnd, programButton);
+articlesData = articlesData.replace(/<span>基本理論コラム<\/span>/g, "<span>基本理論</span>");
+articlesData = articlesData.replace(/<button\s+onClick=\{\(\) => handleTabChange\('basic'\)\}\s+className=\{`flex-1 flex items-center justify-center gap-2 py-3.5 rounded-xl font-bold text-xs md:text-sm/g, `<button\n            onClick={() => handleTabChange('basic')}\n            className={\`flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-1.5 py-2 sm:py-3.5 px-1 sm:px-3 rounded-xl font-bold text-[10px] sm:text-xs`);
+articlesData = articlesData.replace(/<button\s+onClick=\{\(\) => handleTabChange\('applied'\)\}\s+className=\{`flex-1 flex items-center justify-center gap-2 py-3.5 rounded-xl font-bold text-xs md:text-sm/g, `<button\n            onClick={() => handleTabChange('applied')}\n            className={\`flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-1.5 py-2 sm:py-3.5 px-1 sm:px-3 rounded-xl font-bold text-[10px] sm:text-xs`);
+
+
+fs.writeFileSync('app/(public)/lab/benchpress/articles/page.tsx', articlesData);
+
+// 2. Overwrite dashboard
+const dashboardCode = `import Link from 'next/link';
 import { createClient } from '@/utils/supabase/server';
 import { redirect } from 'next/navigation';
 import { getLearningProgress } from '@/app/actions/academy';
@@ -75,14 +112,9 @@ export default async function DashboardPage() {
                <span className="font-bold text-slate-900">{readCount || 0} 件</span>
              </div>
           </div>
-          <div className="space-y-3">
-            <Link href="/dashboard/favorites" className="w-full py-3 bg-white border-2 border-indigo-100 text-indigo-600 rounded-xl text-center font-bold hover:bg-indigo-50 transition-colors flex items-center justify-center gap-2">
-              <Bookmark className="w-4 h-4" /> 保存したコラムを見る
-            </Link>
-            <Link href="/lab" className="w-full py-3 bg-indigo-600 text-white rounded-xl text-center font-bold hover:bg-indigo-700 transition-colors shadow-lg shadow-indigo-600/20 flex items-center justify-center gap-2">
-              <FlaskConical className="w-4 h-4" /> 研究所一覧へ向かう
-            </Link>
-          </div>
+          <Link href="/lab" className="w-full py-3.5 bg-indigo-600 text-white rounded-xl text-center font-bold hover:bg-indigo-700 transition-colors shadow-lg shadow-indigo-600/20 flex items-center justify-center gap-2">
+            <BookOpen className="w-4 h-4" /> 研究所へ向かう
+          </Link>
         </div>
 
         {/* Academy Dashboard Card */}
@@ -98,8 +130,19 @@ export default async function DashboardPage() {
           </div>
           
           <p className="text-sm text-slate-600 mb-6 flex-grow">
-            NSCA基礎学習・模擬テスト
+            CSCSなどの資格対策や基礎知識の学習モジュール。
           </p>
+          
+          <div className="bg-slate-50 rounded-xl p-4 mb-6">
+            <div className="flex justify-between text-sm mb-2">
+              <span className="font-medium text-slate-700">累計学習回数: {progress?.totalAttempts || 0}回</span>
+              <span className="text-slate-500 font-bold">{progress?.averageScore || 0}%</span>
+            </div>
+            <div className="w-full bg-slate-200 rounded-full h-2 mb-2 overflow-hidden">
+              <div className="bg-slate-600 h-2 rounded-full transition-all duration-1000 ease-out" style={{ width: \`\${progress?.averageScore || 0}%\` }}></div>
+            </div>
+            <p className="text-xs text-slate-400 text-right">※累計平均正答率</p>
+          </div>
           
           <Link href="/dashboard/academy" className="w-full py-3.5 bg-slate-900 text-white rounded-xl text-center font-bold hover:bg-slate-800 transition-colors flex items-center justify-center gap-2">
             学習を続ける
@@ -110,3 +153,7 @@ export default async function DashboardPage() {
     </div>
   );
 }
+`;
+
+fs.writeFileSync('app/(auth)/dashboard/page.tsx', dashboardCode);
+console.log("Done");

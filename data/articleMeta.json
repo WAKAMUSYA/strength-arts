@@ -1,0 +1,2108 @@
+{
+  "rectus-abdominis-anatomy": {
+    "title": "腹直筋の解剖学：シックスパックの構造と機能",
+    "category": "ANATOMY",
+    "level": "初級",
+    "labName": "abs"
+  },
+  "obliques-anatomy-corset": {
+    "title": "腹斜筋群：くびれを作る天然のコルセット",
+    "category": "ANATOMY",
+    "level": "初級",
+    "labName": "abs"
+  },
+  "transversus-abdominis-draw-in": {
+    "title": "腹横筋とドローイン：最強のインナーマッスル",
+    "category": "ANATOMY",
+    "level": "初級",
+    "labName": "abs"
+  },
+  "crunch-mechanics": {
+    "title": "クランチの極意：脊柱の屈曲と腰椎の保護",
+    "category": "MECHANICS",
+    "level": "初級",
+    "labName": "abs"
+  },
+  "leg-raise-iliopsoas": {
+    "title": "レッグレイズと腸腰筋：下腹部を破壊するフォーム",
+    "category": "MECHANICS",
+    "level": "初級",
+    "labName": "abs"
+  },
+  "ab-roller-anti-extension": {
+    "title": "アブローラーの力学：アンチエクステンション（抗伸展）",
+    "category": "MECHANICS",
+    "level": "中級",
+    "labName": "abs"
+  },
+  "plank-truth-isometrics": {
+    "title": "プランクの真実：アイソメトリックスと時間の無駄",
+    "category": "MECHANICS",
+    "level": "初級",
+    "labName": "abs"
+  },
+  "cable-crunch-full-rom": {
+    "title": "ケーブルクランチ：加重腹筋とフルレンジの威力",
+    "category": "MECHANICS",
+    "level": "中級",
+    "labName": "abs"
+  },
+  "hanging-leg-raise-lats": {
+    "title": "ハンギングレッグレイズ：広背筋の連動とスイング防止",
+    "category": "MECHANICS",
+    "level": "上級",
+    "labName": "abs"
+  },
+  "rotational-exercises-shear-force": {
+    "title": "ツイスト動作と脊柱への剪断力リスク",
+    "category": "BIOMECHANICS",
+    "level": "中級",
+    "labName": "abs"
+  },
+  "iap-intra-abdominal-pressure": {
+    "title": "呼吸と腹圧（IAP）の完全なコントロール",
+    "category": "MECHANICS",
+    "level": "中級",
+    "labName": "abs"
+  },
+  "body-fat-vs-muscle-mass": {
+    "title": "腹筋を割るための「体脂肪率」と「筋肥大」の真実",
+    "category": "NUTRITION",
+    "level": "初級",
+    "labName": "abs"
+  },
+  "fast-vs-slow-twitch-muscle-fibers": {
+    "title": "腹筋群の速筋・遅筋比率と最適なレップス設定",
+    "category": "ANATOMY",
+    "level": "中級",
+    "labName": "abs"
+  },
+  "core-role-in-big-three": {
+    "title": "ビッグスリー（BIG3）における体幹の役割と腹圧のメカニズム",
+    "category": "BIOMECHANICS",
+    "level": "中級",
+    "labName": "abs"
+  },
+  "rib-flare-and-breathing-mechanics": {
+    "title": "リブフレア（肋骨の開き）の改善と呼吸筋のトレーニング",
+    "category": "BIOMECHANICS",
+    "level": "上級",
+    "labName": "abs"
+  },
+  "genetics-of-six-pack-shape": {
+    "title": "腹筋の形状と遺伝：真っ直ぐなシックスパックと斜めのシックスパック",
+    "category": "ANATOMY",
+    "level": "初級",
+    "labName": "abs"
+  },
+  "diastasis-recti-postpartum-recovery": {
+    "title": "腹直筋離開（ふくちょくきんりかい）と回復アプローチ",
+    "category": "ANATOMY",
+    "level": "中級",
+    "labName": "abs"
+  },
+  "ultimate-bodyweight-sixpack": {
+    "title": "究極の自重シックスパック（自宅・高強度）",
+    "category": "HYPERTROPHY",
+    "level": "中級",
+    "labName": "abs"
+  },
+  "weighted-ab-hypertrophy-blocks": {
+    "title": "加重アブ・ハイパートロフィー（ジム向け）",
+    "category": "HYPERTROPHY",
+    "level": "上級",
+    "labName": "abs"
+  },
+  "waist-shaper-core-focus": {
+    "title": "くびれ特化型コアプログラム",
+    "category": "SHAPE",
+    "level": "初級",
+    "labName": "abs"
+  },
+  "athlete-anti-rotation-extension": {
+    "title": "アスリート向け・アンチムーブメント体幹強化",
+    "category": "PERFORMANCE",
+    "level": "上級",
+    "labName": "abs"
+  },
+  "5min-abs-destruction-circuit": {
+    "title": "5分間・腹筋破壊サーキット（時短・追い込み）",
+    "category": "CIRCUIT",
+    "level": "中級",
+    "labName": "abs"
+  },
+  "biceps-anatomy-basics": {
+    "title": "上腕二頭筋の解剖学：ピーク（高低差）を作る2つの顔",
+    "category": "ANATOMY",
+    "level": "初心者",
+    "labName": "arms"
+  },
+  "triceps-anatomy-basics": {
+    "title": "上腕三頭筋の解剖学：腕の太さの7割を占める蹄鉄",
+    "category": "ANATOMY",
+    "level": "初心者",
+    "labName": "arms"
+  },
+  "curl-wrist-supination": {
+    "title": "カールの基本：手首の角度とスピネイト（回外）",
+    "category": "MECHANICS",
+    "level": "初級",
+    "labName": "arms"
+  },
+  "brachialis-brachioradialis": {
+    "title": "上腕筋と腕橈骨筋：腕の太さを決める「隠れた主役」",
+    "category": "ANATOMY",
+    "level": "中級",
+    "labName": "arms"
+  },
+  "triceps-pressdown-mastery": {
+    "title": "プレスダウンの極意：ロープ vs ストレートバー",
+    "category": "MECHANICS",
+    "level": "初心者",
+    "labName": "arms"
+  },
+  "barbell-vs-dumbbell-curl": {
+    "title": "バーベルカール vs ダンベルカール",
+    "category": "GEAR",
+    "level": "初級",
+    "labName": "arms"
+  },
+  "skull-crusher-mechanics": {
+    "title": "スカルクラッシャーの真実：なぜ「額（おでこ）」に下ろしてはいけないのか",
+    "category": "MECHANICS",
+    "level": "初級",
+    "labName": "arms"
+  },
+  "preacher-curl-resistance-curve": {
+    "title": "プリーチャーカールの力学：チーティングを封じる「台」の魔法",
+    "category": "MECHANICS",
+    "level": "初心者",
+    "labName": "arms"
+  },
+  "triceps-kickback-truth": {
+    "title": "三頭筋のキックバックは「無駄な種目」なのか？",
+    "category": "MECHANICS",
+    "level": "初級",
+    "labName": "arms"
+  },
+  "concentration-curl-mastery": {
+    "title": "コンセントレーション・カールの極意：脚を「壁」にする",
+    "category": "MECHANICS",
+    "level": "初心者",
+    "labName": "arms"
+  },
+  "incline-dumbbell-curl-stretch": {
+    "title": "インクライン・ダンベルカール：長頭を破壊するストレッチ",
+    "category": "BIOMECHANICS",
+    "level": "中級",
+    "labName": "arms"
+  },
+  "overhead-triceps-extension": {
+    "title": "オーバーヘッド・エクステンション：三頭筋の最大伸張",
+    "category": "BIOMECHANICS",
+    "level": "中級",
+    "labName": "arms"
+  },
+  "arm-cheating-negatives": {
+    "title": "チーティング・カール：高重量ネガティブの科学",
+    "category": "PHYSIOLOGY",
+    "level": "上級",
+    "labName": "arms"
+  },
+  "bfr-blood-flow-restriction": {
+    "title": "血流制限（BFR/加圧）トレーニングと究極のパンプ",
+    "category": "PHYSIOLOGY",
+    "level": "上級",
+    "labName": "arms"
+  },
+  "isometric-holds-arm-growth": {
+    "title": "アイソメトリックス（等尺性収縮）の活用とスティッキングポイントの打破",
+    "category": "PHYSIOLOGY",
+    "level": "上級",
+    "labName": "arms"
+  },
+  "fat-grip-irradiation-law": {
+    "title": "ファットグリップの科学と「放射の法則（Irradiation）」",
+    "category": "NEUROLOGY",
+    "level": "中級",
+    "labName": "arms"
+  },
+  "triceps-longhead-lats-connection": {
+    "title": "三頭筋の長頭と「広背筋」の解剖学的リンク",
+    "category": "ANATOMY",
+    "level": "中級",
+    "labName": "arms"
+  },
+  "arm-hypertrophy-superset": {
+    "title": "スーパーセット・ルーティン：腕の最速肥大プログラム",
+    "category": "PROGRAM",
+    "level": "中級",
+    "labName": "arms"
+  },
+  "triceps-horseshoe-specialization": {
+    "title": "三頭筋特化：巨大な「馬の蹄」構築プログラム",
+    "category": "PROGRAM",
+    "level": "中級",
+    "labName": "arms"
+  },
+  "biceps-peak-isolation": {
+    "title": "二頭筋ピーク特化：山のような力こぶを作るアイソレーション",
+    "category": "PROGRAM",
+    "level": "中級",
+    "labName": "arms"
+  },
+  "brachialis-forearm-thickness": {
+    "title": "極太の腕を作る「上腕筋＆前腕」特化プログラム",
+    "category": "PROGRAM",
+    "level": "中級",
+    "labName": "arms"
+  },
+  "15min-arm-blast-giant-set": {
+    "title": "15分アーム・ブラスト：極限のジャイアントセット",
+    "category": "PROGRAM",
+    "level": "上級",
+    "labName": "arms"
+  },
+  "joint-friendly-machine-arms": {
+    "title": "関節に優しい腕構築：マシン＆ケーブル限定ルーティン",
+    "category": "PROGRAM",
+    "level": "全レベル",
+    "labName": "arms"
+  },
+  "back-anatomy-basics": {
+    "title": "背中の解剖学：広がりと厚みの違い",
+    "category": "ANATOMY",
+    "level": "初心者",
+    "labName": "back"
+  },
+  "lat-pulldown-mastery": {
+    "title": "ラットプルダウンの極意：腕ではなく「背中」で引く",
+    "category": "MECHANICS",
+    "level": "初級",
+    "labName": "back"
+  },
+  "rowing-thickness-basics": {
+    "title": "ローイングの基本：厚みを作る「肩甲骨の寄せ」",
+    "category": "MECHANICS",
+    "level": "初級",
+    "labName": "back"
+  },
+  "chinup-zero-to-ten": {
+    "title": "懸垂（チンニング）が1回もできない人のためのステップアップ",
+    "category": "TRAINING",
+    "level": "初心者",
+    "labName": "back"
+  },
+  "deadlift-form-and-safety": {
+    "title": "デッドリフトの正しいフォームと腰痛予防",
+    "category": "MECHANICS",
+    "level": "初級",
+    "labName": "back"
+  },
+  "lats-vs-teres-major": {
+    "title": "広背筋と大円筋の使い分け",
+    "category": "ANATOMY",
+    "level": "中級",
+    "labName": "back"
+  },
+  "grip-variations-back": {
+    "title": "グリップの違い（順手・逆手・パラレル）の影響",
+    "category": "MECHANICS",
+    "level": "初級",
+    "labName": "back"
+  },
+  "thoracic-mobility-back": {
+    "title": "背中の柔軟性と胸椎のモビリティ",
+    "category": "MECHANICS",
+    "level": "初級",
+    "labName": "back"
+  },
+  "seated-row-cable-height": {
+    "title": "シーテッドロウ：ケーブルの高さを変える意味",
+    "category": "MECHANICS",
+    "level": "初級",
+    "labName": "back"
+  },
+  "dumbbell-pullover-lats": {
+    "title": "プルオーバー：広背筋のストレッチ種目の王様",
+    "category": "ANATOMY",
+    "level": "中級",
+    "labName": "back"
+  },
+  "deadlift-back-development": {
+    "title": "デッドリフトは背中トレか、脚トレか？",
+    "category": "BIOMECHANICS",
+    "level": "中級",
+    "labName": "back"
+  },
+  "dorian-yates-blood-and-guts": {
+    "title": "ドリアン・イェーツ式「血のにじむ背中」高強度理論",
+    "category": "HISTORY",
+    "level": "上級",
+    "labName": "back"
+  },
+  "cheating-biomechanics": {
+    "title": "チーティングの科学：背中トレにおいて反動は悪か？",
+    "category": "BIOMECHANICS",
+    "level": "中級",
+    "labName": "back"
+  },
+  "straps-vs-powergrips": {
+    "title": "ストラップ vs パワーグリップ：握力疲労と背中の筋電図",
+    "category": "GEAR",
+    "level": "初級",
+    "labName": "back"
+  },
+  "thoracic-rotation-row": {
+    "title": "ワンアーム・ローイングにおける「胸椎の回旋」のバイオメカニクス",
+    "category": "BIOMECHANICS",
+    "level": "中級",
+    "labName": "back"
+  },
+  "unilateral-back-symmetry": {
+    "title": "背中の左右差（非対称性）を是正するユニラテラルアプローチ",
+    "category": "REHABILITATION",
+    "level": "中級",
+    "labName": "back"
+  },
+  "fast-slow-twitch-lats": {
+    "title": "広背筋の速筋・遅筋比率と最適なレップ数",
+    "category": "PHYSIOLOGY",
+    "level": "上級",
+    "labName": "back"
+  },
+  "lifting-belt-core-strength": {
+    "title": "リフティングベルトは体幹を弱めるか？",
+    "category": "GEAR",
+    "level": "中級",
+    "labName": "back"
+  },
+  "erector-spinae-limits": {
+    "title": "脊柱起立筋群の生体力学的限界",
+    "category": "BIOMECHANICS",
+    "level": "上級",
+    "labName": "back"
+  },
+  "back-program-v-taper": {
+    "title": "逆三角形を作る：広がり特化プログラム",
+    "category": "PROGRAM",
+    "level": "中級",
+    "labName": "back"
+  },
+  "back-program-thickness": {
+    "title": "鬼の顔を作る：厚み特化プログラム",
+    "category": "PROGRAM",
+    "level": "中級",
+    "labName": "back"
+  },
+  "pullup-mastery-program": {
+    "title": "チンニング（懸垂）完全攻略プログラム",
+    "category": "PROGRAM",
+    "level": "初心者",
+    "labName": "back"
+  },
+  "pro-back-fst7": {
+    "title": "プロボディビルダーの背中トレ：FST-7法応用",
+    "category": "PROGRAM",
+    "level": "上級",
+    "labName": "back"
+  },
+  "deadlift-core-routine": {
+    "title": "デッドリフト軸：コア＆バック・ストレンス",
+    "category": "PROGRAM",
+    "level": "上級",
+    "labName": "back"
+  },
+  "lower-lats-v-shape": {
+    "title": "広背筋「下部」特化：Vシェイプの底辺を広げる",
+    "category": "PROGRAM",
+    "level": "中級",
+    "labName": "back"
+  },
+  "15min-back-giant-set": {
+    "title": "時間がない日向け：15分で背中をパンプさせるジャイアントセット",
+    "category": "PROGRAM",
+    "level": "上級",
+    "labName": "back"
+  },
+  "alignment": {
+    "title": "ベンチプレスの基本と最適骨格アライメント",
+    "category": "BIOMECHANICS",
+    "level": "初級",
+    "labName": "benchpress"
+  },
+  "shoulder-pain": {
+    "title": "肩が痛い理由：インピンジメントの力学と怪我予防",
+    "category": "ANATOMY & PAIN",
+    "level": "中級",
+    "labName": "benchpress"
+  },
+  "chest-activation": {
+    "title": "胸に効かない人へ：上腕骨の水平内転と意識の分離",
+    "category": "MUSCLE ENGAGEMENT",
+    "level": "初級",
+    "labName": "benchpress"
+  },
+  "leg-drive": {
+    "title": "脚の使い方（レッグドライブ）：床反力を挙上に伝えるバネの創出",
+    "category": "ADVANCED KINETICS",
+    "level": "上級",
+    "labName": "benchpress"
+  },
+  "plateau": {
+    "title": "重量が伸びない理由：神経系の動員と漸進的過負荷の壁",
+    "category": "STRENGTH PROGRAM",
+    "level": "上級",
+    "labName": "benchpress"
+  },
+  "grip-mechanics": {
+    "title": "グリップの生体力学：ダブルオーバーハンド、オルタネイト、フック",
+    "category": "FORM & ANATOMY",
+    "level": "全レベル対象",
+    "labName": "deadlift"
+  },
+  "rack-out": {
+    "title": "ラックアウトの省エネ力学：肩甲骨を殺さない挙上デリバリー",
+    "category": "SETUP EFFICIENCY",
+    "level": "中級",
+    "labName": "benchpress"
+  },
+  "breathing-iap": {
+    "title": "呼吸法と腹圧（IAP）の真実：体幹プラットフォームの強固化",
+    "category": "CORE STABILITY",
+    "level": "初級",
+    "labName": "benchpress"
+  },
+  "bottom-control": {
+    "title": "ボトムポジションの制動摩擦：大胸筋の反発力を生む力学",
+    "category": "CONTROLLING FORCE",
+    "level": "中級",
+    "labName": "benchpress"
+  },
+  "warm-up-protocol": {
+    "title": "ウォームアップの解剖学的プロトコル：可動域確保と神経活性",
+    "category": "ACTIVATION",
+    "level": "初級",
+    "labName": "benchpress"
+  },
+  "thoracic-mobility": {
+    "title": "胸椎の柔軟性を高めるストレッチとセルフケア",
+    "category": "MOBILITY",
+    "level": "初級",
+    "labName": "benchpress"
+  },
+  "accessory-lifts": {
+    "title": "ベンチプレスにおける補助種目の選定基準",
+    "category": "STRENGTH PROGRAM",
+    "level": "中級",
+    "labName": "benchpress"
+  },
+  "eccentric-velocity": {
+    "title": "エキセントリック（下ろし動作）の最適速度と力学",
+    "category": "BIOMECHANICS",
+    "level": "中級",
+    "labName": "benchpress"
+  },
+  "safety-setting": {
+    "title": "ラックの高さとセーフティバーの安全工学",
+    "category": "SAFETY FIRST",
+    "level": "初級",
+    "labName": "benchpress"
+  },
+  "frequency-volume": {
+    "title": "ベンチプレスの頻度と週あたりボリュームの最適化",
+    "category": "STRENGTH PROGRAM",
+    "level": "中級",
+    "labName": "benchpress"
+  },
+  "barpath-analysis": {
+    "title": "バーのパス（軌道）を可視化するフィードバック技術",
+    "category": "BIOMECHANICS",
+    "level": "初級",
+    "labName": "benchpress"
+  },
+  "gear-physics": {
+    "title": "リストラップとベルトのギア物理学",
+    "category": "GEAR SCIENCE",
+    "level": "初級",
+    "labName": "benchpress"
+  },
+  "inner-outer-chest": {
+    "title": "ベンチプレスと大胸筋の内側・外側の解剖学的真実",
+    "category": "ANATOMY & KINETICS",
+    "level": "初級",
+    "labName": "benchpress"
+  },
+  "sticking-point": {
+    "title": "挙上のスティッキングポイント（停滞域）の物理的攻略法",
+    "category": "ADVANCED KINETICS",
+    "level": "中級",
+    "labName": "benchpress"
+  },
+  "cns-fatigue": {
+    "title": "オーバートレーニングとCNS（中枢神経系）の疲労管理",
+    "category": "NEUROLOGY",
+    "level": "上級",
+    "labName": "strength"
+  },
+  "hypertrophy-range": {
+    "title": "筋肥大と可動域のトレードオフ：ハーフ vs フルレンジ",
+    "category": "HYPERTROPHY SCIENCE",
+    "level": "中級",
+    "labName": "benchpress"
+  },
+  "scapula-lock": {
+    "title": "肩甲骨は本当に「限界まで寄せて下げる」べきなのか？",
+    "category": "ANATOMY & KINETICS",
+    "level": "上級",
+    "labName": "benchpress"
+  },
+  "arch-mechanics": {
+    "title": "パワーリフティング仕様アーチの功罪：安全性と挙上距離の力学",
+    "category": "BIOMECHANICAL BRIDGE",
+    "level": "中級",
+    "labName": "benchpress"
+  },
+  "shoulder-drift": {
+    "title": "なぜ胸トレが肩（三角筋前部）に入るのか？骨盤と上腕の角度測定",
+    "category": "PAIN & DRIFT",
+    "level": "中級",
+    "labName": "benchpress"
+  },
+  "bench-clamping-kinetics": {
+    "title": "「バーを固定し、身体をベンチ台に押し込む」感覚の力学：主観的キューと受動的固定の極大化",
+    "category": "NEURO-KINETICS",
+    "level": "上級",
+    "labName": "benchpress"
+  },
+  "martial-arts-alignment": {
+    "title": "武術の「骨の通し」とベンチプレスの接点：剣道・合気道に学ぶ力線の整合",
+    "category": "MARTIAL ARTS & STRENGTH",
+    "level": "上級",
+    "labName": "special"
+  },
+  "body-bar-unity": {
+    "title": "バーベル一体化の認知ハック：バーが「身体から生えている」イメージ",
+    "category": "COGNITIVE SCIENCE",
+    "level": "中級",
+    "labName": "benchpress"
+  },
+  "pitching-scapular-rhythm": {
+    "title": "野球の投球動作とベンチプレスの肩甲骨連動：回旋筋腱板の防衛ライン",
+    "category": "SPORTS APPLICATION",
+    "level": "中級",
+    "labName": "benchpress"
+  },
+  "flow-state-tension": {
+    "title": "「無の境地」と中枢神経系の同期：武術における脱力から爆発的出力への移行",
+    "category": "NEUROPHYSIOLOGY",
+    "level": "上級",
+    "labName": "special"
+  },
+  "tanden-core-power": {
+    "title": "丹田感覚と解剖学的腹圧の統合力学：下肢の力を上肢へ伝えるハブの構築",
+    "category": "MARTIAL ARTS & BIOMECHANICS",
+    "level": "上級",
+    "labName": "special"
+  },
+  "kendo-grip-philosophy": {
+    "title": "剣道の「手の内」に学ぶバーベルグリップの握り：締めと脱力の動的均衡",
+    "category": "MARTIAL ARTS & GRIP",
+    "level": "中級",
+    "labName": "special"
+  },
+  "blind-bench-press": {
+    "title": "視覚情報遮断（ブラインド・プレス）による固有受容感覚のハック",
+    "category": "NEUROSCIENCE",
+    "level": "上級",
+    "labName": "benchpress"
+  },
+  "aikido-inertia-control": {
+    "title": "合気道の抵抗しない力学と慣性の受け流し：バーベルを「敵」にしないプレス",
+    "category": "MARTIAL ARTS & BIOMECHANICS",
+    "level": "上級",
+    "labName": "special"
+  },
+  "sensory-integration": {
+    "title": "「空を説明する言葉」を超える体感の自己組織化：理論を通過した先の自律フォーム",
+    "category": "PHILOSOPHY & SENSORY",
+    "level": "上級",
+    "labName": "benchpress"
+  },
+  "benchpress-100kg-peaking": {
+    "title": "ベンチプレス100kgの壁を越える：8週間ピーキングプログラム",
+    "category": "STRENGTH PROGRAM",
+    "level": "中級",
+    "labName": "benchpress"
+  },
+  "beginner-benchpress-roadmap": {
+    "title": "初心者のためのベンチプレス導入：空バーから自重越えへの道",
+    "category": "BEGINNER PROGRAM",
+    "level": "初級",
+    "labName": "benchpress"
+  },
+  "chest-anatomy": {
+    "title": "大胸筋の解剖学と力学的アプローチ",
+    "category": "ANATOMY",
+    "level": "初級",
+    "labName": "chest"
+  },
+  "scapula-control": {
+    "title": "胸郭の拡張と肩甲骨の固定：プレス系種目の土台",
+    "category": "BIOMECHANICS",
+    "level": "初級",
+    "labName": "chest"
+  },
+  "dumbbell-press-basic": {
+    "title": "ダンベルプレス入門：大胸筋に効かせる基本フォーム",
+    "category": "BASIC MOVEMENTS",
+    "level": "初級",
+    "labName": "chest"
+  },
+  "dumbbell-fly-basic": {
+    "title": "ダンベルフライ入門：胸を広くするストレッチの極意",
+    "category": "BASIC MOVEMENTS",
+    "level": "初級",
+    "labName": "chest"
+  },
+  "shoulder-press-basic": {
+    "title": "ショルダープレス入門：肩（三角筋前部）を大きくする軌道",
+    "category": "BASIC MOVEMENTS",
+    "level": "初級",
+    "labName": "chest"
+  },
+  "incline-press-basic": {
+    "title": "インクラインプレス入門：大胸筋上部（鎖骨下）の鍛え方",
+    "category": "BASIC MOVEMENTS",
+    "level": "初級",
+    "labName": "chest"
+  },
+  "dips-basic": {
+    "title": "ディップス入門：大胸筋下部を創る自重トレーニング",
+    "category": "BASIC MOVEMENTS",
+    "level": "初級",
+    "labName": "chest"
+  },
+  "pec-deck-machine": {
+    "title": "ペックデックフライ入門：マシンの軌道と安全な最大収縮",
+    "category": "MACHINE",
+    "level": "初級",
+    "labName": "chest"
+  },
+  "cable-crossover-basic": {
+    "title": "ケーブルクロスオーバー入門：自由な軌道と持続的張力",
+    "category": "MACHINE",
+    "level": "中級",
+    "labName": "chest"
+  },
+  "push-up-mechanics": {
+    "title": "プッシュアップの生体力学：最強の自重胸トレ",
+    "category": "BODYWEIGHT",
+    "level": "初級",
+    "labName": "chest"
+  },
+  "smith-machine-press": {
+    "title": "スミスマシン・プレスの活用法：固定軌道のメリット",
+    "category": "MACHINE",
+    "level": "初級",
+    "labName": "chest"
+  },
+  "pullover-basic": {
+    "title": "プルオーバー入門：胸郭拡張と大胸筋の縦ストレッチ",
+    "category": "STRETCH",
+    "level": "中級",
+    "labName": "chest"
+  },
+  "incline-dumbbell-fly": {
+    "title": "インクライン・ダンベルフライ：鎖骨下から引き裂くストレッチ",
+    "category": "ISOLATION",
+    "level": "中級",
+    "labName": "chest"
+  },
+  "decline-bench-press": {
+    "title": "デクライン・ベンチプレス：下部を極める高重量アプローチ",
+    "category": "BASIC MOVEMENTS",
+    "level": "中級",
+    "labName": "chest"
+  },
+  "floor-press-basic": {
+    "title": "フロアプレスのメリット：肩の安全とロックアウト強化",
+    "category": "STRENGTH PROGRAM",
+    "level": "中級",
+    "labName": "chest"
+  },
+  "chest-press-machine": {
+    "title": "チェストプレスマシン完全攻略：座って押す基本",
+    "category": "MACHINE",
+    "level": "初級",
+    "labName": "chest"
+  },
+  "thoracic-mobility-care": {
+    "title": "ストレッチと胸郭の柔軟性：プレス系全般のケア",
+    "category": "MOBILITY",
+    "level": "初級",
+    "labName": "chest"
+  },
+  "fly-mechanics-advanced": {
+    "title": "フライ種目の極意：ダンベル vs ケーブルの物理学",
+    "category": "ISOLATION",
+    "level": "中級",
+    "labName": "chest"
+  },
+  "mind-muscle-connection": {
+    "title": "マインドマッスルコネクション（MMC）の科学と神経支配",
+    "category": "NEUROLOGY & BIOMECHANICS",
+    "level": "中級",
+    "labName": "hypertrophy"
+  },
+  "anatomical-differences-chest": {
+    "title": "骨格の才能と解剖学的個体差",
+    "category": "BIOMECHANICS",
+    "level": "中級",
+    "labName": "chest"
+  },
+  "chest-muscle-imbalance": {
+    "title": "大胸筋の左右差（アンバランス）の克服",
+    "category": "REHABILITATION",
+    "level": "中級",
+    "labName": "chest"
+  },
+  "doms-and-hypertrophy": {
+    "title": "筋肉痛（DOMS）は筋肥大の必須条件か？",
+    "category": "PHYSIOLOGY",
+    "level": "中級",
+    "labName": "chest"
+  },
+  "pof-method-chest": {
+    "title": "POF法（Position of Flexion）の胸トレ応用",
+    "category": "PROGRAM",
+    "level": "中級",
+    "labName": "chest"
+  },
+  "full-vs-partial-range": {
+    "title": "フルレンジ vs パーシャル：筋肥大の最新エビデンス",
+    "category": "BIOMECHANICS",
+    "level": "中級",
+    "labName": "chest"
+  },
+  "pectoral-tear-prevention": {
+    "title": "大胸筋断裂のリスクと安全限界（セーフティ）",
+    "category": "REHABILITATION",
+    "level": "上級",
+    "labName": "chest"
+  },
+  "pump-and-cell-swelling": {
+    "title": "パンプアップと細胞膨張の科学",
+    "category": "PHYSIOLOGY",
+    "level": "中級",
+    "labName": "chest"
+  },
+  "preworkout-nitric-oxide": {
+    "title": "プレワークアウトと一酸化窒素（NO）サプリの真実",
+    "category": "NUTRITION",
+    "level": "初級",
+    "labName": "chest"
+  },
+  "steroids-vs-natural-hypertrophy": {
+    "title": "アナボリックステロイドとナチュラルの境界線",
+    "category": "PHYSIOLOGY",
+    "level": "中級",
+    "labName": "chest"
+  },
+  "sns-fake-workout-forms": {
+    "title": "SNSの「バズりフォーム」の罠とフェイクの構造",
+    "category": "BIOMECHANICS",
+    "level": "初級",
+    "labName": "chest"
+  },
+  "chest-program-beginner": {
+    "title": "初心者向け：基本の胸トレ3種目プログラム",
+    "category": "PROGRAM",
+    "level": "初級",
+    "labName": "chest"
+  },
+  "chest-program-hypertrophy": {
+    "title": "筋肥大特化プログラム：週2回分割法",
+    "category": "PROGRAM",
+    "level": "中級",
+    "labName": "chest"
+  },
+  "chest-program-upper-focus": {
+    "title": "大胸筋上部・特化プログラム",
+    "category": "PROGRAM",
+    "level": "中級",
+    "labName": "chest"
+  },
+  "chest-program-lower-focus": {
+    "title": "大胸筋下部・輪郭形成プログラム",
+    "category": "PROGRAM",
+    "level": "中級",
+    "labName": "chest"
+  },
+  "chest-program-home-workout": {
+    "title": "自重＆ホームトレーニング・プログラム",
+    "category": "PROGRAM",
+    "level": "初級",
+    "labName": "chest"
+  },
+  "chest-program-fst7": {
+    "title": "プロボディビルダー流：FST-7 筋膜拡張プログラム",
+    "category": "PRO PROGRAM",
+    "level": "上級",
+    "labName": "chest"
+  },
+  "chest-program-hit": {
+    "title": "ヘビー・デューティー：極限の1セット（HIT法）",
+    "category": "PRO PROGRAM",
+    "level": "上級",
+    "labName": "chest"
+  },
+  "chest-program-arnold-superset": {
+    "title": "伝説の胸・背中拮抗プログラム",
+    "category": "PRO PROGRAM",
+    "level": "上級",
+    "labName": "chest"
+  },
+  "hip-hinge-mastery": {
+    "title": "ヒップヒンジの習得：デッドリフトの根幹となる生体力学",
+    "category": "BIOMECHANICS & FORM",
+    "level": "初級",
+    "labName": "deadlift"
+  },
+  "conventional-vs-sumo": {
+    "title": "コンベンショナル vs スモウ：骨格構造に基づく選択の科学",
+    "category": "FORM & ANATOMY",
+    "level": "中級",
+    "labName": "deadlift"
+  },
+  "stance-width-optimization": {
+    "title": "スタンス幅の最適化：肩幅 vs 骨盤幅",
+    "category": "FORM & ANATOMY",
+    "level": "初級",
+    "labName": "deadlift"
+  },
+  "footwear-for-deadlift": {
+    "title": "靴の選択：なぜ厚底シューズはデッドリフトの敵なのか",
+    "category": "GEAR & SETUP",
+    "level": "全レベル対象",
+    "labName": "deadlift"
+  },
+  "head-position-mechanics": {
+    "title": "ヘッドポジション：上を向くべきか、アゴを引くべきか",
+    "category": "FORM & POSTURE",
+    "level": "初級",
+    "labName": "deadlift"
+  },
+  "bar-path-vertical-line": {
+    "title": "バーベルの軌道：完全な垂直線を引くためのアライメント",
+    "category": "BIOMECHANICS",
+    "level": "初級",
+    "labName": "deadlift"
+  },
+  "setup-routine-importance": {
+    "title": "セットアップの儀式（ルーティン）の重要性",
+    "category": "MINDSET & SETUP",
+    "level": "全レベル対象",
+    "labName": "deadlift"
+  },
+  "shin-angle-mechanics": {
+    "title": "すねの角度：バーベルとすねの距離の黄金比",
+    "category": "BIOMECHANICS",
+    "level": "初級",
+    "labName": "deadlift"
+  },
+  "lockout-mechanics": {
+    "title": "ロックアウトの力学：腰を反るのではなく、お尻を押し込む",
+    "category": "FORM & ANATOMY",
+    "level": "初級",
+    "labName": "deadlift"
+  },
+  "breathing-timing": {
+    "title": "呼吸のタイミング：トップで息を吐くか、床で吐くか",
+    "category": "CORE MECHANICS",
+    "level": "全レベル対象",
+    "labName": "deadlift"
+  },
+  "warmup-protocol": {
+    "title": "ウォームアッププロトコル：神経系を起こす段階的アプローチ",
+    "category": "PREPARATION",
+    "level": "初級",
+    "labName": "deadlift"
+  },
+  "belt-positioning": {
+    "title": "リフティングベルトの位置：肋骨下か、骨盤上か",
+    "category": "GEAR",
+    "level": "初級",
+    "labName": "deadlift"
+  },
+  "lat-engagement": {
+    "title": "広背筋のエンゲージメント：バーを身体に縛り付ける物理学",
+    "category": "BIOMECHANICS & CUEING",
+    "level": "中級",
+    "labName": "deadlift"
+  },
+  "iap-and-bracing": {
+    "title": "腹腔内圧（IAP）とブレーシング：腰椎を守る「見えないベルト」",
+    "category": "CORE MECHANICS",
+    "level": "中級",
+    "labName": "deadlift"
+  },
+  "first-pull-mechanics": {
+    "title": "床からの引き剥がし（ファーストプル）：大腿四頭筋の動員",
+    "category": "BIOMECHANICS",
+    "level": "上級",
+    "labName": "deadlift"
+  },
+  "overcoming-sticking-points": {
+    "title": "スティッキングポイントの打破：膝下の停滞をどう越えるか",
+    "category": "BIOMECHANICS",
+    "level": "上級",
+    "labName": "deadlift"
+  },
+  "spinal-flexion-roundback": {
+    "title": "背中の丸まり（ラウンドバック）：許容される屈曲と危険な屈曲",
+    "category": "SAFETY & ANATOMY",
+    "level": "上級",
+    "labName": "deadlift"
+  },
+  "deadlift-8week-program": {
+    "title": "デッドリフト特化8週間プログラム：MAX重量を更新するピーキング",
+    "category": "PROGRAMMING",
+    "level": "上級",
+    "labName": "deadlift"
+  },
+  "variation-exercises": {
+    "title": "バリエーション種目の活用：RDL、ブロックプル、デフィシット",
+    "category": "PROGRAMMING",
+    "level": "中級",
+    "labName": "deadlift"
+  },
+  "tanden-and-gravity": {
+    "title": "丹田（たんでん）の力学：武道における「臍下丹田」とデッドリフトの重心制御",
+    "category": "応用・探究",
+    "level": "上級",
+    "labName": "deadlift"
+  },
+  "relaxation-and-hakkei": {
+    "title": "脱力と発勁（はっけい）：腕を「ただの縄」化する武術的極意",
+    "category": "応用・探究",
+    "level": "上級",
+    "labName": "deadlift"
+  },
+  "yin-yang-synchronization": {
+    "title": "陰陽の連動（沈み込みと引き上げ）：床を「踏み抜く」ための合気的身体操作",
+    "category": "応用・探究",
+    "level": "上級",
+    "labName": "deadlift"
+  },
+  "peaking-program": {
+    "title": "試合に向けたピーキング・プログラム：MAX重量を105%に引き上げる",
+    "category": "実践プログラム",
+    "level": "上級",
+    "labName": "deadlift"
+  },
+  "weakpoint-specialization": {
+    "title": "弱点部位（スティッキングポイント）克服のためのバリエーションサイクル",
+    "category": "実践プログラム",
+    "level": "中級",
+    "labName": "deadlift"
+  },
+  "hypertrophy-deadlift": {
+    "title": "背中と大臀筋を巨大化させるデッドリフト・ハイパートロフィー",
+    "category": "実践プログラム",
+    "level": "中級",
+    "labName": "deadlift"
+  },
+  "kinematic-sequence-and-grf": {
+    "title": "スイングの生体力学：床反力（GRF）とキネマティック・シーケンス",
+    "category": "基本理論",
+    "level": "初級",
+    "labName": "golf"
+  },
+  "thoracic-mobility-and-backswing": {
+    "title": "バックスイングの深さ：胸椎モビリティと股関節の分離",
+    "category": "基本理論",
+    "level": "初級",
+    "labName": "golf"
+  },
+  "downswing-transition-and-lag": {
+    "title": "ダウンスイングのトリガー：下半身の先行とタメ（ラグ）",
+    "category": "基本理論",
+    "level": "中級",
+    "labName": "golf"
+  },
+  "impact-kinematics-hand-first": {
+    "title": "インパクトの真実：ハンドファーストとフェースコントロール",
+    "category": "基本理論",
+    "level": "中級",
+    "labName": "golf"
+  },
+  "follow-through-and-deceleration": {
+    "title": "フォロースルー：運動エネルギーの解放と減速メカニズム",
+    "category": "基本理論",
+    "level": "初級",
+    "labName": "golf"
+  },
+  "frontal-plane-side-bend": {
+    "title": "側屈（サイドベンド）の力学：スウェーと軸の維持",
+    "category": "基本理論",
+    "level": "中級",
+    "labName": "golf"
+  },
+  "iap-and-core-stability-in-golf": {
+    "title": "ゴルフ特有の呼吸法と腹腔内圧（IAP）の管理",
+    "category": "基本理論",
+    "level": "中級",
+    "labName": "golf"
+  },
+  "rfd-and-swing-speed-adaptation": {
+    "title": "飛距離の壁と「神経系の錯覚」：重いバーベルがもたらすもの",
+    "category": "応用・探究",
+    "level": "上級",
+    "labName": "golf"
+  },
+  "early-extension-biomechanics": {
+    "title": "起き上がりの真実：骨盤が「前に逃げる」理由を探る",
+    "category": "応用・探究",
+    "level": "中級",
+    "labName": "golf"
+  },
+  "x-factor-stretch-research": {
+    "title": "切り返しの魔法：身体が「引き裂かれる」一瞬",
+    "category": "応用・探究",
+    "level": "上級",
+    "labName": "golf"
+  },
+  "shallowing-and-wrist-flexion": {
+    "title": "シャローイングの正体：クラブが「寝てしまう」物理学",
+    "category": "応用・探究",
+    "level": "上級",
+    "labName": "golf"
+  },
+  "driver-vs-iron-kinematics": {
+    "title": "ドライバーとアイアンの矛盾：最下点のコントロール",
+    "category": "応用・探究",
+    "level": "上級",
+    "labName": "golf"
+  },
+  "8-week-power-building-program": {
+    "title": "飛距離アップのための8週間パワー構築プログラム",
+    "category": "実践プログラム",
+    "level": "中級",
+    "labName": "golf"
+  },
+  "core-and-mobility-drills": {
+    "title": "スイング安定化のための体幹・モビリティ改善ドリル",
+    "category": "実践プログラム",
+    "level": "初級",
+    "labName": "golf"
+  },
+  "overspeed-training-neurology": {
+    "title": "飛距離の壁を超える「スピードトレーニング」の神経系メカニズム",
+    "category": "実践プログラム",
+    "level": "上級",
+    "labName": "golf"
+  },
+  "external-focus-of-attention": {
+    "title": "運動学習の科学：インターナルからエクスターナル・フォーカスへ",
+    "category": "基本理論",
+    "level": "上級",
+    "labName": "golf"
+  },
+  "target-oriented-immersion": {
+    "title": "ターゲットへの没入：「フォームを手放す」という究極の身体操作",
+    "category": "応用・探究",
+    "level": "上級",
+    "labName": "golf"
+  },
+  "tool-embodiment-and-affordance": {
+    "title": "道具の身体化：「木の棒」でもカップに沈める究極の身体操作",
+    "category": "応用・探究",
+    "level": "上級",
+    "labName": "golf"
+  },
+  "joint-dissociation-drills": {
+    "title": "究極のアイソレーション：各関節の独立制御（ディソシエーション）ドリル",
+    "category": "実践プログラム",
+    "level": "中級",
+    "labName": "golf"
+  },
+  "barefoot-ground-work": {
+    "title": "裸足でのグラウンドワーク：足裏のセンサーと「床反力」の再開発",
+    "category": "実践プログラム",
+    "level": "初級",
+    "labName": "golf"
+  },
+  "ecological-dynamics-constraints-drill": {
+    "title": "不整地・制約下での自己組織化ドリル：「遊び」の中でスイングを創る",
+    "category": "実践プログラム",
+    "level": "上級",
+    "labName": "golf"
+  },
+  "mechanical-tension": {
+    "title": "筋肥大の第一原則：機械的張力のメカニズムと形質性肥大",
+    "category": "BIOMECHANICS & PHYSIOLOGY",
+    "level": "中級",
+    "labName": "hypertrophy"
+  },
+  "metabolic-stress": {
+    "title": "代謝的ストレス：パンプアップと化学的刺激の極致",
+    "category": "PHYSIOLOGY & BIOCHEMISTRY",
+    "level": "中級",
+    "labName": "hypertrophy"
+  },
+  "muscle-damage": {
+    "title": "筋損傷と超回復：サテライト細胞の覚醒と筋核ドメイン説",
+    "category": "CELLULAR BIOLOGY & RECOVERY",
+    "level": "中級",
+    "labName": "hypertrophy"
+  },
+  "progressive-overload": {
+    "title": "漸進的過負荷の原則：無限の成長ループと適応の科学",
+    "category": "TRAINING PRINCIPLES & PROGRAMMING",
+    "level": "中級",
+    "labName": "hypertrophy"
+  },
+  "nutrition-mps": {
+    "title": "栄養摂取とタンパク質合成（MPS）：アナボリックの土台とロイシン閾値",
+    "category": "SPORTS NUTRITION",
+    "level": "中級",
+    "labName": "hypertrophy"
+  },
+  "volume-intensity": {
+    "title": "ボリュームと強度の黄金比：MEVからMRVまでのセット数科学",
+    "category": "TRAINING PROGRAMMING",
+    "level": "中級",
+    "labName": "hypertrophy"
+  },
+  "training-frequency": {
+    "title": "トレーニング頻度の最適解：週1回 vs 週2回",
+    "category": "PROGRAMMING",
+    "level": "中級",
+    "labName": "hypertrophy"
+  },
+  "sleep-hormones": {
+    "title": "睡眠とホルモン分泌：深夜の筋肉修復工場と内分泌アプローチ",
+    "category": "RECOVERY & ENDOCRINOLOGY",
+    "level": "中級",
+    "labName": "hypertrophy"
+  },
+  "hydration-cell-swelling": {
+    "title": "水分補給と細胞膨潤：筋膜を押し広げる「パンプ」の物理学",
+    "category": "CELLULAR BIOLOGY & NUTRITION",
+    "level": "中級",
+    "labName": "hypertrophy"
+  },
+  "stretch-mediated": {
+    "title": "ストレッチ種目の優位性：伸張誘発性筋肥大（SMH）のバイオメカニクス",
+    "category": "ADVANCED BIOMECHANICS",
+    "level": "上級",
+    "labName": "hypertrophy"
+  },
+  "pof-method": {
+    "title": "POF法（Position of Flexion）の完全理解と3D筋肥大",
+    "category": "PROGRAM DESIGN",
+    "level": "中級",
+    "labName": "hypertrophy"
+  },
+  "mtor-pathway": {
+    "title": "mTORシグナルとアミノ酸：分子レベルの筋肥大メカニズム",
+    "category": "MOLECULAR BIOLOGY",
+    "level": "上級",
+    "labName": "hypertrophy"
+  },
+  "muscle-fibers": {
+    "title": "速筋・遅筋の個別撃破：筋繊維タイプ（Type I / Type II）の完全攻略",
+    "category": "PHYSIOLOGY",
+    "level": "中級",
+    "labName": "hypertrophy"
+  },
+  "eccentric-overload": {
+    "title": "ネガティブトレーニングの極意：エキセントリック過負荷（伸張性収縮）",
+    "category": "ADVANCED KINETICS",
+    "level": "上級",
+    "labName": "hypertrophy"
+  },
+  "bfr-training": {
+    "title": "BFR（血流制限）トレーニングの応用と生理学的ハッキング",
+    "category": "SPECIAL TECHNIQUES",
+    "level": "上級",
+    "labName": "hypertrophy"
+  },
+  "bro-split-vs-ppl": {
+    "title": "最強の分割法：ブロスプリット vs PPL（Push/Pull/Legs）の比較と実践",
+    "category": "PRACTICAL ROUTINE",
+    "level": "中級",
+    "labName": "hypertrophy"
+  },
+  "giant-and-drop-sets": {
+    "title": "時間短縮と極限のパンプ：強度向上テクニック（ドロップセットとジャイアントセット）",
+    "category": "INTENSITY TECHNIQUES",
+    "level": "上級",
+    "labName": "hypertrophy"
+  },
+  "german-volume-training": {
+    "title": "GVT（ジャーマン・ボリューム・トレーニング）の実践",
+    "category": "SHOCK PROGRAM",
+    "level": "上級",
+    "labName": "hypertrophy"
+  },
+  "fst-7": {
+    "title": "FST-7：筋膜ストレッチ法（Fascia Stretch Training-7）の全貌",
+    "category": "FASCIA TRAINING",
+    "level": "上級",
+    "labName": "hypertrophy"
+  },
+  "myo-reps": {
+    "title": "マイオレップス法（Myo-Reps）：時短と筋肥大の極致",
+    "category": "TIME EFFICIENCY",
+    "level": "中級",
+    "labName": "hypertrophy"
+  },
+  "peaking-and-deload": {
+    "title": "停滞期打破のピーキングとディロード（戦略的休養）",
+    "category": "PERIODIZATION",
+    "level": "上級",
+    "labName": "hypertrophy"
+  },
+  "quadriceps-anatomy": {
+    "title": "大腿四頭筋の解剖学：太もも前部を構成する「4つのエンジン」",
+    "category": "ANATOMY",
+    "level": "初心者",
+    "labName": "legs"
+  },
+  "hamstrings-anatomy": {
+    "title": "ハムストリングスの解剖学：裏腿を制する2つの関節運動",
+    "category": "ANATOMY",
+    "level": "初心者",
+    "labName": "legs"
+  },
+  "gluteus-maximus-engine": {
+    "title": "大臀筋の解剖学：人体最強の「出力エンジン」",
+    "category": "ANATOMY",
+    "level": "初心者",
+    "labName": "legs"
+  },
+  "squat-high-vs-low-bar": {
+    "title": "スクワットの基本：ハイバー vs ローバー",
+    "category": "MECHANICS",
+    "level": "初級",
+    "labName": "legs"
+  },
+  "leg-press-foot-placement": {
+    "title": "レッグプレスの足幅と位置：ターゲットを変えるペダル操作",
+    "category": "MECHANICS",
+    "level": "初級",
+    "labName": "legs"
+  },
+  "bulgarian-split-squat-mechanics": {
+    "title": "ブルガリアン・スプリットスクワットの力学",
+    "category": "MECHANICS",
+    "level": "中級",
+    "labName": "legs"
+  },
+  "calf-raise-soleus-gastrocnemius": {
+    "title": "カーフレイズの基本：ふくらはぎを構成する2つの筋肉",
+    "category": "ANATOMY",
+    "level": "初級",
+    "labName": "legs"
+  },
+  "romanian-deadlift-hinge": {
+    "title": "ルーマニアン・デッドリフト（RDL）とヒンジ動作",
+    "category": "MECHANICS",
+    "level": "中級",
+    "labName": "legs"
+  },
+  "leg-extension-setup": {
+    "title": "レッグエクステンションの基本：正しいセッティングと膝の保護",
+    "category": "MECHANICS",
+    "level": "初級",
+    "labName": "legs"
+  },
+  "leg-curl-pelvic-tilt": {
+    "title": "レッグカールの基本：骨盤の浮きを防ぐパッド調整",
+    "category": "MECHANICS",
+    "level": "初級",
+    "labName": "legs"
+  },
+  "lunge-biomechanics-forward-reverse": {
+    "title": "ランジのバイオメカニクス：前進 vs 後退",
+    "category": "MECHANICS",
+    "level": "中級",
+    "labName": "legs"
+  },
+  "adductor-anatomy-squat-depth": {
+    "title": "内転筋（内もも）の解剖学と鍛え方",
+    "category": "ANATOMY",
+    "level": "初級",
+    "labName": "legs"
+  },
+  "sissy-squat-rectus-femoris": {
+    "title": "大腿直筋を独立して鍛える「シシースクワット」の解剖学",
+    "category": "ANATOMY",
+    "level": "上級",
+    "labName": "legs"
+  },
+  "squat-depth-glute-activation": {
+    "title": "スクワットの深さと大臀筋の活動：パラレル vs フル",
+    "category": "BIOMECHANICS",
+    "level": "中級",
+    "labName": "legs"
+  },
+  "ankle-dorsiflexion-squat-compensation": {
+    "title": "足関節の背屈制限とスクワットの代償動作",
+    "category": "BIOMECHANICS",
+    "level": "中級",
+    "labName": "legs"
+  },
+  "leg-extension-toe-angle": {
+    "title": "レッグエクステンションの「つま先の向き」の科学",
+    "category": "MECHANICS",
+    "level": "上級",
+    "labName": "legs"
+  },
+  "hamstrings-proximal-vs-distal": {
+    "title": "ハムストリングスの近位（上部）と遠位（下部）の鍛え分け",
+    "category": "ANATOMY",
+    "level": "中級",
+    "labName": "legs"
+  },
+  "knee-in-valgus-glute-medius": {
+    "title": "ニーイン（膝が内側に入る）の恐怖と「中殿筋」の覚醒",
+    "category": "BIOMECHANICS",
+    "level": "中級",
+    "labName": "legs"
+  },
+  "belt-squat-biomechanics": {
+    "title": "ベルトスクワットの力学：脊柱への圧縮をゼロにする次世代の脚トレ",
+    "category": "BIOMECHANICS",
+    "level": "上級",
+    "labName": "legs"
+  },
+  "heel-elevation-vmo-activation": {
+    "title": "ヒールエレベーション（かかと上げ）とVMOの覚醒",
+    "category": "MECHANICS",
+    "level": "中級",
+    "labName": "legs"
+  },
+  "sumo-vs-conventional-deadlift": {
+    "title": "デッドリフト：スモウとコンベンショナルの股関節モーメント",
+    "category": "BIOMECHANICS",
+    "level": "上級",
+    "labName": "legs"
+  },
+  "leg-hypertrophy-split": {
+    "title": "脚特化：週2回「前・後分割」プログラム",
+    "category": "PROGRAM",
+    "level": "上級",
+    "labName": "legs"
+  },
+  "glute-isolation-routine": {
+    "title": "ヒップアップ特化：大臀筋アイソレーション・ルーティン",
+    "category": "PROGRAM",
+    "level": "全レベル",
+    "labName": "legs"
+  },
+  "squat-strength-base-program": {
+    "title": "スクワット重量向上（ストレングス・ベース）プログラム",
+    "category": "PROGRAM",
+    "level": "中級",
+    "labName": "legs"
+  },
+  "machine-only-safe-legs": {
+    "title": "腰に優しい安全な脚構築：マシン限定ルーティン",
+    "category": "PROGRAM",
+    "level": "全レベル",
+    "labName": "legs"
+  },
+  "20-rep-squat-widowmaker": {
+    "title": "吐き気を催す「20レップ・スクワット」の精神と肉体",
+    "category": "PROGRAM",
+    "level": "上級",
+    "labName": "legs"
+  },
+  "triple-extension-mechanics": {
+    "title": "パワークリーンの力学：トリプルエクステンションと床反力",
+    "category": "基本理論",
+    "level": "初級",
+    "labName": "power"
+  },
+  "first-to-second-pull": {
+    "title": "ファーストプルからセカンドプルへの移行：膝の通過とタメ",
+    "category": "基本理論",
+    "level": "初級",
+    "labName": "power"
+  },
+  "catch-mechanics": {
+    "title": "キャッチのメカニズム：フロントラックの剛性と肘の返し",
+    "category": "基本理論",
+    "level": "初級",
+    "labName": "power"
+  },
+  "power-snatch-trajectory": {
+    "title": "パワースナッチの軌道：バーパスと肩甲骨の上方回旋",
+    "category": "基本理論",
+    "level": "中級",
+    "labName": "power"
+  },
+  "hang-clean-vs-block-clean": {
+    "title": "ハングクリーンとブロッククリーンの違いと使い分け",
+    "category": "基本理論",
+    "level": "中級",
+    "labName": "power"
+  },
+  "hook-grip-mechanics": {
+    "title": "グリップとフックグリップの重要性：親指のロックが生む爆発力",
+    "category": "基本理論",
+    "level": "初級",
+    "labName": "power"
+  },
+  "rate-of-force-development": {
+    "title": "力の立ち上がり率（RFD）の極大化：瞬発力とプライオメトリクス",
+    "category": "応用・探究",
+    "level": "上級",
+    "labName": "power"
+  },
+  "sports-performance-transfer": {
+    "title": "オリンピックリフティングとスポーツパフォーマンスの転移",
+    "category": "応用・探究",
+    "level": "上級",
+    "labName": "power"
+  },
+  "martial-arts-relaxation": {
+    "title": "武術的「脱力」とファーストプル",
+    "category": "応用・探究",
+    "level": "上級",
+    "labName": "power"
+  },
+  "tanden-and-second-pull": {
+    "title": "丹田（重心）の操作とセカンドプルの同調",
+    "category": "応用・探究",
+    "level": "上級",
+    "labName": "power"
+  },
+  "unfixed-footwork-catch-stance": {
+    "title": "「居着かない」足運びとキャッチスタンス",
+    "category": "応用・探究",
+    "level": "上級",
+    "labName": "power"
+  },
+  "power-explosive-program": {
+    "title": "爆発力を高めるための3日間パワー・プログラム",
+    "category": "実践プログラム",
+    "level": "中級",
+    "labName": "power"
+  },
+  "triple-extension-weakness-cycle": {
+    "title": "トリプルエクステンション弱点克服サイクル",
+    "category": "実践プログラム",
+    "level": "中級",
+    "labName": "power"
+  },
+  "transition-to-full-clean": {
+    "title": "フルクリーンへの移行：4段階習得プログラム",
+    "category": "実践プログラム",
+    "level": "上級",
+    "labName": "power"
+  },
+  "start-position-biomechanics": {
+    "title": "スタートポジションの生体力学：床からの引き剥がし",
+    "category": "基本理論",
+    "level": "初級",
+    "labName": "power"
+  },
+  "shrug-misconception-and-timing": {
+    "title": "シュラッグ（肩すくめ）の誤解と正しいタイミング",
+    "category": "基本理論",
+    "level": "初級",
+    "labName": "power"
+  },
+  "ankle-mobility-and-stance": {
+    "title": "足首の可動性とクリーンにおけるスタンスの最適化",
+    "category": "基本理論",
+    "level": "初級",
+    "labName": "power"
+  },
+  "overhead-squat-prerequisite": {
+    "title": "オーバーヘッドスクワット：スナッチキャッチの前提条件",
+    "category": "基本理論",
+    "level": "初級",
+    "labName": "power"
+  },
+  "shoulder-anatomy-basics": {
+    "title": "肩の解剖学：メロン肩を作る「3つの顔」",
+    "category": "ANATOMY",
+    "level": "初心者",
+    "labName": "shoulder"
+  },
+  "shoulder-press-fundamentals": {
+    "title": "ショルダープレスの基本と生体力学",
+    "category": "MECHANICS",
+    "level": "初心者",
+    "labName": "shoulder"
+  },
+  "side-raise-mastery": {
+    "title": "サイドレイズの極意：僧帽筋の関与を殺す",
+    "category": "MECHANICS",
+    "level": "初級",
+    "labName": "shoulder"
+  },
+  "rear-delt-importance": {
+    "title": "リアレイズ：肩の3D感を決定づける背面の矢",
+    "category": "TRAINING",
+    "level": "初級",
+    "labName": "shoulder"
+  },
+  "shoulder-impingement-prevention": {
+    "title": "肩の怪我（インピンジメント）を防ぐ絶対法則",
+    "category": "REHABILITATION",
+    "level": "初級",
+    "labName": "shoulder"
+  },
+  "upright-row-biomechanics": {
+    "title": "アップライトロウの解剖学：安全で強烈な刺激",
+    "category": "MECHANICS",
+    "level": "中級",
+    "labName": "shoulder"
+  },
+  "front-raise-necessity": {
+    "title": "フロントレイズは本当に必要か？",
+    "category": "PROGRAM",
+    "level": "初級",
+    "labName": "shoulder"
+  },
+  "arnold-press-mechanics": {
+    "title": "アーノルドプレスのメカニズムと効果",
+    "category": "MECHANICS",
+    "level": "中級",
+    "labName": "shoulder"
+  },
+  "cable-vs-dumbbell-lateral": {
+    "title": "ケーブル vs ダンベル：サイドレイズの負荷曲線",
+    "category": "BIOMECHANICS",
+    "level": "中級",
+    "labName": "shoulder"
+  },
+  "pec-deck-rear-delt": {
+    "title": "ペックフライマシンを逆向きに使う：リアデルトフライ",
+    "category": "MECHANICS",
+    "level": "初心者",
+    "labName": "shoulder"
+  },
+  "side-raise-grip-and-wrist": {
+    "title": "サイドレイズのグリップと手首：前腕に逃がさない握り方",
+    "category": "MECHANICS",
+    "level": "初級",
+    "labName": "shoulder"
+  },
+  "incline-side-raise-mechanics": {
+    "title": "インクライン・サイドレイズ：肩幅を広げるストレッチ",
+    "category": "BIOMECHANICS",
+    "level": "中級",
+    "labName": "shoulder"
+  },
+  "lying-side-raise-isolation": {
+    "title": "ライイング・サイドレイズ：反動を完全に殺す究極の孤立",
+    "category": "MECHANICS",
+    "level": "中級",
+    "labName": "shoulder"
+  },
+  "lateral-raise-pinky-up": {
+    "title": "サイドレイズ「小指を上げる」神話の終焉",
+    "category": "BIOMECHANICS",
+    "level": "中級",
+    "labName": "shoulder"
+  },
+  "heavy-cheating-lateral-raises": {
+    "title": "チーティング・レイズ：高重量サイドレイズの是非",
+    "category": "BIOMECHANICS",
+    "level": "上級",
+    "labName": "shoulder"
+  },
+  "shoulder-high-frequency": {
+    "title": "肩の高頻度トレーニング：週に何回やるべきか？",
+    "category": "PHYSIOLOGY",
+    "level": "中級",
+    "labName": "shoulder"
+  },
+  "smith-vs-hammer-press": {
+    "title": "プレスマシンの軌道比較：スミス vs アイソラテラル",
+    "category": "GEAR",
+    "level": "中級",
+    "labName": "shoulder"
+  },
+  "rotator-cuff-maintenance": {
+    "title": "回旋筋腱板（ローテーターカフ）のメンテナンス",
+    "category": "REHABILITATION",
+    "level": "中級",
+    "labName": "shoulder"
+  },
+  "shoulder-isometric-holds": {
+    "title": "肩のパンプを引き出す「アイソメトリック・ホールド」",
+    "category": "PHYSIOLOGY",
+    "level": "上級",
+    "labName": "shoulder"
+  },
+  "rear-delt-scapular-kinematics": {
+    "title": "リアレイズの真実：肩甲骨は「完全に固定」すべきか？",
+    "category": "BIOMECHANICS",
+    "level": "上級",
+    "labName": "shoulder"
+  },
+  "overhead-press-kinetic-chain": {
+    "title": "ミリタリープレスの全身運動学（キネティック・チェーン）",
+    "category": "MECHANICS",
+    "level": "上級",
+    "labName": "shoulder"
+  },
+  "front-delt-upper-chest-overlap": {
+    "title": "三角筋前部と大胸筋上部の「力学的オーバーラップ」",
+    "category": "ANATOMY",
+    "level": "中級",
+    "labName": "shoulder"
+  },
+  "melon-shoulder-hypertrophy": {
+    "title": "メロン肩構築：丸み（中部・後部）特化プログラム",
+    "category": "PROGRAM",
+    "level": "中級",
+    "labName": "shoulder"
+  },
+  "heavy-press-strength": {
+    "title": "ヘビープレス軸：フロント＆ストレンス構築",
+    "category": "PROGRAM",
+    "level": "上級",
+    "labName": "shoulder"
+  },
+  "15min-shoulder-giant-set": {
+    "title": "肩の3D構築：15分ジャイアントセット",
+    "category": "PROGRAM",
+    "level": "上級",
+    "labName": "shoulder"
+  },
+  "rear-delt-annihilation": {
+    "title": "リアデルト（後部）徹底破壊プログラム",
+    "category": "PROGRAM",
+    "level": "中級",
+    "labName": "shoulder"
+  },
+  "shoulder-friendly-hypertrophy": {
+    "title": "関節に優しい肩構築：ペイン・フリー・ルーティン",
+    "category": "PROGRAM",
+    "level": "全レベル",
+    "labName": "shoulder"
+  },
+  "cable-only-3d-shoulder": {
+    "title": "ケーブル・オンリー・ショルダー：ダンベル不要の3D構築",
+    "category": "PROGRAM",
+    "level": "中級",
+    "labName": "shoulder"
+  },
+  "shoulder-micro-dosing": {
+    "title": "肩のマイクロ・ドージング（微量投与）プログラム",
+    "category": "PROGRAM",
+    "level": "上級",
+    "labName": "shoulder"
+  },
+  "philosophy-of-do": {
+    "title": "重力との対話：なぜウエイトトレーニングは「道（Do）」になり得るのか？",
+    "category": "PHILOSOPHY",
+    "level": "全レベル対象",
+    "labName": "special"
+  },
+  "relaxation-and-power": {
+    "title": "脱力と爆発力のジレンマ：スポーツ科学における「力み」の解剖学",
+    "category": "SCIENCE & BODY MECHANICS",
+    "level": "中級",
+    "labName": "special"
+  },
+  "martial-arts-itsuki": {
+    "title": "「居着き」の打破と重心制御：スクワットにおける武術的身体操作",
+    "category": "MARTIAL ARTS & BIOMECHANICS",
+    "level": "上級",
+    "labName": "squat"
+  },
+  "tanden-vs-iap": {
+    "title": "丹田（Tanden）と腹圧（IAP）の比較解剖学",
+    "category": "MARTIAL ARTS & CORE",
+    "level": "中級",
+    "labName": "squat"
+  },
+  "hakkei-and-triple-extension": {
+    "title": "床反力と「発勁（Hakkei）」：トリプルエクステンションの武術的昇華",
+    "category": "MARTIAL ARTS & POWER",
+    "level": "上級",
+    "labName": "squat"
+  },
+  "martial-arts-squat-protocol": {
+    "title": "武道的スクワット・プロトコル：筋力から「勁」への変換",
+    "category": "MARTIAL ARTS PROGRAM",
+    "level": "上級",
+    "labName": "squat"
+  },
+  "ego-and-injury": {
+    "title": "エゴとの決別：怪我という「最高の師」から何を学ぶか",
+    "category": "PHILOSOPHY",
+    "level": "全レベル対象",
+    "labName": "special"
+  },
+  "zen-and-muscle-connection": {
+    "title": "マインド・マッスル・コネクションの罠：「無心」が引き出す究極の出力",
+    "category": "ZEN & SCIENCE",
+    "level": "中級",
+    "labName": "special"
+  },
+  "zanshin-and-nervous-system": {
+    "title": "「残心（Zanshin）」のトレーニング理論：セット終了後の1秒が神経系を変える",
+    "category": "MARTIAL ARTS",
+    "level": "中級",
+    "labName": "special"
+  },
+  "ritsuzen-isometrics": {
+    "title": "立禅（Ritsuzen）とアイソメトリクス：動かないことで「力」を練る3週間",
+    "category": "MARTIAL ARTS PROGRAM",
+    "level": "全レベル対象",
+    "labName": "special"
+  },
+  "evolution-and-gravity": {
+    "title": "「進化の記憶」としてのトレーニング：二足歩行と抗重力筋の生物学",
+    "category": "BIOLOGY & PHILOSOPHY",
+    "level": "全レベル対象",
+    "labName": "special"
+  },
+  "fascia-and-meridians": {
+    "title": "筋膜（Fascia）と「気」：東洋医学の経絡をアナトミートレインで解読する",
+    "category": "SCIENCE & BIOMECHANICS",
+    "level": "中級",
+    "labName": "special"
+  },
+  "biology-of-pain": {
+    "title": "「痛み」の生物学：中枢神経の過敏化とプラシーボの科学",
+    "category": "SCIENCE & BIOLOGY",
+    "level": "全レベル対象",
+    "labName": "special"
+  },
+  "tensegrity-structure": {
+    "title": "テンセグリティー（Tensegrity）と身体構造：骨で立つか、張力で浮くか",
+    "category": "BIOMECHANICS & STRUCTURE",
+    "level": "上級",
+    "labName": "special"
+  },
+  "death-and-recovery": {
+    "title": "睡眠と「死」のリハーサル：超回復を支える副交感神経の深淵",
+    "category": "BIOLOGY & PHILOSOPHY",
+    "level": "全レベル対象",
+    "labName": "special"
+  },
+  "aesthetics-of-subtraction": {
+    "title": "引き算の美学：達人たちが遺した「削った先」にあるもの",
+    "category": "PHILOSOPHY / MARTIAL ARTS",
+    "level": "全レベル対象",
+    "labName": "special"
+  },
+  "reducing-interference-mechanics": {
+    "title": "能力を足すか、邪魔を減らすか：運動と認識の本質",
+    "category": "PHILOSOPHY",
+    "level": "全レベル対象",
+    "labName": "special"
+  },
+  "gravity-drop-protocol": {
+    "title": "脱力落下プロトコル：無重力と「居着き」の解除",
+    "category": "MARTIAL ARTS PROGRAM",
+    "level": "中級",
+    "labName": "special"
+  },
+  "center-axis-whip-protocol": {
+    "title": "捻転と鞭のプロトコル：太刀筋を生む中心軸の構築",
+    "category": "MARTIAL ARTS PROGRAM",
+    "level": "全レベル対象",
+    "labName": "special"
+  },
+  "antagonist-relaxation-protocol": {
+    "title": "相反抑制プロトコル：神速を生み出すブレーキ解除法",
+    "category": "MARTIAL ARTS PROGRAM",
+    "level": "上級",
+    "labName": "special"
+  },
+  "aiki-benchpress-protocol": {
+    "title": "合気的ベンチプレス・プロトコル：結びと受け流しの極意",
+    "category": "MARTIAL ARTS PROGRAM",
+    "level": "中級",
+    "labName": "special"
+  },
+  "plantar-sensor-footwork-protocol": {
+    "title": "武道的歩法プロトコル：足裏の覚醒とグラウンディング",
+    "category": "MARTIAL ARTS PROGRAM",
+    "level": "初級",
+    "labName": "special"
+  },
+  "high-bar-vs-low-bar": {
+    "title": "ハイバー vs ローバー：バーの担ぐ位置と力学的モーメント",
+    "category": "BIOMECHANICS",
+    "level": "初級",
+    "labName": "squat"
+  },
+  "stance-and-anatomy": {
+    "title": "足のスタンス幅と骨盤の構造的限界",
+    "category": "ANATOMY",
+    "level": "初級",
+    "labName": "squat"
+  },
+  "butt-wink": {
+    "title": "バットウィンク（骨盤後傾）の原因とバイオメカニクス的解決",
+    "category": "SAFETY & BIOMECHANICS",
+    "level": "中級",
+    "labName": "squat"
+  },
+  "bracing-and-iap": {
+    "title": "腹圧（IAP）とブレーシング：腰椎を保護する「空気のコルセット」",
+    "category": "CORE STABILITY",
+    "level": "初級",
+    "labName": "squat"
+  },
+  "foot-tripod": {
+    "title": "足底の重心制御：三点支持（トライポッド）と床反力の方向",
+    "category": "KINETICS",
+    "level": "中級",
+    "labName": "squat"
+  },
+  "triple-extension": {
+    "title": "トリプルエクステンション：股・膝・足首の連動キネティクス",
+    "category": "BIOMECHANICS",
+    "level": "中級",
+    "labName": "squat"
+  },
+  "knees-over-toes": {
+    "title": "膝が前につま先を越えるのは本当に「悪」か？",
+    "category": "BIOMECHANICS MYTH",
+    "level": "中級",
+    "labName": "squat"
+  },
+  "squat-shoes-physics": {
+    "title": "シューズ選びの力学：リフティングシューズ vs フラットシューズ",
+    "category": "GEAR SCIENCE",
+    "level": "初級",
+    "labName": "squat"
+  },
+  "front-squat-anatomy": {
+    "title": "フロントスクワットの解剖学：四頭筋への特化と胸椎伸展",
+    "category": "EXERCISE VARIATION",
+    "level": "上級",
+    "labName": "squat"
+  },
+  "accommodating-resistance": {
+    "title": "チェーン＆バンド：可変抵抗（アコモデーティング・レジスタンス）の科学",
+    "category": "ADVANCED BIOMECHANICS",
+    "level": "上級",
+    "labName": "squat"
+  },
+  "beginner-progression": {
+    "title": "初心者のためのスクワット導入：ゴブレットからの移行",
+    "category": "BEGINNER PROGRAM",
+    "level": "初級",
+    "labName": "squat"
+  },
+  "5x5-strength-plateau": {
+    "title": "スクワット停滞打破（プラトー）のための5x5プログラム",
+    "category": "STRENGTH PROGRAM",
+    "level": "中級",
+    "labName": "squat"
+  },
+  "autoregulation-rpe": {
+    "title": "RPE（自覚的運動強度）を用いたオートレギュレーション",
+    "category": "ADVANCED PROGRAM",
+    "level": "上級",
+    "labName": "squat"
+  },
+  "texas-method-periodization": {
+    "title": "テキサス・メソッド：中級者のための波状ピリオダイゼーション",
+    "category": "STRENGTH PROGRAM",
+    "level": "中級",
+    "labName": "squat"
+  },
+  "smolov-jr-shock-therapy": {
+    "title": "スモロフ・ジュニア・プログラム：究極のショック療法",
+    "category": "ADVANCED PROGRAM",
+    "level": "上級",
+    "labName": "squat"
+  },
+  "velocity-based-training-vbt": {
+    "title": "VBT（Velocity Based Training）：挙上速度を用いた次世代のプログラム",
+    "category": "SPORTS SCIENCE PROGRAM",
+    "level": "上級",
+    "labName": "squat"
+  },
+  "strength-mechanisms": {
+    "title": "筋力向上のメカニズム：神経系の適応と筋肥大",
+    "category": "PHYSIOLOGY",
+    "level": "初級",
+    "labName": "strength"
+  },
+  "absolute-vs-relative-strength": {
+    "title": "絶対筋力と相対筋力：体重比で考える強さの指標",
+    "category": "BIOMECHANICS",
+    "level": "初級",
+    "labName": "strength"
+  },
+  "golgi-tendon-organ": {
+    "title": "ゴルジ腱器官と安全装置の解除：脳の防衛本能と潜在能力",
+    "category": "NEUROLOGY",
+    "level": "中級",
+    "labName": "strength"
+  },
+  "muscle-fiber-types": {
+    "title": "筋繊維タイプ（速筋と遅筋）と出力特性",
+    "category": "PHYSIOLOGY",
+    "level": "中級",
+    "labName": "strength"
+  },
+  "muscle-contractions": {
+    "title": "アイソメトリック、コンセントリック、エキセントリック",
+    "category": "BIOMECHANICS",
+    "level": "初級",
+    "labName": "strength"
+  },
+  "force-velocity-curve": {
+    "title": "フォース・ベロシティ・カーブ：力と速度の反比例の法則",
+    "category": "BIOMECHANICS",
+    "level": "中級",
+    "labName": "strength"
+  },
+  "stretch-shortening-cycle": {
+    "title": "SSCと伸張反射：ゴムのように弾む筋肉のバネ",
+    "category": "NEUROLOGY",
+    "level": "中級",
+    "labName": "strength"
+  },
+  "moment-arm-mechanics": {
+    "title": "レバーアームと関節モーメント：生体力学の基礎",
+    "category": "BIOMECHANICS",
+    "level": "中級",
+    "labName": "strength"
+  },
+  "energy-systems": {
+    "title": "エネルギー供給機構：ATP-CP系と筋力の持続時間",
+    "category": "PHYSIOLOGY",
+    "level": "初級",
+    "labName": "strength"
+  },
+  "bracing-and-core": {
+    "title": "腹圧とブレーシング：力の伝達を最大化する空気の柱",
+    "category": "CORE STABILITY",
+    "level": "初級",
+    "labName": "strength"
+  },
+  "advanced-periodization": {
+    "title": "筋力向上のためのピリオダイゼーション（期分け）",
+    "category": "PROGRAMMING",
+    "level": "上級",
+    "labName": "strength"
+  },
+  "sticking-points": {
+    "title": "スティッキングポイントの打破：弱点克服の力学",
+    "category": "BIOMECHANICS",
+    "level": "中級",
+    "labName": "strength"
+  },
+  "variable-resistance-training": {
+    "title": "可変抵抗トレーニング（VRT）：バンドとチェーンの科学",
+    "category": "BIOMECHANICS",
+    "level": "上級",
+    "labName": "strength"
+  },
+  "rpe-and-rir": {
+    "title": "RPEとRIR：自覚的運動強度による疲労管理",
+    "category": "PROGRAMMING",
+    "level": "中級",
+    "labName": "strength"
+  },
+  "velocity-based-training": {
+    "title": "VBT：挙上速度に基づいた最先端トレーニング",
+    "category": "TECHNOLOGY",
+    "level": "上級",
+    "labName": "strength"
+  },
+  "equipped-vs-raw": {
+    "title": "ギアとノーギアの力学：パワーリフティングの装備",
+    "category": "BIOMECHANICS",
+    "level": "中級",
+    "labName": "strength"
+  },
+  "unilateral-training": {
+    "title": "ユニラテラルトレーニング：左右差とアンバランスの解消",
+    "category": "PROGRAMMING",
+    "level": "中級",
+    "labName": "strength"
+  },
+  "specificity-and-transfer": {
+    "title": "特異性の原則（SAID）と筋力転移",
+    "category": "PHYSIOLOGY",
+    "level": "中級",
+    "labName": "strength"
+  },
+  "post-activation-potentiation": {
+    "title": "活動後増強（PAP）：限界を超える直前の魔法",
+    "category": "NEUROLOGY",
+    "level": "上級",
+    "labName": "strength"
+  },
+  "5x5-stronglifts": {
+    "title": "5×5プログラム：筋力と筋肥大を両立する黄金律",
+    "category": "PROGRAM",
+    "level": "初級",
+    "labName": "strength"
+  },
+  "starting-strength": {
+    "title": "Starting Strength（3×5）：最速の初心者脱出プログラム",
+    "category": "PROGRAM",
+    "level": "初級",
+    "labName": "strength"
+  },
+  "wendler-531": {
+    "title": "Wendler 5/3/1：中級者のための長期成長プログラム",
+    "category": "PROGRAM",
+    "level": "中級",
+    "labName": "strength"
+  },
+  "texas-method": {
+    "title": "Texas Method（テキサス・メソッド）：週単位の波を作る",
+    "category": "PROGRAM",
+    "level": "中級",
+    "labName": "strength"
+  },
+  "madcow-5x5": {
+    "title": "Madcow 5×5：Texas Methodの洗練された代替案",
+    "category": "PROGRAM",
+    "level": "中級",
+    "labName": "strength"
+  },
+  "smolov-jr": {
+    "title": "Smolov Jr.：特化型ピーキングプログラム",
+    "category": "PROGRAM",
+    "level": "上級",
+    "labName": "strength"
+  },
+  "conjugate-method": {
+    "title": "Conjugate Method：ウェストサイド・バーベルの哲学",
+    "category": "PROGRAM",
+    "level": "上級",
+    "labName": "strength"
+  },
+  "bulgarian-method": {
+    "title": "Bulgarian Method（ブルガリアン）：毎日MAXを挙げる狂気",
+    "category": "PROGRAM",
+    "level": "超上級",
+    "labName": "strength"
+  },
+  "juggernaut-training": {
+    "title": "Juggernaut Training Method：圧倒的ボリュームの波",
+    "category": "PROGRAM",
+    "level": "中級",
+    "labName": "strength"
+  },
+  "dup-program": {
+    "title": "DUP（Daily Undulating Periodization）：日内波状期分け",
+    "category": "PROGRAM",
+    "level": "上級",
+    "labName": "strength"
+  }
+}

@@ -16,6 +16,7 @@ import {
   Activity
 } from 'lucide-react'
 import { DEADLIFT_ARTICLES } from '@/data/deadliftArticles'
+import { ArticleInteractionsClient } from '@/app/components/sa/ArticleInteractionsClient'
 
 export default function DeadliftArticleDetail() {
   useEffect(() => {
@@ -181,6 +182,9 @@ export default function DeadliftArticleDetail() {
             </p>
           </div>
         )}
+
+        
+        <ArticleInteractionsClient articleId={`deadlift/${slug}`} />
 
         {/* 🚀 ARTICLE TAGS */}
         <div className="mt-12 flex flex-wrap gap-2">

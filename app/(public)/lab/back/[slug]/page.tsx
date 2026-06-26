@@ -16,6 +16,7 @@ import {
   Activity
 } from 'lucide-react'
 import { BACK_ARTICLES } from '@/data/backArticles'
+import { ArticleInteractionsClient } from '@/app/components/sa/ArticleInteractionsClient'
 
 export default function BackArticleDetail() {
   useEffect(() => {
@@ -180,6 +181,9 @@ export default function BackArticleDetail() {
             {article.conclusion}
           </p>
         </div>
+
+        
+        <ArticleInteractionsClient articleId={`back/${slug}`} />
 
         {/* 🚀 ARTICLE TAGS */}
         <div className="mt-12 flex flex-wrap gap-2">

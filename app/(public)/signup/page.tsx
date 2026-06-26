@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { signup } from '../login/actions'
+import { CheckCircle2, Shield, ChevronRight } from 'lucide-react'
 
 export default function SignupPage({
   searchParams,
@@ -7,76 +8,126 @@ export default function SignupPage({
   searchParams: { message: string }
 }) {
   return (
-    <div className="flex-1 flex flex-col w-full px-8 sm:max-w-md justify-center gap-2 mx-auto mt-20">
-      <Link
-        href="/"
-        className="absolute left-8 top-8 py-2 px-4 rounded-md no-underline text-foreground bg-btn-background hover:bg-btn-background-hover flex items-center group text-sm"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="mr-2 h-4 w-4 transition-transform group-hover:-translate-x-1"
-        >
-          <polyline points="15 18 9 12 15 6" />
-        </svg>{" "}
-        Back
-      </Link>
+    <div className="min-h-[90vh] bg-zinc-950 flex flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      {/* Background effects */}
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-emerald-600/10 rounded-full blur-3xl pointer-events-none" />
 
-      <form
-        className="flex-1 flex flex-col w-full justify-center gap-4 text-foreground animate-in"
-        action={signup}
-      >
-        <div className="flex flex-col gap-2 mb-4">
-          <h1 className="text-2xl font-semibold">新規会員登録</h1>
-          <p className="text-sm text-muted-foreground">
-            すべての機能と記録を解放する
-          </p>
+      <div className="w-full max-w-5xl grid md:grid-cols-2 gap-12 items-center relative z-10">
+        
+        {/* Left column: Benefits & Plan Details */}
+        <div className="text-white space-y-8">
+          <div>
+            <h1 className="text-4xl md:text-5xl font-black mb-4 tracking-tight leading-tight">
+              強くなるための<br/>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
+                すべてがここに。
+              </span>
+            </h1>
+            <p className="text-zinc-400 text-lg">
+              月額わずか500円で、STRENGTH ARTSの全プレミアムコンテンツにアクセス可能になります。
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <div className="flex items-start gap-3">
+              <CheckCircle2 className="w-6 h-6 text-emerald-500 shrink-0" />
+              <div>
+                <h3 className="font-bold text-zinc-200">ベンチプレス研究所 プレミアムコラム</h3>
+                <p className="text-sm text-zinc-500">実践プログラムや応用テクニックをすべて解放。</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <CheckCircle2 className="w-6 h-6 text-emerald-500 shrink-0" />
+              <div>
+                <h3 className="font-bold text-zinc-200">STRENGTH ACADEMY</h3>
+                <p className="text-sm text-zinc-500">NSCA・CPTの資格対策、模擬テストが受け放題。</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <CheckCircle2 className="w-6 h-6 text-emerald-500 shrink-0" />
+              <div>
+                <h3 className="font-bold text-zinc-200">学習進捗の自動保存</h3>
+                <p className="text-sm text-zinc-500">自分だけのダッシュボードで、読んだコラムやテストの進捗を管理できます。</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-6 flex items-center justify-between backdrop-blur-sm">
+            <div>
+              <p className="text-zinc-400 font-bold mb-1">STRENGTH ARTS PRO</p>
+              <div className="flex items-baseline gap-1">
+                <span className="text-3xl font-black text-white">¥500</span>
+                <span className="text-zinc-500">/ 月</span>
+              </div>
+            </div>
+            <div className="flex items-center gap-2 text-zinc-500 bg-zinc-950 px-4 py-2 rounded-full text-xs font-bold border border-zinc-900">
+              <Shield className="w-4 h-4" /> いつでも解約可能
+            </div>
+          </div>
         </div>
 
-        <label className="text-md" htmlFor="email">
-          Email
-        </label>
-        <input
-          className="rounded-md px-4 py-2 bg-inherit border mb-6"
-          name="email"
-          placeholder="you@example.com"
-          required
-        />
-        <label className="text-md" htmlFor="password">
-          Password
-        </label>
-        <input
-          className="rounded-md px-4 py-2 bg-inherit border mb-6"
-          type="password"
-          name="password"
-          placeholder="••••••••"
-          required
-        />
-        
-        <button className="bg-primary text-primary-foreground font-medium rounded-md px-4 py-2 mb-2 bg-black text-white hover:bg-gray-800 transition-colors">
-          登録する
-        </button>
-        
-        <p className="text-sm text-center mt-4">
-          すでにアカウントをお持ちですか？{" "}
-          <Link href="/login" className="underline text-blue-600">
-            ログイン
-          </Link>
-        </p>
+        {/* Right column: Signup Form */}
+        <div className="bg-zinc-900 border border-zinc-800 rounded-3xl p-8 md:p-10 shadow-2xl relative">
+          <div className="absolute -top-4 -right-4 bg-gradient-to-r from-blue-600 to-emerald-600 text-white text-xs font-black uppercase tracking-wider py-2 px-4 rounded-full shadow-lg transform rotate-3">
+            今すぐ始める
+          </div>
+          
+          <form className="space-y-6" action={signup}>
+            <div>
+              <h2 className="text-2xl font-bold text-white mb-2">アカウントを作成</h2>
+              <p className="text-zinc-400 text-sm">メールアドレスとパスワードを入力してください。</p>
+            </div>
 
-        {searchParams?.message && (
-          <p className="mt-4 p-4 bg-red-100 text-red-600 text-center rounded-md">
-            {searchParams.message}
-          </p>
-        )}
-      </form>
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-zinc-400 mb-1" htmlFor="email">
+                  メールアドレス
+                </label>
+                <input
+                  className="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                  name="email"
+                  type="email"
+                  placeholder="you@example.com"
+                  required
+                />
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-zinc-400 mb-1" htmlFor="password">
+                  パスワード
+                </label>
+                <input
+                  className="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                  type="password"
+                  name="password"
+                  placeholder="••••••••"
+                  required
+                />
+              </div>
+            </div>
+
+            <button className="w-full bg-white text-black hover:bg-zinc-200 transition-colors py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-2 shadow-lg shadow-white/10 group">
+              クレジットカードで登録に進む
+              <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </button>
+
+            {searchParams?.message && (
+              <p className="p-4 bg-red-950/50 border border-red-900 text-red-400 text-sm text-center rounded-xl font-medium">
+                {searchParams.message}
+              </p>
+            )}
+
+            <p className="text-center text-sm text-zinc-500 pt-4 border-t border-zinc-800 mt-6">
+              すでにアカウントをお持ちですか？{" "}
+              <Link href="/login" className="text-blue-400 hover:text-blue-300 transition-colors font-medium underline underline-offset-4">
+                ログインはこちら
+              </Link>
+            </p>
+          </form>
+        </div>
+
+      </div>
     </div>
   )
 }

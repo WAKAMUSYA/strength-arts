@@ -30,6 +30,7 @@ export default function PublicCptLecturePage({ params }: { params: { id: string 
         lecture={lecture}
         isMember={false}
         gateContent={!isFullyPublic}
+        nextLecturePath="/academy/cpt/basics"
         showMemberActions={false}
         publicPreviewMaxHeightPx={900}
         publicOverlayHeightPx={380}

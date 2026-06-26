@@ -34,6 +34,58 @@ export default function DashboardAcademyPage() {
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
             </div>
             <div>
+              <h2 className="text-xl md:text-2xl font-bold text-slate-900 text-left">CPT 資格対策 模擬テスト</h2>
+              <p className="text-sm text-slate-500 mt-1">全150問（30問×5ブロック）の実践テスト</p>
+            </div>
+          </div>
+          <div className="text-slate-400 group-open:rotate-180 transition-transform duration-200">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </div>
+        </summary>
+
+        <div className="p-5 md:p-6 border-t border-slate-100 bg-slate-50">
+          {cptBlocks.length === 0 ? (
+            <div className="text-sm text-slate-500">現在準備中です。</div>
+          ) : (
+            <div className="grid md:grid-cols-2 gap-4 md:gap-6">
+              {cptBlocks.map((blockNum) => {
+                const count = cptQuestions.filter((q) => q.blockId === blockNum).length;
+                return (
+                  <Link
+                    key={`cpt-block-${blockNum}`}
+                    href={`/dashboard/academy/cpt?block=${blockNum}`}
+                    className="group block bg-white rounded-2xl border border-slate-200 p-6 md:p-8 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 relative overflow-hidden"
+                  >
+                    <div className="absolute top-0 right-0 p-6 md:p-8">
+                      <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center transform group-hover:scale-110 transition-transform">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                      </div>
+                    </div>
+                    <div className="flex items-center space-x-3 mb-4">
+                      <span className="text-xs font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
+                        CPT 模擬テスト
+                      </span>
+                    </div>
+                    <h2 className="text-xl md:text-2xl font-bold text-slate-900 mb-2">第{blockNum}回 ブロックテスト</h2>
+                    <p className="text-slate-500 mb-6 text-sm md:text-base max-w-[85%]">全{count}問。</p>
+                    <div className="inline-flex items-center space-x-2 text-sm font-medium text-slate-700 bg-slate-50 border border-slate-200 px-4 py-2 rounded-full group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600 transition-colors">
+                      <span>テストを開始</span>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          )}
+        </div>
+      </details>
+
+      <details className="mb-12 bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm group">
+        <summary className="w-full flex items-center justify-between p-5 md:p-6 bg-white hover:bg-slate-50 active:bg-slate-100 transition-colors cursor-pointer list-none [&::-webkit-details-marker]:hidden focus:outline-none">
+          <div className="flex items-center space-x-4">
+            <div className="w-10 h-10 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            </div>
+            <div>
               <h2 className="text-xl md:text-2xl font-bold text-slate-900 text-left">CSCS 資格対策 模擬テスト</h2>
               <p className="text-sm text-slate-500 mt-1">全150問（30問×5ブロック）の実践テスト</p>
             </div>
@@ -70,58 +122,6 @@ export default function DashboardAcademyPage() {
           </Link>
             ))}
           </div>
-        </div>
-      </details>
-
-      <details className="mb-12 bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm group">
-        <summary className="w-full flex items-center justify-between p-5 md:p-6 bg-white hover:bg-slate-50 active:bg-slate-100 transition-colors cursor-pointer list-none [&::-webkit-details-marker]:hidden focus:outline-none">
-          <div className="flex items-center space-x-4">
-            <div className="w-10 h-10 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
-            </div>
-            <div>
-              <h2 className="text-xl md:text-2xl font-bold text-slate-900 text-left">CPT 問題集</h2>
-              <p className="text-sm text-slate-500 mt-1">CPT向けの基礎問題（スクリーニング/評価/設計）</p>
-            </div>
-          </div>
-          <div className="text-slate-400 group-open:rotate-180 transition-transform duration-200">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-          </div>
-        </summary>
-
-        <div className="p-5 md:p-6 border-t border-slate-100 bg-slate-50">
-          {cptBlocks.length === 0 ? (
-            <div className="text-sm text-slate-500">現在準備中です。</div>
-          ) : (
-            <div className="grid md:grid-cols-2 gap-4 md:gap-6">
-              {cptBlocks.map((blockNum) => {
-                const count = cptQuestions.filter((q) => q.blockId === blockNum).length;
-                return (
-                  <Link
-                    key={`cpt-block-${blockNum}`}
-                    href={`/dashboard/academy/cpt?block=${blockNum}`}
-                    className="group block bg-white rounded-2xl border border-slate-200 p-6 md:p-8 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 relative overflow-hidden"
-                  >
-                    <div className="absolute top-0 right-0 p-6 md:p-8">
-                      <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center transform group-hover:scale-110 transition-transform">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
-                      </div>
-                    </div>
-                    <div className="flex items-center space-x-3 mb-4">
-                      <span className="text-xs font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
-                        CPT 問題集
-                      </span>
-                    </div>
-                    <h2 className="text-xl md:text-2xl font-bold text-slate-900 mb-2">ブロック {blockNum}</h2>
-                    <p className="text-slate-500 mb-6 text-sm md:text-base max-w-[85%]">{count}問</p>
-                    <div className="inline-flex items-center space-x-2 text-sm font-medium text-slate-700 bg-slate-50 border border-slate-200 px-4 py-2 rounded-full group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600 transition-colors">
-                      <span>解く</span>
-                    </div>
-                  </Link>
-                );
-              })}
-            </div>
-          )}
         </div>
       </details>
 

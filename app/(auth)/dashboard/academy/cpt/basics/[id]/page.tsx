@@ -29,7 +29,13 @@ export default async function DashboardCptLecturePage({ params }: { params: { id
         Academyに戻る
       </Link>
 
-      <LectureContent lecture={lecture} isMember={true} isRead={isRead} nextLectureId={nextLecture?.id} />
+      <LectureContent 
+        lecture={lecture} 
+        isMember={true} 
+        isRead={isRead} 
+        nextLectureId={nextLecture?.id} 
+        nextLecturePath="/dashboard/academy/cpt/basics"
+      />
     </div>
   );
 }

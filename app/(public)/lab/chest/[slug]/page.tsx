@@ -18,6 +18,7 @@ import {
   AlertTriangle
 } from 'lucide-react'
 import { CHEST_ARTICLES } from '@/data/chestArticles'
+import { ArticleInteractionsClient } from '@/app/components/sa/ArticleInteractionsClient'
 
 export default function ChestArticleDetailPage() {
   useEffect(() => {
@@ -188,6 +189,9 @@ export default function ChestArticleDetailPage() {
             {article.conclusion}
           </p>
         </div>
+
+        
+        <ArticleInteractionsClient articleId={`chest/${slug}`} />
 
         {/* Bottom Navigation */}
         <div className="mt-20 pt-8 border-t border-zinc-900 flex flex-col sm:flex-row items-center justify-between gap-6">

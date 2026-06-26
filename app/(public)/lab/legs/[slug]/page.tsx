@@ -16,6 +16,7 @@ import {
   Activity
 } from 'lucide-react'
 import { LEG_ARTICLES } from '@/data/legArticles'
+import { ArticleInteractionsClient } from '@/app/components/sa/ArticleInteractionsClient'
 
 export default function LegArticleDetail() {
   useEffect(() => {
@@ -180,6 +181,9 @@ export default function LegArticleDetail() {
             {article.conclusion}
           </p>
         </div>
+
+        
+        <ArticleInteractionsClient articleId={`legs/${slug}`} />
 
         {/* 🚀 ARTICLE TAGS */}
         <div className="mt-12 flex flex-wrap gap-2">

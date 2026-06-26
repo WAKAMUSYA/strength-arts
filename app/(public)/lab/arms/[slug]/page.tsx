@@ -16,6 +16,7 @@ import {
   Activity
 } from 'lucide-react'
 import { ARM_ARTICLES } from '@/data/armArticles'
+import { ArticleInteractionsClient } from '@/app/components/sa/ArticleInteractionsClient'
 
 export default function ArmArticleDetail() {
   useEffect(() => {
@@ -180,6 +181,9 @@ export default function ArmArticleDetail() {
             {article.conclusion}
           </p>
         </div>
+
+        
+        <ArticleInteractionsClient articleId={`arms/${slug}`} />
 
         {/* 🚀 ARTICLE TAGS */}
         <div className="mt-12 flex flex-wrap gap-2">

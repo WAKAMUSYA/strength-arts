@@ -16,6 +16,7 @@ import {
   Activity
 } from 'lucide-react'
 import { ABS_ARTICLES } from '@/data/absArticles'
+import { ArticleInteractionsClient } from '@/app/components/sa/ArticleInteractionsClient'
 
 export default function AbsArticleDetail() {
   useEffect(() => {
@@ -182,6 +183,9 @@ export default function AbsArticleDetail() {
             </p>
           </div>
         )}
+
+        
+        <ArticleInteractionsClient articleId={`abs/${slug}`} />
 
         {/* 🚀 ARTICLE TAGS */}
         <div className="mt-12 flex flex-wrap gap-2">

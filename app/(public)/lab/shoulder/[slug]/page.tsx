@@ -16,6 +16,7 @@ import {
   Activity
 } from 'lucide-react'
 import { SHOULDER_ARTICLES } from '@/data/shoulderArticles'
+import { ArticleInteractionsClient } from '@/app/components/sa/ArticleInteractionsClient'
 
 export default function ShoulderArticleDetail() {
   useEffect(() => {
@@ -180,6 +181,9 @@ export default function ShoulderArticleDetail() {
             {article.conclusion}
           </p>
         </div>
+
+        
+        <ArticleInteractionsClient articleId={`shoulder/${slug}`} />
 
         {/* 🚀 ARTICLE TAGS */}
         <div className="mt-12 flex flex-wrap gap-2">

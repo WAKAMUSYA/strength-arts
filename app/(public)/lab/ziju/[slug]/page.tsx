@@ -18,6 +18,7 @@ import {
   AlertTriangle
 } from 'lucide-react'
 import { ZIJU_ARTICLES } from '@/data/zijuArticles'
+import { ArticleInteractionsClient } from '@/app/components/sa/ArticleInteractionsClient'
 
 export default function ArticleDetailPage() {
   useEffect(() => {
@@ -188,6 +189,9 @@ export default function ArticleDetailPage() {
             {article.conclusion}
           </p>
         </div>
+
+        
+        <ArticleInteractionsClient articleId={`ziju/${slug}`} />
 
         {/* Bottom Navigation */}
         <div className="mt-20 pt-8 border-t border-zinc-900">

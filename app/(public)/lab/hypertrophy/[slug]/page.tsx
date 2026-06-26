@@ -18,6 +18,7 @@ import {
   AlertTriangle
 } from 'lucide-react'
 import { HYPERTROPHY_ARTICLES } from '@/data/hypertrophyArticles'
+import { ArticleInteractionsClient } from '@/app/components/sa/ArticleInteractionsClient'
 
 export default function ArticleDetailPage() {
   useEffect(() => {
@@ -188,6 +189,9 @@ export default function ArticleDetailPage() {
             {article.conclusion}
           </p>
         </div>
+
+        
+        <ArticleInteractionsClient articleId={`hypertrophy/${slug}`} />
 
         {/* Bottom Navigation */}
         <div className="mt-20 pt-8 border-t border-zinc-900">

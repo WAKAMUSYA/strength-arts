@@ -16,6 +16,7 @@ import {
   Activity
 } from 'lucide-react'
 import { STRENGTH_ARTICLES } from '@/data/strengthArticles'
+import { ArticleInteractionsClient } from '@/app/components/sa/ArticleInteractionsClient'
 
 export default function StrengthArticleDetail() {
   useEffect(() => {
@@ -182,6 +183,9 @@ export default function StrengthArticleDetail() {
             </p>
           </div>
         )}
+
+        
+        <ArticleInteractionsClient articleId={`strength/${slug}`} />
 
         {/* 🚀 ARTICLE TAGS */}
         <div className="mt-12 flex flex-wrap gap-2">

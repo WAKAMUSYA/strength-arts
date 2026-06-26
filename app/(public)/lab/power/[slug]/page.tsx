@@ -18,6 +18,7 @@ import {
   AlertTriangle
 } from 'lucide-react'
 import { POWER_ARTICLES } from '@/data/powerArticles'
+import { ArticleInteractionsClient } from '@/app/components/sa/ArticleInteractionsClient'
 
 export default function ArticleDetailPage() {
   useEffect(() => {
@@ -193,6 +194,9 @@ export default function ArticleDetailPage() {
             </p>
           </div>
         )}
+
+        
+        <ArticleInteractionsClient articleId={`power/${slug}`} />
 
         {/* Bottom Navigation */}
         <div className="mt-20 pt-8 border-t border-zinc-900">

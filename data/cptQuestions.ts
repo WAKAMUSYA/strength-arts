@@ -3,6 +3,7 @@ import { cptBasicScienceQuestions } from "./cptBasicScienceQuestions";
 import { cptNutritionQuestions } from "./cptNutritionQuestions";
 import { cptBehaviorPsychQuestions } from "./cptBehaviorPsychQuestions";
 import { cptAssessmentQuestions } from "./cptAssessmentQuestions";
+import { cptBlock5Questions } from "./cptBlock5Questions";
 
 // CPT question bank (small starter set).
 // `blockId` aligns with `CPT_MOCK_TEST_MAP` in `data/cptLectures.ts`.
@@ -10,7 +11,7 @@ export const cptQuestions: Question[] = [
   {
     id: "cpt-b1-q1",
     category: "安全管理",
-    blockId: 7,
+    blockId: 5,
     question: "運動開始前のスクリーニング（問診）で、まず優先して確認すべき内容として最も適切なのはどれ？",
     choices: ["最大挙上重量", "既往歴・服薬・症状", "好きな種目", "ストレッチの柔らかさ"],
     correct_answer: "既往歴・服薬・症状",
@@ -70,7 +71,7 @@ export const cptQuestions: Question[] = [
   {
     id: "cpt-b3-q1",
     category: "エクササイズテクニック",
-    blockId: 6,
+    blockId: 5,
     question: "スクワット動作で、膝の内側への崩れ（ニーイン）を減らすために、まず確認・介入しやすいのはどれ？",
     choices: ["足部の接地と膝・つま先の方向", "肩甲骨の動き", "肘の角度", "握力"],
     correct_answer: "足部の接地と膝・つま先の方向",
@@ -85,7 +86,7 @@ export const cptQuestions: Question[] = [
   {
     id: "cpt-b4-q1",
     category: "ビジネス・コミュニケーション",
-    blockId: 8,
+    blockId: 5,
     question: "フォーム修正のキュー（声かけ）で最も適切な原則はどれ？",
     choices: ["一度に3つ以上の修正点を伝える", "専門用語を多用して正確さを重視する", "1回に1つ、短く具体的に伝える", "失敗を強調して危機感を与える"],
     correct_answer: "1回に1つ、短く具体的に伝える",
@@ -145,7 +146,7 @@ export const cptQuestions: Question[] = [
   {
     id: "cpt-b9-q1",
     category: "特殊集団対応",
-    blockId: 9,
+    blockId: 5,
     question: "特殊集団（妊娠中・慢性疾患など）への運動指導で、最も優先すべき対応はどれ？",
     choices: ["一般のプログラムをそのまま適用する", "強度を上げて早く成果を出す", "症状・制限条件を確認し必要なら医療連携する", "サプリを優先して運動量を減らす"],
     correct_answer: "症状・制限条件を確認し必要なら医療連携する",
@@ -161,4 +162,5 @@ export const cptQuestions: Question[] = [
   ...cptNutritionQuestions,
   ...cptBehaviorPsychQuestions,
   ...cptAssessmentQuestions,
+  ...cptBlock5Questions,
 ];
