@@ -15,7 +15,7 @@ export interface Article {
   title: string
   subtitle: string
   category: string
-  type: 'basic' | 'applied'
+  type: 'basic' | 'applied' | 'program'
   readTime: string
   desc: string
   image: string
