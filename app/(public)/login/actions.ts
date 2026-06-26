@@ -30,7 +30,7 @@ export async function signup(formData: FormData) {
   const email = formData.get('email') as string
   const password = formData.get('password') as string
 
-  const { data: authData, error } = await supabase.auth.signUp({
+  const { error } = await supabase.auth.signUp({
     email,
     password,
   })
@@ -42,3 +42,21 @@ export async function signup(formData: FormData) {
   // 登録完了後、確認メールを送信した旨を通知
   redirect(`/signup?message=登録確認メールを送信しました。メール内のリンクをクリックして登録を完了してください。`)
 }
+
+export async function signInWithGoogle() {
+  const supabase = createClient()
+  
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
+
+  const { data } = await supabase.auth.signInWithOAuth({
+    provider: 'google',
+    options: {
+      redirectTo: `${siteUrl}/auth/callback`,
+    },
+  })
+
+  if (data.url) {
+    redirect(data.url)
+  }
+}
+
