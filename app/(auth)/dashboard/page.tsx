@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { createClient } from '@/utils/supabase/server';
 import { redirect } from 'next/navigation';
-import { getLearningProgress } from '@/app/actions/academy';
 import { BookOpen, Bookmark, CheckCircle2, FlaskConical, LayoutDashboard } from 'lucide-react';
 
 export default async function DashboardPage() {
@@ -11,8 +10,6 @@ export default async function DashboardPage() {
   if (!user) {
     redirect('/login');
   }
-
-  const progress = await getLearningProgress();
   
   // Get counts for favorites and read history
   const { count: favoriteCount } = await supabase
