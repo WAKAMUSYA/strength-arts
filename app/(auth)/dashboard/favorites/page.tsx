@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { createClient } from '@/utils/supabase/server'
 import { redirect } from 'next/navigation'
-import { Bookmark, ArrowLeft, ChevronRight, LayoutDashboard, Clock } from 'lucide-react'
+import { Bookmark, ArrowLeft, ChevronRight, Clock } from 'lucide-react'
 import metaData from '@/data/articleMeta.json'
 
 // Type cast the imported JSON
