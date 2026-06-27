@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { createClient } from '@/utils/supabase/server';
 import { redirect } from 'next/navigation';
-import { BookOpen, Bookmark, CheckCircle2, FlaskConical, LayoutDashboard } from 'lucide-react';
+import { BookOpen, Bookmark, CheckCircle2, FlaskConical, LayoutDashboard, Crown, Zap, ArrowRight, Settings } from 'lucide-react';
 
 export default async function DashboardPage() {
   const supabase = createClient();
@@ -21,6 +21,23 @@ export default async function DashboardPage() {
     .from('sa_read_history')
     .select('*', { count: 'exact', head: true })
     .eq('user_id', user.id);
+
+  // Check actual profile member status (this dictates app permissions)
+  const { data: profileData } = await supabase
+    .from('profiles')
+    .select('is_sa_member')
+    .eq('id', user.id)
+    .single();
+
+  // Check Stripe subscription details for date info (if it exists)
+  const { data: subData } = await supabase
+    .from('sa_subscriptions')
+    .select('status, current_period_end')
+    .eq('user_id', user.id)
+    .maybeSingle();
+
+  // User is PRO if they have an active Stripe subscription OR their profile is manually set to member
+  const isPro = subData?.status === 'active' || profileData?.is_sa_member;
 
   return (
     <div className="max-w-6xl mx-auto px-6 py-12">
@@ -48,6 +65,61 @@ export default async function DashboardPage() {
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         
+        {/* Membership Status Card (NEW) */}
+        <div className={`rounded-3xl border p-6 flex flex-col h-full shadow-sm relative overflow-hidden ${isPro ? 'bg-gradient-to-br from-blue-900 to-indigo-950 border-blue-800' : 'bg-white border-slate-200'}`}>
+          {isPro && (
+            <>
+              <div className="absolute top-0 right-0 p-4 opacity-10">
+                <Crown className="w-32 h-32 text-white" />
+              </div>
+              <div className="absolute inset-0 bg-[url('/noise.png')] opacity-20 mix-blend-overlay"></div>
+            </>
+          )}
+
+          <div className="flex items-center gap-4 mb-4 relative z-10">
+            <div className={`w-12 h-12 rounded-full flex items-center justify-center shrink-0 ${isPro ? 'bg-blue-800/50 text-blue-300' : 'bg-zinc-100 text-zinc-500'}`}>
+              {isPro ? <Crown className="w-6 h-6" /> : <Zap className="w-6 h-6" />}
+            </div>
+            <div>
+              <h2 className={`text-xl font-semibold ${isPro ? 'text-white' : 'text-slate-900'}`}>
+                {isPro ? 'PROプラン' : 'FREEプラン'}
+              </h2>
+              <span className={`text-[10px] font-bold uppercase tracking-widest ${isPro ? 'text-blue-300' : 'text-slate-500'}`}>
+                Current Plan
+              </span>
+            </div>
+          </div>
+          
+          <div className={`text-sm mb-6 flex-grow relative z-10 ${isPro ? 'text-blue-100' : 'text-slate-600'}`}>
+            {isPro ? (
+              <div className="space-y-2">
+                <p>あなたは現在、すべてのプレミアム記事や動画、横断ツールにアクセス可能な <strong>PRO メンバー</strong> です。</p>
+                {subData?.current_period_end && (
+                  <p className="text-xs text-blue-300">
+                    次回更新日: {new Date(subData.current_period_end).toLocaleDateString('ja-JP')}
+                  </p>
+                )}
+              </div>
+            ) : (
+              <p>
+                現在は無料プランです。PROプランにアップグレードすると、すべてのプレミアム記事や実践的プログラム、横断ツールへのアクセスが可能になります。
+              </p>
+            )}
+          </div>
+          
+          <div className="relative z-10 mt-auto">
+            {isPro ? (
+              <Link href="/dashboard/billing" className="w-full py-3.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white rounded-xl text-center font-bold transition-all flex items-center justify-center gap-2 backdrop-blur-sm">
+                <Settings className="w-4 h-4" /> プランの管理・ダウングレード
+              </Link>
+            ) : (
+              <Link href="/pricing" className="w-full py-3.5 bg-blue-600 text-white rounded-xl text-center font-bold hover:bg-blue-500 transition-colors shadow-lg shadow-blue-600/20 flex items-center justify-center gap-2 group">
+                <Zap className="w-4 h-4" /> PROにアップグレード <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            )}
+          </div>
+        </div>
+
         {/* LAB / 実践プログラム Dashboard Card */}
         <div className="bg-white rounded-3xl border border-slate-200 p-6 flex flex-col h-full shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
           <div className="flex items-center gap-4 mb-4">
@@ -98,7 +170,7 @@ export default async function DashboardPage() {
             NSCA基礎学習・模擬テスト
           </p>
           
-          <Link href="/dashboard/academy" className="w-full py-3.5 bg-slate-900 text-white rounded-xl text-center font-bold hover:bg-slate-800 transition-colors flex items-center justify-center gap-2">
+          <Link href="/dashboard/academy" className="w-full py-3.5 bg-slate-900 text-white rounded-xl text-center font-bold hover:bg-slate-800 transition-colors flex items-center justify-center gap-2 mt-auto">
             学習を続ける
           </Link>
         </div>
