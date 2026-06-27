@@ -33,7 +33,7 @@ export default async function DashboardPage() {
   // Check Stripe subscription details for date info (if it exists)
   const { data: subData } = await supabase
     .from('sa_subscriptions')
-    .select('status, current_period_end')
+    .select('status, current_period_end, stripe_customer_id')
     .eq('user_id', user.id)
     .maybeSingle();
 
