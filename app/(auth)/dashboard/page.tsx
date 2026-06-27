@@ -28,7 +28,7 @@ export default async function DashboardPage() {
     .from('profiles')
     .select('is_sa_member')
     .eq('id', user.id)
-    .single();
+    .maybeSingle();
 
   // Check Stripe subscription details for date info (if it exists)
   const { data: subData } = await supabase

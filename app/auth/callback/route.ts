@@ -3,6 +3,7 @@ import { createClient } from '@/utils/supabase/server'
 
 export async function GET(request: Request) {
   const requestUrl = new URL(request.url)
+  const origin = requestUrl.origin
   const code = requestUrl.searchParams.get('code')
 
   if (code) {
@@ -11,16 +12,16 @@ export async function GET(request: Request) {
     
     if (error) {
       console.error('Auth Callback Error:', error)
-      return NextResponse.redirect(new URL(`/login?message=${encodeURIComponent(error.message)}`, request.url))
+      return NextResponse.redirect(`${origin}/login?message=${encodeURIComponent(error.message)}`)
     }
   } else {
     // No code present
     const errorDesc = requestUrl.searchParams.get('error_description')
     if (errorDesc) {
-      return NextResponse.redirect(new URL(`/login?message=${encodeURIComponent(errorDesc)}`, request.url))
+      return NextResponse.redirect(`${origin}/login?message=${encodeURIComponent(errorDesc)}`)
     }
   }
 
   // 認証が成功したらダッシュボードへリダイレクト
-  return NextResponse.redirect(new URL('/dashboard', request.url))
+  return NextResponse.redirect(`${origin}/dashboard`)
 }
