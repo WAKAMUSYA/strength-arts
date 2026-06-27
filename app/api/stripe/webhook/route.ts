@@ -77,9 +77,11 @@ export async function POST(req: Request) {
         }
 
         let periodEnd = parseSafeDate(null);
+        let cancelAtPeriodEnd = false;
         if (subscriptionId) {
           const subscription = (await stripe.subscriptions.retrieve(subscriptionId)) as any;
           periodEnd = parseSafeDate(subscription?.current_period_end);
+          cancelAtPeriodEnd = subscription?.cancel_at_period_end || false;
         }
 
         // 1. Upsert subscription record with exact requested fields
@@ -91,6 +93,7 @@ export async function POST(req: Request) {
             stripe_customer_id: customerId,
             stripe_subscription_id: subscriptionId,
             status: "active",
+            cancel_at_period_end: cancelAtPeriodEnd,
             current_period_end: periodEnd,
             updated_at: new Date().toISOString(),
           }, {
@@ -127,6 +130,7 @@ export async function POST(req: Request) {
         const status = subscription.status;
         const isSaMember = status === "active" || status === "trialing";
         const periodEnd = parseSafeDate(subscription?.current_period_end);
+        const cancelAtPeriodEnd = subscription?.cancel_at_period_end || false;
 
         // Retrieve user_id from database lookup
         let userId = null;
@@ -150,6 +154,7 @@ export async function POST(req: Request) {
               stripe_customer_id: customerId,
               stripe_subscription_id: subscriptionId,
               status: isSaMember ? "active" : status,
+              cancel_at_period_end: cancelAtPeriodEnd,
               current_period_end: periodEnd,
               updated_at: new Date().toISOString(),
             }, {
@@ -196,6 +201,7 @@ export async function POST(req: Request) {
               stripe_customer_id: customerId,
               stripe_subscription_id: subscriptionId,
               status: "expired",
+              cancel_at_period_end: false,
               current_period_end: parseSafeDate(subscription?.current_period_end),
               updated_at: new Date().toISOString(),
             }, {
@@ -223,6 +229,7 @@ export async function POST(req: Request) {
         if (subscriptionId) {
           const subscription = (await stripe.subscriptions.retrieve(subscriptionId)) as any;
           const periodEnd = parseSafeDate(subscription?.current_period_end);
+          const cancelAtPeriodEnd = subscription?.cancel_at_period_end || false;
           
           let userId = null;
           const { data: subRec } = await supabaseAdmin
@@ -240,6 +247,7 @@ export async function POST(req: Request) {
               stripe_customer_id: customerId,
               stripe_subscription_id: subscriptionId,
               status: "active",
+              cancel_at_period_end: cancelAtPeriodEnd,
               current_period_end: periodEnd,
               updated_at: new Date().toISOString(),
             }, {
@@ -277,6 +285,7 @@ export async function POST(req: Request) {
             stripe_customer_id: customerId,
             stripe_subscription_id: subscriptionId,
             status: "past_due",
+            cancel_at_period_end: false,
             current_period_end: new Date().toISOString(), // Revoked
             updated_at: new Date().toISOString(),
           }, {

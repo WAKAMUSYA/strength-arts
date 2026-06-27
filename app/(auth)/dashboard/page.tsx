@@ -33,12 +33,13 @@ export default async function DashboardPage() {
   // Check Stripe subscription details for date info (if it exists)
   const { data: subData } = await supabase
     .from('sa_subscriptions')
-    .select('status, current_period_end, stripe_customer_id')
+    .select('status, current_period_end, stripe_customer_id, cancel_at_period_end')
     .eq('user_id', user.id)
     .maybeSingle();
 
   // User is PRO if they have an active Stripe subscription OR their profile is manually set to member
   const isPro = subData?.status === 'active' || profileData?.is_sa_member;
+  const isCanceled = subData?.cancel_at_period_end === true;
 
   return (
     <div className="max-w-6xl mx-auto px-6 py-12">
@@ -78,12 +79,12 @@ export default async function DashboardPage() {
           )}
 
           <div className="flex items-center gap-4 mb-4 relative z-10">
-            <div className={`w-12 h-12 rounded-full flex items-center justify-center shrink-0 ${isPro ? 'bg-blue-800/50 text-blue-300' : 'bg-zinc-100 text-zinc-500'}`}>
+            <div className={`w-12 h-12 rounded-full flex items-center justify-center shrink-0 ${isPro ? (isCanceled ? 'bg-yellow-500/20 text-yellow-300' : 'bg-blue-800/50 text-blue-300') : 'bg-zinc-100 text-zinc-500'}`}>
               {isPro ? <Crown className="w-6 h-6" /> : <Zap className="w-6 h-6" />}
             </div>
             <div>
               <h2 className={`text-xl font-semibold ${isPro ? 'text-white' : 'text-slate-900'}`}>
-                {isPro ? 'PROプラン' : 'FREEプラン'}
+                {isPro ? (isCanceled ? 'PRO（解約手続済）' : 'PROプラン') : 'FREEプラン'}
               </h2>
               <span className={`text-[10px] font-bold uppercase tracking-widest ${isPro ? 'text-blue-300' : 'text-slate-500'}`}>
                 Current Plan
@@ -96,8 +97,13 @@ export default async function DashboardPage() {
               <div className="space-y-2">
                 <p>あなたは現在、すべてのプレミアム記事や動画、横断ツールにアクセス可能な <strong>PRO メンバー</strong> です。</p>
                 {subData?.current_period_end && (
-                  <p className="text-xs text-blue-300">
-                    次回更新日: {new Date(subData.current_period_end).toLocaleDateString('ja-JP')}
+                  <p className={`text-xs ${isCanceled ? 'text-yellow-300' : 'text-blue-300'}`}>
+                    {isCanceled ? '利用可能期間' : '次回更新日'}: {new Date(subData.current_period_end).toLocaleDateString('ja-JP')}
+                  </p>
+                )}
+                {isCanceled && (
+                  <p className="text-xs text-slate-300 mt-2">
+                    ※期間終了後は自動的にFREEプランへ移行します。
                   </p>
                 )}
               </div>

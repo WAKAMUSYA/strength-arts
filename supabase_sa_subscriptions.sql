@@ -8,6 +8,7 @@ CREATE TABLE public.sa_subscriptions (
   stripe_customer_id TEXT,
   stripe_subscription_id TEXT,
   status TEXT NOT NULL DEFAULT 'active', -- 'active' | 'canceled' | 'expired' | 'past_due'
+  cancel_at_period_end BOOLEAN DEFAULT false,
   current_period_end TIMESTAMP WITH TIME ZONE NOT NULL,
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
   updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
