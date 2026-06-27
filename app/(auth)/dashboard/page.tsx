@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { createClient } from '@/utils/supabase/server';
 import { redirect } from 'next/navigation';
 import { BookOpen, Bookmark, CheckCircle2, FlaskConical, LayoutDashboard, Crown, Zap, ArrowRight, Settings } from 'lucide-react';
+import { createCheckoutSession, createPortalSession } from '@/app/actions/stripe';
 
 export default async function DashboardPage() {
   const supabase = createClient();
@@ -109,13 +110,23 @@ export default async function DashboardPage() {
           
           <div className="relative z-10 mt-auto">
             {isPro ? (
-              <Link href="/dashboard/billing" className="w-full py-3.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white rounded-xl text-center font-bold transition-all flex items-center justify-center gap-2 backdrop-blur-sm">
-                <Settings className="w-4 h-4" /> プランの管理・ダウングレード
-              </Link>
+              subData?.stripe_customer_id ? (
+                <form action={createPortalSession}>
+                  <button type="submit" className="w-full py-3.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white rounded-xl text-center font-bold transition-all flex items-center justify-center gap-2 backdrop-blur-sm">
+                    <Settings className="w-4 h-4" /> プランの管理・ダウングレード
+                  </button>
+                </form>
+              ) : (
+                <div className="w-full py-3.5 bg-white/5 border border-white/10 text-white/50 rounded-xl text-center font-bold flex items-center justify-center gap-2 backdrop-blur-sm cursor-not-allowed">
+                  <Settings className="w-4 h-4" /> 管理者・特別権限アカウント
+                </div>
+              )
             ) : (
-              <Link href="/pricing" className="w-full py-3.5 bg-blue-600 text-white rounded-xl text-center font-bold hover:bg-blue-500 transition-colors shadow-lg shadow-blue-600/20 flex items-center justify-center gap-2 group">
-                <Zap className="w-4 h-4" /> PROにアップグレード <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
+              <form action={createCheckoutSession}>
+                <button type="submit" className="w-full py-3.5 bg-blue-600 text-white rounded-xl text-center font-bold hover:bg-blue-500 transition-colors shadow-lg shadow-blue-600/20 flex items-center justify-center gap-2 group">
+                  <Zap className="w-4 h-4" /> PROにアップグレード <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </button>
+              </form>
             )}
           </div>
         </div>
