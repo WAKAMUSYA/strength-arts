@@ -15,7 +15,8 @@ import {
   ChevronRight,
   Info,
   CheckCircle2,
-  AlertTriangle
+  AlertTriangle,
+  ChevronLeft
 } from 'lucide-react'
 import { CHEST_ARTICLES } from '@/data/chestArticles'
 import { ArticleInteractionsClient } from '@/app/components/sa/ArticleInteractionsClient'
@@ -28,7 +29,12 @@ export default function ChestArticleDetailPage() {
   const params = useParams()
   const slug = params?.slug as string
   
-  const article = CHEST_ARTICLES.find(art => art.slug === slug)
+  const articleIndex = CHEST_ARTICLES.findIndex(art => art.slug === slug)
+  const article = CHEST_ARTICLES[articleIndex]
+
+  // Pre-calculate adjacent articles for navigation
+  const prevArticle = articleIndex > 0 ? CHEST_ARTICLES[articleIndex - 1] : null
+  const nextArticleInList = articleIndex < CHEST_ARTICLES.length - 1 ? CHEST_ARTICLES[articleIndex + 1] : null
 
   if (!article) {
     return (
@@ -194,27 +200,48 @@ export default function ChestArticleDetailPage() {
         <ArticleInteractionsClient articleId={`chest/${slug}`} />
 
         {/* Bottom Navigation */}
-        <div className="mt-20 pt-8 border-t border-zinc-900 flex flex-col sm:flex-row items-center justify-between gap-6">
-          <Link 
-            href="/lab/chest" 
-            className="text-xs font-mono font-bold text-zinc-500 hover:text-red-400 transition-colors inline-flex items-center gap-1"
-          >
-            <ArrowLeft className="w-3.5 h-3.5" /> 研究所トップへ戻る
-          </Link>
-
-          {article.nextArticle && (
+        <div className="mt-20 pt-12 border-t border-zinc-900">
+          <div className="flex justify-center mb-12">
             <Link 
-              href={`/lab/chest/${article.nextArticle.slug}`}
-              className="group p-4 rounded-xl border border-zinc-850 bg-zinc-900/20 hover:border-red-900/60 hover:shadow-md transition-all duration-300 text-right flex flex-col items-end gap-1"
+              href="/lab/chest/articles" 
+              className="px-8 py-4 rounded-full bg-zinc-900 hover:bg-zinc-950/50 border border-zinc-800 hover:border-zinc-900 text-sm font-bold text-zinc-300 hover:text-zinc-400 transition-all flex items-center gap-2"
             >
-              <span className="text-[9px] font-mono text-zinc-500 uppercase tracking-widest flex items-center gap-1">
-                NEXT LECTURE <ChevronRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
-              </span>
-              <span className="text-xs font-bold text-zinc-300 group-hover:text-red-400 transition-colors">
-                {article.nextArticle.title}
-              </span>
+              <ArrowLeft className="w-4 h-4" /> コラム一覧へ戻る
             </Link>
-          )}
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            
+            {prevArticle ? (
+              <Link 
+                href={`/lab/chest/${prevArticle.slug}`}
+                className="group p-6 rounded-2xl border border-zinc-900 bg-zinc-950 hover:border-zinc-700 hover:bg-zinc-900 transition-all flex flex-col justify-center"
+              >
+                <div className="flex items-center gap-2 text-zinc-500 text-xs font-mono mb-2 group-hover:text-white transition-colors">
+                  <ChevronLeft className="w-4 h-4" /> PREVIOUS ARTICLE
+                </div>
+                <h4 className="font-bold text-white text-sm md:text-base leading-tight group-hover:text-red-400 transition-colors">
+                  {prevArticle.title}
+                </h4>
+              </Link>
+            ) : <div />}
+
+            {/* Next Article (Explicit link if exists, otherwise fallback to next in list) */}
+            {(article.nextArticle || nextArticleInList) ? (
+              <Link 
+                href={`/lab/chest/${article.nextArticle?.slug || nextArticleInList?.slug}`}
+                className="group p-6 rounded-2xl border border-zinc-900 bg-zinc-950 hover:border-red-900/50 hover:bg-red-950/10 transition-all flex flex-col justify-center text-right"
+              >
+                <div className="flex items-center justify-end gap-2 text-zinc-500 text-xs font-mono mb-2 group-hover:text-red-400 transition-colors">
+                  NEXT LECTURE <ChevronRight className="w-4 h-4" />
+                </div>
+                <h4 className="font-bold text-white text-sm md:text-base leading-tight group-hover:text-red-400 transition-colors">
+                  {article.nextArticle?.title || nextArticleInList?.title}
+                </h4>
+              </Link>
+            ) : <div />}
+            
+          </div>
         </div>
 
       </div>
