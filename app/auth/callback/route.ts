@@ -7,7 +7,18 @@ export async function GET(request: Request) {
 
   if (code) {
     const supabase = createClient()
-    await supabase.auth.exchangeCodeForSession(code)
+    const { error } = await supabase.auth.exchangeCodeForSession(code)
+    
+    if (error) {
+      console.error('Auth Callback Error:', error)
+      return NextResponse.redirect(new URL(`/login?message=${encodeURIComponent(error.message)}`, request.url))
+    }
+  } else {
+    // No code present
+    const errorDesc = requestUrl.searchParams.get('error_description')
+    if (errorDesc) {
+      return NextResponse.redirect(new URL(`/login?message=${encodeURIComponent(errorDesc)}`, request.url))
+    }
   }
 
   // 認証が成功したらダッシュボードへリダイレクト
