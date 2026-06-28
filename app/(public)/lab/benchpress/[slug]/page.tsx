@@ -33,10 +33,9 @@ export default async function ArticleDetailPage({ params }: { params: { slug: st
   const { isFavorite, isRead } = await getArticleStatus(articleId)
 
   // 閲覧制限のロジック
-  // 完全非会員(A)は全記事ブロック
-  // 無料会員(B)はprogram記事のみブロック
+  // 非会員(A)および無料会員(B)はprogram記事のみブロック（基本理論・応用コラムは閲覧可能）
   // 有料会員(C)はすべて閲覧可能
-  const isLocked = (!user) || (user && !isMember && article.type === 'program');
+  const isLocked = (!isMember && article.type === 'program');
 
   // ノートのタイプごとに適切なアイコンを返すヘルパー
   const getNoteIcon = (type: 'warning' | 'info' | 'success') => {
@@ -106,11 +105,11 @@ export default async function ArticleDetailPage({ params }: { params: { slug: st
             </div>
             <div className="space-y-2">
               <h2 className="text-xl font-bold text-white">
-                {!user ? 'SAメンバー限定コラム' : 'PROプラン限定コンテンツ'}
+                PROプラン限定コンテンツ
               </h2>
               <p className="text-sm text-zinc-400 max-w-md mx-auto leading-relaxed">
                 {!user 
-                  ? 'ここから先の実践プログラムや詳細な解説は、SAメンバーのみ閲覧可能です。ログインまたはメンバー登録を行ってください。'
+                  ? 'この実践プログラムを読むには、PROプランへのアップグレードが必要です。まずはログインまたは無料メンバー登録を行ってください。'
                   : 'この実践プログラムを読むには、月額500円のPROプランへのアップグレードが必要です。'}
               </p>
             </div>

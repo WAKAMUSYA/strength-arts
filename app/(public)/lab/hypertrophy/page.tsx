@@ -77,7 +77,7 @@ export default function HypertrophyLab() {
   }, [])
 
   const practicalArticles = useMemo(() => {
-    return HYPERTROPHY_ARTICLES.filter(art => art.type === 'practical')
+    return HYPERTROPHY_ARTICLES.filter(art => art.type === 'program')
   }, [])
 
   const roadmapSteps = useMemo(() => {

@@ -36,7 +36,6 @@ function ArticlesContent() {
   const [selectedObstacle, setSelectedObstacle] = useState<string | null>(initialObstacle)
 
   const [statuses, setStatuses] = useState<Record<string, { isFavorite: boolean; isRead: boolean }>>({})
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean | null>(null)
   const [isMember, setIsMember] = useState<boolean | null>(null)
 
   useEffect(() => {
@@ -53,7 +52,6 @@ function ArticlesContent() {
     const checkAuth = async () => {
       try {
         const status = await getSAMemberStatus()
-        setIsLoggedIn(!!status.user)
         setIsMember(status.isMember)
       } catch (e) {
         console.error(e)
@@ -193,17 +191,8 @@ function ArticlesContent() {
             href={`/lab/benchpress/${art.slug}`}
             className="group cursor-pointer bg-zinc-950/40 border border-zinc-900 hover:border-blue-900/60 hover:bg-zinc-900/10 rounded-2xl p-6 transition-all duration-500 flex flex-col justify-between hover:shadow-2xl hover:shadow-blue-950/10 relative overflow-hidden"
           >
-            {/* Hover overlay for non-members */}
-            {isLoggedIn === false && (
-              <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-30 flex items-center justify-center rounded-2xl pointer-events-none">
-                <div className="bg-zinc-900 border border-zinc-800 text-white text-xs font-bold px-5 py-3 rounded-full flex items-center gap-2 shadow-2xl transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                  <Lock className="w-4 h-4 text-blue-400" />
-                  会員限定コンテンツ（一部無料公開）
-                </div>
-              </div>
-            )}
-            {/* Hover overlay for free members (PRO only content) */}
-            {isLoggedIn === true && isMember === false && art.type === 'program' && (
+            {/* Hover overlay for program content (Non-PRO members) */}
+            {isMember === false && art.type === 'program' && (
               <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-30 flex items-center justify-center rounded-2xl pointer-events-none">
                 <div className="bg-zinc-900 border border-blue-900/50 text-white text-xs font-bold px-5 py-3 rounded-full flex items-center gap-2 shadow-2xl transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
                   <Lock className="w-4 h-4 text-blue-400" />

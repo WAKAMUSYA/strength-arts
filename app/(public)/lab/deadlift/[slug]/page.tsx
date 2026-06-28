@@ -1,8 +1,7 @@
-'use client'
 
-import React, { useEffect } from 'react'
+import React from 'react'
 import Link from 'next/link'
-import { useParams, notFound } from 'next/navigation'
+import { notFound } from 'next/navigation'
 import {
   ArrowLeft,
   Clock,
@@ -14,17 +13,13 @@ import {
   Info,
   CheckCircle2,
   Activity
-} from 'lucide-react'
+, Lock} from 'lucide-react'
 import { DEADLIFT_ARTICLES } from '@/data/deadliftArticles'
-import { ArticleInteractionsClient } from '@/app/components/sa/ArticleInteractionsClient'
+import { getSAMemberStatus, getArticleStatus } from '@/app/actions/sa-member'
+import { ArticleInteractions } from '@/app/components/sa/ArticleInteractions'
 
-export default function DeadliftArticleDetail() {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
-  const params = useParams()
-  const slug = params.slug as string
+export default async function DeadliftArticleDetail({ params }: { params: { slug: string } }) {
+  const { slug } = params
 
   const articleIndex = DEADLIFT_ARTICLES.findIndex(art => art.slug === slug)
   const article = DEADLIFT_ARTICLES[articleIndex]
@@ -32,6 +27,16 @@ export default function DeadliftArticleDetail() {
   if (!article) {
     notFound()
   }
+
+  const { isMember, user } = await getSAMemberStatus()
+  const articleId = `deadlift/${slug}`
+  const { isFavorite, isRead } = await getArticleStatus(articleId)
+
+  // 閲覧制限のロジック
+  // 非会員(A)および無料会員(B)はprogram記事のみブロック（基本理論・応用コラムは閲覧可能）
+  // 有料会員(C)はすべて閲覧可能
+  const isLocked = (!isMember && article.type === 'program');
+
 
   // Pre-calculate adjacent articles for navigation
   const prevArticle = articleIndex > 0 ? DEADLIFT_ARTICLES[articleIndex - 1] : null
@@ -117,6 +122,42 @@ export default function DeadliftArticleDetail() {
       {/* 🚀 MAIN CONTENT */}
       <article className="max-w-3xl mx-auto px-6 py-12 relative z-30">
 
+        
+        {isLocked ? (
+          <div className="p-8 rounded-2xl bg-zinc-900/40 border border-zinc-900 shadow-sm text-center space-y-6 mb-20 mt-12">
+            <div className="w-16 h-16 bg-blue-950/30 border border-blue-900/50 text-blue-400 rounded-full flex items-center justify-center mx-auto">
+              <Lock className="w-8 h-8" />
+            </div>
+            <div className="space-y-2">
+              <h2 className="text-xl font-bold text-white">
+                PROプラン限定コンテンツ
+              </h2>
+              <p className="text-sm text-zinc-400 max-w-md mx-auto leading-relaxed">
+                {!user 
+                  ? 'この実践プログラムを読むには、PROプランへのアップグレードが必要です。まずはログインまたは無料メンバー登録を行ってください。'
+                  : 'この実践プログラムを読むには、月額500円のPROプランへのアップグレードが必要です。'}
+              </p>
+            </div>
+            <div className="pt-4 flex items-center justify-center gap-4">
+              {!user ? (
+                <Link 
+                  href="/login" 
+                  className="px-6 py-3 rounded-full bg-blue-600 hover:bg-blue-500 text-white text-sm font-bold transition-all shadow-[0_0_15px_rgba(37,99,235,0.4)]"
+                >
+                  ログイン / 登録する
+                </Link>
+              ) : (
+                <Link 
+                  href="/dashboard" 
+                  className="px-6 py-3 rounded-full bg-blue-600 hover:bg-blue-500 text-white text-sm font-bold transition-all shadow-[0_0_15px_rgba(37,99,235,0.4)]"
+                >
+                  ダッシュボードからアップグレード
+                </Link>
+              )}
+            </div>
+          </div>
+        ) : (
+          <>
         {/* Overview Box */}
         <div className="bg-zinc-950/50 border-l-4 border-emerald-500 p-6 md:p-8 rounded-r-2xl mb-16 text-zinc-300 leading-relaxed font-light text-[15px] md:text-[17px]">
           <p>{article.overview}</p>
@@ -184,7 +225,13 @@ export default function DeadliftArticleDetail() {
         )}
 
         
-        <ArticleInteractionsClient articleId={`deadlift/${slug}`} />
+        <ArticleInteractions 
+          articleId={articleId} 
+          initialIsFavorite={isFavorite} 
+          initialIsRead={isRead} 
+        />
+        </>
+        )}
 
         {/* 🚀 ARTICLE TAGS */}
         <div className="mt-12 flex flex-wrap gap-2">

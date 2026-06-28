@@ -15,6 +15,8 @@ import {
   Activity
 } from 'lucide-react'
 import { STRENGTH_ARTICLES } from '@/data/strengthArticles'
+import { getBulkArticleStatus, getSAMemberStatus } from '@/app/actions/sa-member'
+import { CheckCircle2, Lock } from 'lucide-react'
 
 const OBSTACLES = [
   { label: '重量が伸びない', desc: 'ある重量から全く挙がらない' },
@@ -36,6 +38,34 @@ function ArticlesContent() {
   
   const [activeTab, setActiveTab] = useState<'basic' | 'applied' | 'program'>(initialTab)
   const [selectedObstacle, setSelectedObstacle] = useState<string | null>(initialObstacle)
+
+  const [statuses, setStatuses] = useState<Record<string, { isFavorite: boolean; isRead: boolean }>>({})
+  const [isMember, setIsMember] = useState<boolean | null>(null)
+
+  useEffect(() => {
+    const fetchStatuses = async () => {
+      const ids = STRENGTH_ARTICLES.map(art => `strength/${art.slug}`)
+      try {
+        const res = await getBulkArticleStatus(ids)
+        setStatuses(res)
+      } catch (e) {
+        console.error(e)
+      }
+    }
+    
+    const checkAuth = async () => {
+      try {
+        const status = await getSAMemberStatus()
+        setIsMember(status.isMember)
+      } catch (e) {
+        console.error(e)
+      }
+    }
+
+    checkAuth()
+    fetchStatuses()
+  }, [])
+
 
   // URLパラメータの変更があった場合に状態を同期
   useEffect(() => {
@@ -163,21 +193,52 @@ function ArticlesContent() {
 
       {/* 📖 ARTICLE LIST GRID */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {filteredArticles.map((art) => (
+        
+        {filteredArticles.map((art) => {
+          const articleId = `strength/${art.slug}`;
+          const isRead = statuses[articleId]?.isRead;
+          const isFavorite = statuses[articleId]?.isFavorite;
+          
+          return (
           <Link
             key={art.id}
             href={`/lab/strength/${art.slug}`}
             className="group cursor-pointer bg-zinc-950/40 border border-zinc-900 hover:border-red-900/60 hover:bg-zinc-900/10 rounded-2xl p-6 transition-all duration-500 flex flex-col justify-between hover:shadow-2xl hover:shadow-red-950/10 relative overflow-hidden"
           >
+            
+            {/* Hover overlay for program content (Non-PRO members) */}
+            {isMember === false && art.type === 'program' && (
+              <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-30 flex items-center justify-center rounded-2xl pointer-events-none">
+                <div className="bg-zinc-900 border border-blue-900/50 text-white text-xs font-bold px-5 py-3 rounded-full flex items-center gap-2 shadow-2xl transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                  <Lock className="w-4 h-4 text-blue-400" />
+                  PROプラン限定
+                </div>
+              </div>
+            )}
+            
             {/* Soft decorative accent glow */}
             <div className="absolute top-0 right-0 w-24 h-24 bg-red-500/5 rounded-full blur-2xl group-hover:bg-red-500/10 transition-colors duration-500" />
             
             <div className="space-y-5 relative z-10">
               {/* Top meta tags */}
+              
               <div className="flex items-center justify-between text-[10px] font-mono text-zinc-500 border-b border-zinc-900/60 pb-3">
-                <span className="uppercase tracking-widest text-red-500 font-extrabold flex items-center gap-1">
-                  <Bookmark className="w-3.5 h-3.5 text-red-500" /> {art.category}
-                </span>
+                <div className="flex items-center gap-3">
+                  <span className="uppercase tracking-widest font-extrabold flex items-center gap-1">
+                    <Bookmark className="w-3.5 h-3.5" /> {art.category}
+                  </span>
+                  {isRead && (
+                    <span className="flex items-center gap-1 text-emerald-500 font-bold bg-emerald-950/30 px-1.5 py-0.5 rounded border border-emerald-900/50">
+                      <CheckCircle2 className="w-3 h-3" /> 既読
+                    </span>
+                  )}
+                  {isFavorite && (
+                    <span className="flex items-center gap-1 text-blue-400 font-bold bg-blue-950/30 px-1.5 py-0.5 rounded border border-blue-900/50">
+                      <Bookmark className="w-3 h-3 fill-current" /> 保存済
+                    </span>
+                  )}
+                </div>
+
                 <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> 読了目安: {art.readTime}</span>
               </div>
 
@@ -211,7 +272,8 @@ function ArticlesContent() {
               </span>
             </div>
           </Link>
-        ))}
+          )
+        })}
       </div>
 
       {filteredArticles.length === 0 && (

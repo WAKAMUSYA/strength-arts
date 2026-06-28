@@ -1,8 +1,6 @@
-'use client'
 
-import React, { useEffect } from 'react'
+import React from 'react'
 import Link from 'next/link'
-import { useParams } from 'next/navigation'
 import { 
   ArrowLeft, 
   Clock, 
@@ -17,17 +15,13 @@ import {
   CheckCircle2,
   AlertTriangle,
   ChevronLeft
-} from 'lucide-react'
+, Lock} from 'lucide-react'
 import { CHEST_ARTICLES } from '@/data/chestArticles'
-import { ArticleInteractionsClient } from '@/app/components/sa/ArticleInteractionsClient'
+import { getSAMemberStatus, getArticleStatus } from '@/app/actions/sa-member'
+import { ArticleInteractions } from '@/app/components/sa/ArticleInteractions'
 
-export default function ChestArticleDetailPage() {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
-  const params = useParams()
-  const slug = params?.slug as string
+export default async function ChestArticleDetailPage({ params }: { params: { slug: string } }) {
+  const { slug } = params
   
   const articleIndex = CHEST_ARTICLES.findIndex(art => art.slug === slug)
   const article = CHEST_ARTICLES[articleIndex]
@@ -55,6 +49,17 @@ export default function ChestArticleDetailPage() {
       </div>
     )
   }
+
+  const { isMember, user } = await getSAMemberStatus()
+  const articleId = `chest/${slug}`
+  const { isFavorite, isRead } = await getArticleStatus(articleId)
+
+  // 閲覧制限のロジック
+  // 非会員(A)および無料会員(B)はprogram記事のみブロック（基本理論・応用コラムは閲覧可能）
+  // 有料会員(C)はすべて閲覧可能
+  const isLocked = (!isMember && article.type === 'program');
+
+
 
   // ノートのタイプごとに適切なアイコンを返すヘルパー
   const getNoteIcon = (type: 'warning' | 'info' | 'success') => {
@@ -116,6 +121,42 @@ export default function ChestArticleDetailPage() {
           </div>
         </div>
 
+        
+        {isLocked ? (
+          <div className="p-8 rounded-2xl bg-zinc-900/40 border border-zinc-900 shadow-sm text-center space-y-6 mb-20 mt-12">
+            <div className="w-16 h-16 bg-blue-950/30 border border-blue-900/50 text-blue-400 rounded-full flex items-center justify-center mx-auto">
+              <Lock className="w-8 h-8" />
+            </div>
+            <div className="space-y-2">
+              <h2 className="text-xl font-bold text-white">
+                PROプラン限定コンテンツ
+              </h2>
+              <p className="text-sm text-zinc-400 max-w-md mx-auto leading-relaxed">
+                {!user 
+                  ? 'この実践プログラムを読むには、PROプランへのアップグレードが必要です。まずはログインまたは無料メンバー登録を行ってください。'
+                  : 'この実践プログラムを読むには、月額500円のPROプランへのアップグレードが必要です。'}
+              </p>
+            </div>
+            <div className="pt-4 flex items-center justify-center gap-4">
+              {!user ? (
+                <Link 
+                  href="/login" 
+                  className="px-6 py-3 rounded-full bg-blue-600 hover:bg-blue-500 text-white text-sm font-bold transition-all shadow-[0_0_15px_rgba(37,99,235,0.4)]"
+                >
+                  ログイン / 登録する
+                </Link>
+              ) : (
+                <Link 
+                  href="/dashboard" 
+                  className="px-6 py-3 rounded-full bg-blue-600 hover:bg-blue-500 text-white text-sm font-bold transition-all shadow-[0_0_15px_rgba(37,99,235,0.4)]"
+                >
+                  ダッシュボードからアップグレード
+                </Link>
+              )}
+            </div>
+          </div>
+        ) : (
+          <>
         {/* Overview Box / 要約 */}
         <div className="p-6 rounded-2xl bg-zinc-900/40 border border-zinc-900 shadow-sm mb-12 space-y-3">
           <h3 className="text-xs font-mono font-extrabold text-red-400 flex items-center gap-1.5 uppercase tracking-widest">
@@ -197,7 +238,13 @@ export default function ChestArticleDetailPage() {
         </div>
 
         
-        <ArticleInteractionsClient articleId={`chest/${slug}`} />
+        <ArticleInteractions 
+          articleId={articleId} 
+          initialIsFavorite={isFavorite} 
+          initialIsRead={isRead} 
+        />
+        </>
+        )}
 
         {/* Bottom Navigation */}
         <div className="mt-20 pt-12 border-t border-zinc-900">

@@ -15,7 +15,7 @@ export interface Article {
   title: string
   subtitle: string
   category: string
-  type: 'basic' | 'applied' | 'practical'
+  type: 'basic' | 'applied' | 'program'
   readTime: string
   desc: string
   image: string
@@ -867,7 +867,7 @@ export const HYPERTROPHY_ARTICLES: Article[] = [
     title: '最強の分割法：ブロスプリット vs PPL（Push/Pull/Legs）の比較と実践',
     subtitle: '回復力と通える頻度（週3日〜週6日）から逆算する、あなた専用のルーティン構築法',
     category: 'PRACTICAL ROUTINE',
-    type: 'practical',
+    type: 'program',
     readTime: '12 min',
     desc: '「今日は胸の日だ」。そんな伝統的なブロスプリットは本当に最強なのか？科学的根拠に基づき、現代ボディビルディングの主流であるPPL法と徹底比較します。',
     image: '/muscle/muscle7.jpg',
@@ -915,7 +915,7 @@ export const HYPERTROPHY_ARTICLES: Article[] = [
     title: '時間短縮と極限のパンプ：強度向上テクニック（ドロップセットとジャイアントセット）',
     subtitle: '筋肉が「限界」を迎えたその先へ、強制的に踏み込むショック療法',
     category: 'INTENSITY TECHNIQUES',
-    type: 'practical',
+    type: 'program',
     readTime: '10 min',
     desc: '通常のトレーニングでは到達できない「真のオールアウト」を引き出す、ハイインテンシティ（高強度）テクニックの具体的手順とメカニズム。',
     image: '/muscle/muscle8.jpg',
@@ -961,7 +961,7 @@ export const HYPERTROPHY_ARTICLES: Article[] = [
     title: 'GVT（ジャーマン・ボリューム・トレーニング）の実践',
     subtitle: '「10回×10セット」がもたらす地獄のショック療法',
     category: 'SHOCK PROGRAM',
-    type: 'practical',
+    type: 'program',
     readTime: '9 min',
     desc: 'たった1つの種目で100回をこなす。ドイツの重量挙げナショナルチームがオフシーズンに実践した伝説の筋肥大プロトコル。',
     image: '/muscle/muscle9.jpg',
@@ -1009,7 +1009,7 @@ export const HYPERTROPHY_ARTICLES: Article[] = [
     title: 'FST-7：筋膜ストレッチ法（Fascia Stretch Training-7）の全貌',
     subtitle: 'オリンピア製造機が編み出した、筋肉の「器」を物理的に広げる究極のパンプアップ',
     category: 'FASCIA TRAINING',
-    type: 'practical',
+    type: 'program',
     readTime: '10 min',
     desc: 'フィル・ヒースやクリス・バムステッドら歴代王者を育てたハニー・ランボッドの魔法。最後の7セットで硬い筋膜を内側から引き裂く。',
     image: '/muscle/muscle10.jpg',
@@ -1055,7 +1055,7 @@ export const HYPERTROPHY_ARTICLES: Article[] = [
     title: 'マイオレップス法（Myo-Reps）：時短と筋肥大の極致',
     subtitle: '無駄な「ジャンクレップ」を削ぎ落とし、美味しい「有効レップ」だけを連続抽出する',
     category: 'TIME EFFICIENCY',
-    type: 'practical',
+    type: 'program',
     readTime: '9 min',
     desc: '時間がない現代人へ。たった1セットの中で、筋肉を完全に限界まで追い込む北欧発の画期的なメソッド。',
     image: '/muscle/muscle1.jpg',
@@ -1100,7 +1100,7 @@ export const HYPERTROPHY_ARTICLES: Article[] = [
     title: '停滞期打破のピーキングとディロード（戦略的休養）',
     subtitle: 'あえて「休む」ことで筋肉の超回復（スーパーコンペンセーション）を引き出す',
     category: 'PERIODIZATION',
-    type: 'practical',
+    type: 'program',
     readTime: '10 min',
     desc: '「休んだら筋肉が落ちてしまう」という呪縛からの解放。蓄積した神経系の疲労を抜き、次の成長の波に乗るためのピリオダイゼーション。',
     image: '/muscle/muscle2.jpg',
