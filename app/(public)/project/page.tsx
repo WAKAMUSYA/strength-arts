@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import { ArrowUpRight, BookOpen, GraduationCap, Archive, Activity } from 'lucide-react'
+import { ArrowUpRight, BookOpen, GraduationCap, Archive, Activity, Smartphone } from 'lucide-react'
 
 export default function ProjectPage() {
   return (
@@ -31,6 +31,29 @@ export default function ProjectPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           
+          {/* SA Training */}
+          <Link
+            href="/project/sa-training"
+            className="group relative flex flex-col justify-between bg-zinc-950 hover:bg-zinc-900/40 border border-zinc-900 hover:border-red-900/60 rounded-2xl p-8 transition-all duration-500 shadow-md hover:-translate-y-1 h-[280px]"
+          >
+            <div className="space-y-4">
+              <div className="w-12 h-12 bg-zinc-900 rounded-xl flex items-center justify-center border border-zinc-800 group-hover:bg-red-950/30 group-hover:border-red-900/50 transition-colors">
+                <Smartphone className="w-6 h-6 text-zinc-400 group-hover:text-red-500 transition-colors" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-white group-hover:text-red-400 transition-colors mb-2 tracking-wide">
+                  SA Training
+                </h3>
+                <p className="text-xs md:text-sm text-zinc-500 font-light leading-relaxed">
+                  トレーニングノートをベースにした、日々の筋トレ記録アプリ。種目選択、前回値、履歴、共有画像作成に対応。
+                </p>
+              </div>
+            </div>
+            <div className="flex items-center text-[10px] font-bold tracking-[0.2em] text-zinc-600 group-hover:text-red-500 transition-colors uppercase">
+              View App Project <ArrowUpRight className="w-3.5 h-3.5 ml-1" />
+            </div>
+          </Link>
+
           {/* Academy */}
           <Link
             href="/academy"
