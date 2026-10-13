@@ -54,6 +54,14 @@ export default function SATrainingProjectPage() {
             </div>
 
             <div className="flex flex-wrap gap-3">
+              <a
+                href="https://apps.apple.com/jp/app/sa-training/id6809072425"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-red-600 text-white text-xs font-bold tracking-widest hover:bg-red-500 transition-colors"
+              >
+                App Storeで見る <ArrowUpRight className="w-4 h-4" />
+              </a>
               <Link
                 href="/project/sa-training/privacy"
                 className="inline-flex items-center justify-center px-5 py-3 bg-white text-black text-xs font-bold tracking-widest hover:bg-zinc-200 transition-colors"
