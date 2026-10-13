@@ -54,6 +54,29 @@ export default function ProjectPage() {
             </div>
           </Link>
 
+          {/* Trainer Path */}
+          <Link
+            href="/project/trainer-path"
+            className="group relative flex flex-col justify-between bg-zinc-950 hover:bg-zinc-900/40 border border-zinc-900 hover:border-teal-900/60 rounded-2xl p-8 transition-all duration-500 shadow-md hover:-translate-y-1 h-[280px]"
+          >
+            <div className="space-y-4">
+              <div className="w-12 h-12 bg-zinc-900 rounded-xl flex items-center justify-center border border-zinc-800 group-hover:bg-teal-950/30 group-hover:border-teal-900/50 transition-colors">
+                <GraduationCap className="w-6 h-6 text-zinc-400 group-hover:text-teal-400 transition-colors" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-white group-hover:text-teal-300 transition-colors mb-2 tracking-wide">
+                  Trainer Path
+                </h3>
+                <p className="text-xs md:text-sm text-zinc-500 font-light leading-relaxed">
+                  CPT・CSCSを目指す人へ。共通基礎から資格学習、現場での判断まで学ぶiOSアプリ。
+                </p>
+              </div>
+            </div>
+            <div className="flex items-center text-[10px] font-bold tracking-[0.2em] text-zinc-600 group-hover:text-teal-400 transition-colors uppercase">
+              View App Project <ArrowUpRight className="w-3.5 h-3.5 ml-1" />
+            </div>
+          </Link>
+
           {/* Academy */}
           <Link
             href="/academy"
